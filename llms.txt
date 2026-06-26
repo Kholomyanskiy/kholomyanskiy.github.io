@@ -1,0 +1,17 @@
+# Artem Kholomyanskiy — AI Automation Consultant
+
+> AI consultant. Creator of ANSS open standard for AI-native development.
+
+## Projects
+- esowa_bot: Telegram bot for auto service, Poland
+- LombardPRO: AI automation for pawnshop network
+- ANSS Standard: github.com/Kholomyanskiy/anss-standard
+- Solo Founder OS: AI OS with 11 specialized agents
+- AI Methodology: aimethodology.gumroad.com
+- ELA City Bot: AI city assistant for Elbląg
+
+## Links
+- Portfolio: https://kholomyanskiy.github.io
+- GitHub: https://github.com/Kholomyanskiy
+- LinkedIn: https://linkedin.com/in/kholomyanskiy
+- Email: kholomyanskiy@gmail.com
