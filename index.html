@@ -245,6 +245,10 @@ body {
 .chat-muted { font-size: 11px; color: var(--muted); display: block; margin-top: 2px; }
 .chat-route { color: var(--accent2); font-size: 11px; display: block; margin-top: 2px; }
 .chat-info { background: rgba(99,102,241,0.08) !important; border: 1px solid rgba(99,102,241,0.15); font-size: 11px; color: var(--muted); }
+.kpi-bar { display: flex; align-items: center; gap: 8px; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
+.kpi-track { flex: 1; height: 4px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
+.kpi-fill { height: 100%; background: var(--green); border-radius: 2px; }
+.kpi-pct { color: var(--green); min-width: 32px; }
 
 /* Dashboard mockup */
 .mockup-dash .dash-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -275,7 +279,6 @@ body {
 .term-agent { color: var(--accent2); min-width: 72px; }
 .term-sep { color: var(--muted); }
 .term-ok { color: var(--green); }
-.term-pending { color: var(--muted); }
 .term-cursor { animation: blink 1s step-end infinite; }
 @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
 
@@ -335,39 +338,41 @@ footer {
     <div class="case-header">
       <div class="case-num">01</div>
       <div class="case-title-wrap">
-        <div class="case-title">esowa_bot</div>
-        <div class="case-subtitle" data-i18n="c1_subtitle">Telegram-бот для автосервиса · Польша</div>
+        <div class="case-title">eSowa KPI Bot</div>
+        <div class="case-subtitle" data-i18n="c1_subtitle">KPI-бот для механиков автосервиса · Польша</div>
       </div>
       <div class="status-badge status-live" data-i18n="c1_status">● В продакшне</div>
     </div>
-    <p class="case-desc" data-i18n="c1_desc">Задеплоенный Telegram-бот для механиков автосервиса. Работает у реального клиента в Польше. Автоматизирует приём заявок, коммуникацию с клиентами и внутренние процессы мастерской.</p>
+    <p class="case-desc" data-i18n="c1_desc">Telegram-бот, подключённый напрямую к базе данных eSowa. Каждый механик видит свою выработку за день и месяц прямо в Telegram. Установка офлайн за 3 шага — без IT-специалиста, работает на компьютере клиента.</p>
     <ul class="case-points">
-      <li data-i18n="c1_p1">Приём заявок и запись клиентов через Telegram</li>
-      <li data-i18n="c1_p2">Уведомления механикам о новых заказах</li>
-      <li data-i18n="c1_p3">Статусы ремонта в реальном времени</li>
-      <li data-i18n="c1_p4">Интеграция с рабочими процессами мастерской</li>
+      <li data-i18n="c1_p1">Отчёт о выработке по команде /today и /month — персонально каждому механику</li>
+      <li data-i18n="c1_p2">Прямое подключение к Firebird-базе данных eSowa</li>
+      <li data-i18n="c1_p3">Офлайн-установка: все зависимости на флешке, работает без интернета</li>
+      <li data-i18n="c1_p4">Автозапуск через Windows Task Scheduler — поднимается сам после перезагрузки</li>
     </ul>
 
-    <!-- MOCKUP: Telegram chat -->
+    <!-- MOCKUP: KPI report in Telegram -->
     <div class="mockup">
       <div class="mockup-bar">
         <div class="mockup-dot r"></div>
         <div class="mockup-dot y"></div>
         <div class="mockup-dot g"></div>
-        <span>esowa_bot · Telegram</span>
+        <span>eSowa KPI Bot · Telegram</span>
       </div>
       <div class="mockup-body mockup-chat">
-        <div class="chat-msg user">Хочу записаться на замену масла</div>
+        <div class="chat-msg user">/today</div>
         <div class="chat-msg bot">
-          Выберите удобное время:
-          <span class="chat-btn">Пн 09:00</span>
-          <span class="chat-btn">Пн 14:00</span>
-          <span class="chat-btn">Вт 10:00</span>
+          Выработка за сегодня:
+          <span class="chat-muted">3 840 ₽ · 4 заказа</span>
+          <div class="kpi-bar">
+            <div class="kpi-track"><div class="kpi-fill" style="width:96%"></div></div>
+            <span class="kpi-pct">96%</span>
+          </div>
         </div>
-        <div class="chat-msg user">Пн 09:00</div>
+        <div class="chat-msg user">/month</div>
         <div class="chat-msg bot">
-          ✓ Записан. Пн, 09:00
-          <span class="chat-muted">ul. Robotnicza 14, Elbląg</span>
+          Июнь 2026 — 67 200 ₽
+          <span class="chat-muted" style="color:var(--green)">✓ Норма выполнена: 112%</span>
         </div>
       </div>
     </div>
@@ -375,8 +380,8 @@ footer {
     <div class="case-tags">
       <span class="tech-tag">Python</span>
       <span class="tech-tag">Telegram Bot API</span>
-      <span class="tech-tag">FastAPI</span>
-      <span class="tech-tag">PostgreSQL</span>
+      <span class="tech-tag">Firebird DB</span>
+      <span class="tech-tag">Windows Task Scheduler</span>
     </div>
   </div>
 
@@ -390,13 +395,13 @@ footer {
       </div>
       <div class="status-badge status-dev" data-i18n="c2_status">⟳ В разработке</div>
     </div>
-    <p class="case-desc" data-i18n="c2_desc">Комплексная система автоматизации для сети из 3 ломбардов. Покрывает полный операционный цикл — от инкассации изделий до аналитики для владельца. Разрабатывается по стандарту ANSS.</p>
+    <p class="case-desc" data-i18n="c2_desc">Комплексная система автоматизации для сети из 3 ломбардов. Покрывает полный операционный цикл — от инкассации изделий до аналитики для владельца. Разрабатывается по стандарту ANSS, задеплоена на Railway.</p>
     <ul class="case-points">
       <li data-i18n="c2_p1">Telegram-бот для владельца: ежедневная сводка, алерты, подтверждение инкассаций кнопками</li>
       <li data-i18n="c2_p2">Веб-приложение для сотрудников: замена Excel, касса, скупка, инкассация с фото</li>
       <li data-i18n="c2_p3">Веб-дашборд: аналитика, движение изделий, отчёты в .xlsx</li>
-      <li data-i18n="c2_p4">Интеграция с PawnExpert и Excel через Robust Parser</li>
-      <li data-i18n="c2_p5">Офлайн-режим с умной синхронизацией и Conflict Resolution</li>
+      <li data-i18n="c2_p4">Результат: время приёма изделий −70%, нулевые пропущенные уведомления клиентам</li>
+      <li data-i18n="c2_p5">Деплой на Railway с auto-deploy из GitHub, фото в Supabase Storage</li>
     </ul>
 
     <!-- MOCKUP: Dashboard -->
@@ -424,9 +429,9 @@ footer {
           <span class="dash-val">11 изд.</span>
         </div>
         <div class="dash-row">
-          <span class="dash-label">Касса</span>
+          <span class="dash-label">Филиалы</span>
           <span class="dash-bar"><span class="orange" style="width:61%"></span></span>
-          <span class="dash-val">3 филиала</span>
+          <span class="dash-val">3 онлайн</span>
         </div>
         <div class="dash-divider"></div>
         <div class="dash-alert">⚠ Филиал 2: не синхронизирован 4ч</div>
@@ -438,6 +443,8 @@ footer {
       <span class="tech-tag">Python</span>
       <span class="tech-tag">FastAPI</span>
       <span class="tech-tag">PostgreSQL</span>
+      <span class="tech-tag">Supabase</span>
+      <span class="tech-tag">Railway</span>
       <span class="tech-tag">Telegram Bot API</span>
       <span class="tech-tag">ANSS</span>
     </div>
@@ -505,13 +512,13 @@ footer {
       </div>
       <div class="status-badge status-dev" data-i18n="c4_status">⟳ MVP готов</div>
     </div>
-    <p class="case-desc" data-i18n="c4_desc">Локальное веб-приложение с командой из 11 специализированных AI-агентов. Построено по стандарту ANSS. Заменяет разрозненные чаты с AI единой системой с общей памятью, режимом планирования и проектами.</p>
+    <p class="case-desc" data-i18n="c4_desc">Локальное веб-приложение с командой из 11 специализированных AI-агентов на базе Claude Code. Построено по стандарту ANSS. Заменяет разрозненные чаты с AI единой системой с общей памятью и режимом планирования.</p>
     <ul class="case-points">
-      <li data-i18n="c4_p1">11 агентов: CEO, backend, sales, SMM, QA, finance, security и другие</li>
+      <li data-i18n="c4_p1">11 агентов: Alex (CEO), Max (Backend), Artem (Frontend), Igor (DevOps), Katya (Integrator), Lera (Sales), Lena (QA), Dima (SMM), Yulia (Lawyer) и другие</li>
       <li data-i18n="c4_p2">Smart Onboarding — персональная AI-команда за 5 минут</li>
       <li data-i18n="c4_p3">Режим планирования: задача → план → выполнение через нескольких агентов</li>
       <li data-i18n="c4_p4">Единая память между сессиями и проектами</li>
-      <li data-i18n="c4_p5">Работает локально, Node.js, без npm install</li>
+      <li data-i18n="c4_p5">Vanilla Node.js без фреймворков, state в JSON, без npm install</li>
     </ul>
 
     <!-- MOCKUP: Multi-agent terminal -->
@@ -524,22 +531,22 @@ footer {
       </div>
       <div class="mockup-body mockup-terminal">
         <div class="term-line">
-          <span class="term-agent">@boss</span>
+          <span class="term-agent">@Alex</span>
           <span class="term-sep">→</span>
           <span>Plan ready. 3 tasks assigned</span>
         </div>
         <div class="term-line">
-          <span class="term-agent">@backend</span>
+          <span class="term-agent">@Max</span>
           <span class="term-sep">→</span>
           <span>REST API endpoints created</span>
         </div>
         <div class="term-line">
-          <span class="term-agent">@qa</span>
+          <span class="term-agent">@Lena</span>
           <span class="term-sep">→</span>
           <span class="term-ok">✓ All tests passed</span>
         </div>
         <div class="term-line">
-          <span class="term-agent">@smm</span>
+          <span class="term-agent">@Dima</span>
           <span class="term-sep">→</span>
           <span>Post draft ready for review</span>
         </div>
@@ -553,10 +560,10 @@ footer {
 
     <div class="case-tags">
       <span class="tech-tag">Node.js</span>
-      <span class="tech-tag">Claude CLI</span>
+      <span class="tech-tag">Claude Code CLI</span>
+      <span class="tech-tag">Vanilla JS</span>
       <span class="tech-tag">ANSS</span>
-      <span class="tech-tag">SSE</span>
-      <span class="tech-tag">SQLite</span>
+      <span class="tech-tag">JSON state</span>
     </div>
     <div class="case-links">
       <a href="https://gamma.app/docs/AI--oqalhi39c2ebz1e" class="case-link" target="_blank" data-i18n="c4_link1">Презентация →</a>
@@ -568,17 +575,17 @@ footer {
     <div class="case-header">
       <div class="case-num">05</div>
       <div class="case-title-wrap">
-        <div class="case-title">AI Decision Making Methodology</div>
-        <div class="case-subtitle" data-i18n="c5_subtitle">Методология автоматизации бизнес-процессов с помощью AI</div>
+        <div class="case-title">AI Automation Decision System</div>
+        <div class="case-subtitle" data-i18n="c5_subtitle">Методология оценки и внедрения AI-автоматизации</div>
       </div>
       <div class="status-badge status-live" data-i18n="c5_status">● Продаётся</div>
     </div>
-    <p class="case-desc" data-i18n="c5_desc">Практическая методология принятия решений и автоматизации бизнес-процессов с помощью AI. Три версии: Free, Business и Professional — для разных уровней внедрения AI в компании.</p>
+    <p class="case-desc" data-i18n="c5_desc">Структурированная методология для оценки и внедрения AI-автоматизации в бизнес. Включает ROI-калькуляцию, дерево решений и дорожные карты. Три версии на трёх языках: Free, Business, Professional.</p>
     <ul class="case-points">
-      <li data-i18n="c5_p1">Пошаговый фреймворк для внедрения AI в бизнес-процессы</li>
-      <li data-i18n="c5_p2">Три версии: Free, Business, Professional</li>
-      <li data-i18n="c5_p3">Практические инструменты для принятия AI-решений</li>
-      <li data-i18n="c5_p4">Методология применима к автоматизации любого типа бизнеса</li>
+      <li data-i18n="c5_p1">Фреймворк оценки готовности бизнеса к автоматизации</li>
+      <li data-i18n="c5_p2">ROI-методология для AI-проектов</li>
+      <li data-i18n="c5_p3">Дерево решений: когда автоматизировать, а когда нет</li>
+      <li data-i18n="c5_p4">Шаблоны дорожных карт внедрения · Доступно на RU / EN / PL</li>
     </ul>
 
     <!-- MOCKUP: Framework steps -->
@@ -597,7 +604,7 @@ footer {
         </div>
         <div class="fw-step done">
           <span class="fw-num">02</span>
-          <span class="fw-text">Identify automation targets</span>
+          <span class="fw-text">Calculate ROI &amp; automation readiness</span>
           <span class="fw-check">✓</span>
         </div>
         <div class="fw-step active">
@@ -619,8 +626,8 @@ footer {
 
     <div class="case-tags">
       <span class="tech-tag">Methodology</span>
-      <span class="tech-tag">AI Strategy</span>
-      <span class="tech-tag">Business Automation</span>
+      <span class="tech-tag">ROI Framework</span>
+      <span class="tech-tag">RU / EN / PL</span>
       <span class="tech-tag">Gumroad</span>
     </div>
     <div class="case-links">
@@ -628,7 +635,7 @@ footer {
     </div>
   </div>
 
-  <!-- CASE 6: ELA City Bot (bug fixed) -->
+  <!-- CASE 6: ELA City Bot -->
   <div class="case">
     <div class="case-header">
       <div class="case-num">06</div>
@@ -642,9 +649,9 @@ footer {
     <ul class="case-points">
       <li data-i18n="c6_p1">Resident mode: что происходит сегодня, новости, дороги, сервисы</li>
       <li data-i18n="c6_p2">Tourist mode: готовые маршруты на 2/4/8 часов, места, история с характером</li>
-      <li data-i18n="c6_p3">Утренний автодайджест в 08:00</li>
-      <li data-i18n="c6_p4">Cache-first архитектура — LLM только как fallback</li>
-      <li data-i18n="c6_p5">Масштабируется на любой город за 1–2 недели</li>
+      <li data-i18n="c6_p3">Утренний автодайджест в 08:00, ежедневный прекомпьют контента</li>
+      <li data-i18n="c6_p4">Cache-first архитектура — Gemini только как fallback, хостинг Hetzner 5–10€/мес</li>
+      <li data-i18n="c6_p5">SaaS-модель: пилот Эльблонг → Гданьск → Сопот → другие города</li>
     </ul>
 
     <!-- MOCKUP: City bot Telegram -->
@@ -682,6 +689,7 @@ footer {
       <span class="tech-tag">Google Gemini</span>
       <span class="tech-tag">SQLite</span>
       <span class="tech-tag">FastAPI</span>
+      <span class="tech-tag">Hetzner VPS</span>
     </div>
   </div>
 
@@ -697,21 +705,21 @@ const T = {
     section_tag: "Артём Холомянский · AI проекты · 2026",
     footer_text: "Артём Холомянский · AI Automation Consultant · 2026",
     c1_status: "● В продакшне",
-    c1_subtitle: "Telegram-бот для автосервиса · Польша",
-    c1_desc: "Задеплоенный Telegram-бот для механиков автосервиса. Работает у реального клиента в Польше. Автоматизирует приём заявок, коммуникацию с клиентами и внутренние процессы мастерской.",
-    c1_p1: "Приём заявок и запись клиентов через Telegram",
-    c1_p2: "Уведомления механикам о новых заказах",
-    c1_p3: "Статусы ремонта в реальном времени",
-    c1_p4: "Интеграция с рабочими процессами мастерской",
+    c1_subtitle: "KPI-бот для механиков автосервиса · Польша",
+    c1_desc: "Telegram-бот, подключённый напрямую к базе данных eSowa. Каждый механик видит свою выработку за день и месяц прямо в Telegram. Установка офлайн за 3 шага — без IT-специалиста, работает на компьютере клиента.",
+    c1_p1: "Отчёт о выработке по команде /today и /month — персонально каждому механику",
+    c1_p2: "Прямое подключение к Firebird-базе данных eSowa",
+    c1_p3: "Офлайн-установка: все зависимости на флешке, работает без интернета",
+    c1_p4: "Автозапуск через Windows Task Scheduler — поднимается сам после перезагрузки",
     c2_title: "ЛомбардПРО",
     c2_status: "⟳ В разработке",
     c2_subtitle: "Система управления сетью ломбардов",
-    c2_desc: "Комплексная система автоматизации для сети из 3 ломбардов. Покрывает полный операционный цикл — от инкассации изделий до аналитики для владельца. Разрабатывается по стандарту ANSS.",
+    c2_desc: "Комплексная система автоматизации для сети из 3 ломбардов. Покрывает полный операционный цикл — от инкассации изделий до аналитики для владельца. Разрабатывается по стандарту ANSS, задеплоена на Railway.",
     c2_p1: "Telegram-бот для владельца: ежедневная сводка, алерты, подтверждение инкассаций кнопками",
     c2_p2: "Веб-приложение для сотрудников: замена Excel, касса, скупка, инкассация с фото",
     c2_p3: "Веб-дашборд: аналитика, движение изделий, отчёты в .xlsx",
-    c2_p4: "Интеграция с PawnExpert и Excel через Robust Parser",
-    c2_p5: "Офлайн-режим с умной синхронизацией и Conflict Resolution",
+    c2_p4: "Результат: время приёма изделий −70%, нулевые пропущенные уведомления клиентам",
+    c2_p5: "Деплой на Railway с auto-deploy из GitHub, фото в Supabase Storage",
     c3_desc: "Открытый стандарт написания технических спецификаций для AI-разработки. Решает проблему «агент делает технически правильно, но архитектурно неверно». Сократил итерации с 5–7 до 2–3 на реальных проектах.",
     c3_p1: "Трёхслойная структура [D/E/A] — агент знает что читать первым",
     c3_p2: "Инварианты — машиночитаемые ограничения с полем «Проверка»",
@@ -721,49 +729,49 @@ const T = {
     c3_link2: "Статья на Hashnode →",
     c4_status: "⟳ MVP готов",
     c4_subtitle: "AI-операционная система для солофаундера",
-    c4_desc: "Локальное веб-приложение с командой из 11 специализированных AI-агентов. Построено по стандарту ANSS. Заменяет разрозненные чаты с AI единой системой с общей памятью, режимом планирования и проектами.",
-    c4_p1: "11 агентов: CEO, backend, sales, SMM, QA, finance, security и другие",
+    c4_desc: "Локальное веб-приложение с командой из 11 специализированных AI-агентов на базе Claude Code. Построено по стандарту ANSS. Заменяет разрозненные чаты с AI единой системой с общей памятью и режимом планирования.",
+    c4_p1: "11 агентов: Alex (CEO), Max (Backend), Artem (Frontend), Igor (DevOps), Katya (Integrator), Lera (Sales), Lena (QA), Dima (SMM), Yulia (Lawyer) и другие",
     c4_p2: "Smart Onboarding — персональная AI-команда за 5 минут",
     c4_p3: "Режим планирования: задача → план → выполнение через нескольких агентов",
     c4_p4: "Единая память между сессиями и проектами",
-    c4_p5: "Работает локально, Node.js, без npm install",
+    c4_p5: "Vanilla Node.js без фреймворков, state в JSON, без npm install",
     c4_link1: "Презентация →",
     c5_status: "● Продаётся",
-    c5_subtitle: "Методология автоматизации бизнес-процессов с помощью AI",
-    c5_desc: "Практическая методология принятия решений и автоматизации бизнес-процессов с помощью AI. Три версии: Free, Business и Professional — для разных уровней внедрения AI в компании.",
-    c5_p1: "Пошаговый фреймворк для внедрения AI в бизнес-процессы",
-    c5_p2: "Три версии: Free, Business, Professional",
-    c5_p3: "Практические инструменты для принятия AI-решений",
-    c5_p4: "Методология применима к автоматизации любого типа бизнеса",
+    c5_subtitle: "Методология оценки и внедрения AI-автоматизации",
+    c5_desc: "Структурированная методология для оценки и внедрения AI-автоматизации в бизнес. Включает ROI-калькуляцию, дерево решений и дорожные карты. Три версии на трёх языках: Free, Business, Professional.",
+    c5_p1: "Фреймворк оценки готовности бизнеса к автоматизации",
+    c5_p2: "ROI-методология для AI-проектов",
+    c5_p3: "Дерево решений: когда автоматизировать, а когда нет",
+    c5_p4: "Шаблоны дорожных карт внедрения · Доступно на RU / EN / PL",
     c5_link1: "Gumroad — Professional версия →",
     c6_status: "◎ Концепт/MVP",
     c6_subtitle: "Городской AI-ассистент для жителей и туристов",
     c6_desc: "Telegram-бот ELA — городской интеллект для Эльблонга. Два режима: для жителей (события, новости, городские изменения) и для туристов (маршруты, места, история). Пилот для масштабирования на другие города Польши.",
     c6_p1: "Resident mode: что происходит сегодня, новости, дороги, сервисы",
     c6_p2: "Tourist mode: готовые маршруты на 2/4/8 часов, места, история с характером",
-    c6_p3: "Утренний автодайджест в 08:00",
-    c6_p4: "Cache-first архитектура — LLM только как fallback",
-    c6_p5: "Масштабируется на любой город за 1–2 недели"
+    c6_p3: "Утренний автодайджест в 08:00, ежедневный прекомпьют контента",
+    c6_p4: "Cache-first архитектура — Gemini только как fallback, хостинг Hetzner 5–10€/мес",
+    c6_p5: "SaaS-модель: пилот Эльблонг → Гданьск → Сопот → другие города"
   },
   en: {
     section_tag: "Artem Kholomyanskiy · AI Projects · 2026",
     footer_text: "Artem Kholomyanskiy · AI Automation Consultant · 2026",
     c1_status: "● Live",
-    c1_subtitle: "Telegram bot for auto service · Poland",
-    c1_desc: "Deployed Telegram bot for auto service mechanics. Running for a real client in Poland. Automates request intake, client communication, and internal workshop processes.",
-    c1_p1: "Accepting requests and booking clients via Telegram",
-    c1_p2: "Notifications to mechanics about new orders",
-    c1_p3: "Real-time repair status updates",
-    c1_p4: "Integration with workshop workflows",
+    c1_subtitle: "KPI bot for auto service mechanics · Poland",
+    c1_desc: "Telegram bot connected directly to the eSowa database. Each mechanic sees their daily and monthly output right in Telegram. Offline installation in 3 steps — no IT specialist needed, runs on client's machine.",
+    c1_p1: "Output report via /today and /month — individually for each mechanic",
+    c1_p2: "Direct connection to eSowa's Firebird database",
+    c1_p3: "Offline installation: all dependencies on USB drive, no internet needed",
+    c1_p4: "Auto-start via Windows Task Scheduler — restarts automatically after reboot",
     c2_title: "LombardPRO",
     c2_status: "⟳ In Development",
     c2_subtitle: "Pawnshop network management system",
-    c2_desc: "Comprehensive automation system for a network of 3 pawnshops. Covers the full operational cycle — from item intake to owner analytics. Built to the ANSS standard.",
+    c2_desc: "Comprehensive automation system for a network of 3 pawnshops. Covers the full operational cycle — from item intake to owner analytics. Built to the ANSS standard, deployed on Railway.",
     c2_p1: "Telegram bot for owner: daily summary, alerts, confirmation of collections by buttons",
     c2_p2: "Web app for staff: replaces Excel, cashier, buyout, collection with photos",
     c2_p3: "Web dashboard: analytics, item movement, reports in .xlsx",
-    c2_p4: "Integration with PawnExpert and Excel via Robust Parser",
-    c2_p5: "Offline mode with smart sync and Conflict Resolution",
+    c2_p4: "Results: item intake time −70%, zero missed client notifications",
+    c2_p5: "Deployed on Railway with auto-deploy from GitHub, photos in Supabase Storage",
     c3_desc: "Open standard for writing technical specifications for AI development. Solves the problem of 'agent does it technically right but architecturally wrong'. Reduced iterations from 5–7 to 2–3 on real projects.",
     c3_p1: "Three-layer structure [D/E/A] — agent knows what to read first",
     c3_p2: "Invariants — machine-readable constraints with a 'Verify' field",
@@ -773,49 +781,49 @@ const T = {
     c3_link2: "Article on Hashnode →",
     c4_status: "⟳ MVP Ready",
     c4_subtitle: "AI operating system for solo founders",
-    c4_desc: "Local web app with a team of 11 specialized AI agents. Built to the ANSS standard. Replaces scattered AI chats with a unified system with shared memory, planning mode, and projects.",
-    c4_p1: "11 agents: CEO, backend, sales, SMM, QA, finance, security and more",
+    c4_desc: "Local web app with a team of 11 specialized AI agents powered by Claude Code. Built to the ANSS standard. Replaces scattered AI chats with a unified system with shared memory and planning mode.",
+    c4_p1: "11 agents: Alex (CEO), Max (Backend), Artem (Frontend), Igor (DevOps), Katya (Integrator), Lera (Sales), Lena (QA), Dima (SMM), Yulia (Lawyer) and more",
     c4_p2: "Smart Onboarding — personal AI team in 5 minutes",
     c4_p3: "Planning mode: task → plan → execution through multiple agents",
     c4_p4: "Shared memory across sessions and projects",
-    c4_p5: "Runs locally, Node.js, no npm install",
+    c4_p5: "Vanilla Node.js, no frameworks, state in JSON, no npm install",
     c4_link1: "Presentation →",
     c5_status: "● For Sale",
-    c5_subtitle: "Methodology for automating business processes with AI",
-    c5_desc: "Practical methodology for decision-making and automating business processes with AI. Three versions: Free, Business, and Professional — for different levels of AI adoption in a company.",
-    c5_p1: "Step-by-step framework for integrating AI into business processes",
-    c5_p2: "Three versions: Free, Business, Professional",
-    c5_p3: "Practical tools for AI decision-making",
-    c5_p4: "The methodology applies to any type of business automation",
+    c5_subtitle: "Methodology for evaluating and implementing AI automation",
+    c5_desc: "Structured methodology for evaluating and implementing AI automation in business. Includes ROI calculation, decision tree, and implementation roadmaps. Three versions in three languages: Free, Business, Professional.",
+    c5_p1: "Framework for assessing business automation readiness",
+    c5_p2: "ROI calculation methodology for AI projects",
+    c5_p3: "Decision tree: when to automate and when not to",
+    c5_p4: "Implementation roadmap templates · Available in RU / EN / PL",
     c5_link1: "Gumroad — Professional version →",
     c6_status: "◎ Concept/MVP",
     c6_subtitle: "City AI assistant for residents and tourists",
     c6_desc: "Telegram bot ELA — city intelligence for Elbląg. Two modes: for residents (events, news, city updates) and for tourists (routes, places, history). Pilot for scaling to other cities in Poland.",
     c6_p1: "Resident mode: what's happening today, news, roads, services",
     c6_p2: "Tourist mode: ready-made routes for 2/4/8 hours, places, history with character",
-    c6_p3: "Morning auto-digest at 08:00",
-    c6_p4: "Cache-first architecture — LLM only as fallback",
-    c6_p5: "Scales to any city in 1–2 weeks"
+    c6_p3: "Morning auto-digest at 08:00, daily content precompute",
+    c6_p4: "Cache-first architecture — Gemini only as fallback, Hetzner VPS 5–10€/mo",
+    c6_p5: "SaaS model: pilot Elbląg → Gdańsk → Sopot → other cities"
   },
   uk: {
     section_tag: "Артем Холом'янський · AI проєкти · 2026",
     footer_text: "Артем Холом'янський · AI Automation Consultant · 2026",
     c1_status: "● В продакшні",
-    c1_subtitle: "Telegram-бот для автосервісу · Польща",
-    c1_desc: "Запущений Telegram-бот для механіків автосервісу. Працює у реального клієнта в Польщі. Автоматизує приймання заявок, комунікацію з клієнтами та внутрішні процеси майстерні.",
-    c1_p1: "Приймання заявок та запис клієнтів через Telegram",
-    c1_p2: "Сповіщення механікам про нові замовлення",
-    c1_p3: "Статуси ремонту в реальному часі",
-    c1_p4: "Інтеграція з робочими процесами майстерні",
+    c1_subtitle: "KPI-бот для механіків автосервісу · Польща",
+    c1_desc: "Telegram-бот, підключений напряму до бази даних eSowa. Кожен механік бачить свій виробіток за день і місяць прямо в Telegram. Офлайн-встановлення за 3 кроки — без IT-спеціаліста, працює на комп'ютері клієнта.",
+    c1_p1: "Звіт про виробіток за командою /today і /month — персонально кожному механіку",
+    c1_p2: "Пряме підключення до Firebird-бази даних eSowa",
+    c1_p3: "Офлайн-встановлення: всі залежності на флешці, без інтернету",
+    c1_p4: "Автозапуск через Windows Task Scheduler — піднімається сам після перезавантаження",
     c2_title: "ЛомбардПРО",
     c2_status: "⟳ В розробці",
     c2_subtitle: "Система управління мережею ломбардів",
-    c2_desc: "Комплексна система автоматизації для мережі з 3 ломбардів. Охоплює повний операційний цикл — від інкасації виробів до аналітики для власника. Розробляється за стандартом ANSS.",
+    c2_desc: "Комплексна система автоматизації для мережі з 3 ломбардів. Охоплює повний операційний цикл — від інкасації виробів до аналітики для власника. Розробляється за стандартом ANSS, задеплоєна на Railway.",
     c2_p1: "Telegram-бот для власника: щоденна зведення, алерти, підтвердження інкасацій кнопками",
     c2_p2: "Веб-додаток для співробітників: заміна Excel, каса, скупка, інкасація з фото",
     c2_p3: "Веб-дашборд: аналітика, рух виробів, звіти у .xlsx",
-    c2_p4: "Інтеграція з PawnExpert та Excel через Robust Parser",
-    c2_p5: "Офлайн-режим із розумною синхронізацією та Conflict Resolution",
+    c2_p4: "Результат: час приймання виробів −70%, нуль пропущених сповіщень клієнтам",
+    c2_p5: "Деплой на Railway з auto-deploy з GitHub, фото у Supabase Storage",
     c3_desc: "Відкритий стандарт написання технічних специфікацій для AI-розробки. Вирішує проблему «агент робить технічно правильно, але архітектурно невірно». Скоротив ітерації з 5–7 до 2–3 на реальних проектах.",
     c3_p1: "Трирівнева структура [D/E/A] — агент знає, що читати першим",
     c3_p2: "Інваріанти — машиночитані обмеження з полем «Перевірка»",
@@ -825,49 +833,49 @@ const T = {
     c3_link2: "Стаття на Hashnode →",
     c4_status: "⟳ MVP готовий",
     c4_subtitle: "AI-операційна система для солофаундера",
-    c4_desc: "Локальний веб-додаток із командою з 11 спеціалізованих AI-агентів. Побудований за стандартом ANSS. Замінює розрізнені чати з AI єдиною системою із спільною пам'яттю, режимом планування та проектами.",
-    c4_p1: "11 агентів: CEO, backend, sales, SMM, QA, finance, security та інші",
+    c4_desc: "Локальний веб-додаток із командою з 11 спеціалізованих AI-агентів на базі Claude Code. Побудований за стандартом ANSS. Замінює розрізнені чати з AI єдиною системою зі спільною пам'яттю та режимом планування.",
+    c4_p1: "11 агентів: Alex (CEO), Max (Backend), Artem (Frontend), Igor (DevOps), Katya (Integrator), Lera (Sales), Lena (QA), Dima (SMM), Yulia (Lawyer) та інші",
     c4_p2: "Smart Onboarding — персональна AI-команда за 5 хвилин",
     c4_p3: "Режим планування: задача → план → виконання через кількох агентів",
     c4_p4: "Єдина пам'ять між сесіями та проектами",
-    c4_p5: "Працює локально, Node.js, без npm install",
+    c4_p5: "Vanilla Node.js без фреймворків, стейт у JSON, без npm install",
     c4_link1: "Презентація →",
     c5_status: "● Продається",
-    c5_subtitle: "Методологія автоматизації бізнес-процесів за допомогою AI",
-    c5_desc: "Практична методологія прийняття рішень та автоматизації бізнес-процесів за допомогою AI. Три версії: Free, Business та Professional — для різних рівнів впровадження AI в компанії.",
-    c5_p1: "Покроковий фреймворк для впровадження AI у бізнес-процеси",
-    c5_p2: "Три версії: Free, Business, Professional",
-    c5_p3: "Практичні інструменти для прийняття AI-рішень",
-    c5_p4: "Методологія застосовна до автоматизації будь-якого типу бізнесу",
+    c5_subtitle: "Методологія оцінки та впровадження AI-автоматизації",
+    c5_desc: "Структурована методологія для оцінки та впровадження AI-автоматизації в бізнес. Включає ROI-калькуляцію, дерево рішень та дорожні карти. Три версії трьома мовами: Free, Business, Professional.",
+    c5_p1: "Фреймворк оцінки готовності бізнесу до автоматизації",
+    c5_p2: "ROI-методологія для AI-проектів",
+    c5_p3: "Дерево рішень: коли автоматизувати, а коли ні",
+    c5_p4: "Шаблони дорожніх карт впровадження · Доступно RU / EN / PL",
     c5_link1: "Gumroad — Professional версія →",
     c6_status: "◎ Концепт/MVP",
     c6_subtitle: "Міський AI-асистент для жителів та туристів",
     c6_desc: "Telegram-бот ELA — міський інтелект для Ельблонга. Два режими: для жителів (події, новини, міські зміни) та для туристів (маршрути, місця, історія). Пілот для масштабування на інші міста Польщі.",
     c6_p1: "Resident mode: що відбувається сьогодні, новини, дороги, сервіси",
     c6_p2: "Tourist mode: готові маршрути на 2/4/8 годин, місця, історія з характером",
-    c6_p3: "Ранковий автодайджест о 08:00",
-    c6_p4: "Cache-first архітектура — LLM тільки як fallback",
-    c6_p5: "Масштабується на будь-яке місто за 1–2 тижні"
+    c6_p3: "Ранковий автодайджест о 08:00, щоденний прекомп'ют контенту",
+    c6_p4: "Cache-first архітектура — Gemini тільки як fallback, хостинг Hetzner 5–10€/міс",
+    c6_p5: "SaaS-модель: пілот Ельблонг → Гданськ → Сопот → інші міста"
   },
   pl: {
     section_tag: "Artem Kholomyanskiy · Projekty AI · 2026",
     footer_text: "Artem Kholomyanskiy · AI Automation Consultant · 2026",
     c1_status: "● Na produkcji",
-    c1_subtitle: "Bot Telegram dla warsztatu samochodowego · Polska",
-    c1_desc: "Wdrożony bot Telegram dla mechaników warsztatu samochodowego. Działa u realnego klienta w Polsce. Automatyzuje przyjmowanie zgłoszeń, komunikację z klientami i wewnętrzne procesy warsztatu.",
-    c1_p1: "Przyjmowanie zgłoszeń i umawianie klientów przez Telegram",
-    c1_p2: "Powiadomienia dla mechaników o nowych zleceniach",
-    c1_p3: "Statusy naprawy w czasie rzeczywistym",
-    c1_p4: "Integracja z procesami roboczymi warsztatu",
+    c1_subtitle: "Bot KPI dla mechaników warsztatu · Polska",
+    c1_desc: "Bot Telegram połączony bezpośrednio z bazą danych eSowa. Każdy mechanik widzi swoją wydajność za dzień i miesiąc w Telegram. Instalacja offline w 3 krokach — bez specjalisty IT, działa na komputerze klienta.",
+    c1_p1: "Raport wydajności na /today i /month — indywidualnie dla każdego mechanika",
+    c1_p2: "Bezpośrednie połączenie z bazą Firebird eSowa",
+    c1_p3: "Instalacja offline: wszystkie zależności na pendrive, bez internetu",
+    c1_p4: "Autostart przez Windows Task Scheduler — uruchamia się automatycznie po restarcie",
     c2_title: "LombardPRO",
     c2_status: "⟳ W trakcie",
     c2_subtitle: "System zarządzania siecią lombardów",
-    c2_desc: "Kompleksowy system automatyzacji dla sieci 3 lombardów. Obejmuje pełny cykl operacyjny — od przyjęcia przedmiotów po analitykę dla właściciela. Rozwijany według standardu ANSS.",
+    c2_desc: "Kompleksowy system automatyzacji dla sieci 3 lombardów. Obejmuje pełny cykl operacyjny — od przyjęcia przedmiotów po analitykę dla właściciela. Rozwijany według standardu ANSS, wdrożony na Railway.",
     c2_p1: "Bot Telegram dla właściciela: dzienny raport, alerty, potwierdzanie inkasacji przyciskami",
     c2_p2: "Aplikacja webowa dla pracowników: zastępuje Excel, kasa, skup, inkasacja ze zdjęciami",
     c2_p3: "Panel webowy: analityka, ruch przedmiotów, raporty w .xlsx",
-    c2_p4: "Integracja z PawnExpert i Excel przez Robust Parser",
-    c2_p5: "Tryb offline ze smart sync i Conflict Resolution",
+    c2_p4: "Wyniki: czas przyjęcia przedmiotów −70%, zero pominiętych powiadomień klientów",
+    c2_p5: "Wdrożenie na Railway z auto-deploy z GitHub, zdjęcia w Supabase Storage",
     c3_desc: "Otwarty standard pisania specyfikacji technicznych dla AI development. Rozwiązuje problem «agent robi technicznie poprawnie, ale architektonicznie źle». Zmniejszył iteracje z 5–7 do 2–3 w realnych projektach.",
     c3_p1: "Trójwarstwowa struktura [D/E/A] — agent wie, co czytać najpierw",
     c3_p2: "Inwarianty — ograniczenia czytelne maszynowo z polem «Weryfikacja»",
@@ -877,29 +885,29 @@ const T = {
     c3_link2: "Artykuł na Hashnode →",
     c4_status: "⟳ MVP gotowy",
     c4_subtitle: "AI system operacyjny dla solo founderów",
-    c4_desc: "Lokalna aplikacja webowa z zespołem 11 wyspecjalizowanych agentów AI. Zbudowana według standardu ANSS. Zastępuje rozproszone czaty z AI jednym systemem ze wspólną pamięcią, trybem planowania i projektami.",
-    c4_p1: "11 agentów: CEO, backend, sales, SMM, QA, finance, security i inne",
+    c4_desc: "Lokalna aplikacja webowa z zespołem 11 wyspecjalizowanych agentów AI opartych na Claude Code. Zbudowana według standardu ANSS. Zastępuje rozproszone czaty z AI jednym systemem ze wspólną pamięcią i trybem planowania.",
+    c4_p1: "11 agentów: Alex (CEO), Max (Backend), Artem (Frontend), Igor (DevOps), Katya (Integrator), Lera (Sales), Lena (QA), Dima (SMM), Yulia (Prawnik) i inne",
     c4_p2: "Smart Onboarding — osobisty zespół AI w 5 minut",
     c4_p3: "Tryb planowania: zadanie → plan → wykonanie przez wielu agentów",
     c4_p4: "Wspólna pamięć między sesjami i projektami",
-    c4_p5: "Działa lokalnie, Node.js, bez npm install",
+    c4_p5: "Vanilla Node.js bez frameworków, stan w JSON, bez npm install",
     c4_link1: "Prezentacja →",
     c5_status: "● Na sprzedaż",
-    c5_subtitle: "Metodologia automatyzacji procesów biznesowych z AI",
-    c5_desc: "Praktyczna metodologia podejmowania decyzji i automatyzacji procesów biznesowych z AI. Trzy wersje: Free, Business i Professional — dla różnych poziomów wdrożenia AI w firmie.",
-    c5_p1: "Krok po kroku framework do wdrożenia AI w procesy biznesowe",
-    c5_p2: "Trzy wersje: Free, Business, Professional",
-    c5_p3: "Praktyczne narzędzia do podejmowania decyzji AI",
-    c5_p4: "Metodologia ma zastosowanie do automatyzacji każdego rodzaju biznesu",
+    c5_subtitle: "Metodologia oceny i wdrożenia automatyzacji AI",
+    c5_desc: "Ustrukturyzowana metodologia oceny i wdrożenia automatyzacji AI w biznesie. Zawiera kalkulację ROI, drzewo decyzyjne i mapy drogowe. Trzy wersje w trzech językach: Free, Business, Professional.",
+    c5_p1: "Framework oceny gotowości biznesu do automatyzacji",
+    c5_p2: "Metodologia kalkulacji ROI dla projektów AI",
+    c5_p3: "Drzewo decyzyjne: kiedy automatyzować, a kiedy nie",
+    c5_p4: "Szablony map drogowych wdrożenia · Dostępne w RU / EN / PL",
     c5_link1: "Gumroad — wersja Professional →",
     c6_status: "◎ Koncepcja/MVP",
     c6_subtitle: "Miejski asystent AI dla mieszkańców i turystów",
     c6_desc: "Bot Telegram ELA — miejska inteligencja dla Elbląga. Dwa tryby: dla mieszkańców (wydarzenia, newsy, zmiany w mieście) i dla turystów (trasy, miejsca, historia). Pilot do skalowania na inne miasta Polski.",
     c6_p1: "Tryb mieszkańca: co dzieje się dziś, newsy, drogi, serwisy",
     c6_p2: "Tryb turysty: gotowe trasy na 2/4/8 godzin, miejsca, historia z charakterem",
-    c6_p3: "Poranny auto-digest o 08:00",
-    c6_p4: "Architektura cache-first — LLM tylko jako fallback",
-    c6_p5: "Skaluje się na dowolne miasto w 1–2 tygodnie"
+    c6_p3: "Poranny auto-digest o 08:00, dzienny precompute treści",
+    c6_p4: "Architektura cache-first — Gemini tylko jako fallback, hosting Hetzner 5–10€/mies",
+    c6_p5: "Model SaaS: pilot Elbląg → Gdańsk → Sopot → inne miasta"
   }
 };
 
