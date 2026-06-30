@@ -333,127 +333,10 @@ footer {
 <div class="section">
   <p class="section-tag" data-i18n="section_tag">Артём Холомянский · AI проекты · 2026</p>
 
-  <!-- CASE 1: esowa_bot -->
+  <!-- CASE 1: ANSS -->
   <div class="case">
     <div class="case-header">
       <div class="case-num">01</div>
-      <div class="case-title-wrap">
-        <div class="case-title">eSowa KPI Bot</div>
-        <div class="case-subtitle" data-i18n="c1_subtitle">KPI-бот для механиков автосервиса · Польша</div>
-      </div>
-      <div class="status-badge status-live" data-i18n="c1_status">● В продакшне</div>
-    </div>
-    <p class="case-desc" data-i18n="c1_desc">Telegram-бот, подключённый напрямую к базе данных eSowa. Каждый механик видит свою выработку за день и месяц прямо в Telegram. Установка офлайн за 3 шага — без IT-специалиста, работает на компьютере клиента.</p>
-    <ul class="case-points">
-      <li data-i18n="c1_p1">Отчёт о выработке по команде /today и /month — персонально каждому механику</li>
-      <li data-i18n="c1_p2">Прямое подключение к Firebird-базе данных eSowa</li>
-      <li data-i18n="c1_p3">Офлайн-установка: все зависимости на флешке, работает без интернета</li>
-      <li data-i18n="c1_p4">Автозапуск через Windows Task Scheduler — поднимается сам после перезагрузки</li>
-    </ul>
-
-    <!-- MOCKUP: KPI report in Telegram -->
-    <div class="mockup">
-      <div class="mockup-bar">
-        <div class="mockup-dot r"></div>
-        <div class="mockup-dot y"></div>
-        <div class="mockup-dot g"></div>
-        <span>eSowa KPI Bot · Telegram</span>
-      </div>
-      <div class="mockup-body mockup-chat">
-        <div class="chat-msg user">/today</div>
-        <div class="chat-msg bot">
-          Выработка за сегодня:
-          <span class="chat-muted">3 840 ₽ · 4 заказа</span>
-          <div class="kpi-bar">
-            <div class="kpi-track"><div class="kpi-fill" style="width:96%"></div></div>
-            <span class="kpi-pct">96%</span>
-          </div>
-        </div>
-        <div class="chat-msg user">/month</div>
-        <div class="chat-msg bot">
-          Июнь 2026 — 67 200 ₽
-          <span class="chat-muted" style="color:var(--green)">✓ Норма выполнена: 112%</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="case-tags">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">Telegram Bot API</span>
-      <span class="tech-tag">Firebird DB</span>
-      <span class="tech-tag">Windows Task Scheduler</span>
-    </div>
-  </div>
-
-  <!-- CASE 2: ЛомбардПРО -->
-  <div class="case">
-    <div class="case-header">
-      <div class="case-num">02</div>
-      <div class="case-title-wrap">
-        <div class="case-title" data-i18n="c2_title">ЛомбардПРО</div>
-        <div class="case-subtitle" data-i18n="c2_subtitle">Система управления сетью ломбардов</div>
-      </div>
-      <div class="status-badge status-dev" data-i18n="c2_status">⟳ В разработке</div>
-    </div>
-    <p class="case-desc" data-i18n="c2_desc">Комплексная система автоматизации для сети из 3 ломбардов. Покрывает полный операционный цикл — от инкассации изделий до аналитики для владельца. Разрабатывается по стандарту ANSS, задеплоена на Railway.</p>
-    <ul class="case-points">
-      <li data-i18n="c2_p1">Telegram-бот для владельца: ежедневная сводка, алерты, подтверждение инкассаций кнопками</li>
-      <li data-i18n="c2_p2">Веб-приложение для сотрудников: замена Excel, касса, скупка, инкассация с фото</li>
-      <li data-i18n="c2_p3">Веб-дашборд: аналитика, движение изделий, отчёты в .xlsx</li>
-      <li data-i18n="c2_p4">Результат: время приёма изделий −70%, нулевые пропущенные уведомления клиентам</li>
-      <li data-i18n="c2_p5">Деплой на Railway с auto-deploy из GitHub, фото в Supabase Storage</li>
-    </ul>
-
-    <!-- MOCKUP: Dashboard -->
-    <div class="mockup">
-      <div class="mockup-bar">
-        <div class="mockup-dot r"></div>
-        <div class="mockup-dot y"></div>
-        <div class="mockup-dot g"></div>
-        <span>LombardPRO · Dashboard · 26.06.2026</span>
-      </div>
-      <div class="mockup-body mockup-dash">
-        <div class="dash-row">
-          <span class="dash-label">Выручка</span>
-          <span class="dash-bar"><span class="green" style="width:72%"></span></span>
-          <span class="dash-val green">84 200 ₽</span>
-        </div>
-        <div class="dash-row">
-          <span class="dash-label">Принято</span>
-          <span class="dash-bar"><span style="width:55%"></span></span>
-          <span class="dash-val">23 изд.</span>
-        </div>
-        <div class="dash-row">
-          <span class="dash-label">Выдано</span>
-          <span class="dash-bar"><span style="width:28%"></span></span>
-          <span class="dash-val">11 изд.</span>
-        </div>
-        <div class="dash-row">
-          <span class="dash-label">Филиалы</span>
-          <span class="dash-bar"><span class="orange" style="width:61%"></span></span>
-          <span class="dash-val">3 онлайн</span>
-        </div>
-        <div class="dash-divider"></div>
-        <div class="dash-alert">⚠ Филиал 2: не синхронизирован 4ч</div>
-        <div class="dash-ok">✓ Инкассация подтверждена владельцем</div>
-      </div>
-    </div>
-
-    <div class="case-tags">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">FastAPI</span>
-      <span class="tech-tag">PostgreSQL</span>
-      <span class="tech-tag">Supabase</span>
-      <span class="tech-tag">Railway</span>
-      <span class="tech-tag">Telegram Bot API</span>
-      <span class="tech-tag">ANSS</span>
-    </div>
-  </div>
-
-  <!-- CASE 3: ANSS -->
-  <div class="case">
-    <div class="case-header">
-      <div class="case-num">03</div>
       <div class="case-title-wrap">
         <div class="case-title">ANSS Standard</div>
         <div class="case-subtitle">AI-Native System Specification Standard</div>
@@ -502,10 +385,10 @@ footer {
     </div>
   </div>
 
-  <!-- CASE 4: Solo Founder OS -->
+  <!-- CASE 2: Solo Founder OS -->
   <div class="case">
     <div class="case-header">
-      <div class="case-num">04</div>
+      <div class="case-num">02</div>
       <div class="case-title-wrap">
         <div class="case-title">Solo Founder OS</div>
         <div class="case-subtitle" data-i18n="c4_subtitle">AI-операционная система для солофаундера</div>
@@ -570,10 +453,10 @@ footer {
     </div>
   </div>
 
-  <!-- CASE 5: AI Methodology -->
+  <!-- CASE 3: AI Methodology -->
   <div class="case">
     <div class="case-header">
-      <div class="case-num">05</div>
+      <div class="case-num">03</div>
       <div class="case-title-wrap">
         <div class="case-title">AI Automation Decision System</div>
         <div class="case-subtitle" data-i18n="c5_subtitle">Методология оценки и внедрения AI-автоматизации</div>
@@ -632,6 +515,123 @@ footer {
     </div>
     <div class="case-links">
       <a href="https://aimethodology.gumroad.com/l/professional" class="case-link" target="_blank" data-i18n="c5_link1">Gumroad — Professional версия →</a>
+    </div>
+  </div>
+
+  <!-- CASE 4: esowa_bot -->
+  <div class="case">
+    <div class="case-header">
+      <div class="case-num">04</div>
+      <div class="case-title-wrap">
+        <div class="case-title">eSowa KPI Bot</div>
+        <div class="case-subtitle" data-i18n="c1_subtitle">KPI-бот для механиков автосервиса · Польша</div>
+      </div>
+      <div class="status-badge status-live" data-i18n="c1_status">● В продакшне</div>
+    </div>
+    <p class="case-desc" data-i18n="c1_desc">Telegram-бот, подключённый напрямую к базе данных eSowa. Каждый механик видит свою выработку за день и месяц прямо в Telegram. Установка офлайн за 3 шага — без IT-специалиста, работает на компьютере клиента.</p>
+    <ul class="case-points">
+      <li data-i18n="c1_p1">Отчёт о выработке по команде /today и /month — персонально каждому механику</li>
+      <li data-i18n="c1_p2">Прямое подключение к Firebird-базе данных eSowa</li>
+      <li data-i18n="c1_p3">Офлайн-установка: все зависимости на флешке, работает без интернета</li>
+      <li data-i18n="c1_p4">Автозапуск через Windows Task Scheduler — поднимается сам после перезагрузки</li>
+    </ul>
+
+    <!-- MOCKUP: KPI report in Telegram -->
+    <div class="mockup">
+      <div class="mockup-bar">
+        <div class="mockup-dot r"></div>
+        <div class="mockup-dot y"></div>
+        <div class="mockup-dot g"></div>
+        <span>eSowa KPI Bot · Telegram</span>
+      </div>
+      <div class="mockup-body mockup-chat">
+        <div class="chat-msg user">/today</div>
+        <div class="chat-msg bot">
+          Выработка за сегодня:
+          <span class="chat-muted">3 840 ₽ · 4 заказа</span>
+          <div class="kpi-bar">
+            <div class="kpi-track"><div class="kpi-fill" style="width:96%"></div></div>
+            <span class="kpi-pct">96%</span>
+          </div>
+        </div>
+        <div class="chat-msg user">/month</div>
+        <div class="chat-msg bot">
+          Июнь 2026 — 67 200 ₽
+          <span class="chat-muted" style="color:var(--green)">✓ Норма выполнена: 112%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-tags">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">Telegram Bot API</span>
+      <span class="tech-tag">Firebird DB</span>
+      <span class="tech-tag">Windows Task Scheduler</span>
+    </div>
+  </div>
+
+  <!-- CASE 5: ЛомбардПРО -->
+  <div class="case">
+    <div class="case-header">
+      <div class="case-num">05</div>
+      <div class="case-title-wrap">
+        <div class="case-title" data-i18n="c2_title">ЛомбардПРО</div>
+        <div class="case-subtitle" data-i18n="c2_subtitle">Система управления сетью ломбардов</div>
+      </div>
+      <div class="status-badge status-dev" data-i18n="c2_status">⟳ В разработке</div>
+    </div>
+    <p class="case-desc" data-i18n="c2_desc">Комплексная система автоматизации для сети из 3 ломбардов. Покрывает полный операционный цикл — от инкассации изделий до аналитики для владельца. Разрабатывается по стандарту ANSS, задеплоена на Railway.</p>
+    <ul class="case-points">
+      <li data-i18n="c2_p1">Telegram-бот для владельца: ежедневная сводка, алерты, подтверждение инкассаций кнопками</li>
+      <li data-i18n="c2_p2">Веб-приложение для сотрудников: замена Excel, касса, скупка, инкассация с фото</li>
+      <li data-i18n="c2_p3">Веб-дашборд: аналитика, движение изделий, отчёты в .xlsx</li>
+      <li data-i18n="c2_p4">Результат: время приёма изделий −70%, нулевые пропущенные уведомления клиентам</li>
+      <li data-i18n="c2_p5">Деплой на Railway с auto-deploy из GitHub, фото в Supabase Storage</li>
+    </ul>
+
+    <!-- MOCKUP: Dashboard -->
+    <div class="mockup">
+      <div class="mockup-bar">
+        <div class="mockup-dot r"></div>
+        <div class="mockup-dot y"></div>
+        <div class="mockup-dot g"></div>
+        <span>LombardPRO · Dashboard · 26.06.2026</span>
+      </div>
+      <div class="mockup-body mockup-dash">
+        <div class="dash-row">
+          <span class="dash-label">Выручка</span>
+          <span class="dash-bar"><span class="green" style="width:72%"></span></span>
+          <span class="dash-val green">84 200 ₽</span>
+        </div>
+        <div class="dash-row">
+          <span class="dash-label">Принято</span>
+          <span class="dash-bar"><span style="width:55%"></span></span>
+          <span class="dash-val">23 изд.</span>
+        </div>
+        <div class="dash-row">
+          <span class="dash-label">Выдано</span>
+          <span class="dash-bar"><span style="width:28%"></span></span>
+          <span class="dash-val">11 изд.</span>
+        </div>
+        <div class="dash-row">
+          <span class="dash-label">Филиалы</span>
+          <span class="dash-bar"><span class="orange" style="width:61%"></span></span>
+          <span class="dash-val">3 онлайн</span>
+        </div>
+        <div class="dash-divider"></div>
+        <div class="dash-alert">⚠ Филиал 2: не синхронизирован 4ч</div>
+        <div class="dash-ok">✓ Инкассация подтверждена владельцем</div>
+      </div>
+    </div>
+
+    <div class="case-tags">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">FastAPI</span>
+      <span class="tech-tag">PostgreSQL</span>
+      <span class="tech-tag">Supabase</span>
+      <span class="tech-tag">Railway</span>
+      <span class="tech-tag">Telegram Bot API</span>
+      <span class="tech-tag">ANSS</span>
     </div>
   </div>
 
