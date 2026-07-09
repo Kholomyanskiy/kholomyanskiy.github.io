@@ -1,21 +1,21 @@
 # Artem Kholomyanskiy — AI Automation Consultant
 
-> AI consultant. Creator of ANSS open standard for AI-native development.
+> AI consultant. Creator of ANSS — open standard for AI-native development. EVAI Consulting, Poland.
 
 ## Projects
-- esowa_bot: Telegram bot for auto service, Poland
-- LombardPRO: AI automation for pawnshop network (specification ready: 6,200 lines, project in negotiation)
-- ANSS Standard: github.com/Kholomyanskiy/anss-standard
-- Solo Founder OS: AI OS with 11 specialized agents
-- AI Methodology: aimethodology.gumroad.com
-- ELA City Bot: AI city assistant for Elbląg
+- ANSS Standard: open specification standard for AI-native development. https://github.com/Kholomyanskiy/anss-standard
+- ANSS Examples: real-world specs in ANSS-Core format. https://github.com/Kholomyanskiy/anss-standard/tree/master/examples
+- LombardPRO: full ANSS-Core specification for a multi-branch pawnshop network. Status: in negotiation.
+- AI Automation Decision System: ROI-first methodology for business AI automation. https://aimethodology.gumroad.com/
+- AI Infrastructure 2026: investment brief on AI physical infrastructure (5 sectors, 40 companies). https://github.com/Kholomyanskiy/ai-infrastructure-2026
+- Solo Founder OS: AI agent team system for solo founders via Claude Code. Status: in development.
 
 ## Services
-- Specification as a Service: full ANSS-Core technical specification for AI/automation projects. Real example: LombardPRO (6,200 lines, external reviews 9.2–9.4/10). See: https://kholomyanskiy.github.io/spec.html
-- ANSS examples: https://github.com/Kholomyanskiy/anss-standard/tree/master/examples
+- Specification as a Service: full ANSS-Core technical specification for AI and automation projects. https://kholomyanskiy.github.io/spec.html
 
 ## Links
 - Portfolio: https://kholomyanskiy.github.io
 - GitHub: https://github.com/Kholomyanskiy
 - LinkedIn: https://linkedin.com/in/kholomyanskiy
 - Email: kholomyanskiy@gmail.com
+- Telegram: https://t.me/kholomyanskiy
