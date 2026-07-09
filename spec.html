@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Спецификация как услуга — EVAI Consulting</title>
+<meta name="description" content="Технические задания для AI-разработки. Аудит и спецификации, по которым Claude Code и разработчики строят системы предсказуемо.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F3EE;
+  --panel:#FAFBF7;
+  --ink:#1B2027;
+  --ink-soft:#4A5361;
+  --line:#C9CEC2;
+  --line-soft:#DEE1D8;
+  --blue:#2B5B8A;
+  --blue-deep:#1E4266;
+  --stamp:#9A3B33;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+}
+.sheet{
+  max-width:880px;
+  margin:40px auto;
+  background:var(--panel);
+  border:1.5px solid var(--ink);
+  box-shadow:8px 8px 0 rgba(27,32,39,.08);
+}
+/* ---------- title block ---------- */
+.titleblock{border-bottom:1.5px solid var(--ink)}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-top .brand{font-weight:500;color:var(--ink);letter-spacing:.08em}
+.tb-main{padding:44px 28px 36px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;max-width:560px;color:var(--ink-soft);font-size:17px}
+.stamp{
+  position:absolute;top:36px;right:28px;
+  border:2px solid var(--stamp);color:var(--stamp);
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;
+  padding:6px 12px;transform:rotate(4deg);
+  text-transform:uppercase;background:rgba(154,59,51,.04);
+}
+.tb-meta{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid var(--ink)}
+.tb-meta div{padding:10px 16px;border-right:1px solid var(--line);font-size:13px}
+.tb-meta div:last-child{border-right:none}
+.tb-meta .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:2px}
+/* ---------- sections ---------- */
+section{padding:40px 28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
+p{max-width:620px;margin-bottom:14px}
+p.lead{font-size:17.5px}
+.muted{color:var(--ink-soft)}
+/* problem quote */
+.log{
+  font-family:'JetBrains Mono',monospace;font-size:13px;
+  background:var(--ink);color:#D8DDE4;
+  padding:18px 20px;margin:22px 0;max-width:620px;
+  border-left:4px solid var(--stamp);
+}
+.log .err{color:#E0837A}
+/* spec composition list */
+.spec-list{margin:24px 0 6px;max-width:660px}
+.spec-row{display:flex;gap:18px;padding:14px 0;border-top:1px solid var(--line)}
+.spec-row:last-child{border-bottom:1px solid var(--line)}
+.spec-code{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue);min-width:64px;padding-top:3px}
+.spec-row h3{font-size:15.5px;font-weight:600;margin-bottom:2px}
+.spec-row p{font-size:14.5px;color:var(--ink-soft);margin:0}
+/* formats */
+.formats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}
+.card{border:1.5px solid var(--ink);background:var(--paper);display:flex;flex-direction:column}
+.card-head{padding:16px 20px;border-bottom:1px solid var(--line)}
+.card-head .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.card-head h3{font-family:'Spectral',serif;font-size:22px;font-weight:600;margin-top:4px}
+.card-body{padding:18px 20px;flex:1}
+.card-body ul{list-style:none}
+.card-body li{padding:6px 0 6px 20px;position:relative;font-size:14.5px}
+.card-body li::before{content:"—";position:absolute;left:0;color:var(--blue)}
+.card-foot{padding:14px 20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
+.price{font-family:'Spectral',serif;font-size:21px;font-weight:700}
+.term{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft)}
+/* invariants */
+.inv{border:1px solid var(--line);background:var(--paper);padding:16px 20px;margin-bottom:12px;max-width:660px;display:flex;gap:16px}
+.inv .code{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--stamp);min-width:64px;padding-top:2px}
+.inv p{margin:0;font-size:15px}
+/* author */
+.author{display:flex;gap:24px;max-width:660px;flex-wrap:wrap}
+.author .facts{font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:2.1;color:var(--ink-soft);min-width:240px}
+.author .facts b{color:var(--ink);font-weight:500}
+/* process */
+.steps{counter-reset:st;max-width:620px;margin-top:8px}
+.steps li{list-style:none;counter-increment:st;padding:12px 0 12px 52px;position:relative;border-top:1px solid var(--line)}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);
+  position:absolute;left:0;top:12px;
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue);
+}
+/* cta */
+.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
+.cta h2{color:#fff}
+.cta p{color:#B9C1CC}
+.cta a.btn{
+  display:inline-block;margin-top:10px;
+  font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;
+  color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;
+  padding:13px 26px;text-decoration:none;
+}
+.cta a.btn:hover{background:transparent;color:#EDEFF2}
+.cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.cta .alt{margin-top:16px;font-size:14px}
+.cta .alt a{color:#EDEFF2}
+footer{max-width:880px;margin:0 auto 48px;padding:14px 4px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media(max-width:680px){
+  .sheet{margin:16px 12px}
+  .tb-meta{grid-template-columns:repeat(2,1fr)}
+  .tb-meta div:nth-child(2){border-right:none}
+  .formats{grid-template-columns:1fr}
+  .stamp{position:static;display:inline-block;margin-top:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- Штамп документа -->
+  <header class="titleblock">
+    <div class="tb-top">
+      <span class="brand">EVAI CONSULTING</span>
+      <span>EVAI-SPEC-2026-01</span>
+    </div>
+    <div class="tb-main">
+      <span class="stamp">Действует · v1.0</span>
+      <h1>Спецификация <em>как услуга</em></h1>
+      <p class="sub">Технические задания, по которым AI-агент или разработчик строит систему предсказуемо. За 2–3 итерации вместо бесконечных переделок.</p>
+    </div>
+    <div class="tb-meta">
+      <div><span class="k">Документ</span>Коммерческое предложение</div>
+      <div><span class="k">Автор</span>Артём Холомянский</div>
+      <div><span class="k">Методология</span>ANSS Standard</div>
+      <div><span class="k">Юрисдикция</span>Польша · ЕС</div>
+    </div>
+  </header>
+
+  <!-- 1.0 -->
+  <section>
+    <span class="secnum">1.0 // ПРОБЛЕМА</span>
+    <h2>Проект «почти работает» уже месяц</h2>
+    <p class="lead">Знакомая история: вы описали идею Claude Code или Cursor, за вечер получили работающий прототип, обрадовались. Через две недели вы тратите по 4 часа в день на починку того, что вчера работало. Каждое исправление ломает что-то ещё.</p>
+    <div class="log">
+      $ fix: кнопка оплаты<br>
+      <span class="err">&gt; сломался экспорт отчётов</span><br>
+      $ fix: экспорт отчётов<br>
+      <span class="err">&gt; сломалась кнопка оплаты</span>
+    </div>
+    <p>Причина почти всегда одна. У проекта нет спецификации. Агент на каждой задаче заново угадывает, что вы имели в виду. Иногда угадывает. Чаще промахивается, и промахи накапливаются, пока проект перестаёт поддаваться правкам.</p>
+  </section>
+
+  <!-- 2.0 -->
+  <section>
+    <span class="secnum">2.0 // СОСТАВ РАБОТ</span>
+    <h2>Что входит в спецификацию</h2>
+    <p>Я пишу полное техническое задание, которое превращает AI-разработку из угадывания в исполнение. Пакет документов:</p>
+    <div class="spec-list">
+      <div class="spec-row">
+        <span class="spec-code">ARCH</span>
+        <div><h3>Архитектура и данные</h3><p>Структура системы, модели данных, границы модулей.</p></div>
+      </div>
+      <div class="spec-row">
+        <span class="spec-code">INV</span>
+        <div><h3>Инварианты</h3><p>Правила, которые система не имеет права нарушать. Проверяемые, с критериями.</p></div>
+      </div>
+      <div class="spec-row">
+        <span class="spec-code">GLOS</span>
+        <div><h3>Глоссарий</h3><p>Единые термины, чтобы агент не путал сущности между сессиями.</p></div>
+      </div>
+      <div class="spec-row">
+        <span class="spec-code">AGNT</span>
+        <div><h3>Правила для AI-агентов</h3><p>Что агенту можно менять, что запрещено, как проверять свою работу.</p></div>
+      </div>
+      <div class="spec-row">
+        <span class="spec-code">PLAN</span>
+        <div><h3>План этапов</h3><p>Последовательность работ с критериями приёмки каждого этапа.</p></div>
+      </div>
+    </div>
+    <p class="muted">Методология открыта и опубликована: <a href="https://github.com/Kholomyanskiy/anss-standard">ANSS Standard на GitHub</a>. Подход можно проверить до того, как платить.</p>
+  </section>
+
+  <!-- 3.0 -->
+  <section>
+    <span class="secnum">3.0 // ФОРМАТЫ</span>
+    <h2>Два формата работы</h2>
+    <div class="formats">
+      <div class="card">
+        <div class="card-head">
+          <span class="tag">Для существующего проекта</span>
+          <h3>Реанимация</h3>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Аудит кода и архитектуры</li>
+            <li>Список проблем по приоритету</li>
+            <li>ТЗ на доработку</li>
+            <li>Правила для агента, чтобы поломки не повторялись</li>
+          </ul>
+        </div>
+        <div class="card-foot">
+          <span class="price">от 2 500 zł</span>
+          <span class="term">5–7 дней</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <span class="tag">Для нового проекта</span>
+          <h3>Фундамент</h3>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>Интервью и анализ требований</li>
+            <li>Полный пакет: ARCH, INV, GLOS, AGNT, PLAN</li>
+            <li>Готово для любого разработчика или Claude Code</li>
+            <li>Ревью драфта вместе с вами</li>
+          </ul>
+        </div>
+        <div class="card-foot">
+          <span class="price">от 5 000 zł</span>
+          <span class="term">10–14 дней</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4.0 -->
+  <section>
+    <span class="secnum">4.0 // ИНВАРИАНТЫ СОТРУДНИЧЕСТВА</span>
+    <h2>Правила, которые не нарушаются</h2>
+    <div class="inv">
+      <span class="code">INV-01</span>
+      <p>Цена фиксированная и называется после бесплатного 30-минутного разговора. Почасовой оплаты нет: вы платите за результат.</p>
+    </div>
+    <div class="inv">
+      <span class="code">INV-02</span>
+      <p>Спецификация принадлежит вам полностью. С ней можно идти к любому исполнителю, зависимости от меня не возникает.</p>
+    </div>
+    <div class="inv">
+      <span class="code">INV-03</span>
+      <p>Если на аудите выяснится, что проект проще переписать, чем спасать, я скажу это прямо до начала работ.</p>
+    </div>
+  </section>
+
+  <!-- 5.0 -->
+  <section>
+    <span class="secnum">5.0 // АВТОР</span>
+    <h2>Кто пишет</h2>
+    <div class="author">
+      <p style="flex:1;min-width:260px">Артём Холомянский, EVAI Consulting (Польша). 12 лет постановки задач и приёмки систем в энергетике: SAP IS-U, SCADA, Smart Grid, BPMN, UAT. Автор ANSS Standard, спецификационного фреймворка для AI-native разработки. Ежедневно работаю с Claude Code на собственных и клиентских проектах.</p>
+      <div class="facts">
+        <b>12 лет</b> · enterprise-системы<br>
+        <b>ANSS</b> · открытая методология<br>
+        <b>9.2–9.4/10</b> · внешние ревью ТЗ<br>
+        <b>RU · PL · EN</b> · рабочие языки
+      </div>
+    </div>
+  </section>
+
+  <!-- 6.0 -->
+  <section>
+    <span class="secnum">6.0 // ПОРЯДОК РАБОТЫ</span>
+    <h2>Как это происходит</h2>
+    <ol class="steps">
+      <li>Вы пишете мне и описываете проект в трёх предложениях.</li>
+      <li>Разговор 30 минут, бесплатно. Я говорю, подходит ли формат, и называю фиксированную цену.</li>
+      <li>Интервью и материалы: доступ к репозиторию или описание идеи.</li>
+      <li>Драфт спецификации, ревью вместе с вами, финальная версия.</li>
+    </ol>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <span class="secnum" style="color:#7FA8CC">7.0 // КОНТАКТ</span>
+    <h2>Проект стоит спасать, пока он маленький</h2>
+    <p>Опишите ситуацию в трёх предложениях. Отвечу в течение рабочего дня: подходит ли формат и что делать дальше.</p>
+    <a class="btn" href="mailto:kholomyanskiy@gmail.com?subject=Спецификация">Написать письмо</a>
+    <p class="alt">или LinkedIn: <a href="https://linkedin.com/in/kholomyanskiy">/in/kholomyanskiy</a> · Telegram: <a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></p>
+  </div>
+
+</div>
+
+<footer>
+  <span>EVAI Consulting · Elbląg, Poland</span>
+  <span>EVAI-SPEC-2026-01 · v1.0</span>
+</footer>
+
+</body>
+</html>
