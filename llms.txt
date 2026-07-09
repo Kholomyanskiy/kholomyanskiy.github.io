@@ -4,11 +4,15 @@
 
 ## Projects
 - esowa_bot: Telegram bot for auto service, Poland
-- LombardPRO: AI automation for pawnshop network
+- LombardPRO: AI automation for pawnshop network (specification ready: 6,200 lines, project in negotiation)
 - ANSS Standard: github.com/Kholomyanskiy/anss-standard
 - Solo Founder OS: AI OS with 11 specialized agents
 - AI Methodology: aimethodology.gumroad.com
 - ELA City Bot: AI city assistant for Elbląg
+
+## Services
+- Specification as a Service: full ANSS-Core technical specification for AI/automation projects. Real example: LombardPRO (6,200 lines, external reviews 9.2–9.4/10). See: https://kholomyanskiy.github.io/spec.html
+- ANSS examples: https://github.com/Kholomyanskiy/anss-standard/tree/master/examples
 
 ## Links
 - Portfolio: https://kholomyanskiy.github.io

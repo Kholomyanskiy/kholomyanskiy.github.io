@@ -333,6 +333,12 @@ footer {
 <div class="section">
   <p class="section-tag" data-i18n="section_tag">Артём Холомянский · AI проекты · 2026</p>
 
+  <div style="margin-bottom:28px;">
+    <a href="spec.html" style="display:inline-flex;align-items:center;gap:8px;padding:9px 16px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent2);text-decoration:none;letter-spacing:0.3px;">
+      Usługi / Услуги — Specification as a Service →
+    </a>
+  </div>
+
   <!-- CASE 1: ANSS -->
   <div class="case">
     <div class="case-header">
@@ -578,14 +584,14 @@ footer {
         <div class="case-title" data-i18n="c2_title">ЛомбардПРО</div>
         <div class="case-subtitle" data-i18n="c2_subtitle">Система управления сетью ломбардов</div>
       </div>
-      <div class="status-badge status-dev" data-i18n="c2_status">⟳ В разработке</div>
+      <div class="status-badge status-concept" data-i18n="c2_status">◎ Спецификация готова · переговоры</div>
     </div>
     <p class="case-desc" data-i18n="c2_desc">Комплексная система автоматизации для сети из 3 ломбардов. Покрывает полный операционный цикл — от инкассации изделий до аналитики для владельца. Разрабатывается по стандарту ANSS, задеплоена на Railway.</p>
     <ul class="case-points">
       <li data-i18n="c2_p1">Telegram-бот для владельца: ежедневная сводка, алерты, подтверждение инкассаций кнопками</li>
       <li data-i18n="c2_p2">Веб-приложение для сотрудников: замена Excel, касса, скупка, инкассация с фото</li>
       <li data-i18n="c2_p3">Веб-дашборд: аналитика, движение изделий, отчёты в .xlsx</li>
-      <li data-i18n="c2_p4">Результат: время приёма изделий −70%, нулевые пропущенные уведомления клиентам</li>
+      <li data-i18n="c2_p4">Целевые показатели по ТЗ: сверка кассы &lt;3 мин (сейчас ~30), 100% трек инкассированных изделий</li>
       <li data-i18n="c2_p5">Деплой на Railway с auto-deploy из GitHub, фото в Supabase Storage</li>
     </ul>
 
@@ -697,6 +703,14 @@ footer {
 
 <footer>
   <span data-i18n="footer_text">Артём Холомянский · AI Automation Consultant · 2026</span>
+  <br>
+  <span style="margin-top:8px;display:inline-block;">
+    <a href="mailto:kholomyanskiy@gmail.com" style="color:var(--muted);text-decoration:none;">kholomyanskiy@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://linkedin.com/in/kholomyanskiy" target="_blank" style="color:var(--muted);text-decoration:none;">linkedin.com/in/kholomyanskiy</a>
+    &nbsp;·&nbsp;
+    <a href="https://t.me/kholomyanskiy" target="_blank" style="color:var(--muted);text-decoration:none;">t.me/kholomyanskiy</a>
+  </span>
 </footer>
 
 <script>
@@ -712,13 +726,13 @@ const T = {
     c1_p3: "Офлайн-установка: все зависимости на флешке, работает без интернета",
     c1_p4: "Автозапуск через Windows Task Scheduler — поднимается сам после перезагрузки",
     c2_title: "ЛомбардПРО",
-    c2_status: "⟳ В разработке",
+    c2_status: "◎ Спецификация готова (6 200 строк), проект в переговорах",
     c2_subtitle: "Система управления сетью ломбардов",
     c2_desc: "Комплексная система автоматизации для сети из 3 ломбардов. Покрывает полный операционный цикл — от инкассации изделий до аналитики для владельца. Разрабатывается по стандарту ANSS, задеплоена на Railway.",
     c2_p1: "Telegram-бот для владельца: ежедневная сводка, алерты, подтверждение инкассаций кнопками",
     c2_p2: "Веб-приложение для сотрудников: замена Excel, касса, скупка, инкассация с фото",
     c2_p3: "Веб-дашборд: аналитика, движение изделий, отчёты в .xlsx",
-    c2_p4: "Результат: время приёма изделий −70%, нулевые пропущенные уведомления клиентам",
+    c2_p4: "Целевые показатели по ТЗ: сверка кассы <3 мин (сейчас ~30), 100% трек инкассированных изделий",
     c2_p5: "Деплой на Railway с auto-deploy из GitHub, фото в Supabase Storage",
     c3_desc: "Открытый стандарт написания технических спецификаций для AI-разработки. Решает проблему «агент делает технически правильно, но архитектурно неверно». Сократил итерации с 5–7 до 2–3 на реальных проектах.",
     c3_p1: "Трёхслойная структура [D/E/A] — агент знает что читать первым",
@@ -764,13 +778,13 @@ const T = {
     c1_p3: "Offline installation: all dependencies on USB drive, no internet needed",
     c1_p4: "Auto-start via Windows Task Scheduler — restarts automatically after reboot",
     c2_title: "LombardPRO",
-    c2_status: "⟳ In Development",
+    c2_status: "◎ Specification ready (6,200 lines), project in negotiation",
     c2_subtitle: "Pawnshop network management system",
     c2_desc: "Comprehensive automation system for a network of 3 pawnshops. Covers the full operational cycle — from item intake to owner analytics. Built to the ANSS standard, deployed on Railway.",
     c2_p1: "Telegram bot for owner: daily summary, alerts, confirmation of collections by buttons",
     c2_p2: "Web app for staff: replaces Excel, cashier, buyout, collection with photos",
     c2_p3: "Web dashboard: analytics, item movement, reports in .xlsx",
-    c2_p4: "Results: item intake time −70%, zero missed client notifications",
+    c2_p4: "KPI targets per spec: cash reconciliation <3 min (currently ~30 min), 100% foreclosed item tracking",
     c2_p5: "Deployed on Railway with auto-deploy from GitHub, photos in Supabase Storage",
     c3_desc: "Open standard for writing technical specifications for AI development. Solves the problem of 'agent does it technically right but architecturally wrong'. Reduced iterations from 5–7 to 2–3 on real projects.",
     c3_p1: "Three-layer structure [D/E/A] — agent knows what to read first",
@@ -816,13 +830,13 @@ const T = {
     c1_p3: "Офлайн-встановлення: всі залежності на флешці, без інтернету",
     c1_p4: "Автозапуск через Windows Task Scheduler — піднімається сам після перезавантаження",
     c2_title: "ЛомбардПРО",
-    c2_status: "⟳ В розробці",
+    c2_status: "◎ Специфікація готова (6 200 рядків), проект на переговорах",
     c2_subtitle: "Система управління мережею ломбардів",
     c2_desc: "Комплексна система автоматизації для мережі з 3 ломбардів. Охоплює повний операційний цикл — від інкасації виробів до аналітики для власника. Розробляється за стандартом ANSS, задеплоєна на Railway.",
     c2_p1: "Telegram-бот для власника: щоденна зведення, алерти, підтвердження інкасацій кнопками",
     c2_p2: "Веб-додаток для співробітників: заміна Excel, каса, скупка, інкасація з фото",
     c2_p3: "Веб-дашборд: аналітика, рух виробів, звіти у .xlsx",
-    c2_p4: "Результат: час приймання виробів −70%, нуль пропущених сповіщень клієнтам",
+    c2_p4: "Цільові показники по ТЗ: звірка каси <3 хв (зараз ~30), 100% трек інкасованих виробів",
     c2_p5: "Деплой на Railway з auto-deploy з GitHub, фото у Supabase Storage",
     c3_desc: "Відкритий стандарт написання технічних специфікацій для AI-розробки. Вирішує проблему «агент робить технічно правильно, але архітектурно невірно». Скоротив ітерації з 5–7 до 2–3 на реальних проектах.",
     c3_p1: "Трирівнева структура [D/E/A] — агент знає, що читати першим",
@@ -868,13 +882,13 @@ const T = {
     c1_p3: "Instalacja offline: wszystkie zależności na pendrive, bez internetu",
     c1_p4: "Autostart przez Windows Task Scheduler — uruchamia się automatycznie po restarcie",
     c2_title: "LombardPRO",
-    c2_status: "⟳ W trakcie",
+    c2_status: "◎ Specyfikacja gotowa (6 200 linii), projekt w negocjacjach",
     c2_subtitle: "System zarządzania siecią lombardów",
     c2_desc: "Kompleksowy system automatyzacji dla sieci 3 lombardów. Obejmuje pełny cykl operacyjny — od przyjęcia przedmiotów po analitykę dla właściciela. Rozwijany według standardu ANSS, wdrożony na Railway.",
     c2_p1: "Bot Telegram dla właściciela: dzienny raport, alerty, potwierdzanie inkasacji przyciskami",
     c2_p2: "Aplikacja webowa dla pracowników: zastępuje Excel, kasa, skup, inkasacja ze zdjęciami",
     c2_p3: "Panel webowy: analityka, ruch przedmiotów, raporty w .xlsx",
-    c2_p4: "Wyniki: czas przyjęcia przedmiotów −70%, zero pominiętych powiadomień klientów",
+    c2_p4: "Cele KPI wg specyfikacji: weryfikacja kasy <3 min (teraz ~30), 100% tracking inkasowanych przedmiotów",
     c2_p5: "Wdrożenie na Railway z auto-deploy z GitHub, zdjęcia w Supabase Storage",
     c3_desc: "Otwarty standard pisania specyfikacji technicznych dla AI development. Rozwiązuje problem «agent robi technicznie poprawnie, ale architektonicznie źle». Zmniejszył iteracje z 5–7 do 2–3 w realnych projektach.",
     c3_p1: "Trójwarstwowa struktura [D/E/A] — agent wie, co czytać najpierw",
