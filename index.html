@@ -301,6 +301,46 @@ body {
 }
 .fw-tier.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
+/* OFFER BLOCK */
+.offer-block {
+  border: 1px solid rgba(99,102,241,0.3);
+  border-left: 3px solid var(--accent);
+  background: rgba(99,102,241,0.05);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-bottom: 48px;
+}
+.offer-block .offer-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin-bottom: 8px;
+}
+.offer-block .offer-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.offer-block .offer-desc {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 560px;
+  margin-bottom: 16px;
+}
+.offer-block .offer-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--accent2);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(129,140,248,0.3);
+  padding-bottom: 1px;
+  letter-spacing: 0.3px;
+}
+.offer-block .offer-link:hover { border-color: var(--accent2); }
+
 footer {
   border-top: 1px solid var(--border);
   padding: 32px 40px;
@@ -333,10 +373,11 @@ footer {
 <div class="section">
   <p class="section-tag" data-i18n="section_tag">Артём Холомянский · AI проекты · 2026</p>
 
-  <div style="margin-bottom:28px;">
-    <a href="spec.html" style="display:inline-flex;align-items:center;gap:8px;padding:9px 16px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent2);text-decoration:none;letter-spacing:0.3px;">
-      Usługi / Услуги — Specification as a Service →
-    </a>
+  <div class="offer-block">
+    <p class="offer-label" data-i18n="offer_label">Помимо проектов — услуга</p>
+    <p class="offer-title" data-i18n="offer_title">Спецификация как сервис</p>
+    <p class="offer-desc" data-i18n="offer_desc">Аудит и техническое задание, по которому AI-агент или разработчик строит систему предсказуемо.</p>
+    <a class="offer-link" href="spec.html" data-i18n="offer_link">Подробнее →</a>
   </div>
 
   <!-- CASE 1: ANSS -->
@@ -765,7 +806,11 @@ const T = {
     c6_p2: "Tourist mode: готовые маршруты на 2/4/8 часов, места, история с характером",
     c6_p3: "Утренний автодайджест в 08:00, ежедневный прекомпьют контента",
     c6_p4: "Cache-first архитектура — Gemini только как fallback, хостинг Hetzner 5–10€/мес",
-    c6_p5: "SaaS-модель: пилот Эльблонг → Гданьск → Сопот → другие города"
+    c6_p5: "SaaS-модель: пилот Эльблонг → Гданьск → Сопот → другие города",
+    offer_label: "Помимо проектов — услуга",
+    offer_title: "Спецификация как сервис",
+    offer_desc: "Аудит и техническое задание, по которому AI-агент или разработчик строит систему предсказуемо.",
+    offer_link: "Подробнее →"
   },
   en: {
     section_tag: "Artem Kholomyanskiy · AI Projects · 2026",
@@ -817,7 +862,11 @@ const T = {
     c6_p2: "Tourist mode: ready-made routes for 2/4/8 hours, places, history with character",
     c6_p3: "Morning auto-digest at 08:00, daily content precompute",
     c6_p4: "Cache-first architecture — Gemini only as fallback, Hetzner VPS 5–10€/mo",
-    c6_p5: "SaaS model: pilot Elbląg → Gdańsk → Sopot → other cities"
+    c6_p5: "SaaS model: pilot Elbląg → Gdańsk → Sopot → other cities",
+    offer_label: "Beyond projects — a service",
+    offer_title: "Specification as a Service",
+    offer_desc: "Audit and technical specification that lets an AI agent or developer build a system predictably.",
+    offer_link: "Learn more →"
   },
   uk: {
     section_tag: "Артем Холом'янський · AI проєкти · 2026",
@@ -869,7 +918,11 @@ const T = {
     c6_p2: "Tourist mode: готові маршрути на 2/4/8 годин, місця, історія з характером",
     c6_p3: "Ранковий автодайджест о 08:00, щоденний прекомп'ют контенту",
     c6_p4: "Cache-first архітектура — Gemini тільки як fallback, хостинг Hetzner 5–10€/міс",
-    c6_p5: "SaaS-модель: пілот Ельблонг → Гданськ → Сопот → інші міста"
+    c6_p5: "SaaS-модель: пілот Ельблонг → Гданськ → Сопот → інші міста",
+    offer_label: "Окрім проектів — послуга",
+    offer_title: "Специфікація як сервіс",
+    offer_desc: "Аудит і технічне завдання, за яким AI-агент або розробник будує систему передбачувано.",
+    offer_link: "Докладніше →"
   },
   pl: {
     section_tag: "Artem Kholomyanskiy · Projekty AI · 2026",
@@ -921,7 +974,11 @@ const T = {
     c6_p2: "Tryb turysty: gotowe trasy na 2/4/8 godzin, miejsca, historia z charakterem",
     c6_p3: "Poranny auto-digest o 08:00, dzienny precompute treści",
     c6_p4: "Architektura cache-first — Gemini tylko jako fallback, hosting Hetzner 5–10€/mies",
-    c6_p5: "Model SaaS: pilot Elbląg → Gdańsk → Sopot → inne miasta"
+    c6_p5: "Model SaaS: pilot Elbląg → Gdańsk → Sopot → inne miasta",
+    offer_label: "Oprócz projektów — usługa",
+    offer_title: "Specyfikacja jako usługa",
+    offer_desc: "Audyt i dokumentacja techniczna, według której agent AI lub programista buduje system przewidywalnie.",
+    offer_link: "Dowiedz się więcej →"
   }
 };
 
@@ -935,10 +992,13 @@ function setLang(lang) {
   });
   document.documentElement.lang = lang;
   localStorage.setItem('lang', lang);
+  document.querySelectorAll('a[href^="spec.html"]').forEach(function(a) {
+    a.href = 'spec.html?lang=' + lang;
+  });
 }
 
 var saved = localStorage.getItem('lang') || 'ru';
-if (saved !== 'ru') setLang(saved);
+setLang(saved);
 </script>
 
 </body>
