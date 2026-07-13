@@ -301,6 +301,47 @@ body {
 }
 .fw-tier.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
+/* HERO */
+.hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 96px 40px 64px;
+  border-bottom: 1px solid var(--border);
+}
+.hero-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--accent2); margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: clamp(34px, 6vw, 56px);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.5px;
+  color: var(--text); margin-bottom: 14px;
+}
+.hero-role { font-size: 18px; font-weight: 500; color: var(--accent2); margin-bottom: 16px; }
+.hero-desc { font-size: 15px; color: var(--muted); max-width: 620px; }
+
+/* SERVICES */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 48px; }
+.svc-card {
+  border: 1px solid rgba(99,102,241,0.3);
+  border-left: 3px solid var(--accent);
+  background: rgba(99,102,241,0.05);
+  border-radius: 8px; padding: 20px 22px;
+  display: flex; flex-direction: column;
+  text-decoration: none; transition: background .15s, border-color .15s;
+}
+.svc-card:hover { background: rgba(99,102,241,0.10); border-color: var(--accent2); }
+.svc-label {
+  font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--accent2); margin-bottom: 8px;
+}
+.svc-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.svc-desc { font-size: 13px; color: var(--muted); flex: 1; margin-bottom: 14px; }
+.svc-link { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--accent2); }
+@media(max-width:760px){ .services-grid { grid-template-columns: 1fr; } }
+
 /* OFFER BLOCK */
 .offer-block {
   border: 1px solid rgba(99,102,241,0.3);
@@ -369,18 +410,42 @@ footer {
   <button class="lang-btn" onclick="setLang('pl')">PL</button>
 </div>
 
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-tag" data-i18n="hero_tag">EVAI Consulting · Польша</p>
+  <h1>Артём Холомянский</h1>
+  <p class="hero-role" data-i18n="hero_role">Внедряю ИИ в бизнес как инженерную дисциплину</p>
+  <p class="hero-desc" data-i18n="hero_desc">Аудит процессов, спецификации для AI-агентов, автоматизация с контролем результата. 12 лет анализа enterprise-процессов в энергетике. Автор открытого стандарта ANSS.</p>
+</header>
+
+<!-- SERVICES -->
+<div class="section">
+  <p class="section-tag" data-i18n="svc_tag">Услуги и материалы</p>
+  <div class="services-grid">
+    <a class="svc-card" href="audit.html">
+      <span class="svc-label" data-i18n="svc1_label">Услуга · шаг 1</span>
+      <span class="svc-title" data-i18n="svc1_title">AI-аудит отдела</span>
+      <span class="svc-desc" data-i18n="svc1_desc">Фотография рабочей недели, карта задач и расчёт: что автоматизировать, сколько часов высвобождается.</span>
+      <span class="svc-link" data-i18n="svc_more">Подробнее →</span>
+    </a>
+    <a class="svc-card" href="spec.html">
+      <span class="svc-label" data-i18n="svc2_label">Услуга · шаг 2</span>
+      <span class="svc-title" data-i18n="svc2_title">Спецификация как сервис</span>
+      <span class="svc-desc" data-i18n="svc2_desc">Техническое задание, по которому AI-агент или разработчик строит систему предсказуемо.</span>
+      <span class="svc-link" data-i18n="svc_more2">Подробнее →</span>
+    </a>
+    <a class="svc-card" href="metodichka.html">
+      <span class="svc-label" data-i18n="svc3_label">Бесплатно</span>
+      <span class="svc-title" data-i18n="svc3_title">Методичка: ИИ в отделе</span>
+      <span class="svc-desc" data-i18n="svc3_desc">Пять этапов внедрения без потерь: от карты задач до цепочек агентов. Читается за вечер.</span>
+      <span class="svc-link" data-i18n="svc_read">Читать →</span>
+    </a>
+  </div>
+</div>
+
 <!-- CASES -->
 <div class="section">
-  <p class="section-tag" data-i18n="section_tag">Артём Холомянский · AI проекты · 2026</p>
-
-  <div class="offer-block">
-    <p class="offer-label" data-i18n="offer_label">Помимо проектов — услуга</p>
-    <p class="offer-title" data-i18n="offer_title">Спецификация как сервис</p>
-    <p class="offer-desc" data-i18n="offer_desc">Аудит и техническое задание, по которому AI-агент или разработчик строит систему предсказуемо.</p>
-    <a class="offer-link" href="spec.html" data-i18n="offer_link">Подробнее →</a>
-    <a class="offer-link" href="audit.html">AI-аудит отдела →</a>
-    <a class="offer-link" href="metodichka.html">Методичка: ИИ в отделе →</a>
-  </div>
+  <p class="section-tag" data-i18n="section_tag">Портфолио · проекты и кейсы</p>
 
   <!-- CASE 1: ANSS -->
   <div class="case">
@@ -407,7 +472,7 @@ footer {
         <div class="mockup-dot r"></div>
         <div class="mockup-dot y"></div>
         <div class="mockup-dot g"></div>
-        <span>spec.md · ANSS v1.3</span>
+        <span>spec.md · ANSS v1.4</span>
       </div>
       <div class="mockup-body mockup-code">
         <div><span class="code-layer">[D]</span> <span class="code-key">domain:</span> lombard_system</div>
@@ -423,10 +488,10 @@ footer {
 
     <div class="case-tags">
       <span class="tech-tag">Open Standard</span>
-      <span class="tech-tag">CC BY-NC-SA 4.0</span>
+      <span class="tech-tag">CC BY 4.0</span>
       <span class="tech-tag">Claude Code</span>
       <span class="tech-tag">Cursor</span>
-      <span class="tech-tag">v1.3</span>
+      <span class="tech-tag">v1.4</span>
     </div>
     <div class="case-links">
       <a href="https://github.com/Kholomyanskiy/anss-standard" class="case-link" target="_blank">github.com/Kholomyanskiy/anss-standard →</a>
@@ -759,7 +824,18 @@ footer {
 <script>
 const T = {
   ru: {
-    section_tag: "Артём Холомянский · AI проекты · 2026",
+    section_tag: "Портфолио · проекты и кейсы",
+    hero_tag: "EVAI Consulting · Польша",
+    hero_role: "Внедряю ИИ в бизнес как инженерную дисциплину",
+    hero_desc: "Аудит процессов, спецификации для AI-агентов, автоматизация с контролем результата. 12 лет анализа enterprise-процессов в энергетике. Автор открытого стандарта ANSS.",
+    svc_tag: "Услуги и материалы",
+    svc1_label: "Услуга · шаг 1", svc1_title: "AI-аудит отдела",
+    svc1_desc: "Фотография рабочей недели, карта задач и расчёт: что автоматизировать, сколько часов высвобождается.",
+    svc2_label: "Услуга · шаг 2", svc2_title: "Спецификация как сервис",
+    svc2_desc: "Техническое задание, по которому AI-агент или разработчик строит систему предсказуемо.",
+    svc3_label: "Бесплатно", svc3_title: "Методичка: ИИ в отделе",
+    svc3_desc: "Пять этапов внедрения без потерь: от карты задач до цепочек агентов. Читается за вечер.",
+    svc_more: "Подробнее →", svc_more2: "Подробнее →", svc_read: "Читать →",
     footer_text: "Артём Холомянский · AI Automation Consultant · 2026",
     c1_status: "● В продакшне",
     c1_subtitle: "KPI-бот для механиков автосервиса · Польша",
@@ -815,7 +891,18 @@ const T = {
     offer_link: "Подробнее →"
   },
   en: {
-    section_tag: "Artem Kholomyanskiy · AI Projects · 2026",
+    section_tag: "Portfolio · projects and case studies",
+    hero_tag: "EVAI Consulting · Poland",
+    hero_role: "I implement AI in business as an engineering discipline",
+    hero_desc: "Process audits, specifications for AI agents, automation with result control. 12 years of enterprise process analysis in the energy sector. Author of the open ANSS standard.",
+    svc_tag: "Services and materials",
+    svc1_label: "Service · step 1", svc1_title: "AI Department Audit",
+    svc1_desc: "A work-week snapshot, a task map and the math: what to automate and how many hours get freed up.",
+    svc2_label: "Service · step 2", svc2_title: "Specification as a Service",
+    svc2_desc: "A technical specification that lets an AI agent or developer build a system predictably.",
+    svc3_label: "Free", svc3_title: "Guide: AI in Your Department",
+    svc3_desc: "Five stages of adoption without losses: from a task map to agent chains. An evening's read.",
+    svc_more: "Learn more →", svc_more2: "Learn more →", svc_read: "Read →",
     footer_text: "Artem Kholomyanskiy · AI Automation Consultant · 2026",
     c1_status: "● Live",
     c1_subtitle: "KPI bot for auto service mechanics · Poland",
@@ -871,7 +958,18 @@ const T = {
     offer_link: "Learn more →"
   },
   uk: {
-    section_tag: "Артем Холом'янський · AI проєкти · 2026",
+    section_tag: "Портфоліо · проєкти та кейси",
+    hero_tag: "EVAI Consulting · Польща",
+    hero_role: "Впроваджую ШІ в бізнес як інженерну дисципліну",
+    hero_desc: "Аудит процесів, специфікації для AI-агентів, автоматизація з контролем результату. 12 років аналізу enterprise-процесів в енергетиці. Автор відкритого стандарту ANSS.",
+    svc_tag: "Послуги та матеріали",
+    svc1_label: "Послуга · крок 1", svc1_title: "AI-аудит відділу",
+    svc1_desc: "Фотографія робочого тижня, карта задач і розрахунок: що автоматизувати, скільки годин вивільняється.",
+    svc2_label: "Послуга · крок 2", svc2_title: "Специфікація як сервіс",
+    svc2_desc: "Технічне завдання, за яким AI-агент або розробник будує систему передбачувано.",
+    svc3_label: "Безкоштовно", svc3_title: "Методичка: ШІ у відділі",
+    svc3_desc: "П'ять етапів впровадження без втрат: від карти задач до ланцюжків агентів. Читається за вечір.",
+    svc_more: "Докладніше →", svc_more2: "Докладніше →", svc_read: "Читати →",
     footer_text: "Артем Холом'янський · AI Automation Consultant · 2026",
     c1_status: "● В продакшні",
     c1_subtitle: "KPI-бот для механіків автосервісу · Польща",
@@ -927,7 +1025,18 @@ const T = {
     offer_link: "Докладніше →"
   },
   pl: {
-    section_tag: "Artem Kholomyanskiy · Projekty AI · 2026",
+    section_tag: "Portfolio · projekty i case studies",
+    hero_tag: "EVAI Consulting · Polska",
+    hero_role: "Wdrażam AI w biznesie jako dyscyplinę inżynierską",
+    hero_desc: "Audyt procesów, specyfikacje dla agentów AI, automatyzacja z kontrolą wyniku. 12 lat analizy procesów enterprise w energetyce. Autor otwartego standardu ANSS.",
+    svc_tag: "Usługi i materiały",
+    svc1_label: "Usługa · krok 1", svc1_title: "Audyt AI działu",
+    svc1_desc: "Fotografia tygodnia pracy, mapa zadań i kalkulacja: co zautomatyzować, ile godzin się uwalnia.",
+    svc2_label: "Usługa · krok 2", svc2_title: "Specyfikacja jako usługa",
+    svc2_desc: "Dokumentacja techniczna, według której agent AI lub programista buduje system przewidywalnie.",
+    svc3_label: "Bezpłatnie", svc3_title: "Przewodnik: AI w dziale",
+    svc3_desc: "Pięć etapów wdrożenia bez strat: od mapy zadań do łańcuchów agentów. Do przeczytania w jeden wieczór.",
+    svc_more: "Dowiedz się więcej →", svc_more2: "Dowiedz się więcej →", svc_read: "Czytaj →",
     footer_text: "Artem Kholomyanskiy · AI Automation Consultant · 2026",
     c1_status: "● Na produkcji",
     c1_subtitle: "Bot KPI dla mechaników warsztatu · Polska",
