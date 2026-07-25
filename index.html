@@ -3,1113 +3,445 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#0A0A0A">
-<style>html,body{background:#0A0A0A!important;color-scheme:dark!important;}</style>
-<title>Артём Холомянский — AI Проекты и Кейсы</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Артём Холомянский — AI-консалтинг, проектирование и автоматизация процессов</title>
+<meta name="description" content="Внедрение искусственного интеллекта и автоматизации в рабочие процессы компаний. Аудит, проектирование, спецификация, внедрение. Автор стандарта ANSS.">
+<link rel="canonical" href="https://kholomyanskiy.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Артём Холомянский — AI-консалтинг, проектирование и автоматизация процессов">
+<meta property="og:description" content="Внедрение искусственного интеллекта и автоматизации в рабочие процессы компаний. Аудит, проектирование, спецификация, внедрение. Автор стандарта ANSS.">
+<meta property="og:url" content="https://kholomyanskiy.github.io/">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Артём Холомянский — AI-консалтинг, проектирование и автоматизация процессов">
+<meta name="twitter:description" content="Внедрение искусственного интеллекта и автоматизации в рабочие процессы компаний. Аудит, проектирование, спецификация, внедрение. Автор стандарта ANSS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Person",
+ "name": "Артём Холомянский",
+ "alternateName": "Artem Kholomyanskiy",
+ "jobTitle": "AI Automation Consultant",
+ "url": "https://kholomyanskiy.github.io",
+ "email": "mailto:kholomyanskiy@gmail.com",
+ "address": {
+ "@type": "PostalAddress",
+ "addressLocality": "Elbląg",
+ "addressCountry": "PL"
+ },
+ "sameAs": [
+ "https://linkedin.com/in/kholomyanskiy",
+ "https://github.com/Kholomyanskiy",
+ "https://t.me/kholomyanskiy"
+ ],
+ "worksFor": {
+ "@type": "ProfessionalService",
+ "name": "EVAI Consulting",
+ "areaServed": ["PL", "EU", "US"],
+ "serviceType": ["Аудит процессов перед внедрением AI", "Проектирование AI-решений", "Проектирование требований для внедрения (AI-спецификация/ТЗ)", "Автоматизация процессов", "Консалтинг"]
+ },
+ "knowsAbout": ["Artificial Intelligence", "Business Process Automation", "SAP IS-U", "SCADA", "AI Specification Standards", "Claude", "Claude Code"]
+}
+</script>
 <style>
-:root {
-  --bg: #0A0A0A;
-  --bg2: #111111;
-  --bg3: #1A1A1A;
-  --accent: #6366F1;
-  --accent2: #818CF8;
-  --gold: #C9A84C;
-  --text: #E8E4DC;
-  --muted: #7A7570;
-  --border: rgba(255,255,255,0.07);
-  --green: #34D399;
-  --orange: #F59E0B;
-  --blue: #60A5FA;
+:root{
+ --paper:#F2F3EE; --panel:#FAFBF7; --ink:#1B2027; --ink-soft:#4A5361;
+ --line:#C9CEC2; --line-soft:#DEE1D8; --blue:#2B5B8A; --blue-deep:#1E4266; --stamp:#9A3B33;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  line-height: 1.7;
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+ font-family:'Inter',sans-serif; background:var(--paper);
+ background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+ background-size:32px 32px; color:var(--ink); line-height:1.7; font-size:16px;
 }
-
-/* LANG BAR */
-.lang-bar {
-  position: fixed;
-  top: 20px;
-  right: 24px;
-  z-index: 100;
-  display: flex;
-  gap: 4px;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 4px;
+.sheet{max-width:820px;margin:32px auto 40px;background:var(--panel);border:1.5px solid var(--ink);box-shadow:8px 8px 0 rgba(27,32,39,.08)}
+.titleblock{border-bottom:1.5px solid var(--ink)}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-top .brand{font-weight:500;color:var(--ink);letter-spacing:.08em}
+.tb-main{padding:48px 32px 40px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(30px,5vw,46px);line-height:1.12;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;max-width:560px;color:var(--ink-soft);font-size:17.5px}
+.hero-cta{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-cta a{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;padding:12px 22px;text-decoration:none;display:inline-block}
+.hero-cta a.primary{background:var(--ink);color:#EDEFF2;border:1.5px solid var(--ink)}
+.hero-cta a.primary:hover{background:transparent;color:var(--ink)}
+.hero-cta a.secondary{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.hero-cta a.secondary:hover{background:var(--ink);color:#EDEFF2}
+section{padding:40px 32px;border-bottom:1px solid var(--line);scroll-margin-top:70px}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:27px;margin-bottom:16px}
+h3{font-family:'Spectral',serif;font-weight:600;font-size:18px;margin-bottom:6px}
+p{max-width:620px;margin-bottom:14px}
+p.lead{font-size:17.5px}
+.muted{color:var(--ink-soft)}
+.callout{border-left:4px solid var(--stamp);background:var(--paper);padding:16px 20px;margin:22px 0;max-width:620px;font-size:16px;font-family:'Spectral',serif;font-style:italic}
+.callout .cl-k{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--stamp);display:block;margin-bottom:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2px;background:var(--line);border:1px solid var(--line);margin-top:20px}
+.grid-item{background:var(--panel);padding:18px 20px}
+.grid-item .num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.08em;display:block;margin-bottom:6px}
+.grid-item h3{margin-bottom:4px}
+.grid-item p{font-size:14px;margin-bottom:0;color:var(--ink-soft);max-width:none}
+.section-more{margin-top:22px}
+.section-more a{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--ink);background:transparent;border:1.5px solid var(--ink);padding:11px 22px;text-decoration:none}
+.section-more a:hover{background:var(--ink);color:#EDEFF2}
+a{color:var(--blue)}
+footer{max-width:820px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;background:var(--panel);border:1.5px solid var(--ink);border-top:none}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+@media(max-width:680px){footer{margin:0 12px 32px;padding:20px}}
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-inner{max-width:820px;margin:0 auto;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-family:'JetBrains Mono',monospace;font-size:13px}
+.topnav-brand{font-weight:600;color:var(--ink);letter-spacing:.04em;text-decoration:none;line-height:1.3}
+.topnav-brand .role{display:block;font-weight:400;font-size:10px;color:var(--ink-soft);letter-spacing:.03em;text-transform:none}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+.lang-switch{display:flex;gap:4px;border:1px solid var(--line);padding:2px}
+.lang-btn{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;background:transparent;border:none;color:var(--ink-soft);padding:4px 9px;cursor:pointer}
+.lang-btn.active{background:var(--ink);color:#EDEFF2}
+.lang-btn:hover:not(.active){color:var(--ink)}
+.accordion{margin-top:20px;border:1px solid var(--line)}
+.acc-item{border-bottom:1px solid var(--line)}
+.acc-item:last-child{border-bottom:none}
+.acc-head{width:100%;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:var(--panel);border:none;text-align:left;cursor:pointer;font-family:'Spectral',serif;font-weight:600;font-size:16px;color:var(--ink)}
+.acc-head:hover{background:var(--paper)}
+.acc-plus{font-family:'JetBrains Mono',monospace;font-size:18px;color:var(--blue);flex-shrink:0;margin-left:16px;transition:transform .2s}
+.acc-item.open .acc-plus{transform:rotate(45deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .25s ease}
+.acc-body-inner{padding:0 20px 18px;font-size:15px;color:var(--ink-soft);max-width:560px}
+.mid-cta{background:var(--paper);border:1.5px dashed var(--blue);padding:24px 28px;margin-top:26px;max-width:620px}
+.mid-cta p{margin-bottom:12px}
+.mid-cta a.btn2{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:#fff;background:var(--blue);border:1.5px solid var(--blue);padding:11px 22px;text-decoration:none}
+.mid-cta a.btn2:hover{background:transparent;color:var(--blue)}
+.closing-cta{background:var(--ink);color:#EDEFF2;padding:44px 32px;text-align:center}
+.closing-cta h2{color:#fff;margin-bottom:10px}
+.closing-cta p{color:#B9C1CC;max-width:520px;margin:0 auto 20px}
+.closing-cta a.btn3{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;padding:14px 30px;text-decoration:none}
+.closing-cta a.btn3:hover{background:transparent;color:#EDEFF2}
+@media(max-width:680px){
+ .topnav-inner{padding:12px 20px;gap:8px}
+ .topnav-links{gap:14px;font-size:12px}
 }
-.lang-btn {
-  background: none;
-  border: none;
-  color: var(--muted);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 1px;
-  padding: 4px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-}
-.lang-btn:hover { color: var(--text); }
-.lang-btn.active { background: var(--accent); color: #fff; }
-
-/* SECTION */
-.section {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 80px 40px;
-  border-bottom: 1px solid var(--border);
-}
-.section-tag {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--accent2);
-  margin-bottom: 48px;
-}
-
-/* CASE CARD */
-.case {
-  margin-bottom: 64px;
-  padding-bottom: 64px;
-  border-bottom: 1px solid var(--border);
-}
-.case:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
-.case-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-.case-num {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: var(--muted);
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  padding: 4px 10px;
-  border-radius: 4px;
-  flex-shrink: 0;
-  margin-top: 4px;
-}
-.case-title-wrap { flex: 1; }
-.case-title {
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  margin-bottom: 6px;
-}
-.case-subtitle { font-size: 14px; color: var(--muted); }
-
-.status-badge {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 1px;
-  padding: 4px 12px;
-  border-radius: 20px;
-  flex-shrink: 0;
-}
-.status-live { background: rgba(52,211,153,0.1); color: var(--green); border: 1px solid rgba(52,211,153,0.3); }
-.status-dev { background: rgba(245,158,11,0.1); color: var(--orange); border: 1px solid rgba(245,158,11,0.3); }
-.status-open { background: rgba(96,165,250,0.1); color: var(--blue); border: 1px solid rgba(96,165,250,0.3); }
-.status-concept { background: rgba(99,102,241,0.1); color: var(--accent2); border: 1px solid rgba(99,102,241,0.3); }
-
-.case-desc {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 20px;
-  max-width: 680px;
-}
-
-.case-points {
-  list-style: none;
-  margin-bottom: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.case-points li {
-  font-size: 14px;
-  color: var(--text);
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
-.case-points li::before {
-  content: '→';
-  color: var(--accent2);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  flex-shrink: 0;
-  margin-top: 3px;
-}
-
-.case-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-.tech-tag {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 1px;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 3px 10px;
-  color: var(--muted);
-}
-
-.case-links { display: flex; gap: 10px; flex-wrap: wrap; }
-.case-link {
-  font-size: 12px;
-  font-family: 'IBM Plex Mono', monospace;
-  color: var(--accent2);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(129,140,248,0.3);
-  padding-bottom: 1px;
-  transition: border-color 0.2s;
-}
-.case-link:hover { border-color: var(--accent2); }
-
-/* MOCKUP */
-.mockup {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 24px;
-  max-width: 480px;
-}
-.mockup-bar {
-  background: var(--bg2);
-  border-bottom: 1px solid var(--border);
-  padding: 8px 14px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.mockup-bar span {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: var(--muted);
-  margin-left: 4px;
-}
-.mockup-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
-.mockup-dot.r { background: #FF5F57; }
-.mockup-dot.y { background: #FEBC2E; }
-.mockup-dot.g { background: #28C840; }
-.mockup-body {
-  padding: 16px;
-  font-size: 12px;
-  line-height: 1.8;
-  font-family: 'IBM Plex Mono', monospace;
-}
-
-/* Chat mockup */
-.mockup-chat { display: flex; flex-direction: column; gap: 8px; }
-.chat-modes { display: flex; gap: 6px; margin-bottom: 4px; }
-.chat-mode {
-  font-size: 10px; padding: 2px 10px; border-radius: 12px;
-  border: 1px solid var(--border); color: var(--muted); font-family: 'IBM Plex Mono', monospace;
-}
-.chat-mode.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-.chat-msg {
-  max-width: 90%; padding: 8px 12px; border-radius: 10px; font-size: 12px; line-height: 1.5;
-  font-family: 'Inter', sans-serif;
-}
-.chat-msg.user {
-  background: var(--accent); color: #fff; align-self: flex-end;
-  border-radius: 10px 10px 2px 10px;
-}
-.chat-msg.bot {
-  background: var(--bg2); color: var(--text); align-self: flex-start;
-  border-radius: 10px 10px 10px 2px;
-}
-.chat-btn {
-  display: inline-block; background: var(--bg3); border: 1px solid var(--border);
-  border-radius: 6px; padding: 2px 8px; margin: 3px 2px 0 0; font-size: 11px;
-  color: var(--accent2); font-family: 'IBM Plex Mono', monospace;
-}
-.chat-muted { font-size: 11px; color: var(--muted); display: block; margin-top: 2px; }
-.chat-route { color: var(--accent2); font-size: 11px; display: block; margin-top: 2px; }
-.chat-info { background: rgba(99,102,241,0.08) !important; border: 1px solid rgba(99,102,241,0.15); font-size: 11px; color: var(--muted); }
-.kpi-bar { display: flex; align-items: center; gap: 8px; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
-.kpi-track { flex: 1; height: 4px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
-.kpi-fill { height: 100%; background: var(--green); border-radius: 2px; }
-.kpi-pct { color: var(--green); min-width: 32px; }
-
-/* Dashboard mockup */
-.mockup-dash .dash-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-.dash-label { color: var(--muted); font-size: 11px; width: 64px; flex-shrink: 0; }
-.dash-bar { flex: 1; height: 4px; background: var(--bg2); border-radius: 2px; overflow: hidden; }
-.dash-bar span { display: block; height: 100%; background: var(--accent2); border-radius: 2px; }
-.dash-bar span.green { background: var(--green); }
-.dash-bar span.orange { background: var(--orange); }
-.dash-val { font-size: 11px; color: var(--text); width: 72px; text-align: right; flex-shrink: 0; }
-.dash-val.green { color: var(--green); }
-.dash-divider { border-top: 1px solid var(--border); margin: 10px 0; }
-.dash-alert { font-size: 11px; color: var(--orange); }
-.dash-ok { font-size: 11px; color: var(--green); }
-
-/* Code/spec mockup */
-.mockup-code { color: var(--muted); }
-.code-layer { color: var(--blue); font-weight: 500; }
-.code-layer-a { color: var(--green); font-weight: 500; }
-.code-key { color: var(--text); }
-.code-val { color: var(--accent2); }
-.code-ok { color: var(--green); }
-.code-indent { padding-left: 16px; }
-.code-blank { height: 6px; }
-
-/* Terminal mockup */
-.mockup-terminal { display: flex; flex-direction: column; gap: 5px; }
-.term-line { display: flex; gap: 8px; align-items: baseline; }
-.term-agent { color: var(--accent2); min-width: 72px; }
-.term-sep { color: var(--muted); }
-.term-ok { color: var(--green); }
-.term-cursor { animation: blink 1s step-end infinite; }
-@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
-
-/* Framework mockup */
-.fw-step {
-  display: flex; align-items: center; gap: 10px; padding: 6px 0;
-  border-bottom: 1px solid var(--border); color: var(--muted); font-family: 'Inter', sans-serif;
-}
-.fw-step:last-of-type { border-bottom: none; }
-.fw-step.done { color: var(--text); }
-.fw-step.active { color: var(--accent2); }
-.fw-num { font-size: 10px; color: var(--muted); width: 20px; flex-shrink: 0; font-family: 'IBM Plex Mono', monospace; }
-.fw-text { flex: 1; font-size: 12px; }
-.fw-check { color: var(--green); font-size: 12px; }
-.fw-arrow { color: var(--accent2); font-size: 12px; }
-.fw-tiers { display: flex; gap: 6px; margin-top: 12px; }
-.fw-tier {
-  font-size: 10px; padding: 3px 10px; border-radius: 4px;
-  border: 1px solid var(--border); color: var(--muted); font-family: 'IBM Plex Mono', monospace;
-}
-.fw-tier.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-
-/* HERO */
-.hero {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 96px 40px 64px;
-  border-bottom: 1px solid var(--border);
-}
-.hero-tag {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-  color: var(--accent2); margin-bottom: 20px;
-}
-.hero h1 {
-  font-size: clamp(34px, 6vw, 56px);
-  font-weight: 700; line-height: 1.1; letter-spacing: -0.5px;
-  color: var(--text); margin-bottom: 14px;
-}
-.hero-role { font-size: 18px; font-weight: 500; color: var(--accent2); margin-bottom: 16px; }
-.hero-desc { font-size: 15px; color: var(--muted); max-width: 620px; }
-
-/* SERVICES */
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 48px; }
-.svc-card {
-  border: 1px solid rgba(99,102,241,0.3);
-  border-left: 3px solid var(--accent);
-  background: rgba(99,102,241,0.05);
-  border-radius: 8px; padding: 20px 22px;
-  display: flex; flex-direction: column;
-  text-decoration: none; transition: background .15s, border-color .15s;
-}
-.svc-card:hover { background: rgba(99,102,241,0.10); border-color: var(--accent2); }
-.svc-label {
-  font-family: 'IBM Plex Mono', monospace; font-size: 9px;
-  letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--accent2); margin-bottom: 8px;
-}
-.svc-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-.svc-desc { font-size: 13px; color: var(--muted); flex: 1; margin-bottom: 14px; }
-.svc-link { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--accent2); }
-@media(max-width:760px){ .services-grid { grid-template-columns: 1fr; } }
-
-/* OFFER BLOCK */
-.offer-block {
-  border: 1px solid rgba(99,102,241,0.3);
-  border-left: 3px solid var(--accent);
-  background: rgba(99,102,241,0.05);
-  border-radius: 8px;
-  padding: 24px 28px;
-  margin-bottom: 48px;
-}
-.offer-block .offer-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--accent2);
-  margin-bottom: 8px;
-}
-.offer-block .offer-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-.offer-block .offer-desc {
-  font-size: 14px;
-  color: var(--muted);
-  max-width: 560px;
-  margin-bottom: 16px;
-}
-.offer-block .offer-link {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--accent2);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(129,140,248,0.3);
-  padding-bottom: 1px;
-  letter-spacing: 0.3px;
-}
-.offer-block .offer-link:hover { border-color: var(--accent2); }
-
-footer {
-  border-top: 1px solid var(--border);
-  padding: 32px 40px;
-  text-align: center;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 1px;
-}
-
-@media(max-width:640px){
-  .section { padding-left: 20px; padding-right: 20px; }
-  .case-header { flex-wrap: wrap; }
-  .lang-bar { top: 12px; right: 12px; }
-  .mockup { max-width: 100%; }
+@media(max-width:680px){
+ .sheet{margin:10px 12px 32px}
+ section,.tb-main{padding-left:20px;padding-right:20px}
+ .tb-top{padding:12px 20px}
 }
 </style>
 </head>
 <body>
 
-<!-- LANG SWITCHER -->
-<div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('ru')">RU</button>
-  <button class="lang-btn" onclick="setLang('en')">EN</button>
-  <button class="lang-btn" onclick="setLang('uk')">UK</button>
-  <button class="lang-btn" onclick="setLang('pl')">PL</button>
-</div>
+<nav class="topnav">
+ <div class="topnav-inner">
+ <a class="topnav-brand" href="index.html">АРТЁМ ХОЛОМЯНСКИЙ<span class="role">EVAI Consulting · Разработка и внедрение AI-решений</span></a>
+ <div class="topnav-links">
+ <a href="#services" data-i18n="nav.services">Услуги</a>
+ <a href="#portfolio" data-i18n="nav.portfolio">Портфолио</a>
+ <a href="#products" data-i18n="nav.products">Продукты</a>
+ <a href="#articles" data-i18n="nav.articles">Статьи</a>
+ <a href="mailto:kholomyanskiy@gmail.com" data-i18n="nav.contacts">Контакты</a>
+ <span class="lang-switch">
+ <button type="button" class="lang-btn active" data-lang="ru">RU</button>
+ <button type="button" class="lang-btn" data-lang="en">EN</button>
+ </span>
+ </div>
+ </div>
+</nav>
 
-<!-- HERO -->
-<header class="hero">
-  <p class="hero-tag" data-i18n="hero_tag">EVAI Consulting · Польша</p>
-  <h1>Артём Холомянский</h1>
-  <p class="hero-role" data-i18n="hero_role">Внедряю ИИ в бизнес как инженерную дисциплину</p>
-  <p class="hero-desc" data-i18n="hero_desc">Аудит процессов, спецификации для AI-агентов, автоматизация с контролем результата. 12 лет анализа enterprise-процессов в энергетике. Автор открытого стандарта ANSS.</p>
-</header>
+<div class="sheet">
 
-<!-- SERVICES -->
-<div class="section">
-  <p class="section-tag" data-i18n="svc_tag">Услуги и материалы</p>
-  <div class="services-grid">
-    <a class="svc-card" href="audit.html">
-      <span class="svc-label" data-i18n="svc1_label">Услуга · шаг 1</span>
-      <span class="svc-title" data-i18n="svc1_title">AI-аудит отдела</span>
-      <span class="svc-desc" data-i18n="svc1_desc">Фотография рабочей недели, карта задач и расчёт: что автоматизировать, сколько часов высвобождается.</span>
-      <span class="svc-link" data-i18n="svc_more">Подробнее →</span>
-    </a>
-    <a class="svc-card" href="spec.html">
-      <span class="svc-label" data-i18n="svc2_label">Услуга · шаг 2</span>
-      <span class="svc-title" data-i18n="svc2_title">Спецификация как сервис</span>
-      <span class="svc-desc" data-i18n="svc2_desc">Техническое задание, по которому AI-агент или разработчик строит систему предсказуемо.</span>
-      <span class="svc-link" data-i18n="svc_more2">Подробнее →</span>
-    </a>
-    <a class="svc-card" href="metodichka.html">
-      <span class="svc-label" data-i18n="svc3_label">Бесплатно</span>
-      <span class="svc-title" data-i18n="svc3_title">Методичка: ИИ в отделе</span>
-      <span class="svc-desc" data-i18n="svc3_desc">Пять этапов внедрения без потерь: от карты задач до цепочек агентов. Читается за вечер.</span>
-      <span class="svc-link" data-i18n="svc_read">Читать →</span>
-    </a>
-  </div>
-</div>
+ <header class="titleblock">
+ <div class="tb-top">
+ <span class="brand">EVAI CONSULTING</span>
+ <span>Elbląg, Poland</span>
+ </div>
+ <div class="tb-main">
+ <h1 data-i18n="hero.name">Артём Холомянский</h1>
+ <p class="sub" data-i18n="hero.sub">AI-консалтинг, проектирование и автоматизация бизнес-процессов. Искусственный интеллект становится полезным только тогда, когда задача описана достаточно точно.</p>
+ <div class="hero-cta">
+ <a class="primary" href="mailto:kholomyanskiy@gmail.com?subject=%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0" data-i18n="hero.cta_primary">Обсудить задачу</a>
+ <a class="secondary" href="portfolio.html" data-i18n="hero.cta_secondary">Смотреть проекты</a>
+ </div>
+ </div>
+ </header>
 
-<!-- CASES -->
-<div class="section">
-  <p class="section-tag" data-i18n="section_tag">Портфолио · проекты и кейсы</p>
+ <section>
+ <span class="secnum">0.1 // <span data-i18n="approach.secnum">ПОДХОД</span></span>
+ <p class="lead" data-i18n="approach.lead">Начинаю с анализа процессов, затем проектирую решение и сопровождаю внедрение до получения стабильного результата.</p>
+ <p class="muted" data-i18n="approach.exp">Более 12 лет в enterprise IT энергетического сектора — SAP IS-U, SCADA, АСКУЭ, проекты с высокой стоимостью ошибки и жёсткими требованиями к качеству. Работал с проектами компании суммарным бюджетом более $10 млн. Использую современные AI-инструменты и платформы автоматизации: Claude, Claude Code, n8n, API-интеграции и другие технологии, подходящие под конкретную задачу.</p>
+ <div class="callout">
+ <span class="cl-k" data-i18n="approach.philosophy_label">Философия</span>
+ <span data-i18n="approach.philosophy">Большинство проблем при внедрении ИИ начинаются с недостаточно чётко описанной задачи и процесса.</span>
+ </div>
+ </section>
 
-  <!-- CASE 1: ANSS -->
-  <div class="case">
-    <div class="case-header">
-      <div class="case-num">01</div>
-      <div class="case-title-wrap">
-        <div class="case-title">ANSS Standard</div>
-        <div class="case-subtitle">AI-Native System Specification Standard</div>
-      </div>
-      <div class="status-badge status-open">↗ Open Source</div>
-    </div>
-    <p class="case-desc" data-i18n="c3_desc">Открытый стандарт написания технических спецификаций для AI-разработки. Решает проблему «агент делает технически правильно, но архитектурно неверно». Сократил итерации с 5–7 до 2–3 на реальных проектах.</p>
-    <ul class="case-points">
-      <li data-i18n="c3_p1">Трёхслойная структура [D/E/A] — агент знает что читать первым</li>
-      <li data-i18n="c3_p2">Инварианты — машиночитаемые ограничения с полем «Проверка»</li>
-      <li data-i18n="c3_p3">Agent Review — агент аудирует ТЗ до написания кода. &gt;3 проблем = стоп</li>
-      <li data-i18n="c3_p4">Change Specification — явный список «что НЕ менять» при доработках</li>
-      <li data-i18n="c3_p5">Работает с Claude Code, Cursor, Copilot</li>
-    </ul>
+ <section>
+ <span class="secnum">0.2 // <span data-i18n="why.secnum">ПОЧЕМУ Я ЭТИМ ЗАНИМАЮСЬ</span></span>
+ <h2 data-i18n="why.title">Откуда этот интерес</h2>
+ <p data-i18n="why.p1">Мне всегда было интересно искать способы сделать процессы проще и удобнее. Ещё до появления современных AI-инструментов я постоянно замечал повторяющиеся действия, лишние шаги и неудобные процессы, которые можно было изменить. От бытовых мелочей до рабочих систем: если действие повторяется регулярно, обычно есть возможность сделать его проще или эффективнее.</p>
+ <p data-i18n="why.p2">В бизнесе происходит то же самое. Сотрудники каждый день выполняют множество повторяющихся операций: ищут информацию, обрабатывают письма, заполняют документы, готовят отчёты, переносят данные между системами. Мне интересно находить такие места, где процесс можно сделать проще, быстрее и надёжнее.</p>
+ <p data-i18n="why.p3">Опыт в enterprise IT научил меня подходить к этому системно: сначала понять задачу, затем описать процесс и только после этого выбирать технологию. Сегодня искусственный интеллект стал следующим этапом развития этого подхода — он позволяет создавать системы, которые берут на себя рутину и освобождают время для решений, где действительно нужен человек.</p>
+ </section>
 
-    <!-- MOCKUP: Spec file -->
-    <div class="mockup">
-      <div class="mockup-bar">
-        <div class="mockup-dot r"></div>
-        <div class="mockup-dot y"></div>
-        <div class="mockup-dot g"></div>
-        <span>spec.md · ANSS v1.4</span>
-      </div>
-      <div class="mockup-body mockup-code">
-        <div><span class="code-layer">[D]</span> <span class="code-key">domain:</span> lombard_system</div>
-        <div class="code-indent"><span class="code-key">invariant:</span> <span class="code-val">no_delete_transactions</span></div>
-        <div class="code-indent" style="color:var(--muted);font-size:11px">verify: grep "DELETE" migrations/</div>
-        <div class="code-blank"></div>
-        <div><span class="code-layer">[E]</span> <span class="code-key">stack:</span> FastAPI · PostgreSQL · Telegram</div>
-        <div class="code-indent"><span class="code-key">change_spec:</span> <span style="color:var(--muted);font-size:11px">do not touch auth module</span></div>
-        <div class="code-blank"></div>
-        <div><span class="code-layer-a">[A]</span> <span class="code-key">agent_review:</span> <span class="code-ok">✓ 0 issues — proceed</span></div>
-      </div>
-    </div>
+ <section id="services">
+ <span class="secnum">1.0 // <span data-i18n="services.secnum">УСЛУГИ</span></span>
+ <h2 data-i18n="services.title">Чем я занимаюсь</h2>
+ <div class="grid">
+ <div class="grid-item"><span class="num">01</span><h3 data-i18n="services.s1.h">Аудит процессов перед внедрением AI</h3><p data-i18n="services.s1.p">Что происходит на самом деле</p></div>
+ <div class="grid-item"><span class="num">02</span><h3 data-i18n="services.s2.h">Проектирование AI-решений</h3><p data-i18n="services.s2.p">Архитектура и план внедрения</p></div>
+ <div class="grid-item"><span class="num">03</span><h3 data-i18n="services.s3.h">Проектирование требований для внедрения (AI-спецификация/ТЗ)</h3><p data-i18n="services.s3.p">Точное ТЗ для внедрения</p></div>
+ <div class="grid-item"><span class="num">04</span><h3 data-i18n="services.s4.h">Автоматизация процессов</h3><p data-i18n="services.s4.p">Интеграции и рабочие сценарии</p></div>
+ <div class="grid-item"><span class="num">05</span><h3 data-i18n="services.s5.h">Консалтинг</h3><p data-i18n="services.s5.p">Разовая консультация</p></div>
+ </div>
+ <p class="section-more"><a href="services.html" data-i18n="services.more">Все услуги →</a></p>
+ </section>
 
-    <div class="case-tags">
-      <span class="tech-tag">Open Standard</span>
-      <span class="tech-tag">CC BY 4.0</span>
-      <span class="tech-tag">Claude Code</span>
-      <span class="tech-tag">Cursor</span>
-      <span class="tech-tag">v1.4</span>
-    </div>
-    <div class="case-links">
-      <a href="https://github.com/Kholomyanskiy/anss-standard" class="case-link" target="_blank">github.com/Kholomyanskiy/anss-standard →</a>
-      <a href="https://kholomyanskiy.hashnode.dev/anss-a-specification-standard-built-for-ai-agents-not-just-humans" class="case-link" target="_blank" data-i18n="c3_link2">Статья на Hashnode →</a>
-    </div>
-  </div>
+ <section>
+ <span class="secnum">1.5 // <span data-i18n="audience.secnum">ДЛЯ КОГО</span></span>
+ <h2 data-i18n="audience.title">Для кого я работаю</h2>
+ <p data-i18n="audience.p1">С компаниями и командами, которые хотят внедрить ИИ в реальные процессы, а не просто попробовать.</p>
+ <p class="muted" data-i18n="audience.p2">Подходит: владельцам малого и среднего бизнеса, руководителям отделов, компаниям, которые готовятся к внедрению ИИ, командам с большим объёмом ручной работы с информацией.</p>
+ <div class="mid-cta">
+ <p data-i18n="midcta.text">Готовы посмотреть, где в вашем отделе можно сэкономить время? Опишите задачу в двух-трёх предложениях — отвечу, стоит ли этим заниматься.</p>
+ <a class="btn2" href="mailto:kholomyanskiy@gmail.com?subject=%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0" data-i18n="midcta.btn">Написать →</a>
+ </div>
+ </section>
 
-  <!-- CASE 2: Solo Founder OS -->
-  <div class="case">
-    <div class="case-header">
-      <div class="case-num">02</div>
-      <div class="case-title-wrap">
-        <div class="case-title">Solo Founder OS</div>
-        <div class="case-subtitle" data-i18n="c4_subtitle">AI-операционная система для солофаундера</div>
-      </div>
-      <div class="status-badge status-dev" data-i18n="c4_status">⟳ MVP готов</div>
-    </div>
-    <p class="case-desc" data-i18n="c4_desc">Локальное веб-приложение с командой из 11 специализированных AI-агентов на базе Claude Code. Построено по стандарту ANSS. Заменяет разрозненные чаты с AI единой системой с общей памятью и режимом планирования.</p>
-    <ul class="case-points">
-      <li data-i18n="c4_p1">11 агентов: Alex (CEO), Max (Backend), Artem (Frontend), Igor (DevOps), Katya (Integrator), Lera (Sales), Lena (QA), Dima (SMM), Yulia (Lawyer) и другие</li>
-      <li data-i18n="c4_p2">Smart Onboarding — персональная AI-команда за 5 минут</li>
-      <li data-i18n="c4_p3">Режим планирования: задача → план → выполнение через нескольких агентов</li>
-      <li data-i18n="c4_p4">Единая память между сессиями и проектами</li>
-      <li data-i18n="c4_p5">Vanilla Node.js без фреймворков, state в JSON, без npm install</li>
-    </ul>
+ <section id="portfolio">
+ <span class="secnum">2.0 // <span data-i18n="portfolio.secnum">ПОРТФОЛИО</span></span>
+ <h2 data-i18n="portfolio.title">Практические примеры AI-решений</h2>
+ <div class="grid">
+ <div class="grid-item"><span class="num">01</span><h3>Solo Founder OS</h3><p data-i18n="portfolio.p1.p">Виртуальная команда над Claude Code</p></div>
+ <div class="grid-item"><span class="num">02</span><h3>LombardPRO</h3><p data-i18n="portfolio.p2.p">Автоматизация ломбарда</p></div>
+ <div class="grid-item"><span class="num">03</span><h3>eSowa KPI Bot</h3><p data-i18n="portfolio.p3.p">Телеграм-бот для KPI</p></div>
+ <div class="grid-item"><span class="num">04</span><h3>ELA City Bot</h3><p data-i18n="portfolio.p4.p">Городской ассистент</p></div>
+ <div class="grid-item"><span class="num">05</span><h3>Decor Engine</h3><p data-i18n="portfolio.p5.p">Каталог для e-commerce</p></div>
+ </div>
+ <p class="section-more"><a href="portfolio.html" data-i18n="portfolio.more">Всё портфолио →</a></p>
+ </section>
 
-    <!-- MOCKUP: Multi-agent terminal -->
-    <div class="mockup">
-      <div class="mockup-bar">
-        <div class="mockup-dot r"></div>
-        <div class="mockup-dot y"></div>
-        <div class="mockup-dot g"></div>
-        <span>Solo Founder OS · agents</span>
-      </div>
-      <div class="mockup-body mockup-terminal">
-        <div class="term-line">
-          <span class="term-agent">@Alex</span>
-          <span class="term-sep">→</span>
-          <span>Plan ready. 3 tasks assigned</span>
-        </div>
-        <div class="term-line">
-          <span class="term-agent">@Max</span>
-          <span class="term-sep">→</span>
-          <span>REST API endpoints created</span>
-        </div>
-        <div class="term-line">
-          <span class="term-agent">@Lena</span>
-          <span class="term-sep">→</span>
-          <span class="term-ok">✓ All tests passed</span>
-        </div>
-        <div class="term-line">
-          <span class="term-agent">@Dima</span>
-          <span class="term-sep">→</span>
-          <span>Post draft ready for review</span>
-        </div>
-        <div class="term-line" style="margin-top:4px;color:var(--muted)">
-          <span class="term-agent" style="color:var(--accent2)">you</span>
-          <span class="term-sep">→</span>
-          <span class="term-cursor">_</span>
-        </div>
-      </div>
-    </div>
+ <section>
+ <span class="secnum">2.5 // <span data-i18n="process.secnum">ПРОЦЕСС</span></span>
+ <h2 data-i18n="process.title">Как проходит работа</h2>
+ <div class="accordion" id="process-accordion">
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="process.s1.h">01. Первое письмо</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s1.p">Описываете отдел и задачу в двух-трёх предложениях. В ответ — стоит ли этим заниматься и с чего начать.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="process.s2.h">02. Аудит</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s2.p">Смотрю на реальные процессы, а не на должностные инструкции. Результат — карта задач с оценкой, что можно автоматизировать.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="process.s3.h">03. Проектирование и спецификация</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s3.p">Архитектура решения и точное ТЗ для каждой задачи: вход, выход, правила, что нельзя делать никогда.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="process.s4.h">04. Внедрение</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s4.p">Запуск по одной задаче за раз, приёмка тем, кто раньше делал её руками, до стабильного результата.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="process.s5.h">05. Сопровождение</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s5.p">Передаю решение с документацией. Дальше — по желанию: разовые консультации или следующий этап автоматизации.</div></div>
+ </div>
+ </div>
+ </section>
 
-    <div class="case-tags">
-      <span class="tech-tag">Node.js</span>
-      <span class="tech-tag">Claude Code CLI</span>
-      <span class="tech-tag">Vanilla JS</span>
-      <span class="tech-tag">ANSS</span>
-      <span class="tech-tag">JSON state</span>
-    </div>
-    <div class="case-links">
-      <a href="https://gamma.app/docs/AI--oqalhi39c2ebz1e" class="case-link" target="_blank" data-i18n="c4_link1">Презентация →</a>
-    </div>
-  </div>
+ <section id="products">
+ <span class="secnum">3.0 // <span data-i18n="products.secnum">ПРОДУКТЫ</span></span>
+ <h2 data-i18n="products.title">Что можно получить сразу</h2>
+ <div class="grid">
+ <div class="grid-item"><span class="num">01</span><h3>ANSS Standard</h3><p data-i18n="products.p1.p">Открытый стандарт спецификаций</p></div>
+ <div class="grid-item"><span class="num">02</span><h3 data-i18n="products.p2.h">ИИ в отделе</h3><p data-i18n="products.p2.p">Методичка + книга о внедрении</p></div>
+ <div class="grid-item"><span class="num">03</span><h3>AI Automation Decision System</h3><p data-i18n="products.p3.p">Фреймворк выбора решений</p></div>
+ </div>
+ <p class="section-more"><a href="products.html" data-i18n="products.more">Все продукты →</a></p>
+ </section>
 
-  <!-- CASE 3: AI Methodology -->
-  <div class="case">
-    <div class="case-header">
-      <div class="case-num">03</div>
-      <div class="case-title-wrap">
-        <div class="case-title">AI Automation Decision System</div>
-        <div class="case-subtitle" data-i18n="c5_subtitle">Методология оценки и внедрения AI-автоматизации</div>
-      </div>
-      <div class="status-badge status-live" data-i18n="c5_status">● Продаётся</div>
-    </div>
-    <p class="case-desc" data-i18n="c5_desc">Структурированная методология для оценки и внедрения AI-автоматизации в бизнес. Включает ROI-калькуляцию, дерево решений и дорожные карты. Три версии на трёх языках: Free, Business, Professional.</p>
-    <ul class="case-points">
-      <li data-i18n="c5_p1">Фреймворк оценки готовности бизнеса к автоматизации</li>
-      <li data-i18n="c5_p2">ROI-методология для AI-проектов</li>
-      <li data-i18n="c5_p3">Дерево решений: когда автоматизировать, а когда нет</li>
-      <li data-i18n="c5_p4">Шаблоны дорожных карт внедрения · Доступно на RU / EN / PL</li>
-    </ul>
+ <section>
+ <span class="secnum">3.5 // <span data-i18n="faq.secnum">FAQ</span></span>
+ <h2 data-i18n="faq.title">Частые вопросы</h2>
+ <div class="accordion" id="faq-accordion">
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="faq.q1.h">Чем занимается AI-консультант?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q1.p">Разбирает реальные процессы компании, находит задачи, которые можно передать ИИ или автоматизации, проектирует и сопровождает внедрение до стабильного результата.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="faq.q2.h">Как проходит аудит процессов?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q2.p">Сотрудники фиксируют реальные задачи за неделю. По этим данным строится карта процессов с оценкой, где автоматизация даст эффект, а где риск выше пользы.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="faq.q3.h">Что такое ANSS?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q3.p">Открытый стандарт описания задач и требований для AI-систем — так, чтобы поведение ИИ было предсказуемым и понятным как человеку, так и разработке.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="faq.q4.h">С какими инструментами вы работаете?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q4.p">Claude, Claude Code, n8n, прямые интеграции через API моделей — конкретный набор зависит от задачи, а не наоборот.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="faq.q5.h">Сколько стоит аудит?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q5.p">Зависит от масштаба отдела. Актуальные тарифы — на странице услуги.</div></div>
+ </div>
+ </div>
+ </section>
 
-    <!-- MOCKUP: Framework steps -->
-    <div class="mockup">
-      <div class="mockup-bar">
-        <div class="mockup-dot r"></div>
-        <div class="mockup-dot y"></div>
-        <div class="mockup-dot g"></div>
-        <span>AI Decision Framework · Professional</span>
-      </div>
-      <div class="mockup-body">
-        <div class="fw-step done">
-          <span class="fw-num">01</span>
-          <span class="fw-text">Audit current business processes</span>
-          <span class="fw-check">✓</span>
-        </div>
-        <div class="fw-step done">
-          <span class="fw-num">02</span>
-          <span class="fw-text">Calculate ROI &amp; automation readiness</span>
-          <span class="fw-check">✓</span>
-        </div>
-        <div class="fw-step active">
-          <span class="fw-num">03</span>
-          <span class="fw-text">Build &amp; deploy AI layer</span>
-          <span class="fw-arrow">→</span>
-        </div>
-        <div class="fw-step">
-          <span class="fw-num">04</span>
-          <span class="fw-text">Monitor &amp; iterate</span>
-        </div>
-        <div class="fw-tiers">
-          <span class="fw-tier">Free</span>
-          <span class="fw-tier">Business</span>
-          <span class="fw-tier active">Professional</span>
-        </div>
-      </div>
-    </div>
+ <section id="articles">
+ <span class="secnum">4.0 // <span data-i18n="articles.secnum">СТАТЬИ</span></span>
+ <h2 data-i18n="articles.title">Что пишу</h2>
+ <p class="muted" data-i18n="articles.p1">Заметки о спецификациях, автоматизации и работе с ИИ — на Hashnode и Dev.to.</p>
+ <p class="section-more"><a href="articles.html" data-i18n="articles.more">Все статьи →</a></p>
+ </section>
 
-    <div class="case-tags">
-      <span class="tech-tag">Methodology</span>
-      <span class="tech-tag">ROI Framework</span>
-      <span class="tech-tag">RU / EN / PL</span>
-      <span class="tech-tag">Gumroad</span>
-    </div>
-    <div class="case-links">
-      <a href="https://aimethodology.gumroad.com/l/professional" class="case-link" target="_blank" data-i18n="c5_link1">Gumroad — Professional версия →</a>
-    </div>
-  </div>
-
-  <!-- CASE 4: esowa_bot -->
-  <div class="case">
-    <div class="case-header">
-      <div class="case-num">04</div>
-      <div class="case-title-wrap">
-        <div class="case-title">eSowa KPI Bot</div>
-        <div class="case-subtitle" data-i18n="c1_subtitle">KPI-бот для механиков автосервиса · Польша</div>
-      </div>
-      <div class="status-badge status-live" data-i18n="c1_status">● В продакшне</div>
-    </div>
-    <p class="case-desc" data-i18n="c1_desc">Telegram-бот, подключённый напрямую к базе данных eSowa. Каждый механик видит свою выработку за день и месяц прямо в Telegram. Установка офлайн за 3 шага — без IT-специалиста, работает на компьютере клиента.</p>
-    <ul class="case-points">
-      <li data-i18n="c1_p1">Отчёт о выработке по команде /today и /month — персонально каждому механику</li>
-      <li data-i18n="c1_p2">Прямое подключение к Firebird-базе данных eSowa</li>
-      <li data-i18n="c1_p3">Офлайн-установка: все зависимости на флешке, работает без интернета</li>
-      <li data-i18n="c1_p4">Автозапуск через Windows Task Scheduler — поднимается сам после перезагрузки</li>
-    </ul>
-
-    <!-- MOCKUP: KPI report in Telegram -->
-    <div class="mockup">
-      <div class="mockup-bar">
-        <div class="mockup-dot r"></div>
-        <div class="mockup-dot y"></div>
-        <div class="mockup-dot g"></div>
-        <span>eSowa KPI Bot · Telegram</span>
-      </div>
-      <div class="mockup-body mockup-chat">
-        <div class="chat-msg user">/today</div>
-        <div class="chat-msg bot">
-          Выработка за сегодня:
-          <span class="chat-muted">3 840 ₽ · 4 заказа</span>
-          <div class="kpi-bar">
-            <div class="kpi-track"><div class="kpi-fill" style="width:96%"></div></div>
-            <span class="kpi-pct">96%</span>
-          </div>
-        </div>
-        <div class="chat-msg user">/month</div>
-        <div class="chat-msg bot">
-          Июнь 2026 — 67 200 ₽
-          <span class="chat-muted" style="color:var(--green)">✓ Норма выполнена: 112%</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="case-tags">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">Telegram Bot API</span>
-      <span class="tech-tag">Firebird DB</span>
-      <span class="tech-tag">Windows Task Scheduler</span>
-    </div>
-  </div>
-
-  <!-- CASE 5: ЛомбардПРО -->
-  <div class="case">
-    <div class="case-header">
-      <div class="case-num">05</div>
-      <div class="case-title-wrap">
-        <div class="case-title" data-i18n="c2_title">ЛомбардПРО</div>
-        <div class="case-subtitle" data-i18n="c2_subtitle">Система управления сетью ломбардов</div>
-      </div>
-      <div class="status-badge status-concept" data-i18n="c2_status">◎ Спецификация готова · переговоры</div>
-    </div>
-    <p class="case-desc" data-i18n="c2_desc">Комплексная система автоматизации для сети из 3 ломбардов. Покрывает полный операционный цикл — от инкассации изделий до аналитики для владельца. Разрабатывается по стандарту ANSS, задеплоена на Railway.</p>
-    <ul class="case-points">
-      <li data-i18n="c2_p1">Telegram-бот для владельца: ежедневная сводка, алерты, подтверждение инкассаций кнопками</li>
-      <li data-i18n="c2_p2">Веб-приложение для сотрудников: замена Excel, касса, скупка, инкассация с фото</li>
-      <li data-i18n="c2_p3">Веб-дашборд: аналитика, движение изделий, отчёты в .xlsx</li>
-      <li data-i18n="c2_p4">Целевые показатели по ТЗ: сверка кассы &lt;3 мин (сейчас ~30), 100% трек инкассированных изделий</li>
-      <li data-i18n="c2_p5">Деплой на Railway с auto-deploy из GitHub, фото в Supabase Storage</li>
-    </ul>
-
-    <!-- MOCKUP: Dashboard -->
-    <div class="mockup">
-      <div class="mockup-bar">
-        <div class="mockup-dot r"></div>
-        <div class="mockup-dot y"></div>
-        <div class="mockup-dot g"></div>
-        <span>LombardPRO · Dashboard · 26.06.2026</span>
-      </div>
-      <div class="mockup-body mockup-dash">
-        <div class="dash-row">
-          <span class="dash-label">Выручка</span>
-          <span class="dash-bar"><span class="green" style="width:72%"></span></span>
-          <span class="dash-val green">84 200 ₽</span>
-        </div>
-        <div class="dash-row">
-          <span class="dash-label">Принято</span>
-          <span class="dash-bar"><span style="width:55%"></span></span>
-          <span class="dash-val">23 изд.</span>
-        </div>
-        <div class="dash-row">
-          <span class="dash-label">Выдано</span>
-          <span class="dash-bar"><span style="width:28%"></span></span>
-          <span class="dash-val">11 изд.</span>
-        </div>
-        <div class="dash-row">
-          <span class="dash-label">Филиалы</span>
-          <span class="dash-bar"><span class="orange" style="width:61%"></span></span>
-          <span class="dash-val">3 онлайн</span>
-        </div>
-        <div class="dash-divider"></div>
-        <div class="dash-alert">⚠ Филиал 2: не синхронизирован 4ч</div>
-        <div class="dash-ok">✓ Инкассация подтверждена владельцем</div>
-      </div>
-    </div>
-
-    <div class="case-tags">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">FastAPI</span>
-      <span class="tech-tag">PostgreSQL</span>
-      <span class="tech-tag">Supabase</span>
-      <span class="tech-tag">Railway</span>
-      <span class="tech-tag">Telegram Bot API</span>
-      <span class="tech-tag">ANSS</span>
-    </div>
-  </div>
-
-  <!-- CASE 6: ELA City Bot -->
-  <div class="case">
-    <div class="case-header">
-      <div class="case-num">06</div>
-      <div class="case-title-wrap">
-        <div class="case-title">ELA City Bot</div>
-        <div class="case-subtitle" data-i18n="c6_subtitle">Городской AI-ассистент для жителей и туристов</div>
-      </div>
-      <div class="status-badge status-concept" data-i18n="c6_status">◎ Концепт/MVP</div>
-    </div>
-    <p class="case-desc" data-i18n="c6_desc">Telegram-бот ELA — городской интеллект для Эльблонга. Два режима: для жителей (события, новости, городские изменения) и для туристов (маршруты, места, история). Пилот для масштабирования на другие города Польши.</p>
-    <ul class="case-points">
-      <li data-i18n="c6_p1">Resident mode: что происходит сегодня, новости, дороги, сервисы</li>
-      <li data-i18n="c6_p2">Tourist mode: готовые маршруты на 2/4/8 часов, места, история с характером</li>
-      <li data-i18n="c6_p3">Утренний автодайджест в 08:00, ежедневный прекомпьют контента</li>
-      <li data-i18n="c6_p4">Cache-first архитектура — Gemini только как fallback, хостинг Hetzner 5–10€/мес</li>
-      <li data-i18n="c6_p5">SaaS-модель: пилот Эльблонг → Гданьск → Сопот → другие города</li>
-    </ul>
-
-    <!-- MOCKUP: City bot Telegram -->
-    <div class="mockup">
-      <div class="mockup-bar">
-        <div class="mockup-dot r"></div>
-        <div class="mockup-dot y"></div>
-        <div class="mockup-dot g"></div>
-        <span>ELA · Elbląg City Bot</span>
-      </div>
-      <div class="mockup-body mockup-chat">
-        <div class="chat-modes">
-          <span class="chat-mode">Resident</span>
-          <span class="chat-mode active">Tourist</span>
-        </div>
-        <div class="chat-msg user">Маршрут на 4 часа</div>
-        <div class="chat-msg bot">
-          Маршрут готов:
-          <span class="chat-route">Brama Targowa → Katedra → Stare Miasto → Muzeum Archeologiczne</span>
-        </div>
-        <div class="chat-msg bot chat-info">
-          📍 3.2 km · 14 точек · история с 1237 года
-        </div>
-        <div class="chat-msg user">А что сегодня вечером?</div>
-        <div class="chat-msg bot">
-          Jazz Festival · 19:00 · Stary Rynek
-          <span class="chat-muted">Вход свободный</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="case-tags">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">Telegram Bot API</span>
-      <span class="tech-tag">Google Gemini</span>
-      <span class="tech-tag">SQLite</span>
-      <span class="tech-tag">FastAPI</span>
-      <span class="tech-tag">Hetzner VPS</span>
-    </div>
-  </div>
+ <div class="closing-cta">
+ <h2 data-i18n="closing.title">Не уверены, что вам нужно?</h2>
+ <p data-i18n="closing.p">Опишите пару предложений о том, что происходит в отделе — отвечу честно, стоит ли этим заниматься и с чего начать.</p>
+ <a class="btn3" href="mailto:kholomyanskiy@gmail.com?subject=%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0" data-i18n="closing.btn">Написать →</a>
+ </div>
 
 </div>
 
 <footer>
-  <span data-i18n="footer_text">Артём Холомянский · AI Automation Consultant · 2026</span>
-  <br>
-  <span style="margin-top:8px;display:inline-block;">
-    <a href="mailto:kholomyanskiy@gmail.com" style="color:var(--muted);text-decoration:none;">kholomyanskiy@gmail.com</a>
-    &nbsp;·&nbsp;
-    <a href="https://linkedin.com/in/kholomyanskiy" target="_blank" style="color:var(--muted);text-decoration:none;">linkedin.com/in/kholomyanskiy</a>
-    &nbsp;·&nbsp;
-    <a href="https://t.me/kholomyanskiy" target="_blank" style="color:var(--muted);text-decoration:none;">t.me/kholomyanskiy</a>
-  </span>
+ <span>EVAI Consulting · Elbląg, Poland</span>
+ <span><a href="mailto:kholomyanskiy@gmail.com">kholomyanskiy@gmail.com</a> · <a href="https://linkedin.com/in/kholomyanskiy">LinkedIn</a> · <a href="https://t.me/kholomyanskiy">Telegram</a></span>
 </footer>
 
 <script>
 const T = {
-  ru: {
-    section_tag: "Портфолио · проекты и кейсы",
-    hero_tag: "EVAI Consulting · Польша",
-    hero_role: "Внедряю ИИ в бизнес как инженерную дисциплину",
-    hero_desc: "Аудит процессов, спецификации для AI-агентов, автоматизация с контролем результата. 12 лет анализа enterprise-процессов в энергетике. Автор открытого стандарта ANSS.",
-    svc_tag: "Услуги и материалы",
-    svc1_label: "Услуга · шаг 1", svc1_title: "AI-аудит отдела",
-    svc1_desc: "Фотография рабочей недели, карта задач и расчёт: что автоматизировать, сколько часов высвобождается.",
-    svc2_label: "Услуга · шаг 2", svc2_title: "Спецификация как сервис",
-    svc2_desc: "Техническое задание, по которому AI-агент или разработчик строит систему предсказуемо.",
-    svc3_label: "Бесплатно", svc3_title: "Методичка: ИИ в отделе",
-    svc3_desc: "Пять этапов внедрения без потерь: от карты задач до цепочек агентов. Читается за вечер.",
-    svc_more: "Подробнее →", svc_more2: "Подробнее →", svc_read: "Читать →",
-    footer_text: "Артём Холомянский · AI Automation Consultant · 2026",
-    c1_status: "● В продакшне",
-    c1_subtitle: "KPI-бот для механиков автосервиса · Польша",
-    c1_desc: "Telegram-бот, подключённый напрямую к базе данных eSowa. Каждый механик видит свою выработку за день и месяц прямо в Telegram. Установка офлайн за 3 шага — без IT-специалиста, работает на компьютере клиента.",
-    c1_p1: "Отчёт о выработке по команде /today и /month — персонально каждому механику",
-    c1_p2: "Прямое подключение к Firebird-базе данных eSowa",
-    c1_p3: "Офлайн-установка: все зависимости на флешке, работает без интернета",
-    c1_p4: "Автозапуск через Windows Task Scheduler — поднимается сам после перезагрузки",
-    c2_title: "ЛомбардПРО",
-    c2_status: "◎ Спецификация готова (6 200 строк), проект в переговорах",
-    c2_subtitle: "Система управления сетью ломбардов",
-    c2_desc: "Комплексная система автоматизации для сети из 3 ломбардов. Покрывает полный операционный цикл — от инкассации изделий до аналитики для владельца. Разрабатывается по стандарту ANSS, задеплоена на Railway.",
-    c2_p1: "Telegram-бот для владельца: ежедневная сводка, алерты, подтверждение инкассаций кнопками",
-    c2_p2: "Веб-приложение для сотрудников: замена Excel, касса, скупка, инкассация с фото",
-    c2_p3: "Веб-дашборд: аналитика, движение изделий, отчёты в .xlsx",
-    c2_p4: "Целевые показатели по ТЗ: сверка кассы <3 мин (сейчас ~30), 100% трек инкассированных изделий",
-    c2_p5: "Деплой на Railway с auto-deploy из GitHub, фото в Supabase Storage",
-    c3_desc: "Открытый стандарт написания технических спецификаций для AI-разработки. Решает проблему «агент делает технически правильно, но архитектурно неверно». Сократил итерации с 5–7 до 2–3 на реальных проектах.",
-    c3_p1: "Трёхслойная структура [D/E/A] — агент знает что читать первым",
-    c3_p2: "Инварианты — машиночитаемые ограничения с полем «Проверка»",
-    c3_p3: "Agent Review — агент аудирует ТЗ до написания кода. >3 проблем = стоп",
-    c3_p4: "Change Specification — явный список «что НЕ менять» при доработках",
-    c3_p5: "Работает с Claude Code, Cursor, Copilot",
-    c3_link2: "Статья на Hashnode →",
-    c4_status: "⟳ MVP готов",
-    c4_subtitle: "AI-операционная система для солофаундера",
-    c4_desc: "Локальное веб-приложение с командой из 11 специализированных AI-агентов на базе Claude Code. Построено по стандарту ANSS. Заменяет разрозненные чаты с AI единой системой с общей памятью и режимом планирования.",
-    c4_p1: "11 агентов: Alex (CEO), Max (Backend), Artem (Frontend), Igor (DevOps), Katya (Integrator), Lera (Sales), Lena (QA), Dima (SMM), Yulia (Lawyer) и другие",
-    c4_p2: "Smart Onboarding — персональная AI-команда за 5 минут",
-    c4_p3: "Режим планирования: задача → план → выполнение через нескольких агентов",
-    c4_p4: "Единая память между сессиями и проектами",
-    c4_p5: "Vanilla Node.js без фреймворков, state в JSON, без npm install",
-    c4_link1: "Презентация →",
-    c5_status: "● Продаётся",
-    c5_subtitle: "Методология оценки и внедрения AI-автоматизации",
-    c5_desc: "Структурированная методология для оценки и внедрения AI-автоматизации в бизнес. Включает ROI-калькуляцию, дерево решений и дорожные карты. Три версии на трёх языках: Free, Business, Professional.",
-    c5_p1: "Фреймворк оценки готовности бизнеса к автоматизации",
-    c5_p2: "ROI-методология для AI-проектов",
-    c5_p3: "Дерево решений: когда автоматизировать, а когда нет",
-    c5_p4: "Шаблоны дорожных карт внедрения · Доступно на RU / EN / PL",
-    c5_link1: "Gumroad — Professional версия →",
-    c6_status: "◎ Концепт/MVP",
-    c6_subtitle: "Городской AI-ассистент для жителей и туристов",
-    c6_desc: "Telegram-бот ELA — городской интеллект для Эльблонга. Два режима: для жителей (события, новости, городские изменения) и для туристов (маршруты, места, история). Пилот для масштабирования на другие города Польши.",
-    c6_p1: "Resident mode: что происходит сегодня, новости, дороги, сервисы",
-    c6_p2: "Tourist mode: готовые маршруты на 2/4/8 часов, места, история с характером",
-    c6_p3: "Утренний автодайджест в 08:00, ежедневный прекомпьют контента",
-    c6_p4: "Cache-first архитектура — Gemini только как fallback, хостинг Hetzner 5–10€/мес",
-    c6_p5: "SaaS-модель: пилот Эльблонг → Гданьск → Сопот → другие города",
-    offer_label: "Помимо проектов — услуга",
-    offer_title: "Спецификация как сервис",
-    offer_desc: "Аудит и техническое задание, по которому AI-агент или разработчик строит систему предсказуемо.",
-    offer_link: "Подробнее →"
-  },
-  en: {
-    section_tag: "Portfolio · projects and case studies",
-    hero_tag: "EVAI Consulting · Poland",
-    hero_role: "I implement AI in business as an engineering discipline",
-    hero_desc: "Process audits, specifications for AI agents, automation with result control. 12 years of enterprise process analysis in the energy sector. Author of the open ANSS standard.",
-    svc_tag: "Services and materials",
-    svc1_label: "Service · step 1", svc1_title: "AI Department Audit",
-    svc1_desc: "A work-week snapshot, a task map and the math: what to automate and how many hours get freed up.",
-    svc2_label: "Service · step 2", svc2_title: "Specification as a Service",
-    svc2_desc: "A technical specification that lets an AI agent or developer build a system predictably.",
-    svc3_label: "Free", svc3_title: "Guide: AI in Your Department",
-    svc3_desc: "Five stages of adoption without losses: from a task map to agent chains. An evening's read.",
-    svc_more: "Learn more →", svc_more2: "Learn more →", svc_read: "Read →",
-    footer_text: "Artem Kholomyanskiy · AI Automation Consultant · 2026",
-    c1_status: "● Live",
-    c1_subtitle: "KPI bot for auto service mechanics · Poland",
-    c1_desc: "Telegram bot connected directly to the eSowa database. Each mechanic sees their daily and monthly output right in Telegram. Offline installation in 3 steps — no IT specialist needed, runs on client's machine.",
-    c1_p1: "Output report via /today and /month — individually for each mechanic",
-    c1_p2: "Direct connection to eSowa's Firebird database",
-    c1_p3: "Offline installation: all dependencies on USB drive, no internet needed",
-    c1_p4: "Auto-start via Windows Task Scheduler — restarts automatically after reboot",
-    c2_title: "LombardPRO",
-    c2_status: "◎ Specification ready (6,200 lines), project in negotiation",
-    c2_subtitle: "Pawnshop network management system",
-    c2_desc: "Comprehensive automation system for a network of 3 pawnshops. Covers the full operational cycle — from item intake to owner analytics. Built to the ANSS standard, deployed on Railway.",
-    c2_p1: "Telegram bot for owner: daily summary, alerts, confirmation of collections by buttons",
-    c2_p2: "Web app for staff: replaces Excel, cashier, buyout, collection with photos",
-    c2_p3: "Web dashboard: analytics, item movement, reports in .xlsx",
-    c2_p4: "KPI targets per spec: cash reconciliation <3 min (currently ~30 min), 100% foreclosed item tracking",
-    c2_p5: "Deployed on Railway with auto-deploy from GitHub, photos in Supabase Storage",
-    c3_desc: "Open standard for writing technical specifications for AI development. Solves the problem of 'agent does it technically right but architecturally wrong'. Reduced iterations from 5–7 to 2–3 on real projects.",
-    c3_p1: "Three-layer structure [D/E/A] — agent knows what to read first",
-    c3_p2: "Invariants — machine-readable constraints with a 'Verify' field",
-    c3_p3: "Agent Review — agent audits the spec before writing code. >3 issues = stop",
-    c3_p4: "Change Specification — explicit list of 'what NOT to change' during updates",
-    c3_p5: "Works with Claude Code, Cursor, Copilot",
-    c3_link2: "Article on Hashnode →",
-    c4_status: "⟳ MVP Ready",
-    c4_subtitle: "AI operating system for solo founders",
-    c4_desc: "Local web app with a team of 11 specialized AI agents powered by Claude Code. Built to the ANSS standard. Replaces scattered AI chats with a unified system with shared memory and planning mode.",
-    c4_p1: "11 agents: Alex (CEO), Max (Backend), Artem (Frontend), Igor (DevOps), Katya (Integrator), Lera (Sales), Lena (QA), Dima (SMM), Yulia (Lawyer) and more",
-    c4_p2: "Smart Onboarding — personal AI team in 5 minutes",
-    c4_p3: "Planning mode: task → plan → execution through multiple agents",
-    c4_p4: "Shared memory across sessions and projects",
-    c4_p5: "Vanilla Node.js, no frameworks, state in JSON, no npm install",
-    c4_link1: "Presentation →",
-    c5_status: "● For Sale",
-    c5_subtitle: "Methodology for evaluating and implementing AI automation",
-    c5_desc: "Structured methodology for evaluating and implementing AI automation in business. Includes ROI calculation, decision tree, and implementation roadmaps. Three versions in three languages: Free, Business, Professional.",
-    c5_p1: "Framework for assessing business automation readiness",
-    c5_p2: "ROI calculation methodology for AI projects",
-    c5_p3: "Decision tree: when to automate and when not to",
-    c5_p4: "Implementation roadmap templates · Available in RU / EN / PL",
-    c5_link1: "Gumroad — Professional version →",
-    c6_status: "◎ Concept/MVP",
-    c6_subtitle: "City AI assistant for residents and tourists",
-    c6_desc: "Telegram bot ELA — city intelligence for Elbląg. Two modes: for residents (events, news, city updates) and for tourists (routes, places, history). Pilot for scaling to other cities in Poland.",
-    c6_p1: "Resident mode: what's happening today, news, roads, services",
-    c6_p2: "Tourist mode: ready-made routes for 2/4/8 hours, places, history with character",
-    c6_p3: "Morning auto-digest at 08:00, daily content precompute",
-    c6_p4: "Cache-first architecture — Gemini only as fallback, Hetzner VPS 5–10€/mo",
-    c6_p5: "SaaS model: pilot Elbląg → Gdańsk → Sopot → other cities",
-    offer_label: "Beyond projects — a service",
-    offer_title: "Specification as a Service",
-    offer_desc: "Audit and technical specification that lets an AI agent or developer build a system predictably.",
-    offer_link: "Learn more →"
-  },
-  uk: {
-    section_tag: "Портфоліо · проєкти та кейси",
-    hero_tag: "EVAI Consulting · Польща",
-    hero_role: "Впроваджую ШІ в бізнес як інженерну дисципліну",
-    hero_desc: "Аудит процесів, специфікації для AI-агентів, автоматизація з контролем результату. 12 років аналізу enterprise-процесів в енергетиці. Автор відкритого стандарту ANSS.",
-    svc_tag: "Послуги та матеріали",
-    svc1_label: "Послуга · крок 1", svc1_title: "AI-аудит відділу",
-    svc1_desc: "Фотографія робочого тижня, карта задач і розрахунок: що автоматизувати, скільки годин вивільняється.",
-    svc2_label: "Послуга · крок 2", svc2_title: "Специфікація як сервіс",
-    svc2_desc: "Технічне завдання, за яким AI-агент або розробник будує систему передбачувано.",
-    svc3_label: "Безкоштовно", svc3_title: "Методичка: ШІ у відділі",
-    svc3_desc: "П'ять етапів впровадження без втрат: від карти задач до ланцюжків агентів. Читається за вечір.",
-    svc_more: "Докладніше →", svc_more2: "Докладніше →", svc_read: "Читати →",
-    footer_text: "Артем Холом'янський · AI Automation Consultant · 2026",
-    c1_status: "● В продакшні",
-    c1_subtitle: "KPI-бот для механіків автосервісу · Польща",
-    c1_desc: "Telegram-бот, підключений напряму до бази даних eSowa. Кожен механік бачить свій виробіток за день і місяць прямо в Telegram. Офлайн-встановлення за 3 кроки — без IT-спеціаліста, працює на комп'ютері клієнта.",
-    c1_p1: "Звіт про виробіток за командою /today і /month — персонально кожному механіку",
-    c1_p2: "Пряме підключення до Firebird-бази даних eSowa",
-    c1_p3: "Офлайн-встановлення: всі залежності на флешці, без інтернету",
-    c1_p4: "Автозапуск через Windows Task Scheduler — піднімається сам після перезавантаження",
-    c2_title: "ЛомбардПРО",
-    c2_status: "◎ Специфікація готова (6 200 рядків), проект на переговорах",
-    c2_subtitle: "Система управління мережею ломбардів",
-    c2_desc: "Комплексна система автоматизації для мережі з 3 ломбардів. Охоплює повний операційний цикл — від інкасації виробів до аналітики для власника. Розробляється за стандартом ANSS, задеплоєна на Railway.",
-    c2_p1: "Telegram-бот для власника: щоденна зведення, алерти, підтвердження інкасацій кнопками",
-    c2_p2: "Веб-додаток для співробітників: заміна Excel, каса, скупка, інкасація з фото",
-    c2_p3: "Веб-дашборд: аналітика, рух виробів, звіти у .xlsx",
-    c2_p4: "Цільові показники по ТЗ: звірка каси <3 хв (зараз ~30), 100% трек інкасованих виробів",
-    c2_p5: "Деплой на Railway з auto-deploy з GitHub, фото у Supabase Storage",
-    c3_desc: "Відкритий стандарт написання технічних специфікацій для AI-розробки. Вирішує проблему «агент робить технічно правильно, але архітектурно невірно». Скоротив ітерації з 5–7 до 2–3 на реальних проектах.",
-    c3_p1: "Трирівнева структура [D/E/A] — агент знає, що читати першим",
-    c3_p2: "Інваріанти — машиночитані обмеження з полем «Перевірка»",
-    c3_p3: "Agent Review — агент аудитує ТЗ до написання коду. >3 проблеми = стоп",
-    c3_p4: "Change Specification — явний список «що НЕ змінювати» при доопрацюваннях",
-    c3_p5: "Працює з Claude Code, Cursor, Copilot",
-    c3_link2: "Стаття на Hashnode →",
-    c4_status: "⟳ MVP готовий",
-    c4_subtitle: "AI-операційна система для солофаундера",
-    c4_desc: "Локальний веб-додаток із командою з 11 спеціалізованих AI-агентів на базі Claude Code. Побудований за стандартом ANSS. Замінює розрізнені чати з AI єдиною системою зі спільною пам'яттю та режимом планування.",
-    c4_p1: "11 агентів: Alex (CEO), Max (Backend), Artem (Frontend), Igor (DevOps), Katya (Integrator), Lera (Sales), Lena (QA), Dima (SMM), Yulia (Lawyer) та інші",
-    c4_p2: "Smart Onboarding — персональна AI-команда за 5 хвилин",
-    c4_p3: "Режим планування: задача → план → виконання через кількох агентів",
-    c4_p4: "Єдина пам'ять між сесіями та проектами",
-    c4_p5: "Vanilla Node.js без фреймворків, стейт у JSON, без npm install",
-    c4_link1: "Презентація →",
-    c5_status: "● Продається",
-    c5_subtitle: "Методологія оцінки та впровадження AI-автоматизації",
-    c5_desc: "Структурована методологія для оцінки та впровадження AI-автоматизації в бізнес. Включає ROI-калькуляцію, дерево рішень та дорожні карти. Три версії трьома мовами: Free, Business, Professional.",
-    c5_p1: "Фреймворк оцінки готовності бізнесу до автоматизації",
-    c5_p2: "ROI-методологія для AI-проектів",
-    c5_p3: "Дерево рішень: коли автоматизувати, а коли ні",
-    c5_p4: "Шаблони дорожніх карт впровадження · Доступно RU / EN / PL",
-    c5_link1: "Gumroad — Professional версія →",
-    c6_status: "◎ Концепт/MVP",
-    c6_subtitle: "Міський AI-асистент для жителів та туристів",
-    c6_desc: "Telegram-бот ELA — міський інтелект для Ельблонга. Два режими: для жителів (події, новини, міські зміни) та для туристів (маршрути, місця, історія). Пілот для масштабування на інші міста Польщі.",
-    c6_p1: "Resident mode: що відбувається сьогодні, новини, дороги, сервіси",
-    c6_p2: "Tourist mode: готові маршрути на 2/4/8 годин, місця, історія з характером",
-    c6_p3: "Ранковий автодайджест о 08:00, щоденний прекомп'ют контенту",
-    c6_p4: "Cache-first архітектура — Gemini тільки як fallback, хостинг Hetzner 5–10€/міс",
-    c6_p5: "SaaS-модель: пілот Ельблонг → Гданськ → Сопот → інші міста",
-    offer_label: "Окрім проектів — послуга",
-    offer_title: "Специфікація як сервіс",
-    offer_desc: "Аудит і технічне завдання, за яким AI-агент або розробник будує систему передбачувано.",
-    offer_link: "Докладніше →"
-  },
-  pl: {
-    section_tag: "Portfolio · projekty i case studies",
-    hero_tag: "EVAI Consulting · Polska",
-    hero_role: "Wdrażam AI w biznesie jako dyscyplinę inżynierską",
-    hero_desc: "Audyt procesów, specyfikacje dla agentów AI, automatyzacja z kontrolą wyniku. 12 lat analizy procesów enterprise w energetyce. Autor otwartego standardu ANSS.",
-    svc_tag: "Usługi i materiały",
-    svc1_label: "Usługa · krok 1", svc1_title: "Audyt AI działu",
-    svc1_desc: "Fotografia tygodnia pracy, mapa zadań i kalkulacja: co zautomatyzować, ile godzin się uwalnia.",
-    svc2_label: "Usługa · krok 2", svc2_title: "Specyfikacja jako usługa",
-    svc2_desc: "Dokumentacja techniczna, według której agent AI lub programista buduje system przewidywalnie.",
-    svc3_label: "Bezpłatnie", svc3_title: "Przewodnik: AI w dziale",
-    svc3_desc: "Pięć etapów wdrożenia bez strat: od mapy zadań do łańcuchów agentów. Do przeczytania w jeden wieczór.",
-    svc_more: "Dowiedz się więcej →", svc_more2: "Dowiedz się więcej →", svc_read: "Czytaj →",
-    footer_text: "Artem Kholomyanskiy · AI Automation Consultant · 2026",
-    c1_status: "● Na produkcji",
-    c1_subtitle: "Bot KPI dla mechaników warsztatu · Polska",
-    c1_desc: "Bot Telegram połączony bezpośrednio z bazą danych eSowa. Każdy mechanik widzi swoją wydajność za dzień i miesiąc w Telegram. Instalacja offline w 3 krokach — bez specjalisty IT, działa na komputerze klienta.",
-    c1_p1: "Raport wydajności na /today i /month — indywidualnie dla każdego mechanika",
-    c1_p2: "Bezpośrednie połączenie z bazą Firebird eSowa",
-    c1_p3: "Instalacja offline: wszystkie zależności na pendrive, bez internetu",
-    c1_p4: "Autostart przez Windows Task Scheduler — uruchamia się automatycznie po restarcie",
-    c2_title: "LombardPRO",
-    c2_status: "◎ Specyfikacja gotowa (6 200 linii), projekt w negocjacjach",
-    c2_subtitle: "System zarządzania siecią lombardów",
-    c2_desc: "Kompleksowy system automatyzacji dla sieci 3 lombardów. Obejmuje pełny cykl operacyjny — od przyjęcia przedmiotów po analitykę dla właściciela. Rozwijany według standardu ANSS, wdrożony na Railway.",
-    c2_p1: "Bot Telegram dla właściciela: dzienny raport, alerty, potwierdzanie inkasacji przyciskami",
-    c2_p2: "Aplikacja webowa dla pracowników: zastępuje Excel, kasa, skup, inkasacja ze zdjęciami",
-    c2_p3: "Panel webowy: analityka, ruch przedmiotów, raporty w .xlsx",
-    c2_p4: "Cele KPI wg specyfikacji: weryfikacja kasy <3 min (teraz ~30), 100% tracking inkasowanych przedmiotów",
-    c2_p5: "Wdrożenie na Railway z auto-deploy z GitHub, zdjęcia w Supabase Storage",
-    c3_desc: "Otwarty standard pisania specyfikacji technicznych dla AI development. Rozwiązuje problem «agent robi technicznie poprawnie, ale architektonicznie źle». Zmniejszył iteracje z 5–7 do 2–3 w realnych projektach.",
-    c3_p1: "Trójwarstwowa struktura [D/E/A] — agent wie, co czytać najpierw",
-    c3_p2: "Inwarianty — ograniczenia czytelne maszynowo z polem «Weryfikacja»",
-    c3_p3: "Agent Review — agent audytuje spec przed pisaniem kodu. >3 problemy = stop",
-    c3_p4: "Change Specification — wyraźna lista «czego NIE zmieniać» przy aktualizacjach",
-    c3_p5: "Działa z Claude Code, Cursor, Copilot",
-    c3_link2: "Artykuł na Hashnode →",
-    c4_status: "⟳ MVP gotowy",
-    c4_subtitle: "AI system operacyjny dla solo founderów",
-    c4_desc: "Lokalna aplikacja webowa z zespołem 11 wyspecjalizowanych agentów AI opartych na Claude Code. Zbudowana według standardu ANSS. Zastępuje rozproszone czaty z AI jednym systemem ze wspólną pamięcią i trybem planowania.",
-    c4_p1: "11 agentów: Alex (CEO), Max (Backend), Artem (Frontend), Igor (DevOps), Katya (Integrator), Lera (Sales), Lena (QA), Dima (SMM), Yulia (Prawnik) i inne",
-    c4_p2: "Smart Onboarding — osobisty zespół AI w 5 minut",
-    c4_p3: "Tryb planowania: zadanie → plan → wykonanie przez wielu agentów",
-    c4_p4: "Wspólna pamięć między sesjami i projektami",
-    c4_p5: "Vanilla Node.js bez frameworków, stan w JSON, bez npm install",
-    c4_link1: "Prezentacja →",
-    c5_status: "● Na sprzedaż",
-    c5_subtitle: "Metodologia oceny i wdrożenia automatyzacji AI",
-    c5_desc: "Ustrukturyzowana metodologia oceny i wdrożenia automatyzacji AI w biznesie. Zawiera kalkulację ROI, drzewo decyzyjne i mapy drogowe. Trzy wersje w trzech językach: Free, Business, Professional.",
-    c5_p1: "Framework oceny gotowości biznesu do automatyzacji",
-    c5_p2: "Metodologia kalkulacji ROI dla projektów AI",
-    c5_p3: "Drzewo decyzyjne: kiedy automatyzować, a kiedy nie",
-    c5_p4: "Szablony map drogowych wdrożenia · Dostępne w RU / EN / PL",
-    c5_link1: "Gumroad — wersja Professional →",
-    c6_status: "◎ Koncepcja/MVP",
-    c6_subtitle: "Miejski asystent AI dla mieszkańców i turystów",
-    c6_desc: "Bot Telegram ELA — miejska inteligencja dla Elbląga. Dwa tryby: dla mieszkańców (wydarzenia, newsy, zmiany w mieście) i dla turystów (trasy, miejsca, historia). Pilot do skalowania na inne miasta Polski.",
-    c6_p1: "Tryb mieszkańca: co dzieje się dziś, newsy, drogi, serwisy",
-    c6_p2: "Tryb turysty: gotowe trasy na 2/4/8 godzin, miejsca, historia z charakterem",
-    c6_p3: "Poranny auto-digest o 08:00, dzienny precompute treści",
-    c6_p4: "Architektura cache-first — Gemini tylko jako fallback, hosting Hetzner 5–10€/mies",
-    c6_p5: "Model SaaS: pilot Elbląg → Gdańsk → Sopot → inne miasta",
-    offer_label: "Oprócz projektów — usługa",
-    offer_title: "Specyfikacja jako usługa",
-    offer_desc: "Audyt i dokumentacja techniczna, według której agent AI lub programista buduje system przewidywalnie.",
-    offer_link: "Dowiedz się więcej →"
-  }
+ ru: {
+ "nav.services":"Услуги","nav.portfolio":"Портфолио","nav.products":"Продукты","nav.articles":"Статьи","nav.contacts":"Контакты",
+ "hero.name":"Артём Холомянский",
+ "hero.sub":"AI-консалтинг, проектирование и автоматизация бизнес-процессов. Искусственный интеллект становится полезным только тогда, когда задача описана достаточно точно.",
+ "hero.cta_primary":"Обсудить задачу","hero.cta_secondary":"Смотреть проекты",
+ "approach.secnum":"ПОДХОД",
+ "approach.lead":"Начинаю с анализа процессов, затем проектирую решение и сопровождаю внедрение до получения стабильного результата.",
+ "approach.exp":"Более 12 лет в enterprise IT энергетического сектора — SAP IS-U, SCADA, АСКУЭ, проекты с высокой стоимостью ошибки и жёсткими требованиями к качеству. Работал с проектами компании суммарным бюджетом более $10 млн. Использую современные AI-инструменты и платформы автоматизации: Claude, Claude Code, n8n, API-интеграции и другие технологии, подходящие под конкретную задачу.",
+ "approach.philosophy_label":"Философия",
+ "approach.philosophy":"Большинство проблем при внедрении ИИ начинаются с недостаточно чётко описанной задачи и процесса.",
+ "why.secnum":"ПОЧЕМУ Я ЭТИМ ЗАНИМАЮСЬ","why.title":"Откуда этот интерес",
+ "why.p1":"Мне всегда было интересно искать способы сделать процессы проще и удобнее. Ещё до появления современных AI-инструментов я постоянно замечал повторяющиеся действия, лишние шаги и неудобные процессы, которые можно было изменить. От бытовых мелочей до рабочих систем: если действие повторяется регулярно, обычно есть возможность сделать его проще или эффективнее.",
+ "why.p2":"В бизнесе происходит то же самое. Сотрудники каждый день выполняют множество повторяющихся операций: ищут информацию, обрабатывают письма, заполняют документы, готовят отчёты, переносят данные между системами. Мне интересно находить такие места, где процесс можно сделать проще, быстрее и надёжнее.",
+ "why.p3":"Опыт в enterprise IT научил меня подходить к этому системно: сначала понять задачу, затем описать процесс и только после этого выбирать технологию. Сегодня искусственный интеллект стал следующим этапом развития этого подхода — он позволяет создавать системы, которые берут на себя рутину и освобождают время для решений, где действительно нужен человек.",
+ "services.secnum":"УСЛУГИ","services.title":"Чем я занимаюсь",
+ "services.s1.h":"Аудит процессов перед внедрением AI","services.s1.p":"Что происходит на самом деле",
+ "services.s2.h":"Проектирование AI-решений","services.s2.p":"Архитектура и план внедрения",
+ "services.s3.h":"Проектирование требований для внедрения (AI-спецификация/ТЗ)","services.s3.p":"Точное ТЗ для внедрения",
+ "services.s4.h":"Автоматизация процессов","services.s4.p":"Интеграции и рабочие сценарии",
+ "services.s5.h":"Консалтинг","services.s5.p":"Разовая консультация",
+ "services.more":"Все услуги →",
+ "audience.secnum":"ДЛЯ КОГО","audience.title":"Для кого я работаю",
+ "audience.p1":"С компаниями и командами, которые хотят внедрить ИИ в реальные процессы, а не просто попробовать.",
+ "audience.p2":"Подходит: владельцам малого и среднего бизнеса, руководителям отделов, компаниям, которые готовятся к внедрению ИИ, командам с большим объёмом ручной работы с информацией.",
+ "portfolio.secnum":"ПОРТФОЛИО","portfolio.title":"Практические примеры AI-решений",
+ "portfolio.p1.p":"Виртуальная команда над Claude Code","portfolio.p2.p":"Автоматизация ломбарда","portfolio.p3.p":"Телеграм-бот для KPI","portfolio.p4.p":"Городской ассистент","portfolio.p5.p":"Каталог для e-commerce",
+ "portfolio.more":"Всё портфолио →",
+ "products.secnum":"ПРОДУКТЫ","products.title":"Что можно получить сразу",
+ "products.p1.p":"Открытый стандарт спецификаций","products.p2.h":"ИИ в отделе","products.p2.p":"Методичка + книга о внедрении","products.p3.p":"Фреймворк выбора решений",
+ "products.more":"Все продукты →",
+ "articles.secnum":"СТАТЬИ","articles.title":"Что пишу",
+ "articles.p1":"Заметки о спецификациях, автоматизации и работе с ИИ — на Hashnode и Dev.to.",
+ "articles.more":"Все статьи →",
+ "midcta.text":"Готовы посмотреть, где в вашем отделе можно сэкономить время? Опишите задачу в двух-трёх предложениях — отвечу, стоит ли этим заниматься.",
+ "midcta.btn":"Написать →",
+ "process.secnum":"ПРОЦЕСС","process.title":"Как проходит работа",
+ "process.s1.h":"01. Первое письмо","process.s1.p":"Описываете отдел и задачу в двух-трёх предложениях. В ответ — стоит ли этим заниматься и с чего начать.",
+ "process.s2.h":"02. Аудит","process.s2.p":"Смотрю на реальные процессы, а не на должностные инструкции. Результат — карта задач с оценкой, что можно автоматизировать.",
+ "process.s3.h":"03. Проектирование и спецификация","process.s3.p":"Архитектура решения и точное ТЗ для каждой задачи: вход, выход, правила, что нельзя делать никогда.",
+ "process.s4.h":"04. Внедрение","process.s4.p":"Запуск по одной задаче за раз, приёмка тем, кто раньше делал её руками, до стабильного результата.",
+ "process.s5.h":"05. Сопровождение","process.s5.p":"Передаю решение с документацией. Дальше — по желанию: разовые консультации или следующий этап автоматизации.",
+ "faq.secnum":"FAQ","faq.title":"Частые вопросы",
+ "faq.q1.h":"Чем занимается AI-консультант?","faq.q1.p":"Разбирает реальные процессы компании, находит задачи, которые можно передать ИИ или автоматизации, проектирует и сопровождает внедрение до стабильного результата.",
+ "faq.q2.h":"Как проходит аудит процессов?","faq.q2.p":"Сотрудники фиксируют реальные задачи за неделю. По этим данным строится карта процессов с оценкой, где автоматизация даст эффект, а где риск выше пользы.",
+ "faq.q3.h":"Что такое ANSS?","faq.q3.p":"Открытый стандарт описания задач и требований для AI-систем — так, чтобы поведение ИИ было предсказуемым и понятным как человеку, так и разработке.",
+ "faq.q4.h":"С какими инструментами вы работаете?","faq.q4.p":"Claude, Claude Code, n8n, прямые интеграции через API моделей — конкретный набор зависит от задачи, а не наоборот.",
+ "faq.q5.h":"Сколько стоит аудит?","faq.q5.p":"Зависит от масштаба отдела. Актуальные тарифы — на странице услуги.",
+ "closing.title":"Не уверены, что вам нужно?",
+ "closing.p":"Опишите пару предложений о том, что происходит в отделе — отвечу честно, стоит ли этим заниматься и с чего начать.",
+ "closing.btn":"Написать →"
+ },
+ en: {
+ "nav.services":"Services","nav.portfolio":"Portfolio","nav.products":"Products","nav.articles":"Articles","nav.contacts":"Contact",
+ "hero.name":"Artem Kholomyanskiy",
+ "hero.sub":"AI consulting, solution design, and business process automation. AI becomes useful only when the task is described precisely enough.",
+ "hero.cta_primary":"Discuss a task","hero.cta_secondary":"View projects",
+ "approach.secnum":"APPROACH",
+ "approach.lead":"I start with process analysis, then design the solution and support implementation through to a stable result.",
+ "approach.exp":"12+ years in enterprise IT in the energy sector — SAP IS-U, SCADA, metering systems, projects with high cost of error and strict quality requirements. Worked on company projects with a combined budget of over $10M. I use modern AI tools and automation platforms: Claude, Claude Code, n8n, API integrations, and other technologies suited to the task.",
+ "approach.philosophy_label":"Philosophy",
+ "approach.philosophy":"Most problems in AI implementation start with a poorly described task and process.",
+ "why.secnum":"WHY I DO THIS","why.title":"Where this interest comes from",
+ "why.p1":"I've always been interested in finding ways to make processes simpler and more convenient. Even before modern AI tools, I kept noticing repetitive actions, unnecessary steps, and awkward processes that could be changed. From everyday things to work systems: if an action repeats regularly, there's usually a way to make it simpler or more efficient.",
+ "why.p2":"The same happens in business. Employees perform many repetitive operations every day: searching for information, processing emails, filling out documents, preparing reports, transferring data between systems. I'm interested in finding the places where a process can be made simpler, faster, and more reliable.",
+ "why.p3":"My enterprise IT experience taught me to approach this systematically: first understand the task, then describe the process, and only then choose the technology. Today AI has become the next stage of this approach — it lets you build systems that take over routine work and free up time for decisions where a human is genuinely needed.",
+ "services.secnum":"SERVICES","services.title":"What I do",
+ "services.s1.h":"Process Audit Before AI Implementation","services.s1.p":"What's actually happening",
+ "services.s2.h":"AI Solution Design","services.s2.p":"Architecture and implementation plan",
+ "services.s3.h":"Requirements Design for Implementation (AI Spec/TOR)","services.s3.p":"Precise spec for implementation",
+ "services.s4.h":"Process Automation","services.s4.p":"Integrations and workflows",
+ "services.s5.h":"Consulting","services.s5.p":"One-off consultation",
+ "services.more":"All services →",
+ "audience.secnum":"WHO FOR","audience.title":"Who I work with",
+ "audience.p1":"Companies and teams who want to implement AI in real processes, not just try it out.",
+ "audience.p2":"A good fit for: small and medium business owners, department heads, companies preparing to implement AI, teams with a large amount of manual information work.",
+ "portfolio.secnum":"PORTFOLIO","portfolio.title":"Practical examples of AI solutions",
+ "portfolio.p1.p":"Virtual team on top of Claude Code","portfolio.p2.p":"Pawnshop automation","portfolio.p3.p":"Telegram bot for KPIs","portfolio.p4.p":"City assistant","portfolio.p5.p":"Catalog for e-commerce",
+ "portfolio.more":"Full portfolio →",
+ "products.secnum":"PRODUCTS","products.title":"What you can get right away",
+ "products.p1.p":"Open specification standard","products.p2.h":"AI in the Department","products.p2.p":"Guide + book on implementation","products.p3.p":"Decision-making framework",
+ "products.more":"All products →",
+ "articles.secnum":"ARTICLES","articles.title":"What I write",
+ "articles.p1":"Notes on specifications, automation, and working with AI — on Hashnode and Dev.to.",
+ "articles.more":"All articles →",
+ "midcta.text":"Ready to see where your department could save time? Describe the task in a couple of sentences — I'll give you an honest read on whether it's worth doing.",
+ "midcta.btn":"Write →",
+ "process.secnum":"PROCESS","process.title":"How the work goes",
+ "process.s1.h":"01. First message","process.s1.p":"You describe the department and task in a couple of sentences. I reply with whether it's worth pursuing and where to start.",
+ "process.s2.h":"02. Audit","process.s2.p":"I look at what actually happens, not job descriptions. Result: a task map with an estimate of what can be automated.",
+ "process.s3.h":"03. Design and specification","process.s3.p":"Solution architecture and a precise spec for each task: input, output, rules, what must never happen.",
+ "process.s4.h":"04. Implementation","process.s4.p":"Rolled out one task at a time, accepted by whoever used to do it by hand, until the result is stable.",
+ "process.s5.h":"05. Handover","process.s5.p":"I hand over the solution with documentation. After that, it's up to you: occasional consulting or the next stage of automation.",
+ "faq.secnum":"FAQ","faq.title":"Frequently asked questions",
+ "faq.q1.h":"What does an AI consultant do?","faq.q1.p":"Analyzes a company's actual processes, finds tasks that can be handed to AI or automation, designs and supports implementation through to a stable result.",
+ "faq.q2.h":"How does a process audit work?","faq.q2.p":"Employees log their real tasks for a week. That data builds a process map showing where automation pays off and where the risk outweighs the benefit.",
+ "faq.q3.h":"What is ANSS?","faq.q3.p":"An open standard for describing tasks and requirements for AI systems, so AI behavior is predictable and clear to both humans and developers.",
+ "faq.q4.h":"What tools do you work with?","faq.q4.p":"Claude, Claude Code, n8n, direct API integrations with models — the exact set depends on the task, not the other way around.",
+ "faq.q5.h":"How much does an audit cost?","faq.q5.p":"Depends on the department's size. Current pricing is on the service page.",
+ "closing.title":"Not sure what you need?",
+ "closing.p":"Describe what's happening in your department in a couple of sentences — I'll give you an honest read on whether it's worth doing and where to start.",
+ "closing.btn":"Write →"
+ }
 };
 
-function setLang(lang) {
-  document.querySelectorAll('[data-i18n]').forEach(function(el) {
-    var key = el.getAttribute('data-i18n');
-    if (T[lang] && T[lang][key]) el.textContent = T[lang][key];
-  });
-  document.querySelectorAll('.lang-btn').forEach(function(btn) {
-    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
-  });
-  document.documentElement.lang = lang;
-  localStorage.setItem('lang', lang);
-  document.querySelectorAll('a[href^="spec.html"]').forEach(function(a) {
-    a.href = 'spec.html?lang=' + lang;
-  });
+function applyLang(lang){
+ document.querySelectorAll('[data-i18n]').forEach(el=>{
+ const key = el.getAttribute('data-i18n');
+ if(T[lang] && T[lang][key]) el.textContent = T[lang][key];
+ });
+ document.documentElement.lang = lang;
+ document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+ localStorage.setItem('site-lang', lang);
 }
+document.querySelectorAll('.lang-btn').forEach(btn=>{
+ btn.addEventListener('click', ()=>applyLang(btn.dataset.lang));
+});
+const saved = localStorage.getItem('site-lang');
+if(saved && T[saved]) applyLang(saved);
 
-var saved = localStorage.getItem('lang') || 'ru';
-setLang(saved);
+document.querySelectorAll('.acc-head').forEach(head=>{
+ head.addEventListener('click', ()=>{
+ const item = head.closest('.acc-item');
+ const body = item.querySelector('.acc-body');
+ const isOpen = item.classList.contains('open');
+ item.parentElement.querySelectorAll('.acc-item.open').forEach(other=>{
+ if(other!==item){ other.classList.remove('open'); other.querySelector('.acc-body').style.maxHeight=null; }
+ });
+ if(isOpen){ item.classList.remove('open'); body.style.maxHeight=null; }
+ else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight+'px'; }
+ });
+});
 </script>
 
 </body>

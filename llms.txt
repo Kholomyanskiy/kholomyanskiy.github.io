@@ -1,21 +1,32 @@
-# Artem Kholomyanskiy — AI Automation Consultant
+# Артём Холомянский — EVAI Consulting
 
-> AI consultant. Creator of ANSS — open standard for AI-native development. EVAI Consulting, Poland.
+> AI-консультант и специалист по автоматизации бизнес-процессов. 12+ лет опыта в enterprise IT энергетического сектора (SAP IS-U, SCADA, АСКУЭ). Автор открытого стандарта спецификаций ANSS. Работает с компаниями из Польши, ЕС и США удалённо.
 
-## Projects
-- ANSS Standard: open specification standard for AI-native development. https://github.com/Kholomyanskiy/anss-standard
-- ANSS Examples: real-world specs in ANSS-Core format. https://github.com/Kholomyanskiy/anss-standard/tree/master/examples
-- LombardPRO: full ANSS-Core specification for a multi-branch pawnshop network. Status: in negotiation.
-- AI Automation Decision System: ROI-first methodology for business AI automation. https://aimethodology.gumroad.com/
-- AI Infrastructure 2026: investment brief on AI physical infrastructure (5 sectors, 40 companies). https://github.com/Kholomyanskiy/ai-infrastructure-2026
-- Solo Founder OS: AI agent team system for solo founders via Claude Code. Status: in development.
+Артём Холомянский — независимый AI-консультант, основатель EVAI Consulting. Помогает компаниям внедрять искусственный интеллект и автоматизацию в реальные рабочие процессы через системный подход: аудит → проектирование → спецификация → внедрение.
 
-## Services
-- Specification as a Service: full ANSS-Core technical specification for AI and automation projects. https://kholomyanskiy.github.io/spec.html
+## Основное
 
-## Links
-- Portfolio: https://kholomyanskiy.github.io
-- GitHub: https://github.com/Kholomyanskiy
-- LinkedIn: https://linkedin.com/in/kholomyanskiy
+- [Главная / визитка](https://kholomyanskiy.github.io/index.html): кто такой Артём, подход, философия, ссылки на все разделы
+- [Услуги](https://kholomyanskiy.github.io/services.html): аудит процессов перед внедрением AI, проектирование AI-решений, проектирование требований (AI-спецификация/ТЗ), автоматизация процессов, консалтинг
+- [Продукты](https://kholomyanskiy.github.io/products.html): ANSS Standard (открытый стандарт), методичка и книга "ИИ в отделе", AI Automation Decision System
+- [Портфолио](https://kholomyanskiy.github.io/portfolio.html): технические кейсы — Solo Founder OS, LombardPRO, eSowa KPI Bot, ELA City Bot, Decor Engine
+- [Статьи](https://kholomyanskiy.github.io/articles.html): заметки об AI-спецификациях и автоматизации на Hashnode и Dev.to
+
+## Ключевые продукты и стандарты
+
+- [ANSS Standard](https://github.com/Kholomyanskiy/anss-standard): AI-Native System Specification Standard — открытый стандарт описания задач и требований для AI-систем, лицензия CC BY 4.0
+- [Методичка "ИИ в отделе"](https://kholomyanskiy.github.io/metodichka.html): бесплатное руководство по внедрению ИИ в отдел, пять этапов (аудит, отбор, спецификация, внедрение, масштабирование)
+- [Книга "ИИ в отделе" (полная версия)](https://aimethodology.gumroad.com/l/ai-v-otdele): расширенная версия методички на Gumroad
+- [AI-аудит отдела](https://kholomyanskiy.github.io/audit.html): услуга диагностики процессов перед внедрением AI
+
+## Контакты
+
 - Email: kholomyanskiy@gmail.com
+- LinkedIn: https://linkedin.com/in/kholomyanskiy
+- GitHub: https://github.com/Kholomyanskiy
 - Telegram: https://t.me/kholomyanskiy
+- Локация: Эльблонг, Польша. Работает удалённо с клиентами из ЕС и США
+
+## Инструменты и стек
+
+Claude, Claude Code, n8n, прямые интеграции через API моделей, SAP IS-U, SCADA.

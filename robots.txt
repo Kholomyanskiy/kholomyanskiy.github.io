@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kholomyanskiy.github.io/sitemap.xml

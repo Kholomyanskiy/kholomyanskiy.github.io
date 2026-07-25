@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Портфолио — Артём Холомянский · AI-консалтинг и автоматизация</title>
+<meta name="description" content="Практические проекты по автоматизации и внедрению ИИ: Solo Founder OS, LombardPRO, eSowa KPI Bot, ELA City Bot, Decor Engine.">
+<link rel="canonical" href="https://kholomyanskiy.github.io/portfolio.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Портфолио — Артём Холомянский · AI-консалтинг и автоматизация">
+<meta property="og:description" content="Практические проекты по автоматизации и внедрению ИИ: Solo Founder OS, LombardPRO, eSowa KPI Bot, ELA City Bot, Decor Engine.">
+<meta property="og:url" content="https://kholomyanskiy.github.io/portfolio.html">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Портфолио — Артём Холомянский · AI-консалтинг и автоматизация">
+<meta name="twitter:description" content="Практические проекты по автоматизации и внедрению ИИ: Solo Founder OS, LombardPRO, eSowa KPI Bot, ELA City Bot, Decor Engine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+ --paper:#F2F3EE; --panel:#FAFBF7; --ink:#1B2027; --ink-soft:#4A5361;
+ --line:#C9CEC2; --line-soft:#DEE1D8; --blue:#2B5B8A; --blue-deep:#1E4266; --stamp:#9A3B33;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+ font-family:'Inter',sans-serif; background:var(--paper);
+ background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+ background-size:32px 32px; color:var(--ink); line-height:1.7; font-size:16px;
+}
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-inner{max-width:820px;margin:0 auto;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-family:'JetBrains Mono',monospace;font-size:13px}
+.topnav-brand{font-weight:600;color:var(--ink);letter-spacing:.04em;text-decoration:none;line-height:1.3}
+.topnav-brand .role{display:block;font-weight:400;font-size:10px;color:var(--ink-soft);letter-spacing:.03em;text-transform:none}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+.topnav-links a.current{color:var(--ink);font-weight:600}
+.lang-switch{display:flex;gap:4px;border:1px solid var(--line);padding:2px}
+.lang-btn{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;background:transparent;border:none;color:var(--ink-soft);padding:4px 9px;cursor:pointer}
+.lang-btn.active{background:var(--ink);color:#EDEFF2}
+.lang-btn:hover:not(.active){color:var(--ink)}
+@media(max-width:680px){.topnav-inner{padding:12px 20px;gap:8px}.topnav-links{gap:14px;font-size:12px}}
+
+.sheet{max-width:820px;margin:32px auto 40px;background:var(--panel);border:1.5px solid var(--ink);box-shadow:8px 8px 0 rgba(27,32,39,.08)}
+.titleblock{border-bottom:1.5px solid var(--ink)}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-top .brand{font-weight:500;color:var(--ink);letter-spacing:.08em}
+.tb-main{padding:44px 32px 36px}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,42px);line-height:1.12;max-width:640px}
+.tb-main .sub{margin-top:14px;max-width:560px;color:var(--ink-soft);font-size:17px}
+
+section{padding:40px 32px;border-bottom:1px solid var(--line);scroll-margin-top:70px}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:25px;margin-bottom:14px}
+h3{font-family:'Spectral',serif;font-weight:600;font-size:20px;margin-bottom:6px}
+p{max-width:620px;margin-bottom:14px}
+.muted{color:var(--ink-soft)}
+a{color:var(--blue)}
+
+.case-block{border:1px solid var(--line);margin-top:20px;padding:24px 26px;background:var(--panel)}
+.case-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.1em;display:block;margin-bottom:8px}
+.case-shot{aspect-ratio:16/9;background:var(--paper);border:1px dashed var(--line-soft);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);letter-spacing:.05em}
+.case-tags{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px}
+.case-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);padding:4px 10px}
+.case-status{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;margin-top:12px;border:1px solid var(--line)}
+.case-status.live{color:var(--blue);border-color:var(--blue)}
+.case-status.mvp{color:var(--stamp);border-color:var(--stamp)}
+.case-cta{margin-top:16px}
+.case-cta a{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.05em;color:var(--blue);text-decoration:none}
+.case-cta a:hover{text-decoration:underline}
+
+.closing-cta{background:var(--ink);color:#EDEFF2;padding:44px 32px;text-align:center}
+.closing-cta h2{color:#fff;margin-bottom:10px}
+.closing-cta p{color:#B9C1CC;max-width:520px;margin:0 auto 20px}
+.closing-cta a.btn3{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;padding:14px 30px;text-decoration:none}
+.closing-cta a.btn3:hover{background:transparent;color:#EDEFF2}
+
+.legacy-frame{border:2px dashed var(--ink-soft);margin-top:8px;padding:28px 26px}
+.legacy-frame .legacy-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:14px}
+.legacy-frame h3{font-family:'Spectral',serif;font-weight:600;font-size:20px;margin-bottom:8px}
+.legacy-frame > p{max-width:600px;color:var(--ink-soft);margin-bottom:20px}
+.legacy-item{border-top:1px solid var(--line);padding-top:18px;margin-top:18px}
+.legacy-item:first-of-type{border-top:none;margin-top:0}
+.legacy-item .legacy-years{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.06em;display:block;margin-bottom:4px}
+.legacy-item h4{font-family:'Spectral',serif;font-weight:600;font-size:16px;margin-bottom:6px}
+.legacy-item p{font-size:14px;color:var(--ink-soft);margin-bottom:0;max-width:none}
+
+footer{max-width:820px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;background:var(--panel);border:1.5px solid var(--ink);border-top:none}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+
+@media(max-width:680px){
+ .sheet{margin:10px 12px 32px}
+ section,.tb-main{padding-left:20px;padding-right:20px;padding-top:28px;padding-bottom:28px}
+ .tb-top{padding:12px 20px}
+ footer{margin:0 12px 32px;padding:20px}
+ .case-block,.prod-block,.svc-block{padding:18px 16px}
+ .legacy-frame{padding:20px 16px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+ <div class="topnav-inner">
+ <a class="topnav-brand" href="index.html">АРТЁМ ХОЛОМЯНСКИЙ<span class="role">EVAI Consulting · Разработка и внедрение AI-решений</span></a>
+ <div class="topnav-links">
+ <a href="services.html" data-i18n="nav.services">Услуги</a>
+ <a href="portfolio.html" class="current" data-i18n="nav.portfolio">Портфолио</a>
+ <a href="products.html" data-i18n="nav.products">Продукты</a>
+ <a href="articles.html" data-i18n="nav.articles">Статьи</a>
+ <a href="mailto:kholomyanskiy@gmail.com" data-i18n="nav.contacts">Контакты</a>
+ <span class="lang-switch">
+ <button type="button" class="lang-btn active" data-lang="ru">RU</button>
+ <button type="button" class="lang-btn" data-lang="en">EN</button>
+ </span>
+ </div>
+ </div>
+</nav>
+
+<div class="sheet">
+
+ <header class="titleblock">
+ <div class="tb-top">
+ <span class="brand">EVAI CONSULTING</span>
+ <span>Elbląg, Poland</span>
+ </div>
+ <div class="tb-main">
+ <h1 data-i18n="page.title">Практические примеры AI-решений</h1>
+ <p class="sub" data-i18n="page.sub">Здесь собраны реализованные проекты по автоматизации и внедрению ИИ — от рабочих MVP до production.</p>
+ </div>
+ </header>
+
+ <section>
+ <span class="secnum">01</span>
+ <div class="case-block">
+ <div class="case-shot"><span data-i18n="shot.label">Скриншот скоро</span></div>
+ <h3>Solo Founder OS</h3>
+ <p data-i18n="c1.p1">Node.js WebUI поверх Claude Code с виртуальной командой из 11 агентов — CEO, backend, frontend, DevOps, интегратор, бизнес-аналитик, продажи, QA, SMM, юрист, HR. Каждый агент отвечает за свою роль в разработке и ведении бизнеса соло-фаундера.</p>
+ <p class="muted" data-i18n="c1.p2">Цель — дать одному человеку возможность вести проект в режиме полноценной команды, не нанимая людей.</p>
+ <div class="case-tags">
+ <span class="case-tag">Node.js</span>
+ <span class="case-tag">Claude Code</span>
+ <span class="case-tag">Multi-agent</span>
+ </div>
+ <span class="case-status mvp" data-i18n="c1.status">MVP, используется</span>
+ </div>
+ </section>
+
+ <section>
+ <span class="secnum">02</span>
+ <div class="case-block">
+ <div class="case-shot"><span data-i18n="shot.label">Скриншот скоро</span></div>
+ <h3>LombardPRO</h3>
+ <p data-i18n="c2.p1">Автоматизация бэкенда для ломбарда: FastAPI + PostgreSQL + Telegram-бот на Hetzner VPS. Полный пакет документации — техническое задание, границы работ, коммерческое предложение, прототип дашборда.</p>
+ <p class="muted" data-i18n="c2.p2">Проекту предшествовал аудит данных из шести источников (Excel/PawnExpert), чтобы понять реальную структуру процессов ломбарда перед проектированием системы.</p>
+ <div class="case-tags">
+ <span class="case-tag">FastAPI</span>
+ <span class="case-tag">PostgreSQL</span>
+ <span class="case-tag">Telegram Bot</span>
+ <span class="case-tag">Hetzner</span>
+ </div>
+ <span class="case-status mvp" data-i18n="c2.status">Предпроектное обследование, концепция, ТЗ и спецификация готовы</span>
+ </div>
+ </section>
+
+ <section>
+ <span class="secnum">03</span>
+ <div class="case-block">
+ <div class="case-shot"><span data-i18n="shot.label">Скриншот скоро</span></div>
+ <h3>eSowa KPI Bot</h3>
+ <p data-i18n="c3.p1">Телеграм-бот для отслеживания KPI сотрудников: сбор показателей, автоматические сводки, уведомления о статусе выполнения без ручного сведения таблиц.</p>
+ <div class="case-tags">
+ <span class="case-tag">Telegram Bot</span>
+ <span class="case-tag">Автоматизация KPI</span>
+ </div>
+ <span class="case-status live" data-i18n="c3.status">Работает</span>
+ </div>
+ </section>
+
+ <section>
+ <span class="secnum">04</span>
+ <div class="case-block">
+ <div class="case-shot"><span data-i18n="shot.label">Скриншот скоро</span></div>
+ <h3>ELA City Bot</h3>
+ <p data-i18n="c4.p1">Концепт городского ассистента на базе Telegram — отвечает на вопросы жителей и гостей города, ориентируется в локальной информации без участия человека в рутинных запросах.</p>
+ <div class="case-tags">
+ <span class="case-tag">Telegram Bot</span>
+ <span class="case-tag">AI-ассистент</span>
+ </div>
+ <span class="case-status mvp" data-i18n="c4.status">Концепт</span>
+ </div>
+ </section>
+
+ <section>
+ <span class="secnum">05</span>
+ <div class="case-block">
+ <div class="case-shot"><span data-i18n="shot.label">Скриншот скоро</span></div>
+ <h3>Decor Engine</h3>
+ <p data-i18n="c5.p1">Автоматизация каталога товаров для украинского e-commerce (Prom.ua + WooCommerce): генерация и проверка описаний товаров по многим параметрам качества — от смешения языков до согласования рода и запрещённых маркетинговых формулировок.</p>
+ <p class="muted" data-i18n="c5.p2">Прошёл 20 версий через циклы аудита и доработки валидатора. Полная автоматизация не была целью: конвейер закрывает базовое качество, финальную полировку описаний клиент делает вручную через отдельную LLM.</p>
+ <div class="case-tags">
+ <span class="case-tag">Prom.ua</span>
+ <span class="case-tag">WooCommerce</span>
+ <span class="case-tag">Контент-валидация</span>
+ </div>
+ <span class="case-status mvp" data-i18n="c5.status">MVP готов, тестируется</span>
+ </div>
+ </section>
+
+ <section>
+ <span class="secnum">06</span>
+ <div class="legacy-frame">
+ <span class="legacy-label" data-i18n="legacy.label">До AI · 2009–2021</span>
+ <h3 data-i18n="legacy.h">Enterprise-проекты в энергетике</h3>
+ <p data-i18n="legacy.p">12 лет управления и анализа крупных IT-проектов в регулируемой среде — до перехода в AI-консалтинг. Команды до 20+ человек, объекты в 22 локациях.</p>
+
+ <div class="legacy-item">
+ <span class="legacy-years">2009–2011</span>
+ <h4>АСК ПЭЭ «Neuron» (Systel)</h4>
+ <p data-i18n="legacy.p1">Внедрение автоматизированной системы учёта электроэнергии для домохозяйств и малого бизнеса. Роль: бизнес-аналитик, участник проекта.</p>
+ </div>
+
+ <div class="legacy-item">
+ <span class="legacy-years">2011–2014</span>
+ <h4 data-i18n="legacy.p2h">Интеграционный модуль MDUS SciMeter, SAP R/3 IS-U (SAP SE)</h4>
+ <p data-i18n="legacy.p2">Совместная разработка интеграционного модуля SAP R/3 с системами оптовой и розничной продажи электроэнергии; алгоритмы и BPMN-схемы для Smart Grid MDUS. Роль: бизнес-аналитик, участник проекта.</p>
+ </div>
+
+ <div class="legacy-item">
+ <span class="legacy-years">2014–2019</span>
+ <h4 data-i18n="legacy.p3h">КАСУТС OMS/DMS (Schneider Electric / Telvent, Novi Sad)</h4>
+ <p data-i18n="legacy.p3">Внедрение комплекса автоматизированных систем управления технологическими сетями в 22 региональных центрах. Роль: менеджер проекта.</p>
+ </div>
+
+ <div class="legacy-item">
+ <span class="legacy-years">2019–2021</span>
+ <h4 data-i18n="legacy.p4h">Единый центр управления сетями (SK-11 / Monitor Electric)</h4>
+ <p data-i18n="legacy.p4">Крупный инфраструктурный проект, включавший строительство отдельного здания под центр управления. Роль: менеджер проекта, координатор.</p>
+ </div>
+ </div>
+ </section>
+
+ <div class="closing-cta">
+ <h2 data-i18n="closing.title">Не уверены, что вам нужно?</h2>
+ <p data-i18n="closing.p">Опишите пару предложений о том, что происходит в отделе — отвечу честно, стоит ли этим заниматься и с чего начать.</p>
+ <a class="btn3" href="mailto:kholomyanskiy@gmail.com?subject=%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0" data-i18n="closing.btn">Написать →</a>
+ </div>
+
+</div>
+
+<footer>
+ <span>EVAI Consulting · Elbląg, Poland</span>
+ <span><a href="mailto:kholomyanskiy@gmail.com">kholomyanskiy@gmail.com</a> · <a href="https://linkedin.com/in/kholomyanskiy">LinkedIn</a> · <a href="https://t.me/kholomyanskiy">Telegram</a></span>
+</footer>
+
+<script>
+const T = {
+ ru: {
+ "nav.services":"Услуги","nav.portfolio":"Портфолио","nav.products":"Продукты","nav.articles":"Статьи","nav.contacts":"Контакты",
+ "page.title":"Практические примеры AI-решений",
+ "page.sub":"Здесь собраны реализованные проекты по автоматизации и внедрению ИИ — от рабочих MVP до production.",
+ "shot.label":"Скриншот скоро",
+ "c1.num":"ПРОЕКТ 01",
+ "c1.p1":"Node.js WebUI поверх Claude Code с виртуальной командой из 11 агентов — CEO, backend, frontend, DevOps, интегратор, бизнес-аналитик, продажи, QA, SMM, юрист, HR. Каждый агент отвечает за свою роль в разработке и ведении бизнеса соло-фаундера.",
+ "c1.p2":"Цель — дать одному человеку возможность вести проект в режиме полноценной команды, не нанимая людей.",
+ "c1.status":"MVP, используется",
+ "c2.num":"ПРОЕКТ 02",
+ "c2.p1":"Автоматизация бэкенда для ломбарда: FastAPI + PostgreSQL + Telegram-бот на Hetzner VPS. Полный пакет документации — техническое задание, границы работ, коммерческое предложение, прототип дашборда.",
+ "c2.p2":"Проекту предшествовал аудит данных из шести источников (Excel/PawnExpert), чтобы понять реальную структуру процессов ломбарда перед проектированием системы.",
+ "c2.status":"Предпроектное обследование, концепция, ТЗ и спецификация готовы",
+ "c3.num":"ПРОЕКТ 03",
+ "c3.p1":"Телеграм-бот для отслеживания KPI сотрудников: сбор показателей, автоматические сводки, уведомления о статусе выполнения без ручного сведения таблиц.",
+ "c3.status":"Работает",
+ "c4.num":"ПРОЕКТ 04",
+ "c4.p1":"Концепт городского ассистента на базе Telegram — отвечает на вопросы жителей и гостей города, ориентируется в локальной информации без участия человека в рутинных запросах.",
+ "c4.status":"Концепт",
+ "c5.num":"ПРОЕКТ 05",
+ "c5.p1":"Автоматизация каталога товаров для украинского e-commerce (Prom.ua + WooCommerce): генерация и проверка описаний товаров по многим параметрам качества — от смешения языков до согласования рода и запрещённых маркетинговых формулировок.",
+ "c5.p2":"Прошёл 20 версий через циклы аудита и доработки валидатора. Полная автоматизация не была целью: конвейер закрывает базовое качество, финальную полировку описаний клиент делает вручную через отдельную LLM.",
+ "c5.status":"MVP готов, тестируется",
+ "legacy.label":"До AI · 2009–2021","legacy.h":"Enterprise-проекты в энергетике",
+ "legacy.p":"12 лет управления и анализа крупных IT-проектов в регулируемой среде — до перехода в AI-консалтинг. Команды до 20+ человек, объекты в 22 локациях.",
+ "legacy.p1":"Внедрение автоматизированной системы учёта электроэнергии для домохозяйств и малого бизнеса. Роль: бизнес-аналитик, участник проекта.",
+ "legacy.p2h":"Интеграционный модуль MDUS SciMeter, SAP R/3 IS-U (SAP SE)",
+ "legacy.p2":"Совместная разработка интеграционного модуля SAP R/3 с системами оптовой и розничной продажи электроэнергии; алгоритмы и BPMN-схемы для Smart Grid MDUS. Роль: бизнес-аналитик, участник проекта.",
+ "legacy.p3h":"КАСУТС OMS/DMS (Schneider Electric / Telvent, Novi Sad)",
+ "legacy.p3":"Внедрение комплекса автоматизированных систем управления технологическими сетями в 22 региональных центрах. Роль: менеджер проекта.",
+ "legacy.p4h":"Единый центр управления сетями (SK-11 / Monitor Electric)",
+ "legacy.p4":"Крупный инфраструктурный проект, включавший строительство отдельного здания под центр управления. Роль: менеджер проекта, координатор.",
+ "closing.title":"Не уверены, что вам нужно?",
+ "closing.p":"Опишите пару предложений о том, что происходит в отделе — отвечу честно, стоит ли этим заниматься и с чего начать.",
+ "closing.btn":"Написать →"
+ },
+ en: {
+ "nav.services":"Services","nav.portfolio":"Portfolio","nav.products":"Products","nav.articles":"Articles","nav.contacts":"Contact",
+ "page.title":"Practical examples of AI solutions",
+ "page.sub":"A collection of implemented automation and AI projects — from working MVPs to production.",
+ "shot.label":"Screenshot coming soon",
+ "c1.num":"PROJECT 01",
+ "c1.p1":"A Node.js WebUI on top of Claude Code with a virtual team of 11 agents — CEO, backend, frontend, DevOps, integrator, business analyst, sales, QA, SMM, legal, HR. Each agent owns its role in developing and running a solo founder's business.",
+ "c1.p2":"The goal: let one person run a project the way a full team would, without hiring anyone.",
+ "c1.status":"MVP, in use",
+ "c2.num":"PROJECT 02",
+ "c2.p1":"Backend automation for a pawnshop: FastAPI + PostgreSQL + Telegram bot on a Hetzner VPS. Full documentation package — technical spec, scope, commercial proposal, dashboard prototype.",
+ "c2.p2":"Preceded by a data audit of six sources (Excel/PawnExpert) to understand the pawnshop's actual process structure before designing the system.",
+ "c2.status":"Pre-project assessment, concept, spec and TOR ready",
+ "c3.num":"PROJECT 03",
+ "c3.p1":"A Telegram bot for tracking employee KPIs: collecting metrics, automatic summaries, status notifications without manually consolidating spreadsheets.",
+ "c3.status":"Live",
+ "c4.num":"PROJECT 04",
+ "c4.p1":"A concept for a Telegram-based city assistant — answers questions from residents and visitors, navigates local information without a human handling routine queries.",
+ "c4.status":"Concept",
+ "c5.num":"PROJECT 05",
+ "c5.p1":"Product catalog automation for Ukrainian e-commerce (Prom.ua + WooCommerce): generating and validating product descriptions across many quality dimensions — from language mixing to gender agreement and banned marketing phrases.",
+ "c5.p2":"Went through 20 versions across audit and validator refinement cycles. Full automation wasn't the goal: the pipeline covers baseline quality, final polish is done manually by the client through a separate LLM.",
+ "c5.status":"MVP ready, in testing",
+ "legacy.label":"Before AI · 2009–2021","legacy.h":"Enterprise projects in energy",
+ "legacy.p":"12 years managing and analyzing large IT projects in a regulated environment — before moving into AI consulting. Teams of 20+, sites across 22 locations.",
+ "legacy.p1":"Implementation of an automated energy metering system for households and small businesses. Role: business analyst, project participant.",
+ "legacy.p2h":"MDUS SciMeter integration module, SAP R/3 IS-U (SAP SE)",
+ "legacy.p2":"Co-developed a SAP R/3 integration module with wholesale/retail electricity sales systems; algorithms and BPMN diagrams for Smart Grid MDUS. Role: business analyst, project participant.",
+ "legacy.p3h":"OMS/DMS technology network control system (Schneider Electric / Telvent, Novi Sad)",
+ "legacy.p3":"Rollout of an automated technology network control system complex across 22 regional centers. Role: project manager.",
+ "legacy.p4h":"Unified Network Control Center (SK-11 / Monitor Electric)",
+ "legacy.p4":"A major infrastructure project that included constructing a dedicated building for the control center. Role: project manager, coordinator.",
+ "closing.title":"Not sure what you need?",
+ "closing.p":"Describe what's happening in your department in a couple of sentences — I'll give you an honest read on whether it's worth doing and where to start.",
+ "closing.btn":"Write →"
+ }
+};
+
+function applyLang(lang){
+ document.querySelectorAll('[data-i18n]').forEach(el=>{
+ const key = el.getAttribute('data-i18n');
+ if(T[lang] && T[lang][key]) el.textContent = T[lang][key];
+ });
+ document.documentElement.lang = lang;
+ document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+ localStorage.setItem('site-lang', lang);
+}
+document.querySelectorAll('.lang-btn').forEach(btn=>{
+ btn.addEventListener('click', ()=>applyLang(btn.dataset.lang));
+});
+const saved = localStorage.getItem('site-lang');
+if(saved && T[saved]) applyLang(saved);
+</script>
+
+</body>
+</html>
