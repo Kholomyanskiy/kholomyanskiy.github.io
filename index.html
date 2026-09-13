@@ -24,7 +24,7 @@
  "alternateName": "Artem Kholomyanskiy",
  "jobTitle": "AI Automation Consultant",
  "url": "https://kholomyanskiy.com",
- "email": "mailto:kholomyanskiy@gmail.com",
+ "email": "mailto:artem@kholomyanskiy.com",
  "address": {
  "@type": "PostalAddress",
  "addressLocality": "Elbląg",
@@ -122,6 +122,19 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 .closing-cta p{color:#B9C1CC;max-width:520px;margin:0 auto 20px}
 .closing-cta a.btn3{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;padding:14px 30px;text-decoration:none}
 .closing-cta a.btn3:hover{background:transparent;color:#EDEFF2}
+.contact-form{max-width:420px;margin:0 auto;text-align:left;display:flex;flex-direction:column;gap:14px}
+.contact-form label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.05em;color:#B9C1CC;display:block;margin-bottom:5px}
+.contact-form input[type=text],.contact-form input[type=email],.contact-form textarea{width:100%;background:#2A313C;border:1px solid #4A5361;color:#EDEFF2;padding:10px 12px;font-family:'Inter',sans-serif;font-size:14px}
+.contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--blue);outline-offset:1px}
+.contact-form textarea{resize:vertical;min-height:90px}
+.contact-form button{align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;padding:12px 26px;cursor:pointer}
+.contact-form button:hover{background:transparent;color:#EDEFF2}
+.contact-form button:disabled{opacity:.6;cursor:default}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-status{font-family:'JetBrains Mono',monospace;font-size:13px;margin:0;min-height:16px}
+.form-status.success{color:#7FD99A}
+.form-status.error{color:#E08585}
+.form-divider{margin:28px 0 6px;color:#8A93A0;font-size:13px}
 @media(max-width:680px){
  .topnav-inner{padding:12px 20px;gap:8px}
  .topnav-links{gap:14px;font-size:12px}
@@ -143,7 +156,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <a href="#portfolio" data-i18n="nav.portfolio">Портфолио</a>
  <a href="#products" data-i18n="nav.products">Продукты</a>
  <a href="#articles" data-i18n="nav.articles">Статьи</a>
- <a href="mailto:kholomyanskiy@gmail.com" data-i18n="nav.contacts">Контакты</a>
+ <a href="mailto:artem@kholomyanskiy.com" data-i18n="nav.contacts">Контакты</a>
  <span class="lang-switch">
  <button type="button" class="lang-btn active" data-lang="ru">RU</button>
  <button type="button" class="lang-btn" data-lang="en">EN</button>
@@ -163,7 +176,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <h1 data-i18n="hero.name">Артём Холомянский</h1>
  <p class="sub" data-i18n="hero.sub">AI-консалтинг, проектирование и автоматизация бизнес-процессов. Искусственный интеллект становится полезным только тогда, когда задача описана достаточно точно.</p>
  <div class="hero-cta">
- <a class="primary" href="mailto:kholomyanskiy@gmail.com?subject=%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0" data-i18n="hero.cta_primary">Обсудить задачу</a>
+ <a class="primary" href="mailto:artem@kholomyanskiy.com?subject=%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0" data-i18n="hero.cta_primary">Обсудить задачу</a>
  <a class="secondary" href="portfolio.html" data-i18n="hero.cta_secondary">Смотреть проекты</a>
  </div>
  </div>
@@ -207,7 +220,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <p class="muted" data-i18n="audience.p2">Подходит: владельцам малого и среднего бизнеса, руководителям отделов, компаниям, которые готовятся к внедрению ИИ, командам с большим объёмом ручной работы с информацией.</p>
  <div class="mid-cta">
  <p data-i18n="midcta.text">Готовы посмотреть, где в вашем отделе можно сэкономить время? Опишите задачу в двух-трёх предложениях — отвечу, стоит ли этим заниматься.</p>
- <a class="btn2" href="mailto:kholomyanskiy@gmail.com?subject=%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0" data-i18n="midcta.btn">Написать →</a>
+ <a class="btn2" href="mailto:artem@kholomyanskiy.com?subject=%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0" data-i18n="midcta.btn">Написать →</a>
  </div>
  </section>
 
@@ -299,14 +312,33 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <div class="closing-cta">
  <h2 data-i18n="closing.title">Не уверены, что вам нужно?</h2>
  <p data-i18n="closing.p">Опишите пару предложений о том, что происходит в отделе — отвечу честно, стоит ли этим заниматься и с чего начать.</p>
- <a class="btn3" href="mailto:kholomyanskiy@gmail.com?subject=%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0" data-i18n="closing.btn">Написать →</a>
+ <form class="contact-form" id="contact-form">
+ <input type="hidden" name="access_key" value="b593308b-f741-4dab-b3a3-19b6036aa1b0">
+ <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off">
+ <div>
+ <label for="cf-name" data-i18n="form.name">Имя</label>
+ <input type="text" id="cf-name" name="name" required>
+ </div>
+ <div>
+ <label for="cf-email" data-i18n="form.email">Email</label>
+ <input type="email" id="cf-email" name="email" required>
+ </div>
+ <div>
+ <label for="cf-message" data-i18n="form.message">Сообщение</label>
+ <textarea id="cf-message" name="message" required></textarea>
+ </div>
+ <button type="submit" data-i18n="form.submit">Отправить →</button>
+ <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+ </form>
+ <p class="form-divider" data-i18n="form.or">или написать на почту напрямую:</p>
+ <a class="btn3" href="mailto:artem@kholomyanskiy.com?subject=%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0" data-i18n="closing.btn">Написать →</a>
  </div>
 
 </div>
 
 <footer>
  <span>EVAI Consulting · Elbląg, Poland</span>
- <span><a href="mailto:kholomyanskiy@gmail.com">kholomyanskiy@gmail.com</a> · <a href="https://linkedin.com/in/kholomyanskiy">LinkedIn</a> · <a href="https://t.me/kholomyanskiy">Telegram</a></span>
+ <span><a href="tel:+48508409363">+48 508 409 363</a> · <a href="mailto:artem@kholomyanskiy.com">artem@kholomyanskiy.com</a> · <a href="https://linkedin.com/in/kholomyanskiy">LinkedIn</a> · <a href="https://t.me/kholomyanskiy">Telegram</a></span>
 </footer>
 
 <script>
@@ -360,7 +392,11 @@ const T = {
  "faq.q5.h":"Сколько стоит аудит?","faq.q5.p":"Зависит от масштаба отдела. Актуальные тарифы — на странице услуги.",
  "closing.title":"Не уверены, что вам нужно?",
  "closing.p":"Опишите пару предложений о том, что происходит в отделе — отвечу честно, стоит ли этим заниматься и с чего начать.",
- "closing.btn":"Написать →"
+ "closing.btn":"Написать →",
+ "form.name":"Имя","form.email":"Email","form.message":"Сообщение","form.submit":"Отправить →",
+ "form.or":"или написать на почту напрямую:",
+ "form.sending":"Отправка...","form.success":"Спасибо, сообщение отправлено — отвечу в течение одного-двух дней.",
+ "form.error":"Не получилось отправить. Напишите напрямую на artem@kholomyanskiy.com"
  },
  en: {
  "nav.services":"Services","nav.portfolio":"Portfolio","nav.products":"Products","nav.articles":"Articles","nav.contacts":"Contact",
@@ -411,7 +447,11 @@ const T = {
  "faq.q5.h":"How much does an audit cost?","faq.q5.p":"Depends on the department's size. Current pricing is on the service page.",
  "closing.title":"Not sure what you need?",
  "closing.p":"Describe what's happening in your department in a couple of sentences — I'll give you an honest read on whether it's worth doing and where to start.",
- "closing.btn":"Write →"
+ "closing.btn":"Write →",
+ "form.name":"Name","form.email":"Email","form.message":"Message","form.submit":"Send →",
+ "form.or":"or write directly to my email:",
+ "form.sending":"Sending...","form.success":"Thanks, your message is sent — I'll reply within a day or two.",
+ "form.error":"Couldn't send it. Please write directly to artem@kholomyanskiy.com"
  }
 };
 
@@ -429,6 +469,39 @@ document.querySelectorAll('.lang-btn').forEach(btn=>{
 });
 const saved = localStorage.getItem('site-lang');
 if(saved && T[saved]) applyLang(saved);
+
+const contactForm = document.getElementById('contact-form');
+if(contactForm){
+ contactForm.addEventListener('submit', async function(e){
+ e.preventDefault();
+ const t = T[document.documentElement.lang] || T.ru;
+ const btn = contactForm.querySelector('button[type="submit"]');
+ const status = document.getElementById('form-status');
+ btn.disabled = true;
+ status.className = 'form-status';
+ status.textContent = t['form.sending'];
+ try{
+ const res = await fetch('https://api.web3forms.com/submit', {
+ method: 'POST',
+ headers: { 'Accept': 'application/json' },
+ body: new FormData(contactForm)
+ });
+ const json = await res.json();
+ if(json.success){
+ status.className = 'form-status success';
+ status.textContent = t['form.success'];
+ contactForm.reset();
+ } else {
+ throw new Error(json.message || 'submit failed');
+ }
+ } catch(err){
+ status.className = 'form-status error';
+ status.textContent = t['form.error'];
+ } finally {
+ btn.disabled = false;
+ }
+ });
+}
 
 document.querySelectorAll('.acc-head').forEach(head=>{
  head.addEventListener('click', ()=>{

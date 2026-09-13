@@ -138,6 +138,8 @@ p.lead{font-size:17.5px}
 .cta .alt{margin-top:16px;font-size:14px}
 .cta .alt a{color:#EDEFF2}
 footer{max-width:880px;margin:0 auto 48px;padding:14px 4px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
 @media(max-width:680px){
   .sheet{margin:8px 12px 32px}
   .spec-nav{padding:0 12px}
@@ -313,7 +315,7 @@ footer{max-width:880px;margin:0 auto 48px;padding:14px 4px;font-family:'JetBrain
     <span class="secnum" style="color:#7FA8CC" data-i18n="s7_num">7.0 // КОНТАКТ</span>
     <h2 data-i18n="s7_h2">Сначала цифры — потом внедрение</h2>
     <p data-i18n="s7_p">Опишите отдел в трёх предложениях. Отвечу в течение рабочего дня: есть ли смысл в аудите и с чего начать.</p>
-    <a class="btn" id="mailto-btn" href="mailto:kholomyanskiy@gmail.com?subject=%D0%90%D1%83%D0%B4%D0%B8%D1%82" data-i18n="s7_btn">Написать письмо</a>
+    <a class="btn" id="mailto-btn" href="mailto:artem@kholomyanskiy.com?subject=%D0%90%D1%83%D0%B4%D0%B8%D1%82" data-i18n="s7_btn">Написать письмо</a>
     <p class="alt"><span data-i18n="s7_alt_text">или</span> LinkedIn: <a href="https://linkedin.com/in/kholomyanskiy">/in/kholomyanskiy</a> · Telegram: <a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></p>
   </div>
 
@@ -322,6 +324,7 @@ footer{max-width:880px;margin:0 auto 48px;padding:14px 4px;font-family:'JetBrain
 <footer>
   <span>EVAI Consulting · Elbląg, Poland</span>
   <span>EVAI-AUDIT-2026-01 · v1.0</span>
+  <span><a href="tel:+48508409363">+48 508 409 363</a> · <a href="mailto:artem@kholomyanskiy.com">artem@kholomyanskiy.com</a> · <a href="https://linkedin.com/in/kholomyanskiy">LinkedIn</a> · <a href="https://t.me/kholomyanskiy">Telegram</a></span>
 </footer>
 
 <script>
@@ -496,7 +499,7 @@ function setLang(lang) {
   var md = document.querySelector('meta[name="description"]');
   if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
   var mb = document.getElementById('mailto-btn');
-  if (mb && T[lang].mailto_subject) mb.href = 'mailto:kholomyanskiy@gmail.com?subject=' + encodeURIComponent(T[lang].mailto_subject);
+  if (mb && T[lang].mailto_subject) mb.href = 'mailto:artem@kholomyanskiy.com?subject=' + encodeURIComponent(T[lang].mailto_subject);
 }
 
 (function() {
