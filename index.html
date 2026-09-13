@@ -61,10 +61,12 @@ body{
 .titleblock{border-bottom:1.5px solid var(--ink)}
 .tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
 .tb-top .brand{font-weight:500;color:var(--ink);letter-spacing:.08em}
-.tb-main{padding:36px 32px 32px;position:relative}
+.tb-main{padding:36px 32px 32px;position:relative;display:flex;gap:28px;align-items:flex-start;justify-content:space-between}
+.tb-main .tb-text{flex:1;min-width:0}
 .tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,4.5vw,40px);line-height:1.12;max-width:640px}
 .tb-main h1 em{font-style:normal;color:var(--blue)}
 .tb-main .sub{margin-top:16px;max-width:560px;color:var(--ink-soft);font-size:17.5px}
+.hero-photo{width:150px;height:150px;object-fit:cover;flex-shrink:0;border:1.5px solid var(--ink)}
 .hero-cta{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
 .hero-cta a{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;padding:12px 22px;text-decoration:none;display:inline-block}
 .hero-cta a.primary{background:var(--ink);color:#EDEFF2;border:1.5px solid var(--ink)}
@@ -143,6 +145,8 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  .sheet{margin:10px 12px 32px}
  section,.tb-main{padding-left:20px;padding-right:20px}
  .tb-top{padding:12px 20px}
+ .tb-main{flex-direction:column-reverse}
+ .hero-photo{width:96px;height:96px}
 }
 </style>
 </head>
@@ -173,12 +177,16 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <span>Elbląg, Poland</span>
  </div>
  <div class="tb-main">
+ <div class="tb-text">
  <h1 data-i18n="hero.name">Артём Холомянский</h1>
  <p class="sub" data-i18n="hero.sub">AI-консалтинг, проектирование и автоматизация бизнес-процессов. Искусственный интеллект становится полезным только тогда, когда задача описана достаточно точно.</p>
  <div class="hero-cta">
  <a class="primary" href="mailto:artem@kholomyanskiy.com?subject=%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0" data-i18n="hero.cta_primary">Обсудить задачу</a>
  <a class="secondary" href="portfolio.html" data-i18n="hero.cta_secondary">Смотреть проекты</a>
+ <a class="secondary" href="files/CV_Artem_Kholomianskyi.pdf" download data-i18n="hero.cta_cv">Скачать CV</a>
  </div>
+ </div>
+ <img class="hero-photo" src="img/photo-hero.webp" srcset="img/photo-hero.webp 1x, img/photo-hero@2x.webp 2x" width="150" height="150" alt="Артём Холомянский, AI-консультант" loading="lazy">
  </div>
  </header>
 
@@ -347,7 +355,7 @@ const T = {
  "nav.services":"Услуги","nav.portfolio":"Портфолио","nav.products":"Продукты","nav.articles":"Статьи","nav.contacts":"Контакты",
  "hero.name":"Артём Холомянский",
  "hero.sub":"AI-консалтинг, проектирование и автоматизация бизнес-процессов. Искусственный интеллект становится полезным только тогда, когда задача описана достаточно точно.",
- "hero.cta_primary":"Обсудить задачу","hero.cta_secondary":"Смотреть проекты",
+ "hero.cta_primary":"Обсудить задачу","hero.cta_secondary":"Смотреть проекты","hero.cta_cv":"Скачать CV",
  "approach.secnum":"ПОДХОД",
  "approach.lead":"Начинаю с анализа процессов, затем проектирую решение и сопровождаю внедрение до получения стабильного результата.",
  "approach.exp":"Более 12 лет в enterprise IT энергетического сектора — SAP IS-U, SCADA, АСКУЭ, проекты с высокой стоимостью ошибки и жёсткими требованиями к качеству. Работал с проектами компании суммарным бюджетом более $10 млн. Использую современные AI-инструменты и платформы автоматизации: Claude, Claude Code, n8n, API-интеграции и другие технологии, подходящие под конкретную задачу.",
@@ -402,7 +410,7 @@ const T = {
  "nav.services":"Services","nav.portfolio":"Portfolio","nav.products":"Products","nav.articles":"Articles","nav.contacts":"Contact",
  "hero.name":"Artem Kholomyanskiy",
  "hero.sub":"AI consulting, solution design, and business process automation. AI becomes useful only when the task is described precisely enough.",
- "hero.cta_primary":"Discuss a task","hero.cta_secondary":"View projects",
+ "hero.cta_primary":"Discuss a task","hero.cta_secondary":"View projects","hero.cta_cv":"Download CV",
  "approach.secnum":"APPROACH",
  "approach.lead":"I start with process analysis, then design the solution and support implementation through to a stable result.",
  "approach.exp":"12+ years in enterprise IT in the energy sector — SAP IS-U, SCADA, metering systems, projects with high cost of error and strict quality requirements. Worked on company projects with a combined budget of over $10M. I use modern AI tools and automation platforms: Claude, Claude Code, n8n, API integrations, and other technologies suited to the task.",
