@@ -6,18 +6,18 @@
 
 ## Основное
 
-- [Главная / визитка](https://kholomyanskiy.github.io/index.html): кто такой Артём, подход, философия, ссылки на все разделы
-- [Услуги](https://kholomyanskiy.github.io/services.html): аудит процессов перед внедрением AI, проектирование AI-решений, проектирование требований (AI-спецификация/ТЗ), автоматизация процессов, консалтинг
-- [Продукты](https://kholomyanskiy.github.io/products.html): ANSS Standard (открытый стандарт), методичка и книга "ИИ в отделе", AI Automation Decision System
-- [Портфолио](https://kholomyanskiy.github.io/portfolio.html): технические кейсы — Solo Founder OS, LombardPRO, eSowa KPI Bot, ELA City Bot, Decor Engine
-- [Статьи](https://kholomyanskiy.github.io/articles.html): заметки об AI-спецификациях и автоматизации на Hashnode и Dev.to
+- [Главная / визитка](https://kholomyanskiy.com/index.html): кто такой Артём, подход, философия, ссылки на все разделы
+- [Услуги](https://kholomyanskiy.com/services.html): аудит процессов перед внедрением AI, проектирование AI-решений, проектирование требований (AI-спецификация/ТЗ), автоматизация процессов, консалтинг
+- [Продукты](https://kholomyanskiy.com/products.html): ANSS Standard (открытый стандарт), методичка и книга "ИИ в отделе", AI Automation Decision System
+- [Портфолио](https://kholomyanskiy.com/portfolio.html): технические кейсы — Solo Founder OS, LombardPRO, eSowa KPI Bot, ELA City Bot, Decor Engine
+- [Статьи](https://kholomyanskiy.com/articles.html): заметки об AI-спецификациях и автоматизации на Hashnode и Dev.to
 
 ## Ключевые продукты и стандарты
 
 - [ANSS Standard](https://github.com/Kholomyanskiy/anss-standard): AI-Native System Specification Standard — открытый стандарт описания задач и требований для AI-систем, лицензия CC BY 4.0
-- [Методичка "ИИ в отделе"](https://kholomyanskiy.github.io/metodichka.html): бесплатное руководство по внедрению ИИ в отдел, пять этапов (аудит, отбор, спецификация, внедрение, масштабирование)
+- [Методичка "ИИ в отделе"](https://kholomyanskiy.com/metodichka.html): бесплатное руководство по внедрению ИИ в отдел, пять этапов (аудит, отбор, спецификация, внедрение, масштабирование)
 - [Книга "ИИ в отделе" (полная версия)](https://aimethodology.gumroad.com/l/ai-v-otdele): расширенная версия методички на Gumroad
-- [AI-аудит отдела](https://kholomyanskiy.github.io/audit.html): услуга диагностики процессов перед внедрением AI
+- [AI-аудит отдела](https://kholomyanskiy.com/audit.html): услуга диагностики процессов перед внедрением AI
 
 ## Контакты
 
