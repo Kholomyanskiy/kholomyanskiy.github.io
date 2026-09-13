@@ -61,7 +61,8 @@ a{color:var(--blue)}
 
 .case-block{border:1px solid var(--line);margin-top:20px;padding:24px 26px;background:var(--panel)}
 .case-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.1em;display:block;margin-bottom:8px}
-.case-shot{aspect-ratio:16/9;background:var(--paper);border:1px dashed var(--line-soft);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);letter-spacing:.05em}
+.case-shot{aspect-ratio:16/9;background:var(--paper);border:1px solid var(--line-soft);margin-bottom:16px;overflow:hidden}
+.case-shot img{width:100%;height:100%;object-fit:contain;display:block}
 .case-tags{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px}
 .case-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);padding:4px 10px}
 .case-status{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;margin-top:12px;border:1px solid var(--line)}
@@ -136,7 +137,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <section>
  <span class="secnum">01</span>
  <div class="case-block">
- <div class="case-shot"><span data-i18n="shot.label">Скриншот скоро</span></div>
+ <div class="case-shot"><img src="img/portfolio-solo-founder-os.webp" srcset="img/portfolio-solo-founder-os.webp 640w, img/portfolio-solo-founder-os@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 704px" loading="lazy" alt="Интерфейс Solo Founder OS: список агентов команды и панель чата"></div>
  <h3>Solo Founder OS</h3>
  <p data-i18n="c1.p1">Node.js WebUI поверх Claude Code с виртуальной командой из 11 агентов — CEO, backend, frontend, DevOps, интегратор, бизнес-аналитик, продажи, QA, SMM, юрист, HR. Каждый агент отвечает за свою роль в разработке и ведении бизнеса соло-фаундера.</p>
  <p class="muted" data-i18n="c1.p2">Цель — дать одному человеку возможность вести проект в режиме полноценной команды, не нанимая людей.</p>
@@ -152,7 +153,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <section>
  <span class="secnum">02</span>
  <div class="case-block">
- <div class="case-shot"><span data-i18n="shot.label">Скриншот скоро</span></div>
+ <div class="case-shot"><img src="img/portfolio-lombardpro.webp" srcset="img/portfolio-lombardpro.webp 640w, img/portfolio-lombardpro@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 704px" loading="lazy" alt="Прототип дашборда ЛомбардПРО: касса, золото, просроченные залоги"></div>
  <h3>LombardPRO</h3>
  <p data-i18n="c2.p1">Автоматизация бэкенда для ломбарда: FastAPI + PostgreSQL + Telegram-бот на Hetzner VPS. Полный пакет документации — техническое задание, границы работ, коммерческое предложение, прототип дашборда.</p>
  <p class="muted" data-i18n="c2.p2">Проекту предшествовал аудит данных из шести источников (Excel/PawnExpert), чтобы понять реальную структуру процессов ломбарда перед проектированием системы.</p>
@@ -169,7 +170,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <section>
  <span class="secnum">03</span>
  <div class="case-block">
- <div class="case-shot"><span data-i18n="shot.label">Скриншот скоро</span></div>
+ <div class="case-shot"><img src="img/portfolio-esowa-kpi-bot.webp" srcset="img/portfolio-esowa-kpi-bot.webp 640w, img/portfolio-esowa-kpi-bot@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 704px" loading="lazy" alt="Переписка с eSowa KPI Bot: дневная сводка показателей механиков в Telegram"></div>
  <h3>eSowa KPI Bot</h3>
  <p data-i18n="c3.p1">Телеграм-бот для отслеживания KPI сотрудников: сбор показателей, автоматические сводки, уведомления о статусе выполнения без ручного сведения таблиц.</p>
  <div class="case-tags">
@@ -183,7 +184,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <section>
  <span class="secnum">04</span>
  <div class="case-block">
- <div class="case-shot"><span data-i18n="shot.label">Скриншот скоро</span></div>
+ <div class="case-shot"></div>
  <h3>ELA City Bot</h3>
  <p data-i18n="c4.p1">Концепт городского ассистента на базе Telegram — отвечает на вопросы жителей и гостей города, ориентируется в локальной информации без участия человека в рутинных запросах.</p>
  <div class="case-tags">
@@ -197,7 +198,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <section>
  <span class="secnum">05</span>
  <div class="case-block">
- <div class="case-shot"><span data-i18n="shot.label">Скриншот скоро</span></div>
+ <div class="case-shot"><img src="img/portfolio-decor-engine.webp" srcset="img/portfolio-decor-engine.webp 640w, img/portfolio-decor-engine@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 704px" loading="lazy" alt="Интерфейс валидатора Decor Engine: таблица товаров с ценами и статусом синхронизации"></div>
  <h3>Decor Engine</h3>
  <p data-i18n="c5.p1">Автоматизация каталога товаров для украинского e-commerce (Prom.ua + WooCommerce): генерация и проверка описаний товаров по многим параметрам качества — от смешения языков до согласования рода и запрещённых маркетинговых формулировок.</p>
  <p class="muted" data-i18n="c5.p2">Прошёл 20 версий через циклы аудита и доработки валидатора. Полная автоматизация не была целью: конвейер закрывает базовое качество, финальную полировку описаний клиент делает вручную через отдельную LLM.</p>
@@ -262,7 +263,6 @@ const T = {
  "nav.services":"Услуги","nav.portfolio":"Портфолио","nav.products":"Продукты","nav.articles":"Статьи","nav.contacts":"Контакты",
  "page.title":"Практические примеры AI-решений",
  "page.sub":"Здесь собраны реализованные проекты по автоматизации и внедрению ИИ — от рабочих MVP до production.",
- "shot.label":"Скриншот скоро",
  "c1.num":"ПРОЕКТ 01",
  "c1.p1":"Node.js WebUI поверх Claude Code с виртуальной командой из 11 агентов — CEO, backend, frontend, DevOps, интегратор, бизнес-аналитик, продажи, QA, SMM, юрист, HR. Каждый агент отвечает за свою роль в разработке и ведении бизнеса соло-фаундера.",
  "c1.p2":"Цель — дать одному человеку возможность вести проект в режиме полноценной команды, не нанимая людей.",
@@ -298,7 +298,6 @@ const T = {
  "nav.services":"Services","nav.portfolio":"Portfolio","nav.products":"Products","nav.articles":"Articles","nav.contacts":"Contact",
  "page.title":"Practical examples of AI solutions",
  "page.sub":"A collection of implemented automation and AI projects — from working MVPs to production.",
- "shot.label":"Screenshot coming soon",
  "c1.num":"PROJECT 01",
  "c1.p1":"A Node.js WebUI on top of Claude Code with a virtual team of 11 agents — CEO, backend, frontend, DevOps, integrator, business analyst, sales, QA, SMM, legal, HR. Each agent owns its role in developing and running a solo founder's business.",
  "c1.p2":"The goal: let one person run a project the way a full team would, without hiring anyone.",

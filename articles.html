@@ -61,14 +61,11 @@ a{color:var(--blue)}
 
 .article-grid{display:grid;grid-template-columns:1fr;gap:2px;background:var(--line);border:1px solid var(--line);margin-top:8px}
 .article-card{background:var(--panel);padding:24px 26px;position:relative}
-.article-card.placeholder{opacity:.55}
 .article-source{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:8px}
 .article-card h3{margin-bottom:6px}
 .article-card p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px;max-width:none}
 .article-cta{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.05em;color:var(--blue);text-decoration:none}
 .article-cta:hover{text-decoration:underline}
-.article-cta.disabled{color:var(--ink-soft);pointer-events:none;text-decoration:none}
-.soon-badge{position:absolute;top:24px;right:26px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--stamp);border:1px solid var(--stamp);padding:3px 9px}
 
 .closing-cta{background:var(--ink);color:#EDEFF2;padding:44px 32px;text-align:center}
 .closing-cta h2{color:#fff;margin-bottom:10px}
@@ -85,7 +82,6 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  section,.tb-main{padding-left:20px;padding-right:20px}
  .tb-top{padding:12px 20px}
  footer{margin:0 12px 32px;padding:20px}
- .soon-badge{position:static;display:inline-block;margin-bottom:10px}
 }
 </style>
 </head>
@@ -136,13 +132,6 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <p data-i18n="a2.p">Короткая заметка о том, откуда взялся ANSS и что изменилось в работе после перехода на него — цикл итераций с агентом упал с 5–7 до 2–3.</p>
  <a class="article-cta" href="https://dev.to/artem_kholomyanskiy/classic-specs-were-written-for-humans-1813" data-i18n="a.cta">Читать →</a>
  </div>
- <div class="article-card placeholder">
- <span class="soon-badge" data-i18n="ph.soon">Скоро</span>
- <span class="article-source">Hashnode</span>
- <h3 data-i18n="ph3.h">Заголовок статьи появится здесь</h3>
- <p data-i18n="ph3.p">Короткое описание, о чём статья — одно-два предложения, которые дают понять суть без перехода по ссылке.</p>
- <span class="article-cta disabled" data-i18n="ph.cta">Читать →</span>
- </div>
  </div>
  </section>
 
@@ -165,12 +154,11 @@ const T = {
  "nav.services":"Услуги","nav.portfolio":"Портфолио","nav.products":"Продукты","nav.articles":"Статьи","nav.contacts":"Контакты",
  "page.title":"Статьи",
  "page.sub":"Заметки об AI-спецификациях, автоматизации процессов и внедрении ИИ — на Hashnode и Dev.to.",
- "ph.soon":"Скоро","ph.cta":"Читать →","a.cta":"Читать →",
+ "a.cta":"Читать →",
  "a1.h":"Почему AI-агенты постоянно ломают ваш код",
  "a1.p":"Классические форматы ТЗ писались для людей, которые прощают недосказанность. Агенты — нет: они заполняют пробелы по своему усмотрению. Разбор четырёх механизмов ANSS, которые убирают это пространство для домыслов.",
  "a2.h":"Классические спецификации писались для людей",
  "a2.p":"Короткая заметка о том, откуда взялся ANSS и что изменилось в работе после перехода на него — цикл итераций с агентом упал с 5–7 до 2–3.",
- "ph3.h":"Заголовок статьи появится здесь","ph3.p":"Короткое описание, о чём статья — одно-два предложения, которые дают понять суть без перехода по ссылке.",
  "closing.title":"Не уверены, что вам нужно?",
  "closing.p":"Опишите пару предложений о том, что происходит в отделе — отвечу честно, стоит ли этим заниматься и с чего начать.",
  "closing.btn":"Написать →"
@@ -179,12 +167,11 @@ const T = {
  "nav.services":"Services","nav.portfolio":"Portfolio","nav.products":"Products","nav.articles":"Articles","nav.contacts":"Contact",
  "page.title":"Articles",
  "page.sub":"Notes on AI specifications, process automation, and AI implementation — on Hashnode and Dev.to.",
- "ph.soon":"Coming soon","ph.cta":"Read →","a.cta":"Read →",
+ "a.cta":"Read →",
  "a1.h":"Why AI Agents Keep Breaking Your Code (And What to Do About It)",
  "a1.p":"Classic spec formats were written for human readers who tolerate ambiguity. AI agents don't — they fill gaps on their own. A look at the four ANSS mechanisms that close that gap.",
  "a2.h":"Classic specs were written for humans.",
  "a2.p":"A short note on where ANSS came from and what changed in practice after adopting it — iteration cycles with an agent dropped from 5–7 to 2–3.",
- "ph3.h":"Article title will appear here","ph3.p":"A short description of what the article covers — one or two sentences that give the gist without clicking through.",
  "closing.title":"Not sure what you need?",
  "closing.p":"Describe what's happening in your department in a couple of sentences — I'll give you an honest read on whether it's worth doing and where to start.",
  "closing.btn":"Write →"
