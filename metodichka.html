@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ИИ в отделе — методичка для руководителя · EVAI Consulting</title>
-<meta name="description" content="Пять этапов внедрения ИИ в отдел: аудит, отбор, спецификация, внедрение, масштабирование. Риски, сценарии, коммуникация с командой.">
+<title>AI in the Department — A Manager's Guide · EVAI Consulting</title>
+<meta name="description" content="Five stages of bringing AI into a department: audit, selection, specification, rollout, scaling. Risks, scenarios, team communication.">
 <link rel="canonical" href="https://kholomyanskiy.com/metodichka.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ИИ в отделе — методичка для руководителя · EVAI Consulting">
-<meta property="og:description" content="Пять этапов внедрения ИИ в отдел: аудит, отбор, спецификация, внедрение, масштабирование. Риски, сценарии, коммуникация с командой.">
+<meta property="og:title" content="AI in the Department — A Manager's Guide · EVAI Consulting">
+<meta property="og:description" content="Five stages of bringing AI into a department: audit, selection, specification, rollout, scaling. Risks, scenarios, team communication.">
 <meta property="og:url" content="https://kholomyanskiy.com/metodichka.html">
-<meta property="og:locale" content="ru_RU">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ru_RU">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ИИ в отделе — методичка для руководителя · EVAI Consulting">
-<meta name="twitter:description" content="Пять этапов внедрения ИИ в отдел: аудит, отбор, спецификация, внедрение, масштабирование. Риски, сценарии, коммуникация с командой.">
+<meta name="twitter:title" content="AI in the Department — A Manager's Guide · EVAI Consulting">
+<meta name="twitter:description" content="Five stages of bringing AI into a department: audit, selection, specification, rollout, scaling. Risks, scenarios, team communication.">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
@@ -45,6 +46,17 @@ body{
 }
 .spec-nav a{color:var(--ink-soft);text-decoration:none;letter-spacing:.04em}
 .spec-nav a:hover{color:var(--blue)}
+.spec-nav-home{color:var(--ink-soft);text-decoration:none;letter-spacing:.04em}
+.spec-nav-home:hover{color:var(--blue)}
+.spec-lang-bar{display:flex;gap:2px}
+.spec-lang-btn{
+ background:none;border:1px solid var(--line);
+ color:var(--ink-soft);font-family:'JetBrains Mono',monospace;
+ font-size:11px;letter-spacing:.08em;padding:4px 10px;
+ cursor:pointer;transition:background .15s,color .15s
+}
+.spec-lang-btn:hover{background:var(--ink);color:var(--panel)}
+.spec-lang-btn.active{background:var(--ink);color:var(--panel)}
 .sheet{max-width:820px;margin:32px auto 40px;background:var(--panel);border:1.5px solid var(--ink);box-shadow:8px 8px 0 rgba(27,32,39,.08)}
 .titleblock{border-bottom:1.5px solid var(--ink)}
 .tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
@@ -91,6 +103,7 @@ footer{max-width:820px;margin:0 auto 48px;padding:14px 8px;font-family:'JetBrain
  .sheet{margin:10px 12px 32px}
  section,.tb-main,.cta{padding-left:20px;padding-right:20px}
  .tb-top{padding:12px 20px}
+ .spec-nav{padding:0 12px}
  .tb-meta{grid-template-columns:repeat(2,1fr)}
  .tb-meta div:nth-child(2){border-right:none}
  .stamp{position:static;display:inline-block;margin-top:18px}
@@ -113,8 +126,12 @@ footer{max-width:820px;margin:0 auto 48px;padding:14px 8px;font-family:'JetBrain
 <body>
 
 <nav class="spec-nav">
- <a href="index.html">← Главная</a>
- <a href="audit.html">Услуга: AI-аудит отдела →</a>
+ <a href="index.html" class="spec-nav-home" data-i18n="nav_home">← Home</a>
+ <div class="spec-lang-bar">
+ <button class="spec-lang-btn active" onclick="setLang('en')">EN</button>
+ <button class="spec-lang-btn" onclick="setLang('ru')">RU</button>
+ </div>
+ <a href="audit.html" data-i18n="nav_service">Service: AI Department Audit →</a>
 </nav>
 
 <div class="sheet">
@@ -125,245 +142,147 @@ footer{max-width:820px;margin:0 auto 48px;padding:14px 8px;font-family:'JetBrain
  <span>EVAI-GUIDE-2026-01</span>
  </div>
  <div class="tb-main">
- <span class="stamp">Свободное распространение</span>
- <h1>ИИ <em>в отделе</em></h1>
- <p class="sub">Пять этапов: от карты задач до цепочек агентов. Для руководителя, который ещё не начал внедрение — и для того, у кого оно уже идёт хаотично.</p>
+ <span class="stamp" data-i18n="stamp">Free to share</span>
+ <h1 data-i18n-html="h1_title">AI <em>in the Department</em></h1>
+ <p class="sub" data-i18n="tb_sub">Five stages: from a task map to agent chains. For a manager who hasn't started yet — and for one whose rollout is already running chaotic.</p>
  </div>
  <div class="tb-meta">
- <div><span class="k">Документ</span>Методичка</div>
- <div><span class="k">Автор</span>Артём Холомянский</div>
- <div><span class="k">Версия</span>1.3 · 2026</div>
- <div><span class="k">Лицензия</span>CC BY 4.0</div>
+ <div><span class="k" data-i18n="tb_doc_k">Document</span><span data-i18n="tb_doc_v">Guide</span></div>
+ <div><span class="k" data-i18n="tb_author_k">Author</span>Artem Kholomyanskiy</div>
+ <div><span class="k" data-i18n="tb_version_k">Version</span>1.3 · 2026</div>
+ <div><span class="k" data-i18n="tb_license_k">License</span>CC BY 4.0</div>
  </div>
  </header>
 
  <section>
- <span class="secnum">0.0 // КОМУ ЭТО</span>
- <h2>Кому это и о чём</h2>
- <p class="lead">Деньги на ИИ сейчас теряют двумя способами. Первый: купить подписки и ждать чуда. Второй: сократить людей раньше, чем понятно, кто закрывал авралы. Эта методичка про третий способ, скучный: сначала посчитать, потом решать.</p>
- <p>Она для двух типов руководителей. Первый ещё не начинал и не знает, с чего. Второй уже внедряет: инструменты куплены, сверху обязали, но каждый сотрудник работает с ИИ методом тыка. Порядок действий обоим нужен один и тот же, различается только масштаб, о нём в этапе 5. Списков волшебных инструментов здесь нет: инструменты меняются каждые полгода, порядок остаётся.</p>
+ <span class="secnum" data-i18n="s0.num">0.0 // WHO THIS IS FOR</span>
+ <h2 data-i18n="s0.h">Who this is for, and what it covers</h2>
+ <p class="lead" data-i18n="s0.p1">Right now, money gets wasted on AI two ways. First: buy subscriptions and wait for a miracle. Second: cut people before it's clear who was covering the fire drills. This guide is about the third, boring way — count first, decide after.</p>
+ <p data-i18n="s0.p2">It's for two kinds of managers. The first hasn't started and doesn't know where to begin. The second is already rolling AI out: tools are bought, mandated from above, but every employee is figuring it out by trial and error. Both need the same sequence of steps — only the scale differs, covered in Stage 5. There's no list of magic tools here: tools change every six months, the sequence doesn't.</p>
 
- <figure aria-label="Схема пяти этапов внедрения">
- <svg viewBox="0 0 660 120" xmlns="http://www.w3.org/2000/svg" role="img">
- <defs>
- <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
- <path d="M0,0 L8,4 L0,8" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
- </marker>
- </defs>
- <g font-family="JetBrains Mono, monospace">
- <!-- этапы -->
- <g>
- <rect x="4" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
- <text x="60" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">01</text>
- <text x="60" y="68" text-anchor="middle" font-size="12" fill="#1B2027">АУДИТ</text>
- </g>
- <line x1="116" y1="56" x2="136" y2="56" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#arr)"/>
- <g>
- <rect x="138" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
- <text x="194" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">02</text>
- <text x="194" y="68" text-anchor="middle" font-size="12" fill="#1B2027">ОТБОР</text>
- </g>
- <line x1="250" y1="56" x2="270" y2="56" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#arr)"/>
- <g>
- <rect x="272" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
- <text x="328" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">03</text>
- <text x="328" y="68" text-anchor="middle" font-size="11" fill="#1B2027">СПЕЦИФИК.</text>
- </g>
- <line x1="384" y1="56" x2="404" y2="56" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#arr)"/>
- <g>
- <rect x="406" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
- <text x="462" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">04</text>
- <text x="462" y="68" text-anchor="middle" font-size="11" fill="#1B2027">ВНЕДРЕНИЕ</text>
- </g>
- <line x1="518" y1="56" x2="538" y2="56" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#arr)"/>
- <g>
- <rect x="540" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
- <text x="596" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">05</text>
- <text x="596" y="68" text-anchor="middle" font-size="12" fill="#1B2027">МАСШТАБ</text>
- </g>
- <!-- подписи снизу -->
- <text x="60" y="102" text-anchor="middle" font-size="9" fill="#4A5361">неделя</text>
- <text x="194" y="102" text-anchor="middle" font-size="9" fill="#4A5361">3 вопроса</text>
- <text x="328" y="102" text-anchor="middle" font-size="9" fill="#4A5361">страница ТЗ</text>
- <text x="462" y="102" text-anchor="middle" font-size="9" fill="#4A5361">по одной задаче</text>
- <text x="596" y="102" text-anchor="middle" font-size="9" fill="#4A5361">от человека к отделу</text>
- </g>
- </svg>
- <figcaption>РИС. 1 — Пять этапов. Пропуск любого из первых трёх оплачивается на четвёртом.</figcaption>
+ <figure aria-label="Five-stage rollout diagram">
+ <div data-i18n-html="fig1_svg"></div>
+ <figcaption data-i18n="s0.fig1_cap">FIG. 1 — Five stages. Skip any of the first three, and you pay for it at the fourth.</figcaption>
  </figure>
 
- <h3>Главный тезис</h3>
- <p>ИИ в компании работает как усилитель сотрудника. Заменой он становится редко и обычно хуже, чем обещали. Сотрудник, который понимает свои повторяющиеся задачи и отдал их машине, стоит для компании дороже, чем стоил. Компания, которая просто сократила людей после покупки лицензий, обычно обнаруживает это в первый же аврал.</p>
- <p>Тренд на массовые увольнения под флагом ИИ существует. Следовать ему необязательно. Ниже покажу, почему выбирать путь стоит по расчёту, и как его сделать.</p>
- <p class="muted">Методика опирается на 12 лет анализа enterprise-процессов в энергетике (SAP, SCADA, BPMN, UAT) и ежедневную разработку AI-агентов. Автор стандарта спецификаций ANSS.</p>
+ <h3 data-i18n="s0.h3">The core argument</h3>
+ <p data-i18n="s0.p3">Inside a company, AI works as an amplifier for an employee, not a replacement — and when it does replace someone, it's usually worse than promised. An employee who understands their repeating tasks and hands them to a machine becomes worth more to the company than before. A company that just cuts headcount after buying licenses usually finds out the cost at the first real crisis.</p>
+ <p data-i18n="s0.p4">The trend toward mass layoffs under the AI banner is real. Following it isn't mandatory. Below I'll show why the choice should be made on numbers, and how to run them.</p>
+ <p class="muted" data-i18n="s0.p5">The methodology draws on 12 years of enterprise process analysis in the energy sector (SAP, SCADA, BPMN, UAT) and daily work building AI agents. Author of the ANSS specification standard.</p>
 
  <div class="callout" style="border-left-color:var(--blue)">
- <span class="cl-k" style="color:var(--blue)">Это сокращённая версия</span>
- <p style="margin-bottom:12px">Пять этапов здесь разобраны на уровне принципов. Полная версия — рабочая книга на 40–55 страниц с инструкциями по каждому этапу, шаблонами таблиц и разбором кейса.</p>
- <a href="https://aimethodology.gumroad.com/l/ai-v-otdele" style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:#fff;background:var(--blue);border:1.5px solid var(--blue);padding:10px 20px;text-decoration:none">Полная версия →</a>
+ <span class="cl-k" style="color:var(--blue)" data-i18n="s0.callout_k">This is the short version</span>
+ <p style="margin-bottom:12px" data-i18n="s0.callout_p">The five stages here are covered at the level of principles. The full version is a working 40–55 page book with instructions for each stage, table templates, and a case study.</p>
+ <a href="https://aimethodology.gumroad.com/l/ai-v-otdele" style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:#fff;background:var(--blue);border:1.5px solid var(--blue);padding:10px 20px;text-decoration:none" data-i18n="s0.callout_cta">Full version →</a>
  </div>
  </section>
 
  <section>
- <span class="secnum">1.0 // ПОЧЕМУ НЕ РАБОТАЕТ</span>
- <h2>Почему внедрение «сверху» проваливается</h2>
- <p>Типичная история. Директор посмотрел вебинар, купил корпоративную подписку, разослал письмо «теперь используем ИИ». Через три месяца подпиской пользуются полтора человека, скептики торжествуют, бюджет списан.</p>
- <p>Причина скучная. Никто не посмотрел, из чего состоит рабочий день людей. ИИ хорошо забирает конкретные повторяющиеся задачи. Пока задачи не названы, забирать нечего. Инструмент без точки приложения остаётся игрушкой.</p>
- <p>Знаю случаи, когда даже в серьёзных компаниях-разработчиках инженеров обязали писать код через ИИ, а как с ним работать, не объяснил никто. Люди учатся поодиночке, методом тыка. Если так происходит у профессиональных программистов, что говорить об отделе продаж.</p>
- <p>Вывод простой: внедрение начинается с наблюдения, а не с покупки.</p>
+ <span class="secnum" data-i18n="s1.num">1.0 // WHY IT FAILS</span>
+ <h2 data-i18n="s1.h">Why top-down rollout fails</h2>
+ <p data-i18n="s1.p1">A familiar story. The director watches a webinar, buys a company-wide subscription, sends out an email: "we're using AI now." Three months later, a handful of people actually use it, the skeptics feel vindicated, and the budget gets written off.</p>
+ <p data-i18n="s1.p2">The reason is boring. Nobody looked at what people's workday actually consists of. AI is good at taking over specific, repeating tasks. Until those tasks are named, there's nothing for it to take. A tool with no point of application stays a toy.</p>
+ <p data-i18n="s1.p3">I've seen cases where even serious dev shops mandated that engineers write code through AI, and nobody explained how to actually work with it. People learn alone, by trial and error. If that's what happens to professional programmers, imagine the sales department.</p>
+ <p data-i18n="s1.p4">The conclusion is simple: rollout starts with observation, not with a purchase.</p>
  </section>
 
  <section>
- <span class="secnum">2.0 // ЭТАП 1</span>
- <h2>Аудит: фотография рабочей недели</h2>
- <p>Каждый сотрудник в течение недели записывает свои задачи. Что делал, как часто, сколько минут. Пять минут в конце дня, простая таблица. Через неделю у вас карта того, чем отдел занят на самом деле.</p>
+ <span class="secnum" data-i18n="s2.num">2.0 // STAGE 1</span>
+ <h2 data-i18n="s2.h">Audit: a snapshot of the work week</h2>
+ <p data-i18n="s2.p1">For one week, every employee logs their tasks: what they did, how often, how many minutes. Five minutes at the end of the day, a simple table. A week later you have a map of what the department actually does.</p>
 
- <table class="daylog" aria-label="Пример фотографии рабочего дня">
- <thead><tr><th>Задача</th><th>Раз/нед</th><th>Мин за раз</th><th>Итого ч/нед</th></tr></thead>
+ <table class="daylog" aria-label="Example of a work-day log">
+ <thead><tr><th data-i18n="s2.th1">Task</th><th data-i18n="s2.th2">Times/week</th><th data-i18n="s2.th3">Min per time</th><th data-i18n="s2.th4">Total h/week</th></tr></thead>
  <tbody>
- <tr class="hl"><td>Отчёт для руководства из CRM</td><td class="num">1</td><td class="num">180</td><td class="num">3,0</td></tr>
- <tr class="hl"><td>Ответы на типовые письма клиентов</td><td class="num">25</td><td class="num">8</td><td class="num">3,3</td></tr>
- <tr><td>Переговоры с ключевыми клиентами</td><td class="num">4</td><td class="num">60</td><td class="num">4,0</td></tr>
- <tr class="hl"><td>Перенос заявок из почты в таблицу</td><td class="num">15</td><td class="num">6</td><td class="num">1,5</td></tr>
- <tr><td>Разбор нестандартных претензий</td><td class="num">2</td><td class="num">45</td><td class="num">1,5</td></tr>
+ <tr class="hl"><td data-i18n="s2.row1">Management report from CRM</td><td class="num">1</td><td class="num">180</td><td class="num">3.0</td></tr>
+ <tr class="hl"><td data-i18n="s2.row2">Replies to routine client emails</td><td class="num">25</td><td class="num">8</td><td class="num">3.3</td></tr>
+ <tr><td data-i18n="s2.row3">Negotiations with key clients</td><td class="num">4</td><td class="num">60</td><td class="num">4.0</td></tr>
+ <tr class="hl"><td data-i18n="s2.row4">Moving requests from email into a table</td><td class="num">15</td><td class="num">6</td><td class="num">1.5</td></tr>
+ <tr><td data-i18n="s2.row5">Handling non-standard complaints</td><td class="num">2</td><td class="num">45</td><td class="num">1.5</td></tr>
  </tbody>
  </table>
- <figure style="margin-top:0"><figcaption>РИС. 2 — Фрагмент фотографии недели одного сотрудника. Выделены кандидаты на автоматизацию.</figcaption></figure>
- <p>Три выделенные строки этого примера дают 7,8 часа в неделю. При ставке 80 zł/час это около 2 700 zł в месяц на одном сотруднике, и это ещё до разговора про качество и скорость.</p>
+ <figure style="margin-top:0"><figcaption data-i18n="s2.fig2_cap">FIG. 2 — A fragment of one employee's week-long log. Automation candidates are highlighted.</figcaption></figure>
+ <p data-i18n="s2.p2">The three highlighted rows in this example add up to 7.8 hours a week. At 80 zł/hour, that's roughly 2,700 zł a month for one employee — before you even talk about quality and speed.</p>
 
- <p>Спойлер: карта не совпадёт с должностными инструкциями. Всплывут задачи, о которых вы не знали. Отчёт, который человек три часа собирает руками. Письма, съедающие половину дня, хотя шаблон один и тот же. Дублирование, когда одну табличку ведут двое.</p>
+ <p data-i18n="s2.p3">Spoiler: the map won't match the job descriptions. Tasks you didn't know about will surface. A report someone spends three hours assembling by hand. Emails eating half a day even though it's the same template every time. Duplication, where two people maintain the same spreadsheet.</p>
  <div class="callout">
- <span class="cl-k">Предупреждение</span>
- Если команда решит, что аудит затеян под сокращения, данные будут нарисованы. Каждый изобразит себя незаменимым, и считать будет нечего. До старта руководитель честно объясняет цель: ищем рутину, чтобы освободить людей для работы посложнее. И потом держит слово.
+ <span class="cl-k" data-i18n="s2.warn_k">Warning</span>
+ <span data-i18n="s2.warn_p">If the team decides the audit is really about layoffs, the data will be fabricated. Everyone will make themselves look indispensable, and there'll be nothing left to count. Before starting, the manager explains the real goal honestly: we're looking for routine work to free people up for harder work. And then keeps that word.</span>
  </div>
  </section>
 
  <section>
- <span class="secnum">3.0 // ЭТАП 2</span>
- <h2>Отбор: что отдавать машине</h2>
- <p>Теперь по каждой задаче из карты три вопроса. Повторяется ли она регулярно и по одинаковой схеме? Сколько стоит час человека, который её делает? Что случится, если машина ошибётся?</p>
+ <span class="secnum" data-i18n="s3.num">3.0 // STAGE 2</span>
+ <h2 data-i18n="s3.h">Selection: what to hand to the machine</h2>
+ <p data-i18n="s3.p1">Now ask three questions about each task on the map. Does it repeat regularly, the same way each time? What does an hour of the person doing it cost? What happens if the machine gets it wrong?</p>
 
- <figure aria-label="Матрица отбора задач">
- <svg viewBox="0 0 660 340" xmlns="http://www.w3.org/2000/svg" role="img">
- <g font-family="JetBrains Mono, monospace">
- <!-- оси -->
- <line x1="90" y1="20" x2="90" y2="290" stroke="#1B2027" stroke-width="1.5"/>
- <line x1="90" y1="290" x2="640" y2="290" stroke="#1B2027" stroke-width="1.5"/>
- <!-- квадранты -->
- <rect x="91" y="21" width="274" height="134" fill="rgba(43,91,138,.10)"/>
- <rect x="366" y="21" width="273" height="134" fill="rgba(43,91,138,.04)"/>
- <rect x="91" y="156" width="274" height="133" fill="none"/>
- <rect x="366" y="156" width="273" height="133" fill="rgba(154,59,51,.06)"/>
- <line x1="365" y1="21" x2="365" y2="289" stroke="#C9CEC2" stroke-width="1"/>
- <line x1="91" y1="155" x2="639" y2="155" stroke="#C9CEC2" stroke-width="1"/>
- <!-- подписи квадрантов -->
- <text x="228" y="76" text-anchor="middle" font-size="12" fill="#1E4266">ОТДАТЬ МАШИНЕ</text>
- <text x="228" y="94" text-anchor="middle" font-size="9.5" fill="#4A5361">сводки · переносы данных</text>
- <text x="228" y="108" text-anchor="middle" font-size="9.5" fill="#4A5361">черновики типовых писем</text>
- <text x="502" y="76" text-anchor="middle" font-size="12" fill="#1E4266">ЧАСТИЧНО</text>
- <text x="502" y="94" text-anchor="middle" font-size="9.5" fill="#4A5361">машина готовит черновик</text>
- <text x="502" y="108" text-anchor="middle" font-size="9.5" fill="#4A5361">человек проверяет</text>
- <text x="228" y="216" text-anchor="middle" font-size="12" fill="#4A5361">НЕ ПРИОРИТЕТ</text>
- <text x="228" y="234" text-anchor="middle" font-size="9.5" fill="#4A5361">редкое и безопасное</text>
- <text x="502" y="216" text-anchor="middle" font-size="12" fill="#9A3B33">НЕ ТРОГАТЬ</text>
- <text x="502" y="234" text-anchor="middle" font-size="9.5" fill="#4A5361">переговоры · претензии</text>
- <text x="502" y="248" text-anchor="middle" font-size="9.5" fill="#4A5361">решения о деньгах</text>
- <!-- подписи осей -->
- <text x="82" y="30" text-anchor="end" font-size="9.5" fill="#4A5361">часто,</text>
- <text x="82" y="42" text-anchor="end" font-size="9.5" fill="#4A5361">по схеме</text>
- <text x="82" y="272" text-anchor="end" font-size="9.5" fill="#4A5361">редко</text>
- <text x="95" y="315" font-size="9.5" fill="#4A5361">ошибка дешёвая</text>
- <text x="639" y="315" text-anchor="end" font-size="9.5" fill="#4A5361">ошибка дорогая</text>
- <text x="30" y="160" font-size="10" fill="#1B2027" transform="rotate(-90 30 160)" text-anchor="middle">ПОВТОРЯЕМОСТЬ</text>
- <text x="365" y="334" text-anchor="middle" font-size="10" fill="#1B2027">ЦЕНА ОШИБКИ</text>
- </g>
- </svg>
- <figcaption>РИС. 3 — Матрица отбора. Красная зона выглядит привлекательно по трудозатратам, трогать её первой не стоит.</figcaption>
+ <figure aria-label="Task selection matrix">
+ <div data-i18n-html="fig2_svg"></div>
+ <figcaption data-i18n="s3.fig3_cap">FIG. 3 — The selection matrix. The red zone looks attractive by effort saved — it's not the place to start.</figcaption>
  </figure>
 
- <p>Частичный режим для начала лучше полного: сотрудник видит, где машина ошибается, и учится ей управлять.</p>
- <p>Результат этапа: короткий список задач с оценкой высвобождаемых часов. Вместо «внедряем ИИ вообще» получаете три конкретных места, где он окупится.</p>
+ <p data-i18n="s3.p2">Partial mode is better to start with than full automation: the employee sees where the machine gets it wrong and learns to manage it.</p>
+ <p data-i18n="s3.p3">The output of this stage: a short list of tasks with an estimate of freed-up hours. Instead of "we're adopting AI in general," you get three specific places where it pays off.</p>
  </section>
 
  <section>
- <span class="secnum">4.0 // ЭТАП 3</span>
- <h2>Спецификация: почему без ТЗ не работает</h2>
- <p>Самая недооценённая часть. ИИ выполняет написанное. То, что имелось в виду, он не выполняет. Расплывчатая постановка даёт расплывчатый результат, и винить тут стоит постановку, машина своё отработала.</p>
- <p>Для каждой автоматизируемой задачи нужен короткий документ. Что на входе, что на выходе, по каким правилам, чего делать нельзя никогда. Последний пункт называю инвариантами: границы, которые машина не пересекает ни при каких условиях. Не отправлять письмо без проверки человеком. Не менять данные в бухгалтерской системе. Не обещать клиенту сроки.</p>
- <p>Как это выглядит для задачи «черновики ответов на письма клиентов». Вход: письмо клиента и история переписки. Выход: черновик ответа в папке «На проверку». Инварианты: не отправлять без утверждения человеком, не называть цены и сроки, не отвечать на претензии, их сразу человеку. Пять строк, а поведение машины уже предсказуемо.</p>
- <p>Для сложных систем я развиваю открытый стандарт таких спецификаций, <a href="https://github.com/Kholomyanskiy/anss-standard">ANSS</a>. Для одной офисной задачи хватит страницы текста. Но страница должна быть.</p>
+ <span class="secnum" data-i18n="s4.num">4.0 // STAGE 3</span>
+ <h2 data-i18n="s4.h">Specification: why it doesn't work without a spec</h2>
+ <p data-i18n="s4.p1">The most underrated part. AI does what's written. It doesn't do what you meant. A vague brief produces a vague result, and the brief is what's at fault — the machine did its job.</p>
+ <p data-i18n="s4.p2">Every task you automate needs a short document: what's the input, what's the output, what are the rules, what must never happen. I call that last part invariants — boundaries the machine never crosses, no matter what. Never send an email without human review. Never change data in the accounting system. Never promise a client a deadline.</p>
+ <p data-i18n="s4.p3">Here's what that looks like for "drafting replies to client emails." Input: the client's email and the thread history. Output: a draft reply in the "For Review" folder. Invariants: never send without human approval, never quote prices or deadlines, never answer complaints — those go straight to a human. Five lines, and the machine's behavior is already predictable.</p>
+ <p data-i18n-html="s4.p4">For complex systems, I develop an open standard for these specifications, <a href="https://github.com/Kholomyanskiy/anss-standard">ANSS</a>. For one office task, a page of text is enough. But that page has to exist.</p>
  </section>
 
  <section>
- <span class="secnum">5.0 // ЭТАП 4</span>
- <h2>Внедрение и приёмка</h2>
- <p>Внедряйте по одной задаче. Соблазн запустить всё сразу велик, устойчив к нему мало кто, результат всегда одинаковый: хаос и откат.</p>
- <p>Приёмку делает тот, кто задачу выполнял руками. Он лучше всех видит, где машина халтурит. Заранее договоритесь о критериях: что считается «работает». Две недели параллельного режима, человек и машина делают одно и то же, результаты сравниваются. Потом человек переходит в режим контроля.</p>
- <p>Здесь же выясняется приятное: сотрудник, прошедший этот цикл, дальше сам находит следующие задачи для автоматизации. Вы получили больше, чем одного агента: у вас появился человек, который умеет их заказывать.</p>
+ <span class="secnum" data-i18n="s5.num">5.0 // STAGE 4</span>
+ <h2 data-i18n="s5.h">Rollout and acceptance</h2>
+ <p data-i18n="s5.p1">Roll out one task at a time. The temptation to launch everything at once is strong, few resist it, and the result is always the same: chaos and rollback.</p>
+ <p data-i18n="s5.p2">Acceptance is done by whoever used to do the task by hand — they're the best judge of where the machine is cutting corners. Agree on the criteria upfront: what counts as "working." Two weeks of running in parallel, human and machine doing the same thing, results compared. Then the human shifts into a supervisory role.</p>
+ <p data-i18n="s5.p3">Something good comes out of this too: the employee who went through this cycle starts finding the next tasks to automate on their own. You end up with more than one agent — you get a person who knows how to commission them.</p>
  </section>
 
  <section>
- <span class="secnum">6.0 // ЭТАП 5</span>
- <h2>Масштабирование</h2>
- <p>Один сотрудник прошёл цикл, показал цифры. Теперь его опыт переносится на отдел. Работает лучше любых директив: коллега с результатом убедительнее консультанта.</p>
- <p>На уровне отдела появляются вещи, которых не было на уровне человека. Общие спецификации, реестр агентов, правила, кто и что имеет право автоматизировать. Звучит бюрократично, спасает от бардака.</p>
- <h3>Лестница зрелости</h3>
- <p>Растёт со временем только единица автоматизации, этапы остаются те же. Уровень один: отдельная задача, человек проверяет каждый результат. Уровень два: связка задач одного сотрудника, машина ведёт процесс целиком, человек смотрит итог. Уровень три: цепочки агентов, где постоянный присмотр заменён контрольными точками и инвариантами из этапа 3. Продвинутые команды живут на третьем уровне, но попадают туда через первые два. Попытка начать сразу с третьего даёт хаос, который потом разгребают дороже, чем стоило бы пройти лестницу.</p>
+ <span class="secnum" data-i18n="s6.num">6.0 // STAGE 5</span>
+ <h2 data-i18n="s6.h">Scaling</h2>
+ <p data-i18n="s6.p1">One employee went through the cycle and showed the numbers. Now their experience carries over to the department. It works better than any directive — a colleague with results is more convincing than a consultant.</p>
+ <p data-i18n="s6.p2">At the department level, things appear that didn't exist at the individual level: shared specifications, an agent registry, rules for who's allowed to automate what. Sounds bureaucratic. Saves you from a mess.</p>
+ <h3 data-i18n="s6.h3">The maturity ladder</h3>
+ <p data-i18n="s6.p3">Only the unit of automation grows over time; the stages stay the same. Level one: a single task, a human checks every result. Level two: a bundle of one employee's tasks, the machine runs the whole process, a human reviews the outcome. Level three: chains of agents, where constant supervision is replaced by checkpoints and the invariants from Stage 3. Advanced teams live at level three, but they get there through the first two. Trying to start at level three gives you chaos that costs more to clean up than climbing the ladder would have.</p>
  </section>
 
  <section>
- <span class="secnum">7.0 // РИСКИ</span>
- <h2>Считайте не только освободившиеся часы</h2>
- <p>Аудит покажет, что отдел из десяти человек высвобождает, скажем, тридцать процентов мощности. Дальше у руководителя три пути, и выбирать стоит на цифрах.</p>
+ <span class="secnum" data-i18n="s7.num">7.0 // RISKS</span>
+ <h2 data-i18n="s7.h">Count more than just the hours you free up</h2>
+ <p data-i18n="s7.p1">The audit will show that a ten-person department frees up, say, thirty percent of its capacity. From there a manager has three paths, and the choice should be made on numbers.</p>
 
- <figure aria-label="Три сценария распоряжения высвобожденной мощностью">
- <svg viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" role="img">
- <g font-family="JetBrains Mono, monospace">
- <!-- сценарий А -->
- <text x="10" y="30" font-size="12" fill="#1B2027">А. БЕЗ СОКРАЩЕНИЙ</text>
- <rect x="10" y="40" width="380" height="18" fill="rgba(43,91,138,.55)"/>
- <text x="398" y="53" font-size="9.5" fill="#4A5361">рост тем же составом</text>
- <rect x="10" y="62" width="40" height="18" fill="rgba(154,59,51,.45)"/>
- <text x="58" y="75" font-size="9.5" fill="#4A5361">риск устойчивости</text>
- <!-- сценарий Б -->
- <text x="10" y="112" font-size="12" fill="#1B2027">Б. МЯГКОЕ СОКРАЩЕНИЕ</text>
- <rect x="10" y="122" width="290" height="18" fill="rgba(43,91,138,.55)"/>
- <text x="308" y="135" font-size="9.5" fill="#4A5361">экономия + рост</text>
- <rect x="10" y="144" width="130" height="18" fill="rgba(154,59,51,.45)"/>
- <text x="148" y="157" font-size="9.5" fill="#4A5361">риск умеренный</text>
- <!-- сценарий В -->
- <text x="10" y="194" font-size="12" fill="#1B2027">В. СОКРАТИТЬ ВСЁ, ЧТО МОЖНО</text>
- <rect x="10" y="204" width="360" height="18" fill="rgba(43,91,138,.55)"/>
- <text x="378" y="217" font-size="9.5" fill="#4A5361">максимум экономии</text>
- <rect x="10" y="226" width="420" height="18" fill="rgba(154,59,51,.45)"/>
- <text x="438" y="239" font-size="9.5" fill="#9A3B33">риск: один аврал съедает годовую экономию</text>
- </g>
- </svg>
- <figcaption>РИС. 4 — Три сценария. Синее: выгода в штатном режиме. Красное: скрытый риск в нештатном.</figcaption>
+ <figure aria-label="Three scenarios for freed-up capacity">
+ <div data-i18n-html="fig3_svg"></div>
+ <figcaption data-i18n="s7.fig4_cap">FIG. 4 — Three scenarios. Blue: the gain in normal operation. Red: the hidden risk when something goes wrong.</figcaption>
  </figure>
 
- <p>Скрытый риск называется резервной критичностью. Люди в компании заняты не только тем, что видно в таблице. Они держат в голове знания, которых нет в документации. Они закрывают авралы. Сократите техподдержку до минимума, потому что «типовые заявки теперь разбирает ИИ», и первая же массовая авария покажет цену решения: типовых заявок в аварию не бывает, а людей, которые умели разбирать нетиповые, уже нет.</p>
- <p>Поэтому в честном аудите у каждой роли две оценки. Сколько часов освобождается в обычном режиме. И что произойдёт в нештатном, если этих людей не будет. Вторую оценку почти никто не делает, а зря: убытки от одного простоя съедают экономию на зарплатах за год.</p>
- <p>Обратное тоже верно. Осторожность сама по себе риск: конкурент, жёстко срезавший ФОТ, выигрывает по цене здесь и сейчас, а на зрелом рынке без роста сценарий А работает хуже, чем на растущем. Аргумент этого раздела не про доброту. У каждого сценария есть цена, и считать нужно обе, прежде чем выбирать. Проигрывают обычно те, кто посчитал только одну.</p>
+ <p data-i18n="s7.p2">The hidden risk has a name: reserve criticality. People in a company do more than what shows up in a spreadsheet. They hold knowledge that's nowhere in the documentation. They cover the fire drills. Cut support down to the bone because "AI handles routine tickets now," and the first major outage will show you the price of that decision: there are no routine tickets during an outage, and the people who knew how to handle the non-routine ones are already gone.</p>
+ <p data-i18n="s7.p3">That's why an honest audit gives every role two estimates: how many hours it frees up in normal mode, and what happens in an abnormal one if those people aren't there. Almost nobody makes the second estimate, and that's a mistake — the losses from a single outage can wipe out a year of payroll savings.</p>
+ <p data-i18n="s7.p4">The reverse is also true. Caution is itself a risk: a competitor who cuts payroll hard wins on price here and now, and in a mature, non-growing market, scenario A performs worse than it would in a growing one. This section isn't an argument for kindness. Every scenario has a price, and you need to count both before choosing. The ones who lose are usually the ones who only counted one.</p>
  </section>
 
  <section>
- <span class="secnum">8.0 // КОМАНДА</span>
- <h2>Коммуникация: без неё всё остальное бесполезно</h2>
- <p>Правило одно, и на нём сыпется большинство внедрений. Если вы объявили команде, что цель внедрения ИИ состоит в усилении людей, этой линии придётся держаться и в решениях. Один показательный «оптимизированный» после аудита, и следующего честного аудита в этой компании не будет никогда. Сотрудники прекрасно считывают разницу между словами и действиями.</p>
- <p>Это, кстати, довод в пользу мягких сценариев из предыдущего раздела, чисто прагматический. Доверие команды стоит дороже, чем пара окладов.</p>
- <div class="callout" style="margin-top:26px"><span class="cl-k">Запомнить одно</span>Один показательный «оптимизированный» после аудита, и следующего честного аудита в этой компании не будет никогда.</div>
+ <span class="secnum" data-i18n="s8.num">8.0 // THE TEAM</span>
+ <h2 data-i18n="s8.h">Communication: without it, nothing else matters</h2>
+ <p data-i18n="s8.p1">There's one rule, and it's where most rollouts fall apart. If you told the team the goal of adopting AI is to strengthen people, you have to hold that line in your decisions too. One visible layoff "optimized" right after an audit, and there will never be another honest audit at that company. Employees read the gap between words and actions perfectly.</p>
+ <p data-i18n="s8.p2">That's actually a purely pragmatic argument for the softer scenarios from the previous section. The team's trust is worth more than a couple of salaries.</p>
+ <div class="callout" style="margin-top:26px"><span class="cl-k" data-i18n="s8.remember_k">One thing to remember</span><span data-i18n="s8.remember_p">One visible layoff "optimized" right after an audit, and there will never be another honest audit at that company.</span></div>
  </section>
 
  <div class="cta">
- <span class="secnum" style="color:#7FA8CC">9.0 // ЧТО ДАЛЬШЕ</span>
- <h2>Пройти самим, с книгой или с проводником</h2>
- <p>Пять этапов можно пройти самостоятельно, методички для этого достаточно. Одно предупреждение: самостоятельные аудиты часто вырождаются в формальность, потому что сотрудники пишут таблицы для начальника, а начальнику некогда проверять. Внешний человек нужен не для умных слов. Он нужен, чтобы данные были настоящими.</p>
- <p>Я делаю такие аудиты: фотография недели, карта задач, матрица автоматизации, расчёт мощности и рисков по трём сценариям, план внедрения и спецификация первой задачи, с которой можно стартовать без меня. От семи дней на одну роль, три-четыре недели на отдел.</p>
- <p>Первое письмо ни к чему не обязывает. Опишите отдел в трёх предложениях, и в ответе будут три вещи: стоит ли вашему отделу автоматизация в принципе, какие процессы я проверил бы первыми и есть ли шанс окупить внедрение.</p>
- <a class="btn" href="https://aimethodology.gumroad.com/l/ai-v-otdele" style="margin-right:12px">Полная версия →</a>
- <a class="btn alt-btn" href="mailto:artem@kholomyanskiy.com?subject=%D0%90%D1%83%D0%B4%D0%B8%D1%82">Написать письмо</a>
- <p class="alt">или LinkedIn: <a href="https://linkedin.com/in/kholomyanskiy">/in/kholomyanskiy</a> · Telegram: <a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></p>
+ <span class="secnum" style="color:#7FA8CC" data-i18n="s9.num">9.0 // WHAT'S NEXT</span>
+ <h2 data-i18n="s9.h">Do it yourself, with the book, or with a guide</h2>
+ <p data-i18n="s9.p1">You can go through the five stages on your own — this guide is enough for that. One warning: self-run audits often degrade into a formality, because employees fill out tables for the boss, and the boss has no time to check them. An outside person isn't there for clever language. They're there to make sure the data is real.</p>
+ <p data-i18n="s9.p2">I run these audits: a week-long log, a task map, an automation matrix, a capacity and risk calculation across three scenarios, a rollout plan, and a spec for the first task you can start on without me. From seven days for one role, three to four weeks for a department.</p>
+ <p data-i18n="s9.p3">The first message doesn't commit you to anything. Describe your department in three sentences, and the reply will cover three things: whether automation makes sense for your department at all, which processes I'd check first, and whether there's a realistic chance of the rollout paying off.</p>
+ <a class="btn" href="https://aimethodology.gumroad.com/l/ai-v-otdele" style="margin-right:12px" data-i18n="s9.cta1">Full version →</a>
+ <a class="btn alt-btn" id="mailto-btn" href="mailto:artem@kholomyanskiy.com?subject=Audit" data-i18n="s9.cta2">Send a message</a>
+ <p class="alt"><span data-i18n="s9.alt_prefix">or</span> LinkedIn: <a href="https://linkedin.com/in/kholomyanskiy">/in/kholomyanskiy</a> · Telegram: <a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></p>
  </div>
 
 </div>
@@ -373,6 +292,221 @@ footer{max-width:820px;margin:0 auto 48px;padding:14px 8px;font-family:'JetBrain
  <span>EVAI-GUIDE-2026-01 · v1.3 · CC BY 4.0</span>
  <span><a href="tel:+48508409363">+48 508 409 363</a> · <a href="mailto:artem@kholomyanskiy.com">artem@kholomyanskiy.com</a> · <a href="https://linkedin.com/in/kholomyanskiy">LinkedIn</a> · <a href="https://t.me/kholomyanskiy">Telegram</a></span>
 </footer>
+
+<script>
+var T = {
+  ru: {
+    nav_home: '← Главная',
+    nav_service: 'Услуга: AI-аудит отдела →',
+    stamp: 'Свободное распространение',
+    h1_title: 'ИИ <em>в отделе</em>',
+    tb_sub: 'Пять этапов: от карты задач до цепочек агентов. Для руководителя, который ещё не начал внедрение — и для того, у кого оно уже идёт хаотично.',
+    tb_doc_k: 'Документ', tb_doc_v: 'Методичка',
+    tb_author_k: 'Автор', tb_version_k: 'Версия', tb_license_k: 'Лицензия',
+    mailto_subject: 'Аудит',
+    'page_title': 'ИИ в отделе — методичка для руководителя · EVAI Consulting',
+    'meta_desc': 'Пять этапов внедрения ИИ в отдел: аудит, отбор, спецификация, внедрение, масштабирование. Риски, сценарии, коммуникация с командой.',
+
+    's0.num': '0.0 // КОМУ ЭТО', 's0.h': 'Кому это и о чём',
+    's0.p1': 'Деньги на ИИ сейчас теряют двумя способами. Первый: купить подписки и ждать чуда. Второй: сократить людей раньше, чем понятно, кто закрывал авралы. Эта методичка про третий способ, скучный: сначала посчитать, потом решать.',
+    's0.p2': 'Она для двух типов руководителей. Первый ещё не начинал и не знает, с чего. Второй уже внедряет: инструменты куплены, сверху обязали, но каждый сотрудник работает с ИИ методом тыка. Порядок действий обоим нужен один и тот же, различается только масштаб, о нём в этапе 5. Списков волшебных инструментов здесь нет: инструменты меняются каждые полгода, порядок остаётся.',
+    's0.fig1_cap': 'РИС. 1 — Пять этапов. Пропуск любого из первых трёх оплачивается на четвёртом.',
+    's0.h3': 'Главный тезис',
+    's0.p3': 'ИИ в компании работает как усилитель сотрудника. Заменой он становится редко и обычно хуже, чем обещали. Сотрудник, который понимает свои повторяющиеся задачи и отдал их машине, стоит для компании дороже, чем стоил. Компания, которая просто сократила людей после покупки лицензий, обычно обнаруживает это в первый же аврал.',
+    's0.p4': 'Тренд на массовые увольнения под флагом ИИ существует. Следовать ему необязательно. Ниже покажу, почему выбирать путь стоит по расчёту, и как его сделать.',
+    's0.p5': 'Методика опирается на 12 лет анализа enterprise-процессов в энергетике (SAP, SCADA, BPMN, UAT) и ежедневную разработку AI-агентов. Автор стандарта спецификаций ANSS.',
+    's0.callout_k': 'Это сокращённая версия',
+    's0.callout_p': 'Пять этапов здесь разобраны на уровне принципов. Полная версия — рабочая книга на 40–55 страниц с инструкциями по каждому этапу, шаблонами таблиц и разбором кейса.',
+    's0.callout_cta': 'Полная версия →',
+
+    's1.num': '1.0 // ПОЧЕМУ НЕ РАБОТАЕТ', 's1.h': 'Почему внедрение «сверху» проваливается',
+    's1.p1': 'Типичная история. Директор посмотрел вебинар, купил корпоративную подписку, разослал письмо «теперь используем ИИ». Через три месяца подпиской пользуются полтора человека, скептики торжествуют, бюджет списан.',
+    's1.p2': 'Причина скучная. Никто не посмотрел, из чего состоит рабочий день людей. ИИ хорошо забирает конкретные повторяющиеся задачи. Пока задачи не названы, забирать нечего. Инструмент без точки приложения остаётся игрушкой.',
+    's1.p3': 'Знаю случаи, когда даже в серьёзных компаниях-разработчиках инженеров обязали писать код через ИИ, а как с ним работать, не объяснил никто. Люди учатся поодиночке, методом тыка. Если так происходит у профессиональных программистов, что говорить об отделе продаж.',
+    's1.p4': 'Вывод простой: внедрение начинается с наблюдения, а не с покупки.',
+
+    's2.num': '2.0 // ЭТАП 1', 's2.h': 'Аудит: фотография рабочей недели',
+    's2.p1': 'Каждый сотрудник в течение недели записывает свои задачи. Что делал, как часто, сколько минут. Пять минут в конце дня, простая таблица. Через неделю у вас карта того, чем отдел занят на самом деле.',
+    's2.th1': 'Задача', 's2.th2': 'Раз/нед', 's2.th3': 'Мин за раз', 's2.th4': 'Итого ч/нед',
+    's2.row1': 'Отчёт для руководства из CRM',
+    's2.row2': 'Ответы на типовые письма клиентов',
+    's2.row3': 'Переговоры с ключевыми клиентами',
+    's2.row4': 'Перенос заявок из почты в таблицу',
+    's2.row5': 'Разбор нестандартных претензий',
+    's2.fig2_cap': 'РИС. 2 — Фрагмент фотографии недели одного сотрудника. Выделены кандидаты на автоматизацию.',
+    's2.p2': 'Три выделенные строки этого примера дают 7,8 часа в неделю. При ставке 80 zł/час это около 2 700 zł в месяц на одном сотруднике, и это ещё до разговора про качество и скорость.',
+    's2.p3': 'Спойлер: карта не совпадёт с должностными инструкциями. Всплывут задачи, о которых вы не знали. Отчёт, который человек три часа собирает руками. Письма, съедающие половину дня, хотя шаблон один и тот же. Дублирование, когда одну табличку ведут двое.',
+    's2.warn_k': 'Предупреждение',
+    's2.warn_p': ' Если команда решит, что аудит затеян под сокращения, данные будут нарисованы. Каждый изобразит себя незаменимым, и считать будет нечего. До старта руководитель честно объясняет цель: ищем рутину, чтобы освободить людей для работы посложнее. И потом держит слово.',
+
+    's3.num': '3.0 // ЭТАП 2', 's3.h': 'Отбор: что отдавать машине',
+    's3.p1': 'Теперь по каждой задаче из карты три вопроса. Повторяется ли она регулярно и по одинаковой схеме? Сколько стоит час человека, который её делает? Что случится, если машина ошибётся?',
+    's3.fig3_cap': 'РИС. 3 — Матрица отбора. Красная зона выглядит привлекательно по трудозатратам, трогать её первой не стоит.',
+    's3.p2': 'Частичный режим для начала лучше полного: сотрудник видит, где машина ошибается, и учится ей управлять.',
+    's3.p3': 'Результат этапа: короткий список задач с оценкой высвобождаемых часов. Вместо «внедряем ИИ вообще» получаете три конкретных места, где он окупится.',
+
+    's4.num': '4.0 // ЭТАП 3', 's4.h': 'Спецификация: почему без ТЗ не работает',
+    's4.p1': 'Самая недооценённая часть. ИИ выполняет написанное. То, что имелось в виду, он не выполняет. Расплывчатая постановка даёт расплывчатый результат, и винить тут стоит постановку, машина своё отработала.',
+    's4.p2': 'Для каждой автоматизируемой задачи нужен короткий документ. Что на входе, что на выходе, по каким правилам, чего делать нельзя никогда. Последний пункт называю инвариантами: границы, которые машина не пересекает ни при каких условиях. Не отправлять письмо без проверки человеком. Не менять данные в бухгалтерской системе. Не обещать клиенту сроки.',
+    's4.p3': 'Как это выглядит для задачи «черновики ответов на письма клиентов». Вход: письмо клиента и история переписки. Выход: черновик ответа в папке «На проверку». Инварианты: не отправлять без утверждения человеком, не называть цены и сроки, не отвечать на претензии, их сразу человеку. Пять строк, а поведение машины уже предсказуемо.',
+    's4.p4': 'Для сложных систем я развиваю открытый стандарт таких спецификаций, <a href="https://github.com/Kholomyanskiy/anss-standard">ANSS</a>. Для одной офисной задачи хватит страницы текста. Но страница должна быть.',
+
+    's5.num': '5.0 // ЭТАП 4', 's5.h': 'Внедрение и приёмка',
+    's5.p1': 'Внедряйте по одной задаче. Соблазн запустить всё сразу велик, устойчив к нему мало кто, результат всегда одинаковый: хаос и откат.',
+    's5.p2': 'Приёмку делает тот, кто задачу выполнял руками. Он лучше всех видит, где машина халтурит. Заранее договоритесь о критериях: что считается «работает». Две недели параллельного режима, человек и машина делают одно и то же, результаты сравниваются. Потом человек переходит в режим контроля.',
+    's5.p3': 'Здесь же выясняется приятное: сотрудник, прошедший этот цикл, дальше сам находит следующие задачи для автоматизации. Вы получили больше, чем одного агента: у вас появился человек, который умеет их заказывать.',
+
+    's6.num': '6.0 // ЭТАП 5', 's6.h': 'Масштабирование',
+    's6.p1': 'Один сотрудник прошёл цикл, показал цифры. Теперь его опыт переносится на отдел. Работает лучше любых директив: коллега с результатом убедительнее консультанта.',
+    's6.p2': 'На уровне отдела появляются вещи, которых не было на уровне человека. Общие спецификации, реестр агентов, правила, кто и что имеет право автоматизировать. Звучит бюрократично, спасает от бардака.',
+    's6.h3': 'Лестница зрелости',
+    's6.p3': 'Растёт со временем только единица автоматизации, этапы остаются те же. Уровень один: отдельная задача, человек проверяет каждый результат. Уровень два: связка задач одного сотрудника, машина ведёт процесс целиком, человек смотрит итог. Уровень три: цепочки агентов, где постоянный присмотр заменён контрольными точками и инвариантами из этапа 3. Продвинутые команды живут на третьем уровне, но попадают туда через первые два. Попытка начать сразу с третьего даёт хаос, который потом разгребают дороже, чем стоило бы пройти лестницу.',
+
+    's7.num': '7.0 // РИСКИ', 's7.h': 'Считайте не только освободившиеся часы',
+    's7.p1': 'Аудит покажет, что отдел из десяти человек высвобождает, скажем, тридцать процентов мощности. Дальше у руководителя три пути, и выбирать стоит на цифрах.',
+    's7.fig4_cap': 'РИС. 4 — Три сценария. Синее: выгода в штатном режиме. Красное: скрытый риск в нештатном.',
+    's7.p2': 'Скрытый риск называется резервной критичностью. Люди в компании заняты не только тем, что видно в таблице. Они держат в голове знания, которых нет в документации. Они закрывают авралы. Сократите техподдержку до минимума, потому что «типовые заявки теперь разбирает ИИ», и первая же массовая авария покажет цену решения: типовых заявок в аварию не бывает, а людей, которые умели разбирать нетиповые, уже нет.',
+    's7.p3': 'Поэтому в честном аудите у каждой роли две оценки. Сколько часов освобождается в обычном режиме. И что произойдёт в нештатном, если этих людей не будет. Вторую оценку почти никто не делает, а зря: убытки от одного простоя съедают экономию на зарплатах за год.',
+    's7.p4': 'Обратное тоже верно. Осторожность сама по себе риск: конкурент, жёстко срезавший ФОТ, выигрывает по цене здесь и сейчас, а на зрелом рынке без роста сценарий А работает хуже, чем на растущем. Аргумент этого раздела не про доброту. У каждого сценария есть цена, и считать нужно обе, прежде чем выбирать. Проигрывают обычно те, кто посчитал только одну.',
+
+    's8.num': '8.0 // КОМАНДА', 's8.h': 'Коммуникация: без неё всё остальное бесполезно',
+    's8.p1': 'Правило одно, и на нём сыпется большинство внедрений. Если вы объявили команде, что цель внедрения ИИ состоит в усилении людей, этой линии придётся держаться и в решениях. Один показательный «оптимизированный» после аудита, и следующего честного аудита в этой компании не будет никогда. Сотрудники прекрасно считывают разницу между словами и действиями.',
+    's8.p2': 'Это, кстати, довод в пользу мягких сценариев из предыдущего раздела, чисто прагматический. Доверие команды стоит дороже, чем пара окладов.',
+    's8.remember_k': 'Запомнить одно',
+    's8.remember_p': 'Один показательный «оптимизированный» после аудита, и следующего честного аудита в этой компании не будет никогда.',
+
+    's9.num': '9.0 // ЧТО ДАЛЬШЕ', 's9.h': 'Пройти самим, с книгой или с проводником',
+    's9.p1': 'Пять этапов можно пройти самостоятельно, методички для этого достаточно. Одно предупреждение: самостоятельные аудиты часто вырождаются в формальность, потому что сотрудники пишут таблицы для начальника, а начальнику некогда проверять. Внешний человек нужен не для умных слов. Он нужен, чтобы данные были настоящими.',
+    's9.p2': 'Я делаю такие аудиты: фотография недели, карта задач, матрица автоматизации, расчёт мощности и рисков по трём сценариям, план внедрения и спецификация первой задачи, с которой можно стартовать без меня. От семи дней на одну роль, три-четыре недели на отдел.',
+    's9.p3': 'Первое письмо ни к чему не обязывает. Опишите отдел в трёх предложениях, и в ответе будут три вещи: стоит ли вашему отделу автоматизация в принципе, какие процессы я проверил бы первыми и есть ли шанс окупить внедрение.',
+    's9.cta1': 'Полная версия →', 's9.cta2': 'Написать письмо', 's9.alt_prefix': 'или',
+
+    fig1_svg: '<svg viewBox="0 0 660 120" xmlns="http://www.w3.org/2000/svg" role="img"><defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#2B5B8A" stroke-width="1.5"/></marker></defs><g font-family="JetBrains Mono, monospace"><g><rect x="4" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/><text x="60" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">01</text><text x="60" y="68" text-anchor="middle" font-size="12" fill="#1B2027">АУДИТ</text></g><line x1="116" y1="56" x2="136" y2="56" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#arr)"/><g><rect x="138" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/><text x="194" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">02</text><text x="194" y="68" text-anchor="middle" font-size="12" fill="#1B2027">ОТБОР</text></g><line x1="250" y1="56" x2="270" y2="56" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#arr)"/><g><rect x="272" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/><text x="328" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">03</text><text x="328" y="68" text-anchor="middle" font-size="11" fill="#1B2027">СПЕЦИФИК.</text></g><line x1="384" y1="56" x2="404" y2="56" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#arr)"/><g><rect x="406" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/><text x="462" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">04</text><text x="462" y="68" text-anchor="middle" font-size="11" fill="#1B2027">ВНЕДРЕНИЕ</text></g><line x1="518" y1="56" x2="538" y2="56" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#arr)"/><g><rect x="540" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/><text x="596" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">05</text><text x="596" y="68" text-anchor="middle" font-size="12" fill="#1B2027">МАСШТАБ</text></g><text x="60" y="102" text-anchor="middle" font-size="9" fill="#4A5361">неделя</text><text x="194" y="102" text-anchor="middle" font-size="9" fill="#4A5361">3 вопроса</text><text x="328" y="102" text-anchor="middle" font-size="9" fill="#4A5361">страница ТЗ</text><text x="462" y="102" text-anchor="middle" font-size="9" fill="#4A5361">по одной задаче</text><text x="596" y="102" text-anchor="middle" font-size="9" fill="#4A5361">от человека к отделу</text></g></svg>',
+    fig2_svg: '<svg viewBox="0 0 660 340" xmlns="http://www.w3.org/2000/svg" role="img"><g font-family="JetBrains Mono, monospace"><line x1="90" y1="20" x2="90" y2="290" stroke="#1B2027" stroke-width="1.5"/><line x1="90" y1="290" x2="640" y2="290" stroke="#1B2027" stroke-width="1.5"/><rect x="91" y="21" width="274" height="134" fill="rgba(43,91,138,.10)"/><rect x="366" y="21" width="273" height="134" fill="rgba(43,91,138,.04)"/><rect x="91" y="156" width="274" height="133" fill="none"/><rect x="366" y="156" width="273" height="133" fill="rgba(154,59,51,.06)"/><line x1="365" y1="21" x2="365" y2="289" stroke="#C9CEC2" stroke-width="1"/><line x1="91" y1="155" x2="639" y2="155" stroke="#C9CEC2" stroke-width="1"/><text x="228" y="76" text-anchor="middle" font-size="12" fill="#1E4266">ОТДАТЬ МАШИНЕ</text><text x="228" y="94" text-anchor="middle" font-size="9.5" fill="#4A5361">сводки · переносы данных</text><text x="228" y="108" text-anchor="middle" font-size="9.5" fill="#4A5361">черновики типовых писем</text><text x="502" y="76" text-anchor="middle" font-size="12" fill="#1E4266">ЧАСТИЧНО</text><text x="502" y="94" text-anchor="middle" font-size="9.5" fill="#4A5361">машина готовит черновик</text><text x="502" y="108" text-anchor="middle" font-size="9.5" fill="#4A5361">человек проверяет</text><text x="228" y="216" text-anchor="middle" font-size="12" fill="#4A5361">НЕ ПРИОРИТЕТ</text><text x="228" y="234" text-anchor="middle" font-size="9.5" fill="#4A5361">редкое и безопасное</text><text x="502" y="216" text-anchor="middle" font-size="12" fill="#9A3B33">НЕ ТРОГАТЬ</text><text x="502" y="234" text-anchor="middle" font-size="9.5" fill="#4A5361">переговоры · претензии</text><text x="502" y="248" text-anchor="middle" font-size="9.5" fill="#4A5361">решения о деньгах</text><text x="82" y="30" text-anchor="end" font-size="9.5" fill="#4A5361">часто,</text><text x="82" y="42" text-anchor="end" font-size="9.5" fill="#4A5361">по схеме</text><text x="82" y="272" text-anchor="end" font-size="9.5" fill="#4A5361">редко</text><text x="95" y="315" font-size="9.5" fill="#4A5361">ошибка дешёвая</text><text x="639" y="315" text-anchor="end" font-size="9.5" fill="#4A5361">ошибка дорогая</text><text x="30" y="160" font-size="10" fill="#1B2027" transform="rotate(-90 30 160)" text-anchor="middle">ПОВТОРЯЕМОСТЬ</text><text x="365" y="334" text-anchor="middle" font-size="10" fill="#1B2027">ЦЕНА ОШИБКИ</text></g></svg>',
+    fig3_svg: '<svg viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" role="img"><g font-family="JetBrains Mono, monospace"><text x="10" y="30" font-size="12" fill="#1B2027">А. БЕЗ СОКРАЩЕНИЙ</text><rect x="10" y="40" width="380" height="18" fill="rgba(43,91,138,.55)"/><text x="398" y="53" font-size="9.5" fill="#4A5361">рост тем же составом</text><rect x="10" y="62" width="40" height="18" fill="rgba(154,59,51,.45)"/><text x="58" y="75" font-size="9.5" fill="#4A5361">риск устойчивости</text><text x="10" y="112" font-size="12" fill="#1B2027">Б. МЯГКОЕ СОКРАЩЕНИЕ</text><rect x="10" y="122" width="290" height="18" fill="rgba(43,91,138,.55)"/><text x="308" y="135" font-size="9.5" fill="#4A5361">экономия + рост</text><rect x="10" y="144" width="130" height="18" fill="rgba(154,59,51,.45)"/><text x="148" y="157" font-size="9.5" fill="#4A5361">риск умеренный</text><text x="10" y="194" font-size="12" fill="#1B2027">В. СОКРАТИТЬ ВСЁ, ЧТО МОЖНО</text><rect x="10" y="204" width="360" height="18" fill="rgba(43,91,138,.55)"/><text x="378" y="217" font-size="9.5" fill="#4A5361">максимум экономии</text><rect x="10" y="226" width="420" height="18" fill="rgba(154,59,51,.45)"/><text x="438" y="239" font-size="9" fill="#9A3B33">один аврал съедает годовую экономию</text></g></svg>'
+  },
+  en: {
+    nav_home: '← Home',
+    nav_service: 'Service: AI Department Audit →',
+    stamp: 'Free to share',
+    h1_title: 'AI <em>in the Department</em>',
+    tb_sub: "Five stages: from a task map to agent chains. For a manager who hasn't started yet — and for one whose rollout is already running chaotic.",
+    tb_doc_k: 'Document', tb_doc_v: 'Guide',
+    tb_author_k: 'Author', tb_version_k: 'Version', tb_license_k: 'License',
+    mailto_subject: 'Audit',
+    'page_title': "AI in the Department — A Manager's Guide · EVAI Consulting",
+    'meta_desc': 'Five stages of bringing AI into a department: audit, selection, specification, rollout, scaling. Risks, scenarios, team communication.',
+
+    's0.num': '0.0 // WHO THIS IS FOR', 's0.h': 'Who this is for, and what it covers',
+    's0.p1': "Right now, money gets wasted on AI two ways. First: buy subscriptions and wait for a miracle. Second: cut people before it's clear who was covering the fire drills. This guide is about the third, boring way — count first, decide after.",
+    's0.p2': "It's for two kinds of managers. The first hasn't started and doesn't know where to begin. The second is already rolling AI out: tools are bought, mandated from above, but every employee is figuring it out by trial and error. Both need the same sequence of steps — only the scale differs, covered in Stage 5. There's no list of magic tools here: tools change every six months, the sequence doesn't.",
+    's0.fig1_cap': 'FIG. 1 — Five stages. Skip any of the first three, and you pay for it at the fourth.',
+    's0.h3': 'The core argument',
+    's0.p3': "Inside a company, AI works as an amplifier for an employee, not a replacement — and when it does replace someone, it's usually worse than promised. An employee who understands their repeating tasks and hands them to a machine becomes worth more to the company than before. A company that just cuts headcount after buying licenses usually finds out the cost at the first real crisis.",
+    's0.p4': "The trend toward mass layoffs under the AI banner is real. Following it isn't mandatory. Below I'll show why the choice should be made on numbers, and how to run them.",
+    's0.p5': 'The methodology draws on 12 years of enterprise process analysis in the energy sector (SAP, SCADA, BPMN, UAT) and daily work building AI agents. Author of the ANSS specification standard.',
+    's0.callout_k': 'This is the short version',
+    's0.callout_p': 'The five stages here are covered at the level of principles. The full version is a working 40–55 page book with instructions for each stage, table templates, and a case study.',
+    's0.callout_cta': 'Full version →',
+
+    's1.num': '1.0 // WHY IT FAILS', 's1.h': 'Why top-down rollout fails',
+    's1.p1': 'A familiar story. The director watches a webinar, buys a company-wide subscription, sends out an email: "we\'re using AI now." Three months later, a handful of people actually use it, the skeptics feel vindicated, and the budget gets written off.',
+    's1.p2': "The reason is boring. Nobody looked at what people's workday actually consists of. AI is good at taking over specific, repeating tasks. Until those tasks are named, there's nothing for it to take. A tool with no point of application stays a toy.",
+    's1.p3': "I've seen cases where even serious dev shops mandated that engineers write code through AI, and nobody explained how to actually work with it. People learn alone, by trial and error. If that's what happens to professional programmers, imagine the sales department.",
+    's1.p4': "The conclusion is simple: rollout starts with observation, not with a purchase.",
+
+    's2.num': '2.0 // STAGE 1', 's2.h': 'Audit: a snapshot of the work week',
+    's2.p1': "For one week, every employee logs their tasks: what they did, how often, how many minutes. Five minutes at the end of the day, a simple table. A week later you have a map of what the department actually does.",
+    's2.th1': 'Task', 's2.th2': 'Times/week', 's2.th3': 'Min per time', 's2.th4': 'Total h/week',
+    's2.row1': 'Management report from CRM',
+    's2.row2': 'Replies to routine client emails',
+    's2.row3': 'Negotiations with key clients',
+    's2.row4': 'Moving requests from email into a table',
+    's2.row5': 'Handling non-standard complaints',
+    's2.fig2_cap': "FIG. 2 — A fragment of one employee's week-long log. Automation candidates are highlighted.",
+    's2.p2': "The three highlighted rows in this example add up to 7.8 hours a week. At 80 zł/hour, that's roughly 2,700 zł a month for one employee — before you even talk about quality and speed.",
+    's2.p3': "Spoiler: the map won't match the job descriptions. Tasks you didn't know about will surface. A report someone spends three hours assembling by hand. Emails eating half a day even though it's the same template every time. Duplication, where two people maintain the same spreadsheet.",
+    's2.warn_k': 'Warning',
+    's2.warn_p': " If the team decides the audit is really about layoffs, the data will be fabricated. Everyone will make themselves look indispensable, and there'll be nothing left to count. Before starting, the manager explains the real goal honestly: we're looking for routine work to free people up for harder work. And then keeps that word.",
+
+    's3.num': '3.0 // STAGE 2', 's3.h': 'Selection: what to hand to the machine',
+    's3.p1': 'Now ask three questions about each task on the map. Does it repeat regularly, the same way each time? What does an hour of the person doing it cost? What happens if the machine gets it wrong?',
+    's3.fig3_cap': "FIG. 3 — The selection matrix. The red zone looks attractive by effort saved — it's not the place to start.",
+    's3.p2': 'Partial mode is better to start with than full automation: the employee sees where the machine gets it wrong and learns to manage it.',
+    's3.p3': 'The output of this stage: a short list of tasks with an estimate of freed-up hours. Instead of "we\'re adopting AI in general," you get three specific places where it pays off.',
+
+    's4.num': '4.0 // STAGE 3', 's4.h': "Specification: why it doesn't work without a spec",
+    's4.p1': "The most underrated part. AI does what's written. It doesn't do what you meant. A vague brief produces a vague result, and the brief is what's at fault — the machine did its job.",
+    's4.p2': "Every task you automate needs a short document: what's the input, what's the output, what are the rules, what must never happen. I call that last part invariants — boundaries the machine never crosses, no matter what. Never send an email without human review. Never change data in the accounting system. Never promise a client a deadline.",
+    's4.p3': 'Here\'s what that looks like for "drafting replies to client emails." Input: the client\'s email and the thread history. Output: a draft reply in the "For Review" folder. Invariants: never send without human approval, never quote prices or deadlines, never answer complaints — those go straight to a human. Five lines, and the machine\'s behavior is already predictable.',
+    's4.p4': 'For complex systems, I develop an open standard for these specifications, <a href="https://github.com/Kholomyanskiy/anss-standard">ANSS</a>. For one office task, a page of text is enough. But that page has to exist.',
+
+    's5.num': '5.0 // STAGE 4', 's5.h': 'Rollout and acceptance',
+    's5.p1': 'Roll out one task at a time. The temptation to launch everything at once is strong, few resist it, and the result is always the same: chaos and rollback.',
+    's5.p2': 'Acceptance is done by whoever used to do the task by hand — they\'re the best judge of where the machine is cutting corners. Agree on the criteria upfront: what counts as "working." Two weeks of running in parallel, human and machine doing the same thing, results compared. Then the human shifts into a supervisory role.',
+    's5.p3': "Something good comes out of this too: the employee who went through this cycle starts finding the next tasks to automate on their own. You end up with more than one agent — you get a person who knows how to commission them.",
+
+    's6.num': '6.0 // STAGE 5', 's6.h': 'Scaling',
+    's6.p1': "One employee went through the cycle and showed the numbers. Now their experience carries over to the department. It works better than any directive — a colleague with results is more convincing than a consultant.",
+    's6.p2': "At the department level, things appear that didn't exist at the individual level: shared specifications, an agent registry, rules for who's allowed to automate what. Sounds bureaucratic. Saves you from a mess.",
+    's6.h3': 'The maturity ladder',
+    's6.p3': "Only the unit of automation grows over time; the stages stay the same. Level one: a single task, a human checks every result. Level two: a bundle of one employee's tasks, the machine runs the whole process, a human reviews the outcome. Level three: chains of agents, where constant supervision is replaced by checkpoints and the invariants from Stage 3. Advanced teams live at level three, but they get there through the first two. Trying to start at level three gives you chaos that costs more to clean up than climbing the ladder would have.",
+
+    's7.num': '7.0 // RISKS', 's7.h': 'Count more than just the hours you free up',
+    's7.p1': 'The audit will show that a ten-person department frees up, say, thirty percent of its capacity. From there a manager has three paths, and the choice should be made on numbers.',
+    's7.fig4_cap': 'FIG. 4 — Three scenarios. Blue: the gain in normal operation. Red: the hidden risk when something goes wrong.',
+    's7.p2': 'The hidden risk has a name: reserve criticality. People in a company do more than what shows up in a spreadsheet. They hold knowledge that\'s nowhere in the documentation. They cover the fire drills. Cut support down to the bone because "AI handles routine tickets now," and the first major outage will show you the price of that decision: there are no routine tickets during an outage, and the people who knew how to handle the non-routine ones are already gone.',
+    's7.p3': "That's why an honest audit gives every role two estimates: how many hours it frees up in normal mode, and what happens in an abnormal one if those people aren't there. Almost nobody makes the second estimate, and that's a mistake — the losses from a single outage can wipe out a year of payroll savings.",
+    's7.p4': "The reverse is also true. Caution is itself a risk: a competitor who cuts payroll hard wins on price here and now, and in a mature, non-growing market, scenario A performs worse than it would in a growing one. This section isn't an argument for kindness. Every scenario has a price, and you need to count both before choosing. The ones who lose are usually the ones who only counted one.",
+
+    's8.num': '8.0 // THE TEAM', 's8.h': "Communication: without it, nothing else matters",
+    's8.p1': 'There\'s one rule, and it\'s where most rollouts fall apart. If you told the team the goal of adopting AI is to strengthen people, you have to hold that line in your decisions too. One visible layoff "optimized" right after an audit, and there will never be another honest audit at that company. Employees read the gap between words and actions perfectly.',
+    's8.p2': "That's actually a purely pragmatic argument for the softer scenarios from the previous section. The team's trust is worth more than a couple of salaries.",
+    's8.remember_k': 'One thing to remember',
+    's8.remember_p': 'One visible layoff "optimized" right after an audit, and there will never be another honest audit at that company.',
+
+    's9.num': "9.0 // WHAT'S NEXT", 's9.h': 'Do it yourself, with the book, or with a guide',
+    's9.p1': "You can go through the five stages on your own — this guide is enough for that. One warning: self-run audits often degrade into a formality, because employees fill out tables for the boss, and the boss has no time to check them. An outside person isn't there for clever language. They're there to make sure the data is real.",
+    's9.p2': 'I run these audits: a week-long log, a task map, an automation matrix, a capacity and risk calculation across three scenarios, a rollout plan, and a spec for the first task you can start on without me. From seven days for one role, three to four weeks for a department.',
+    's9.p3': "The first message doesn't commit you to anything. Describe your department in three sentences, and the reply will cover three things: whether automation makes sense for your department at all, which processes I'd check first, and whether there's a realistic chance of the rollout paying off.",
+    's9.cta1': 'Full version →', 's9.cta2': 'Send a message', 's9.alt_prefix': 'or',
+
+    fig1_svg: '<svg viewBox="0 0 660 120" xmlns="http://www.w3.org/2000/svg" role="img"><defs><marker id="arr-en" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#2B5B8A" stroke-width="1.5"/></marker></defs><g font-family="JetBrains Mono, monospace"><g><rect x="4" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/><text x="60" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">01</text><text x="60" y="68" text-anchor="middle" font-size="12" fill="#1B2027">AUDIT</text></g><line x1="116" y1="56" x2="136" y2="56" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#arr-en)"/><g><rect x="138" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/><text x="194" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">02</text><text x="194" y="68" text-anchor="middle" font-size="12" fill="#1B2027">SELECT</text></g><line x1="250" y1="56" x2="270" y2="56" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#arr-en)"/><g><rect x="272" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/><text x="328" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">03</text><text x="328" y="68" text-anchor="middle" font-size="11" fill="#1B2027">SPEC</text></g><line x1="384" y1="56" x2="404" y2="56" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#arr-en)"/><g><rect x="406" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/><text x="462" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">04</text><text x="462" y="68" text-anchor="middle" font-size="11" fill="#1B2027">ROLLOUT</text></g><line x1="518" y1="56" x2="538" y2="56" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#arr-en)"/><g><rect x="540" y="30" width="112" height="52" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/><text x="596" y="50" text-anchor="middle" font-size="10" fill="#2B5B8A">05</text><text x="596" y="68" text-anchor="middle" font-size="12" fill="#1B2027">SCALE</text></g><text x="60" y="102" text-anchor="middle" font-size="9" fill="#4A5361">one week</text><text x="194" y="102" text-anchor="middle" font-size="9" fill="#4A5361">3 questions</text><text x="328" y="102" text-anchor="middle" font-size="9" fill="#4A5361">one-page spec</text><text x="462" y="102" text-anchor="middle" font-size="9" fill="#4A5361">task by task</text><text x="596" y="102" text-anchor="middle" font-size="9" fill="#4A5361">person to team</text></g></svg>',
+    fig2_svg: '<svg viewBox="0 0 660 340" xmlns="http://www.w3.org/2000/svg" role="img"><g font-family="JetBrains Mono, monospace"><line x1="90" y1="20" x2="90" y2="290" stroke="#1B2027" stroke-width="1.5"/><line x1="90" y1="290" x2="640" y2="290" stroke="#1B2027" stroke-width="1.5"/><rect x="91" y="21" width="274" height="134" fill="rgba(43,91,138,.10)"/><rect x="366" y="21" width="273" height="134" fill="rgba(43,91,138,.04)"/><rect x="91" y="156" width="274" height="133" fill="none"/><rect x="366" y="156" width="273" height="133" fill="rgba(154,59,51,.06)"/><line x1="365" y1="21" x2="365" y2="289" stroke="#C9CEC2" stroke-width="1"/><line x1="91" y1="155" x2="639" y2="155" stroke="#C9CEC2" stroke-width="1"/><text x="228" y="76" text-anchor="middle" font-size="12" fill="#1E4266">AUTOMATE IT</text><text x="228" y="94" text-anchor="middle" font-size="9.5" fill="#4A5361">summaries · data transfers</text><text x="228" y="108" text-anchor="middle" font-size="9.5" fill="#4A5361">drafts for template replies</text><text x="502" y="76" text-anchor="middle" font-size="12" fill="#1E4266">PARTIALLY</text><text x="502" y="94" text-anchor="middle" font-size="9.5" fill="#4A5361">AI drafts a reply</text><text x="502" y="108" text-anchor="middle" font-size="9.5" fill="#4A5361">a person reviews it</text><text x="228" y="216" text-anchor="middle" font-size="12" fill="#4A5361">LOW PRIORITY</text><text x="228" y="234" text-anchor="middle" font-size="9.5" fill="#4A5361">rare and low-risk</text><text x="502" y="216" text-anchor="middle" font-size="12" fill="#9A3B33">HANDS OFF</text><text x="502" y="234" text-anchor="middle" font-size="9.5" fill="#4A5361">negotiations · complaints</text><text x="502" y="248" text-anchor="middle" font-size="9.5" fill="#4A5361">money decisions</text><text x="82" y="30" text-anchor="end" font-size="9.5" fill="#4A5361">often,</text><text x="82" y="42" text-anchor="end" font-size="9.5" fill="#4A5361">same pattern</text><text x="82" y="272" text-anchor="end" font-size="9.5" fill="#4A5361">rare</text><text x="95" y="315" font-size="9.5" fill="#4A5361">cheap mistake</text><text x="639" y="315" text-anchor="end" font-size="9.5" fill="#4A5361">costly mistake</text><text x="30" y="160" font-size="10" fill="#1B2027" transform="rotate(-90 30 160)" text-anchor="middle">REPEATABILITY</text><text x="365" y="334" text-anchor="middle" font-size="10" fill="#1B2027">COST OF ERROR</text></g></svg>',
+    fig3_svg: '<svg viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" role="img"><g font-family="JetBrains Mono, monospace"><text x="10" y="30" font-size="12" fill="#1B2027">A. NO LAYOFFS</text><rect x="10" y="40" width="380" height="18" fill="rgba(43,91,138,.55)"/><text x="398" y="53" font-size="9.5" fill="#4A5361">grow with the same team</text><rect x="10" y="62" width="40" height="18" fill="rgba(154,59,51,.45)"/><text x="58" y="75" font-size="9.5" fill="#4A5361">resilience risk</text><text x="10" y="112" font-size="12" fill="#1B2027">B. LIGHT DOWNSIZING</text><rect x="10" y="122" width="290" height="18" fill="rgba(43,91,138,.55)"/><text x="308" y="135" font-size="9.5" fill="#4A5361">savings + growth</text><rect x="10" y="144" width="130" height="18" fill="rgba(154,59,51,.45)"/><text x="148" y="157" font-size="9.5" fill="#4A5361">moderate risk</text><text x="10" y="194" font-size="12" fill="#1B2027">C. CUT EVERYTHING POSSIBLE</text><rect x="10" y="204" width="360" height="18" fill="rgba(43,91,138,.55)"/><text x="378" y="217" font-size="9.5" fill="#4A5361">maximum savings</text><rect x="10" y="226" width="420" height="18" fill="rgba(154,59,51,.45)"/><text x="438" y="239" font-size="9" fill="#9A3B33">one crisis erases a year of savings</text></g></svg>'
+  }
+};
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.querySelectorAll('.spec-lang-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+  });
+  document.documentElement.lang = lang;
+  if (T[lang].page_title) document.title = T[lang].page_title;
+  var md = document.querySelector('meta[name="description"]');
+  if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
+  var mb = document.getElementById('mailto-btn');
+  if (mb && T[lang].mailto_subject) mb.href = 'mailto:artem@kholomyanskiy.com?subject=' + encodeURIComponent(T[lang].mailto_subject);
+  localStorage.setItem('site-lang', lang);
+}
+
+(function() {
+  var p = new URLSearchParams(window.location.search);
+  var ul = p.get('lang');
+  if (ul && T[ul]) { setLang(ul); return; }
+  var saved = localStorage.getItem('site-lang');
+  setLang((saved && T[saved]) ? saved : 'en');
+})();
+</script>
 
 </body>
 </html>
