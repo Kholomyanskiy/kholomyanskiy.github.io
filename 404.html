@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 — страница не найдена | Артём Холомянский</title>
-<meta name="description" content="Такой страницы на сайте нет. Вернитесь на главную или перейдите в нужный раздел.">
+<title>404 — Page Not Found | Artem Kholomyanskiy</title>
+<meta name="description" content="This page doesn't exist. Go back to the homepage or head to the section you need.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://kholomyanskiy.com/404.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="404 — страница не найдена">
-<meta property="og:description" content="Такой страницы на сайте нет.">
+<meta property="og:title" content="404 — Page Not Found">
+<meta property="og:description" content="This page doesn't exist.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:url" content="https://kholomyanskiy.com/404.html">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/img/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -82,50 +84,50 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 
   <header class="titleblock">
     <div class="tb-top">
-      <a class="brand" href="/">АРТЁМ ХОЛОМЯНСКИЙ</a>
+      <a class="brand" href="/" data-i18n="brand.name">ARTEM KHOLOMYANSKIY</a>
       <span class="lang-switch">
-        <button type="button" class="lang-btn active" data-lang="ru">RU</button>
-        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="ru">RU</button>
       </span>
     </div>
   </header>
 
   <div class="body">
-    <span class="code" data-i18n="code">Ошибка 404 · лист не найден</span>
-    <h1><em>Такой страницы</em><br data-i18n-skip>нет</h1>
-    <p class="lead" data-i18n="lead">Адрес набран с опечаткой, страница переехала или ссылка устарела. Сам сайт работает — ниже разделы, куда, скорее всего, вы и шли.</p>
+    <span class="code" data-i18n="code">Error 404 · sheet not found</span>
+    <h1><em>This page</em><br data-i18n-skip>does not exist</h1>
+    <p class="lead" data-i18n="lead">The address has a typo, the page moved, or the link is out of date. The site itself is fine — the sections below are most likely where you were headed.</p>
 
     <div class="callout">
-      <span class="cl-k" data-i18n="cl.k">Заметка на полях</span>
-      <span data-i18n="cl.text">Битая ссылка — это тоже дефект спецификации. Если вы пришли по ссылке с другого сайта, напишите мне: починю.</span>
+      <span class="cl-k" data-i18n="cl.k">Margin note</span>
+      <span data-i18n="cl.text">A broken link is a specification defect too. If you arrived from another site, drop me a line and I will fix it.</span>
     </div>
 
     <div class="grid">
       <a class="grid-item" href="/services.html">
         <span class="num">01</span>
-        <h3 data-i18n="g1.h">Услуги</h3>
-        <p data-i18n="g1.p">Аудит процессов, спецификация, надзор за реализацией</p>
+        <h3 data-i18n="g1.h">Services</h3>
+        <p data-i18n="g1.p">Process audit, specification, implementation oversight</p>
       </a>
       <a class="grid-item" href="/portfolio.html">
         <span class="num">02</span>
-        <h3 data-i18n="g2.h">Портфолио</h3>
-        <p data-i18n="g2.p">Проекты в энергетике и внедрения ИИ</p>
+        <h3 data-i18n="g2.h">Portfolio</h3>
+        <p data-i18n="g2.p">Energy-sector projects and AI implementations</p>
       </a>
       <a class="grid-item" href="/products.html">
         <span class="num">03</span>
-        <h3 data-i18n="g3.h">Продукты</h3>
-        <p data-i18n="g3.p">ANSS Standard и AI Automation Decision System</p>
+        <h3 data-i18n="g3.h">Products</h3>
+        <p data-i18n="g3.p">ANSS Standard and AI Automation Decision System</p>
       </a>
       <a class="grid-item" href="/articles.html">
         <span class="num">04</span>
-        <h3 data-i18n="g4.h">Статьи</h3>
-        <p data-i18n="g4.p">Разборы и методические тексты</p>
+        <h3 data-i18n="g4.h">Articles</h3>
+        <p data-i18n="g4.p">Analyses and methodology writing</p>
       </a>
     </div>
 
     <div class="cta">
-      <a class="primary" href="/" data-i18n="cta.home">← На главную</a>
-      <a class="secondary" href="mailto:artem@kholomyanskiy.com" data-i18n="cta.mail">Написать мне</a>
+      <a class="primary" href="/" data-i18n="cta.home">← Back to home</a>
+      <a class="secondary" href="mailto:artem@kholomyanskiy.com" data-i18n="cta.mail">Email me</a>
     </div>
   </div>
 
@@ -139,6 +141,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 <script>
 var T = {
   ru: {
+    'brand.name':'АРТЁМ ХОЛОМЯНСКИЙ',
     'code':'Ошибка 404 · лист не найден',
     'h1':'<em>Такой страницы</em><br>нет',
     'lead':'Адрес набран с опечаткой, страница переехала или ссылка устарела. Сам сайт работает — ниже разделы, куда, скорее всего, вы и шли.',
@@ -149,9 +152,11 @@ var T = {
     'g3.h':'Продукты','g3.p':'ANSS Standard и AI Automation Decision System',
     'g4.h':'Статьи','g4.p':'Разборы и методические тексты',
     'cta.home':'← На главную','cta.mail':'Написать мне',
-    'title':'404 — страница не найдена | Артём Холомянский'
+    'title':'404 — страница не найдена | Артём Холомянский',
+    'meta.description':'Такой страницы на сайте нет. Вернитесь на главную или перейдите в нужный раздел.'
   },
   en: {
+    'brand.name':'ARTEM KHOLOMYANSKIY',
     'code':'Error 404 · sheet not found',
     'h1':'<em>This page</em><br>does not exist',
     'lead':'The address has a typo, the page moved, or the link is out of date. The site itself is fine — the sections below are most likely where you were headed.',
@@ -162,7 +167,8 @@ var T = {
     'g3.h':'Products','g3.p':'ANSS Standard and AI Automation Decision System',
     'g4.h':'Articles','g4.p':'Analyses and methodology writing',
     'cta.home':'← Back to home','cta.mail':'Email me',
-    'title':'404 — page not found | Artem Kholomianskyi'
+    'title':'404 — Page Not Found | Artem Kholomyanskiy',
+    'meta.description':'This page doesn\'t exist. Go back to the homepage or head to the section you need.'
   }
 };
 
@@ -175,6 +181,9 @@ function applyLang(lang){
   var h1 = document.querySelector('h1');
   if (h1 && d['h1']) h1.innerHTML = d['h1'];
   if (d['title']) document.title = d['title'];
+  if (d['meta.description']) {
+    document.querySelector('meta[name="description"]')?.setAttribute('content', d['meta.description']);
+  }
   document.documentElement.lang = lang;
   document.querySelectorAll('.lang-btn').forEach(function(b){
     b.classList.toggle('active', b.getAttribute('data-lang') === lang);
@@ -188,7 +197,7 @@ document.querySelectorAll('.lang-btn').forEach(function(b){
 
 var saved;
 try { saved = localStorage.getItem('site-lang'); } catch(e){}
-applyLang(saved || 'ru');
+applyLang(saved || 'en');
 </script>
 
 </body>

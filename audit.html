@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI-аудит отдела — EVAI Consulting</title>
-<meta name="description" content="Фотография рабочей недели отдела, карта задач и расчёт: что автоматизировать, что оставить людям, сколько часов высвобождается.">
+<title>AI Department Audit — EVAI Consulting</title>
+<meta name="description" content="A work-week snapshot of your department, a task map and the math: what to automate, what to keep human, how many hours get freed up.">
 <link rel="canonical" href="https://kholomyanskiy.com/audit.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="AI-аудит отдела — EVAI Consulting">
-<meta property="og:description" content="Фотография рабочей недели отдела, карта задач и расчёт: что автоматизировать, что оставить людям, сколько часов высвобождается.">
+<meta property="og:title" content="AI Department Audit — EVAI Consulting">
+<meta property="og:description" content="A work-week snapshot of your department, a task map and the math: what to automate, what to keep human, how many hours get freed up.">
 <meta property="og:url" content="https://kholomyanskiy.com/audit.html">
-<meta property="og:locale" content="ru_RU">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="pl_PL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AI-аудит отдела — EVAI Consulting">
-<meta name="twitter:description" content="Фотография рабочей недели отдела, карта задач и расчёт: что автоматизировать, что оставить людям, сколько часов высвобождается.">
+<meta name="twitter:title" content="AI Department Audit — EVAI Consulting">
+<meta name="twitter:description" content="A work-week snapshot of your department, a task map and the math: what to automate, what to keep human, how many hours get freed up.">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
@@ -166,11 +168,11 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 <body>
 
 <nav class="spec-nav">
-  <a href="index.html" class="spec-nav-home" data-i18n="nav_home">← Главная</a>
+  <a href="index.html" class="spec-nav-home" data-i18n="nav_home">← Home</a>
   <div class="spec-lang-bar">
-    <button class="spec-lang-btn" onclick="setLang('ru')">RU</button>
+    <button class="spec-lang-btn active" onclick="setLang('en')">EN</button>
     <button class="spec-lang-btn" onclick="setLang('pl')">PL</button>
-    <button class="spec-lang-btn" onclick="setLang('en')">EN</button>
+    <button class="spec-lang-btn" onclick="setLang('ru')">RU</button>
   </div>
 </nav>
 
@@ -182,154 +184,154 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       <span>EVAI-AUDIT-2026-01</span>
     </div>
     <div class="tb-main">
-      <span class="stamp" data-i18n="stamp">Действует · v1.0</span>
-      <h1 data-i18n-html="h1_title">AI-аудит <em>отдела</em></h1>
-      <p class="sub" data-i18n="tb_sub">Фотография рабочей недели, карта задач и расчёт: что автоматизировать, что оставить людям, сколько часов высвобождается. Решение о внедрении вы принимаете на цифрах, а не на ощущениях.</p>
+      <span class="stamp" data-i18n="stamp">Active · v1.0</span>
+      <h1 data-i18n-html="h1_title">AI <em>Department</em> Audit</h1>
+      <p class="sub" data-i18n="tb_sub">A work-week snapshot, a task map and the math: what to automate, what to keep human, how many hours get freed up. You decide on adoption based on numbers, not gut feeling.</p>
     </div>
     <div class="tb-meta">
-      <div><span class="k" data-i18n="tb_doc_k">Документ</span><span data-i18n="tb_doc_v">Коммерческое предложение</span></div>
-      <div><span class="k" data-i18n="tb_author_k">Автор</span>Артём Холомянский</div>
-      <div><span class="k" data-i18n="tb_method_k">Методология</span>AI Decision System</div>
-      <div><span class="k" data-i18n="tb_jur_k">Юрисдикция</span><span data-i18n="tb_jur_v">Польша · ЕС</span></div>
+      <div><span class="k" data-i18n="tb_doc_k">Document</span><span data-i18n="tb_doc_v">Commercial Offer</span></div>
+      <div><span class="k" data-i18n="tb_author_k">Author</span>Artem Kholomyanskiy</div>
+      <div><span class="k" data-i18n="tb_method_k">Methodology</span>AI Decision System</div>
+      <div><span class="k" data-i18n="tb_jur_k">Jurisdiction</span><span data-i18n="tb_jur_v">Poland · EU</span></div>
     </div>
   </header>
 
   <section>
-    <span class="secnum" data-i18n="s1_num">1.0 // ПРОБЛЕМА</span>
-    <h2 data-i18n="s1_h2">«Надо внедрять ИИ» — а куда именно?</h2>
-    <p class="lead" data-i18n="s1_lead">Руководитель слышит про ИИ отовсюду. Конкуренты что-то внедряют, сотрудники перегружены, найм дорожает. Но между «надо внедрять» и «внедрили» стоит вопрос, на который никто не отвечает: какие конкретно задачи в вашем отделе стоит отдать ИИ, а какие — нет.</p>
+    <span class="secnum" data-i18n="s1_num">1.0 // PROBLEM</span>
+    <h2 data-i18n="s1_h2">"We need to adopt AI" — but where exactly?</h2>
+    <p class="lead" data-i18n="s1_lead">Managers hear about AI everywhere. Competitors are adopting something, staff are overloaded, hiring keeps getting more expensive. But between "we need AI" and "AI adopted" sits a question nobody answers: which specific tasks in your department should go to AI, and which should not.</p>
     <div class="log">
-      <span data-i18n="s1_log1">$ задача: еженедельный отчёт для руководства</span><br>
-      <span class="err" data-i18n="s1_log2">&gt; 3 часа ручного копирования из CRM в Excel</span><br>
-      <span data-i18n="s1_log3">$ задача: ответы на типовые письма клиентов</span><br>
-      <span class="err" data-i18n="s1_log4">&gt; 40% рабочего дня, шаблон один и тот же</span>
+      <span data-i18n="s1_log1">$ task: weekly report for management</span><br>
+      <span class="err" data-i18n="s1_log2">&gt; 3 hours of manual copying from CRM to Excel</span><br>
+      <span data-i18n="s1_log3">$ task: replies to routine client emails</span><br>
+      <span class="err" data-i18n="s1_log4">&gt; 40% of the workday, same template every time</span>
     </div>
-    <p data-i18n="s1_p">Внедрение «сверху», без аудита, заканчивается одинаково: купили инструмент, сотрудники им не пользуются, эффект нулевой. Причина в том, что никто не посмотрел, из чего на самом деле состоит рабочий день людей. Аудит начинается именно с этого.</p>
+    <p data-i18n="s1_p">Top-down adoption without an audit always ends the same way: a tool gets bought, employees don't use it, zero effect. The cause: nobody looked at what people's workday actually consists of. The audit starts exactly there.</p>
   </section>
 
   <section>
-    <span class="secnum" data-i18n="s2_num">2.0 // СОСТАВ РАБОТ</span>
-    <h2 data-i18n="s2_h2">Что входит в аудит</h2>
-    <p data-i18n="s2_p">Я провожу отдел через документирование рабочих процессов и превращаю наблюдения в расчёт. Этапы:</p>
+    <span class="secnum" data-i18n="s2_num">2.0 // SCOPE OF WORK</span>
+    <h2 data-i18n="s2_h2">What the audit includes</h2>
+    <p data-i18n="s2_p">I take the department through documenting its work processes and turn observations into a calculation. Stages:</p>
     <div class="spec-list">
       <div class="spec-row">
         <span class="spec-code">COMM</span>
-        <div><h3 data-i18n="s2_comm_h">Коммуникация с командой</h3><p data-i18n="s2_comm_p">До старта: как руководство подаёт аудит сотрудникам. Без этого шага люди «рисуют» данные, и весь расчёт теряет смысл.</p></div>
+        <div><h3 data-i18n="s2_comm_h">Team communication</h3><p data-i18n="s2_comm_p">Before the start: how management presents the audit to staff. Skip this step and people game the data, making the whole calculation worthless.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">PHOTO</span>
-        <div><h3 data-i18n="s2_photo_h">Фотография рабочей недели</h3><p data-i18n="s2_photo_p">Каждый сотрудник фиксирует задачи в течение недели: что, как часто, сколько минут. Формат простой, 5 минут в день.</p></div>
+        <div><h3 data-i18n="s2_photo_h">Work-week snapshot</h3><p data-i18n="s2_photo_p">Each employee logs their tasks for a week: what, how often, how many minutes. Simple format, 5 minutes a day.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">MAP</span>
-        <div><h3 data-i18n="s2_map_h">Карта задач отдела</h3><p data-i18n="s2_map_p">Все задачи сведены и разложены на подпроцессы. Видно, кто чем на самом деле занят и где дублирование.</p></div>
+        <div><h3 data-i18n="s2_map_h">Department task map</h3><p data-i18n="s2_map_p">All tasks consolidated and broken into sub-processes. You see what people actually do and where the duplication is.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">MATRX</span>
-        <div><h3 data-i18n="s2_matrx_h">Матрица автоматизации</h3><p data-i18n="s2_matrx_p">Каждый подпроцесс: автоматизируемо / частично / нет. С обоснованием — стоимость, риск, критичность ошибки.</p></div>
+        <div><h3 data-i18n="s2_matrx_h">Automation matrix</h3><p data-i18n="s2_matrx_p">Each sub-process: automatable / partially / no. With reasoning — cost, risk, error criticality.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">CALC</span>
-        <div><h3 data-i18n="s2_calc_h">Расчёт высвобождаемой мощности</h3><p data-i18n="s2_calc_p">Часы в месяц по каждой роли, стоимость внедрения, срок окупаемости. Цифры, с которыми можно идти к директору.</p></div>
+        <div><h3 data-i18n="s2_calc_h">Freed-capacity calculation</h3><p data-i18n="s2_calc_p">Hours per month per role, implementation cost, payback period. Numbers you can take to the director.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">PLAN</span>
-        <div><h3 data-i18n="s2_plan_h">Итоговый отчёт и план</h3><p data-i18n="s2_plan_p">Что внедрять первым, что вторым, что не трогать. Разбор отчёта с руководителем — включён.</p></div>
+        <div><h3 data-i18n="s2_plan_h">Final report and plan</h3><p data-i18n="s2_plan_p">What to implement first, second, and what to leave alone. A report walkthrough with the manager is included.</p></div>
       </div>
     </div>
-    <p class="muted" data-i18n-html="s2_next">Следующий шаг после аудита — <a href="spec.html">спецификация на автоматизацию</a>: техническое задание на конкретных агентов по стандарту <a href="https://github.com/Kholomyanskiy/anss-standard">ANSS</a>. Аудит самодостаточен: с отчётом можно идти к любому исполнителю.</p>
+    <p class="muted" data-i18n-html="s2_next">The next step after the audit is an <a href="spec.html">automation specification</a>: technical requirements for specific agents under the <a href="https://github.com/Kholomyanskiy/anss-standard">ANSS</a> standard. The audit stands on its own: you can take the report to any contractor.</p>
   </section>
 
   <section>
-    <span class="secnum" data-i18n="s3_num">3.0 // ФОРМАТЫ</span>
-    <h2 data-i18n="s3_h2">Два формата работы</h2>
+    <span class="secnum" data-i18n="s3_num">3.0 // FORMATS</span>
+    <h2 data-i18n="s3_h2">Two service formats</h2>
     <div class="formats">
       <div class="card">
         <div class="card-head">
-          <span class="tag" data-i18n="s3_c1_tag">Для одной роли</span>
-          <h3 data-i18n="s3_c1_h3">Экспресс-аудит</h3>
+          <span class="tag" data-i18n="s3_c1_tag">For one role</span>
+          <h3 data-i18n="s3_c1_h3">Express Audit</h3>
         </div>
         <div class="card-body">
           <ul>
-            <li data-i18n="s3_c1_li1">Одна роль или один сотрудник</li>
-            <li data-i18n="s3_c1_li2">Фотография недели + интервью</li>
-            <li data-i18n="s3_c1_li3">Матрица автоматизации и расчёт часов</li>
-            <li data-i18n="s3_c1_li4">Короткий отчёт с планом первого шага</li>
+            <li data-i18n="s3_c1_li1">One role or one employee</li>
+            <li data-i18n="s3_c1_li2">Week snapshot + interview</li>
+            <li data-i18n="s3_c1_li3">Automation matrix and hours calculation</li>
+            <li data-i18n="s3_c1_li4">Short report with a first-step plan</li>
           </ul>
         </div>
         <div class="card-foot">
-          <span class="price" data-i18n="s3_c1_price">от 3 500 zł</span>
-          <span class="term" data-i18n="s3_c1_term">7–10 дней</span>
+          <span class="price" data-i18n="s3_c1_price">from 3,500 zł</span>
+          <span class="term" data-i18n="s3_c1_term">7–10 days</span>
         </div>
       </div>
       <div class="card">
         <div class="card-head">
-          <span class="tag" data-i18n="s3_c2_tag">Для отдела</span>
-          <h3 data-i18n="s3_c2_h3">Аудит отдела</h3>
+          <span class="tag" data-i18n="s3_c2_tag">For a department</span>
+          <h3 data-i18n="s3_c2_h3">Department Audit</h3>
         </div>
         <div class="card-body">
           <ul>
-            <li data-i18n="s3_c2_li1">До 10 сотрудников</li>
-            <li data-i18n="s3_c2_li2">Коммуникация с командой + фотография недели</li>
-            <li data-i18n="s3_c2_li3">Полная карта задач, матрица, расчёт мощности</li>
-            <li data-i18n="s3_c2_li4">Отчёт, план внедрения, разбор с руководителем</li>
+            <li data-i18n="s3_c2_li1">Up to 10 employees</li>
+            <li data-i18n="s3_c2_li2">Team communication + week snapshot</li>
+            <li data-i18n="s3_c2_li3">Full task map, matrix, capacity calculation</li>
+            <li data-i18n="s3_c2_li4">Report, adoption plan, walkthrough with the manager</li>
           </ul>
         </div>
         <div class="card-foot">
-          <span class="price" data-i18n="s3_c2_price">от 9 000 zł</span>
-          <span class="term" data-i18n="s3_c2_term">3–4 недели</span>
+          <span class="price" data-i18n="s3_c2_price">from 9,000 zł</span>
+          <span class="term" data-i18n="s3_c2_term">3–4 weeks</span>
         </div>
       </div>
     </div>
   </section>
 
   <section>
-    <span class="secnum" data-i18n="s4_num">4.0 // ИНВАРИАНТЫ СОТРУДНИЧЕСТВА</span>
-    <h2 data-i18n="s4_h2">Правила, которые не нарушаются</h2>
+    <span class="secnum" data-i18n="s4_num">4.0 // ENGAGEMENT INVARIANTS</span>
+    <h2 data-i18n="s4_h2">Rules that are never broken</h2>
     <div class="inv">
       <span class="code">INV-01</span>
-      <p data-i18n="s4_inv1">Результат аудита — карта высвобождаемой мощности, а не список на увольнение. Сократить штат, взять больше заказов или разгрузить людей — решаете вы.</p>
+      <p data-i18n="s4_inv1">The audit's output is a freed-capacity map, not a layoff list. Cut headcount, take on more orders, or unburden your people — that decision is yours.</p>
     </div>
     <div class="inv">
       <span class="code">INV-02</span>
-      <p data-i18n="s4_inv2">Данные собираются с ведома сотрудников. Аудит подаётся команде как усиление, и это не формальность: скрытое наблюдение даёт искажённые данные и бесполезный расчёт.</p>
+      <p data-i18n="s4_inv2">Data is collected with employees' knowledge. The audit is presented to the team as reinforcement — and that's not a formality: covert observation produces distorted data and a useless calculation.</p>
     </div>
     <div class="inv">
       <span class="code">INV-03</span>
-      <p data-i18n="s4_inv3">Если после первой недели выяснится, что автоматизировать в отделе нечего или невыгодно, я скажу это прямо — и вы заплатите только за экспресс-этап.</p>
+      <p data-i18n="s4_inv3">If the first week shows there's nothing worth automating in the department, I'll say so directly — and you pay only for the express stage.</p>
     </div>
     <div class="inv">
       <span class="code">INV-04</span>
-      <p data-i18n="s4_inv4">Цена фиксированная и называется после бесплатного 30-минутного разговора. Почасовой оплаты нет: вы платите за результат.</p>
+      <p data-i18n="s4_inv4">The price is fixed and quoted after a free 30-minute conversation. No hourly billing: you pay for results.</p>
     </div>
   </section>
 
   <section>
-    <span class="secnum" data-i18n="s5_num">5.0 // АВТОР</span>
-    <h2 data-i18n="s5_h2">Кто проводит</h2>
+    <span class="secnum" data-i18n="s5_num">5.0 // AUTHOR</span>
+    <h2 data-i18n="s5_h2">Who conducts it</h2>
     <div class="author">
-      <p style="flex:1;min-width:260px" data-i18n="s5_about">Артём Холомянский, EVAI Consulting (Польша). 11+ лет аудита и постановки процессов в энергетике: SAP IS-U, SCADA, Smart Grid, BPMN, UAT — то есть ровно та работа, где по картам процессов принимаются решения на большие бюджеты. Автор ANSS Standard, открытой методологии спецификаций для AI-разработки. Ежедневно строю и внедряю AI-агентов на собственных и клиентских проектах.</p>
-      <div class="facts" data-i18n-html="s5_facts"><b>11+ лет</b> · enterprise-процессы<br><b>BPMN · UAT</b> · карты процессов<br><b>ANSS</b> · открытая методология<br><b>RU · PL · EN</b> · рабочие языки</div>
+      <p style="flex:1;min-width:260px" data-i18n="s5_about">Artem Kholomyanskiy, EVAI Consulting (Poland). 11+ years of process auditing and definition in the energy sector: SAP IS-U, SCADA, Smart Grid, BPMN, UAT — exactly the kind of work where big-budget decisions are made from process maps. Author of ANSS Standard, an open specification methodology for AI development. I build and deploy AI agents daily on my own and client projects.</p>
+      <div class="facts" data-i18n-html="s5_facts"><b>11+ years</b> · enterprise processes<br><b>BPMN · UAT</b> · process maps<br><b>ANSS</b> · open methodology<br><b>RU · PL · EN</b> · working languages</div>
     </div>
   </section>
 
   <section>
-    <span class="secnum" data-i18n="s6_num">6.0 // ПОРЯДОК РАБОТЫ</span>
-    <h2 data-i18n="s6_h2">Как это происходит</h2>
+    <span class="secnum" data-i18n="s6_num">6.0 // HOW IT WORKS</span>
+    <h2 data-i18n="s6_h2">How it works</h2>
     <ol class="steps">
-      <li data-i18n="s6_li1">Вы пишете мне и описываете отдел в трёх предложениях: сколько людей, чем заняты, что болит.</li>
-      <li data-i18n="s6_li2">Разговор 30 минут, бесплатно. Я говорю, есть ли смысл в аудите, и называю фиксированную цену.</li>
-      <li data-i18n="s6_li3">Коммуникация с командой, затем неделя фотографии рабочего дня. От вас — 5 минут в день на сотрудника.</li>
-      <li data-i18n="s6_li4">Карта задач, матрица, расчёт. Отчёт и разбор с вами: что внедрять и в каком порядке.</li>
+      <li data-i18n="s6_li1">You write to me and describe the department in three sentences: how many people, what they do, what hurts.</li>
+      <li data-i18n="s6_li2">A 30-minute conversation, free. I tell you whether an audit makes sense and quote a fixed price.</li>
+      <li data-i18n="s6_li3">Team communication, then a week of workday logging. Your side: 5 minutes per employee per day.</li>
+      <li data-i18n="s6_li4">Task map, matrix, calculation. Report and walkthrough with you: what to implement and in what order.</li>
     </ol>
   </section>
 
   <div class="cta">
-    <span class="secnum" style="color:#7FA8CC" data-i18n="s7_num">7.0 // КОНТАКТ</span>
-    <h2 data-i18n="s7_h2">Сначала цифры — потом внедрение</h2>
-    <p data-i18n="s7_p">Опишите отдел в трёх предложениях. Отвечу в течение рабочего дня: есть ли смысл в аудите и с чего начать.</p>
-    <a class="btn" id="mailto-btn" href="mailto:artem@kholomyanskiy.com?subject=%D0%90%D1%83%D0%B4%D0%B8%D1%82" data-i18n="s7_btn">Написать письмо</a>
-    <p class="alt"><span data-i18n="s7_alt_text">или</span> LinkedIn: <a href="https://linkedin.com/in/kholomyanskiy">/in/kholomyanskiy</a> · Telegram: <a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></p>
+    <span class="secnum" style="color:#7FA8CC" data-i18n="s7_num">7.0 // CONTACT</span>
+    <h2 data-i18n="s7_h2">Numbers first — adoption second</h2>
+    <p data-i18n="s7_p">Describe your department in three sentences. I'll reply within a business day: whether an audit makes sense and where to start.</p>
+    <a class="btn" id="mailto-btn" href="mailto:artem@kholomyanskiy.com?subject=Audit" data-i18n="s7_btn">Send a message</a>
+    <p class="alt"><span data-i18n="s7_alt_text">or</span> LinkedIn: <a href="https://linkedin.com/in/kholomyanskiy">/in/kholomyanskiy</a> · Telegram: <a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></p>
   </div>
 
 </div>
@@ -513,14 +515,15 @@ function setLang(lang) {
   if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
   var mb = document.getElementById('mailto-btn');
   if (mb && T[lang].mailto_subject) mb.href = 'mailto:artem@kholomyanskiy.com?subject=' + encodeURIComponent(T[lang].mailto_subject);
+  localStorage.setItem('site-lang', lang);
 }
 
 (function() {
   var p = new URLSearchParams(window.location.search);
   var ul = p.get('lang');
   if (ul && T[ul]) { setLang(ul); return; }
-  var nav = (navigator.language || '').slice(0, 2).toLowerCase();
-  setLang({pl: 'pl', en: 'en'}[nav] || 'ru');
+  var saved = localStorage.getItem('site-lang');
+  if (saved && T[saved]) setLang(saved);
 })();
 
 </script>
