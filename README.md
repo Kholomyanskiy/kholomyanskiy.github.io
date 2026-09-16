@@ -21,7 +21,7 @@ Full breakdown with pricing: [kholomyanskiy.github.io/services.html](https://kho
 - [`index.html`](https://kholomyanskiy.github.io/) — who I am, background, philosophy
 - [`services.html`](https://kholomyanskiy.github.io/services.html) — services and pricing
 - [`products.html`](https://kholomyanskiy.github.io/products.html) — ANSS Standard, the "AI in the Department" guide/book, AI Automation Decision System
-- [`portfolio.html`](https://kholomyanskiy.github.io/portfolio.html) — case studies (AI projects + 12 years of enterprise energy-sector projects)
+- [`portfolio.html`](https://kholomyanskiy.github.io/portfolio.html) — case studies (AI projects + 11+ years of enterprise energy-sector projects)
 - [`articles.html`](https://kholomyanskiy.github.io/articles.html) — writing on Dev.to and Hashnode
 - [`metodichka.html`](https://kholomyanskiy.github.io/metodichka.html) — free guide, "ИИ в отделе" (AI in the Department)
 
@@ -70,7 +70,7 @@ Analytical brief covering 40+ companies across 5 sectors: chips, energy, water/g
 
 ## Before AI: Enterprise Projects (2009–2021)
 
-12 years managing and analyzing large IT projects in the energy sector, before moving into AI consulting:
+11+ years managing and analyzing large IT projects in the energy sector, before moving into AI consulting:
 
 - **АСК ПЭЭ «Neuron»** (Systel), 2009–2011 — automated energy metering for households and small business
 - **MDUS SciMeter integration module**, SAP R/3 IS-U (SAP SE), 2011–2014 — integration module between SAP R/3 and wholesale/retail electricity systems
@@ -95,7 +95,7 @@ Solo AI automation practice based in Elbląg, Poland — working remotely with R
 
 - 🌐 Website: [kholomyanskiy.github.io](https://kholomyanskiy.github.io/)
 - 📋 Services: [kholomyanskiy.github.io/services.html](https://kholomyanskiy.github.io/services.html)
-- 📧 [kholomyanskiy@gmail.com](mailto:kholomyanskiy@gmail.com)
+- 📧 [artem@kholomyanskiy.com](mailto:artem@kholomyanskiy.com)
 - 💬 Telegram: [@kholomyanskiy](https://t.me/kholomyanskiy)
 - 💼 LinkedIn: [linkedin.com/in/kholomyanskiy](https://linkedin.com/in/kholomyanskiy)
 
@@ -152,7 +152,7 @@ Solo AI automation practice based in Elbląg, Poland — working remotely with R
 
 ### До AI: enterprise-проекты в энергетике (2009–2021)
 
-12 лет управления и анализа крупных IT-проектов в регулируемой среде — до перехода в AI-консалтинг:
+11+ лет управления и анализа крупных IT-проектов в регулируемой среде — до перехода в AI-консалтинг:
 
 - **АСК ПЭЭ «Neuron»** (Systel), 2009–2011 — автоматизированная система учёта электроэнергии для домохозяйств и малого бизнеса
 - **Интеграционный модуль MDUS SciMeter**, SAP R/3 IS-U (SAP SE), 2011–2014 — интеграция SAP R/3 с системами оптовой/розничной продажи электроэнергии
@@ -168,4 +168,4 @@ Solo AI automation practice based in Elbląg, Poland — working remotely with R
 
 ### Контакты
 
-📧 [kholomyanskiy@gmail.com](mailto:kholomyanskiy@gmail.com) · 💬 [@kholomyanskiy](https://t.me/kholomyanskiy) · 💼 [linkedin.com/in/kholomyanskiy](https://linkedin.com/in/kholomyanskiy)
+📧 [artem@kholomyanskiy.com](mailto:artem@kholomyanskiy.com) · 💬 [@kholomyanskiy](https://t.me/kholomyanskiy) · 💼 [linkedin.com/in/kholomyanskiy](https://linkedin.com/in/kholomyanskiy)
