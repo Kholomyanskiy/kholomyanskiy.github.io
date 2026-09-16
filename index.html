@@ -25,10 +25,27 @@
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
+ "@graph": [
+ {
+ "@type": ["Organization", "ProfessionalService"],
+ "@id": "https://kholomyanskiy.com/#organization",
+ "name": "EVAI Consulting",
+ "url": "https://kholomyanskiy.com",
+ "address": {
+ "@type": "PostalAddress",
+ "addressLocality": "Elbląg",
+ "addressCountry": "PL"
+ },
+ "areaServed": ["PL", "EU", "US"],
+ "serviceType": ["Process Audit Before AI Implementation", "AI Solution Design", "Requirements Design for Implementation (AI Spec/TOR)", "Process Automation", "Consulting"],
+ "founder": { "@id": "https://kholomyanskiy.com/#person" }
+ },
+ {
  "@type": "Person",
+ "@id": "https://kholomyanskiy.com/#person",
  "name": "Artem Kholomyanskiy",
  "alternateName": "Артём Холомянский",
- "jobTitle": "AI Automation Consultant",
+ "jobTitle": "AI Implementation Consultant",
  "url": "https://kholomyanskiy.com",
  "email": "mailto:artem@kholomyanskiy.com",
  "telephone": "+48508409363",
@@ -44,13 +61,51 @@
  "https://dev.to/artem_kholomyanskiy",
  "https://aimethodology.gumroad.com"
  ],
- "worksFor": {
- "@type": "ProfessionalService",
- "name": "EVAI Consulting",
- "areaServed": ["PL", "EU", "US"],
- "serviceType": ["Process Audit Before AI Implementation", "AI Solution Design", "Requirements Design for Implementation (AI Spec/TOR)", "Process Automation", "Consulting"]
- },
+ "worksFor": { "@id": "https://kholomyanskiy.com/#organization" },
  "knowsAbout": ["Artificial Intelligence", "Business Process Automation", "SAP IS-U", "SCADA", "AI Specification Standards", "Claude", "Claude Code"]
+ },
+ {
+ "@type": "CreativeWork",
+ "@id": "https://kholomyanskiy.com/#anss",
+ "name": "ANSS Standard (AI-Native System Specification Standard)",
+ "description": "An open standard for describing tasks and requirements for AI systems, so AI behavior is predictable and clear to both humans and developers.",
+ "url": "https://github.com/Kholomyanskiy/anss-standard",
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "author": { "@id": "https://kholomyanskiy.com/#person" },
+ "creator": { "@id": "https://kholomyanskiy.com/#person" }
+ },
+ {
+ "@type": "FAQPage",
+ "@id": "https://kholomyanskiy.com/#faq",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "What does an AI consultant do?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Analyzes a company's actual processes, finds tasks that can be handed to AI or automation, designs and supports implementation through to a stable result." }
+ },
+ {
+ "@type": "Question",
+ "name": "How does a process audit work?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Employees log their real tasks for a week. That data builds a process map showing where automation pays off and where the risk outweighs the benefit." }
+ },
+ {
+ "@type": "Question",
+ "name": "What is ANSS?",
+ "acceptedAnswer": { "@type": "Answer", "text": "An open standard for describing tasks and requirements for AI systems, so AI behavior is predictable and clear to both humans and developers." }
+ },
+ {
+ "@type": "Question",
+ "name": "What tools do you work with?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Claude, Claude Code, n8n, direct API integrations with models — the exact set depends on the task, not the other way around." }
+ },
+ {
+ "@type": "Question",
+ "name": "How much does an audit cost?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Depends on the department's size. Current pricing is on the service page." }
+ }
+ ]
+ }
+ ]
 }
 </script>
 <style>
