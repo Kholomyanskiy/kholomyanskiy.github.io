@@ -157,7 +157,11 @@ p.lead{font-size:17.5px}
 .cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .cta .alt{margin-top:16px;font-size:14px}
 .cta .alt a{color:#EDEFF2}
-footer{max-width:880px;margin:0 auto 48px;padding:14px 4px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+.footer-links{display:flex;flex-wrap:wrap;gap:18px}
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
+.footer-links a:hover{color:var(--blue)}
+.footer-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 footer a{color:var(--ink);text-decoration:none;font-weight:500}
 footer a:hover{color:var(--blue);text-decoration:underline}
 @media(max-width:680px){
@@ -186,7 +190,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
   <header class="titleblock">
     <div class="tb-top">
       <span class="brand">EVAI CONSULTING</span>
-      <span>EVAI-AUDIT-2026-01</span>
+      <span>EVAI-AUDIT-2026-01 · v1.0</span>
     </div>
     <div class="tb-main">
       <span class="stamp" data-i18n="stamp">Active · v1.0</span>
@@ -342,9 +346,17 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 </div>
 
 <footer>
+  <div class="footer-links">
+  <a href="services.html" data-i18n="nav.services">Services</a>
+  <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+  <a href="products.html" data-i18n="nav.products">Products</a>
+  <a href="articles.html" data-i18n="nav.articles">Articles</a>
+  <a href="index.html#contact" data-i18n="nav.contacts">Contact</a>
+  </div>
+  <div class="footer-meta">
   <span>EVAI Consulting · Elbląg, Poland</span>
-  <span>EVAI-AUDIT-2026-01 · v1.0</span>
   <span><a href="tel:+48508409363">+48 508 409 363</a> · <a href="mailto:artem@kholomyanskiy.com">artem@kholomyanskiy.com</a> · <a href="https://linkedin.com/in/kholomyanskiy">LinkedIn</a> · <a href="https://t.me/kholomyanskiy">Telegram</a></span>
+  </div>
 </footer>
 
 <script>
@@ -354,6 +366,7 @@ var T = {
     meta_desc: "Фотография рабочей недели отдела, карта задач и расчёт: что автоматизировать, что оставить людям, сколько часов высвобождается.",
     mailto_subject: "Аудит",
     nav_home: "← Главная", stamp: "Действует · v1.0",
+    "nav.services": "Услуги", "nav.portfolio": "Портфолио", "nav.products": "Продукты", "nav.articles": "Статьи", "nav.contacts": "Контакты",
     h1_title: "AI-аудит <em>отдела</em>",
     tb_sub: "Фотография рабочей недели, карта задач и расчёт: что автоматизировать, что оставить людям, сколько часов высвобождается. Решение о внедрении вы принимаете на цифрах, а не на ощущениях.",
     tb_doc_k: "Документ", tb_doc_v: "Коммерческое предложение",
@@ -404,6 +417,7 @@ var T = {
     meta_desc: "Fotografia tygodnia pracy działu, mapa zadań i kalkulacja: co zautomatyzować, co zostawić ludziom, ile godzin się uwalnia.",
     mailto_subject: "Audyt",
     nav_home: "← Strona główna", stamp: "Aktywny · v1.0",
+    "nav.services": "Usługi", "nav.portfolio": "Portfolio", "nav.products": "Produkty", "nav.articles": "Artykuły", "nav.contacts": "Kontakt",
     h1_title: "Audyt AI <em>działu</em>",
     tb_sub: "Fotografia tygodnia pracy, mapa zadań i kalkulacja: co zautomatyzować, co zostawić ludziom, ile godzin się uwalnia. Decyzję o wdrożeniu podejmujesz na liczbach, nie na wyczuciu.",
     tb_doc_k: "Dokument", tb_doc_v: "Oferta handlowa",
@@ -454,6 +468,7 @@ var T = {
     meta_desc: "A work-week snapshot of your department, a task map and the math: what to automate, what to keep human, how many hours get freed up.",
     mailto_subject: "Audit",
     nav_home: "← Home", stamp: "Active · v1.0",
+    "nav.services": "Services", "nav.portfolio": "Portfolio", "nav.products": "Products", "nav.articles": "Articles", "nav.contacts": "Contact",
     h1_title: "AI <em>Department</em> Audit",
     tb_sub: "A work-week snapshot, a task map and the math: what to automate, what to keep human, how many hours get freed up. You decide on adoption based on numbers, not gut feeling.",
     tb_doc_k: "Document", tb_doc_v: "Commercial Offer",
