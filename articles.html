@@ -77,6 +77,9 @@ a{color:var(--blue)}
 .article-card p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px;max-width:none}
 .article-cta{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.05em;color:var(--blue);text-decoration:none}
 .article-cta:hover{text-decoration:underline}
+.article-alt{display:block;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink-soft)}
+.article-alt a{color:var(--ink-soft);text-decoration:underline}
+.article-alt a:hover{color:var(--blue)}
 
 .closing-cta{background:var(--ink);color:#EDEFF2;padding:44px 32px;text-align:center}
 .closing-cta h2{color:#fff;margin-bottom:10px}
@@ -137,16 +140,18 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <span class="secnum">01</span>
  <div class="article-grid">
  <div class="article-card">
- <span class="article-source">Dev.to</span>
+ <span class="article-source" data-i18n="a1.src">Article</span>
  <h3 data-i18n="a1.h">Why AI Agents Keep Breaking Your Code (And What to Do About It)</h3>
  <p data-i18n="a1.p">Classic spec formats were written for human readers who tolerate ambiguity. AI agents don't — they fill gaps on their own. A look at the four ANSS mechanisms that close that gap.</p>
- <a class="article-cta" href="https://dev.to/artem_kholomyanskiy/why-ai-agents-keep-breaking-your-code-and-what-to-do-about-it-5bp0" data-i18n="a.cta">Read →</a>
+ <a class="article-cta" href="articles/why-ai-agents-keep-breaking-your-code.html" data-i18n="a.cta">Read →</a>
+ <span class="article-alt"><a href="https://dev.to/artem_kholomyanskiy/why-ai-agents-keep-breaking-your-code-and-what-to-do-about-it-5bp0" data-i18n="a.devto">also published on Dev.to</a></span>
  </div>
  <div class="article-card">
- <span class="article-source">Dev.to</span>
+ <span class="article-source" data-i18n="a2.src">Article</span>
  <h3 data-i18n="a2.h">Classic specs were written for humans.</h3>
  <p data-i18n="a2.p">A short note on where ANSS came from and what changed in practice after adopting it — iteration cycles with an agent dropped from 5–7 to 2–3.</p>
- <a class="article-cta" href="https://dev.to/artem_kholomyanskiy/classic-specs-were-written-for-humans-1813" data-i18n="a.cta">Read →</a>
+ <a class="article-cta" href="articles/classic-specs-were-written-for-humans.html" data-i18n="a.cta">Read →</a>
+ <span class="article-alt"><a href="https://dev.to/artem_kholomyanskiy/classic-specs-were-written-for-humans-1813" data-i18n="a.devto">also published on Dev.to</a></span>
  </div>
  <div class="article-card">
  <span class="article-source">Hashnode</span>
@@ -193,6 +198,8 @@ const T = {
  "page.title":"Статьи",
  "page.sub":"Заметки об AI-спецификациях, автоматизации процессов и внедрении ИИ — на Hashnode и Dev.to.",
  "a.cta":"Читать →",
+ "a.devto":"также опубликовано на Dev.to",
+ "a1.src":"Статья","a2.src":"Статья",
  "a1.h":"Почему AI-агенты постоянно ломают ваш код",
  "a1.p":"Классические форматы ТЗ писались для людей, которые прощают недосказанность. Агенты — нет: они заполняют пробелы по своему усмотрению. Разбор четырёх механизмов ANSS, которые убирают это пространство для домыслов.",
  "a2.h":"Классические спецификации писались для людей",
@@ -213,6 +220,8 @@ const T = {
  "page.title":"Artykuły",
  "page.sub":"Notatki o specyfikacjach AI, automatyzacji procesów i wdrażaniu AI — na Hashnode i Dev.to.",
  "a.cta":"Czytaj →",
+ "a.devto":"opublikowano też na Dev.to",
+ "a1.src":"Artykuł","a2.src":"Artykuł",
  "a1.h":"Dlaczego agenci AI wciąż psują Twój kod (i co z tym zrobić)",
  "a1.p":"Klasyczne formaty specyfikacji pisano z myślą o czytelnikach, którzy tolerują niejednoznaczność. Agenci AI — nie: sami wypełniają luki. Przegląd czterech mechanizmów ANSS, które to domykają.",
  "a2.h":"Klasyczne specyfikacje pisano dla ludzi.",
@@ -233,6 +242,8 @@ const T = {
  "page.title":"Articles",
  "page.sub":"Notes on AI specifications, process automation, and AI implementation — on Hashnode and Dev.to.",
  "a.cta":"Read →",
+ "a.devto":"also published on Dev.to",
+ "a1.src":"Article","a2.src":"Article",
  "a1.h":"Why AI Agents Keep Breaking Your Code (And What to Do About It)",
  "a1.p":"Classic spec formats were written for human readers who tolerate ambiguity. AI agents don't — they fill gaps on their own. A look at the four ANSS mechanisms that close that gap.",
  "a2.h":"Classic specs were written for humans.",

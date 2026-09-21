@@ -48,4 +48,16 @@
  <changefreq>monthly</changefreq>
  <priority>0.8</priority>
  </url>
+ <url>
+ <loc>https://kholomyanskiy.com/articles/why-ai-agents-keep-breaking-your-code.html</loc>
+ <lastmod>2026-09-21</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/articles/classic-specs-were-written-for-humans.html</loc>
+ <lastmod>2026-09-21</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
 </urlset>
