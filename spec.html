@@ -138,7 +138,7 @@ p.lead{font-size:17.5px}
 .inv .code{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--stamp);min-width:64px;padding-top:2px}
 .inv p{margin:0;font-size:15px}
 .author{display:flex;gap:24px;max-width:660px;flex-wrap:wrap}
-.author .facts{font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:2.1;color:var(--ink-soft);min-width:240px}
+.author .facts{font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:2.1;color:var(--ink-soft);min-width:240px;border:1px solid var(--line);background:var(--paper);padding:14px 18px;align-self:flex-start}
 .author .facts b{color:var(--ink);font-weight:500}
 .steps{counter-reset:st;max-width:620px;margin-top:8px}
 .steps li{list-style:none;counter-increment:st;padding:12px 0 12px 52px;position:relative;border-top:1px solid var(--line)}
@@ -314,8 +314,8 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     <span class="secnum" data-i18n="s5_num">5.0 // AUTHOR</span>
     <h2 data-i18n="s5_h2">Who writes</h2>
     <div class="author">
-      <p style="flex:1;min-width:260px" data-i18n="s5_about">Artem Kholomyanskiy, EVAI Consulting (Poland). 11+ years of requirements definition and system acceptance in the energy sector: SAP IS-U, SCADA, Smart Grid, BPMN, UAT. Author of ANSS Standard, the specification framework for AI-native development. I work daily with Claude Code on my own and client projects.</p>
-      <div class="facts" data-i18n-html="s5_facts"><b>11+ years</b> · enterprise systems<br><b>ANSS</b> · open methodology<br><b>RU · PL · EN</b> · working languages</div>
+      <p style="flex:1;min-width:260px" data-i18n="s5_about">Artem Kholomianskyi, EVAI Consulting (Poland). 11 years on the client side in the energy sector: requirements definition, vendor specifications and system acceptance. SAP IS-U, SCADA, Smart Grid, BPMN, UAT. Author of ANSS Standard, a specification framework for AI-native development. Today I write AI specifications and run Claude Code on my own and client projects.</p>
+      <div class="facts" data-i18n-html="s5_facts"><b>11 years</b> · enterprise systems<br><b>BPMN · UAT</b> · specifications<br><b>ANSS</b> · open methodology</div>
     </div>
   </section>
 
@@ -394,8 +394,8 @@ var T = {
     s4_inv2: "Спецификация принадлежит вам полностью. С ней можно идти к любому исполнителю, зависимости от меня не возникает.",
     s4_inv3: "Если на аудите выяснится, что проект проще переписать, чем спасать, я скажу это прямо до начала работ.",
     s5_num: "5.0 // АВТОР", s5_h2: "Кто пишет",
-    s5_about: "Артём Холомянский, EVAI Consulting (Польша). 11+ лет постановки задач и приёмки систем в энергетике: SAP IS-U, SCADA, Smart Grid, BPMN, UAT. Автор ANSS Standard, спецификационного фреймворка для AI-native разработки. Ежедневно работаю с Claude Code на собственных и клиентских проектах.",
-    s5_facts: "<b>11+ лет</b> · enterprise-системы<br><b>ANSS</b> · открытая методология<br><b>RU · PL · EN</b> · рабочие языки",
+    s5_about: "Артём Холомянский, EVAI Consulting (Польша). 11 лет работы на стороне заказчика в энергетике: постановка требований, спецификации для подрядчиков и приёмка систем. SAP IS-U, SCADA, Smart Grid, BPMN, UAT. Автор ANSS Standard, фреймворка спецификаций для AI-native разработки. Сегодня пишу спецификации для ИИ-систем и работаю с Claude Code на собственных и клиентских проектах.",
+    s5_facts: "<b>11 лет</b> · enterprise-системы<br><b>BPMN · UAT</b> · спецификации<br><b>ANSS</b> · открытая методология",
     s6_num: "6.0 // ПОРЯДОК РАБОТЫ", s6_h2: "Как это происходит",
     s6_li1: "Вы пишете мне и описываете проект в трёх предложениях.",
     s6_li2: "Разговор 30 минут, бесплатно. Я говорю, подходит ли формат, и называю фиксированную цену.",
@@ -443,8 +443,8 @@ var T = {
     s4_inv2: "Specyfikacja należy w całości do Ciebie. Możesz z nią iść do dowolnego wykonawcy — bez żadnej zależności ode mnie.",
     s4_inv3: "Jeśli audyt wykaże, że projekt łatwiej przepisać niż ratować, powiem to wprost przed rozpoczęciem prac.",
     s5_num: "5.0 // AUTOR", s5_h2: "Kto pisze",
-    s5_about: "Artem Kholomyanskiy, EVAI Consulting (Polska). 11+ lat definiowania wymagań i odbioru systemów w energetyce: SAP IS-U, SCADA, Smart Grid, BPMN, UAT. Autor ANSS Standard — frameworku specyfikacji dla AI-native development. Na co dzień pracuję z Claude Code przy własnych i klientskich projektach.",
-    s5_facts: "<b>11+ lat</b> · systemy enterprise<br><b>ANSS</b> · otwarta metodologia<br><b>RU · PL · EN</b> · języki robocze",
+    s5_about: "Artem Kholomyanskiy, EVAI Consulting (Polska). 11 lat pracy po stronie zamawiającego w energetyce: definiowanie wymagań, specyfikacje dla wykonawców i odbiór systemów. SAP IS-U, SCADA, Smart Grid, BPMN, UAT. Autor ANSS Standard, frameworku specyfikacji dla AI-native development. Dziś piszę specyfikacje dla systemów AI i pracuję z Claude Code przy własnych i klientskich projektach.",
+    s5_facts: "<b>11 lat</b> · systemy enterprise<br><b>BPMN · UAT</b> · specyfikacje<br><b>ANSS</b> · otwarta metodologia",
     s6_num: "6.0 // PRZEBIEG PRACY", s6_h2: "Jak to przebiega",
     s6_li1: "Piszesz do mnie i opisujesz projekt w trzech zdaniach.",
     s6_li2: "Rozmowa 30 minut, bezpłatnie. Mówię, czy format pasuje, i podaję stałą cenę.",
@@ -492,8 +492,8 @@ var T = {
     s4_inv2: "The specification belongs to you entirely. You can take it to any developer — no dependency on me.",
     s4_inv3: "If the audit reveals the project is easier to rewrite than to save, I'll say so directly before work begins.",
     s5_num: "5.0 // AUTHOR", s5_h2: "Who writes",
-    s5_about: "Artem Kholomyanskiy, EVAI Consulting (Poland). 11+ years of requirements definition and system acceptance in the energy sector: SAP IS-U, SCADA, Smart Grid, BPMN, UAT. Author of ANSS Standard, the specification framework for AI-native development. I work daily with Claude Code on my own and client projects.",
-    s5_facts: "<b>11+ years</b> · enterprise systems<br><b>ANSS</b> · open methodology<br><b>RU · PL · EN</b> · working languages",
+    s5_about: "Artem Kholomianskyi, EVAI Consulting (Poland). 11 years on the client side in the energy sector: requirements definition, vendor specifications and system acceptance. SAP IS-U, SCADA, Smart Grid, BPMN, UAT. Author of ANSS Standard, a specification framework for AI-native development. Today I write AI specifications and run Claude Code on my own and client projects.",
+    s5_facts: "<b>11 years</b> · enterprise systems<br><b>BPMN · UAT</b> · specifications<br><b>ANSS</b> · open methodology",
     s6_num: "6.0 // HOW IT WORKS", s6_h2: "How it works",
     s6_li1: "You write to me and describe the project in three sentences.",
     s6_li2: "30-minute conversation, free. I tell you whether the format fits and quote a fixed price.",
