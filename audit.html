@@ -135,7 +135,7 @@ p.lead{font-size:17.5px}
 .inv .code{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--stamp);min-width:64px;padding-top:2px}
 .inv p{margin:0;font-size:15px}
 .author{display:flex;gap:24px;max-width:660px;flex-wrap:wrap}
-.author .facts{font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:2.1;color:var(--ink-soft);min-width:240px}
+.author .facts{font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:2.1;color:var(--ink-soft);min-width:240px;border:1px solid var(--line);background:var(--paper);padding:14px 18px;align-self:flex-start}
 .author .facts b{color:var(--ink);font-weight:500}
 .steps{counter-reset:st;max-width:620px;margin-top:8px}
 .steps li{list-style:none;counter-increment:st;padding:12px 0 12px 52px;position:relative;border-top:1px solid var(--line)}
@@ -319,8 +319,8 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     <span class="secnum" data-i18n="s5_num">5.0 // AUTHOR</span>
     <h2 data-i18n="s5_h2">Who conducts it</h2>
     <div class="author">
-      <p style="flex:1;min-width:260px" data-i18n="s5_about">Artem Kholomyanskiy, EVAI Consulting (Poland). 11+ years of process auditing and definition in the energy sector: SAP IS-U, SCADA, Smart Grid, BPMN, UAT — exactly the kind of work where big-budget decisions are made from process maps. Author of ANSS Standard, an open specification methodology for AI development. I build and deploy AI agents daily on my own and client projects.</p>
-      <div class="facts" data-i18n-html="s5_facts"><b>11+ years</b> · enterprise processes<br><b>BPMN · UAT</b> · process maps<br><b>ANSS</b> · open methodology<br><b>RU · PL · EN</b> · working languages</div>
+      <p style="flex:1;min-width:260px" data-i18n="s5_about">Artem Kholomianskyi, EVAI Consulting (Poland). 11 years on the client side in the energy sector: process analysis, requirements, vendor supervision and acceptance. SAP IS-U, SCADA, Smart Grid, BPMN, UAT. Budget decisions were made from those process maps. Author of ANSS Standard, an open specification methodology for AI projects. Today I run AI and automation projects from the business side.</p>
+      <div class="facts" data-i18n-html="s5_facts"><b>11 years</b> · enterprise processes<br><b>BPMN · UAT</b> · process maps<br><b>ANSS</b> · open methodology</div>
     </div>
   </section>
 
@@ -401,8 +401,8 @@ var T = {
     s4_inv3: "Если после первой недели выяснится, что автоматизировать в отделе нечего или невыгодно, я скажу это прямо — и вы заплатите только за экспресс-этап.",
     s4_inv4: "Цена фиксированная и называется после бесплатного 30-минутного разговора. Почасовой оплаты нет: вы платите за результат.",
     s5_num: "5.0 // АВТОР", s5_h2: "Кто проводит",
-    s5_about: "Артём Холомянский, EVAI Consulting (Польша). 11+ лет аудита и постановки процессов в энергетике: SAP IS-U, SCADA, Smart Grid, BPMN, UAT — то есть ровно та работа, где по картам процессов принимаются решения на большие бюджеты. Автор ANSS Standard, открытой методологии спецификаций для AI-разработки. Ежедневно строю и внедряю AI-агентов на собственных и клиентских проектах.",
-    s5_facts: "<b>11+ лет</b> · enterprise-процессы<br><b>BPMN · UAT</b> · карты процессов<br><b>ANSS</b> · открытая методология<br><b>RU · PL · EN</b> · рабочие языки",
+    s5_about: "Артём Холомянский, EVAI Consulting (Польша). 11 лет работы на стороне заказчика в энергетике: анализ процессов, требования, надзор и приёмка внедрений. SAP IS-U, SCADA, Smart Grid, BPMN, UAT. На этих картах процессов строились решения о крупных бюджетах. Автор ANSS Standard, открытой методологии спецификаций для проектов с ИИ. Сегодня веду проекты по ИИ и автоматизации со стороны бизнеса.",
+    s5_facts: "<b>11 лет</b> · enterprise-процессы<br><b>BPMN · UAT</b> · карты процессов<br><b>ANSS</b> · открытая методология",
     s6_num: "6.0 // ПОРЯДОК РАБОТЫ", s6_h2: "Как это происходит",
     s6_li1: "Вы пишете мне и описываете отдел в трёх предложениях: сколько людей, чем заняты, что болит.",
     s6_li2: "Разговор 30 минут, бесплатно. Я говорю, есть ли смысл в аудите, и называю фиксированную цену.",
@@ -452,8 +452,8 @@ var T = {
     s4_inv3: "Jeśli po pierwszym tygodniu okaże się, że w dziale nie ma czego automatyzować lub jest to nieopłacalne, powiem to wprost — zapłacisz tylko za etap ekspresowy.",
     s4_inv4: "Cena jest stała i podawana po bezpłatnej 30-minutowej rozmowie. Bez rozliczeń godzinowych: płacisz za wynik.",
     s5_num: "5.0 // AUTOR", s5_h2: "Kto prowadzi",
-    s5_about: "Artem Kholomyanskiy, EVAI Consulting (Polska). 11+ lat audytu i porządkowania procesów w energetyce: SAP IS-U, SCADA, Smart Grid, BPMN, UAT — czyli dokładnie ta praca, w której na podstawie map procesów podejmuje się decyzje o dużych budżetach. Autor ANSS Standard, otwartej metodologii specyfikacji dla AI development. Na co dzień buduję i wdrażam agentów AI we własnych i klienckich projektach.",
-    s5_facts: "<b>11+ lat</b> · procesy enterprise<br><b>BPMN · UAT</b> · mapy procesów<br><b>ANSS</b> · otwarta metodologia<br><b>RU · PL · EN</b> · języki robocze",
+    s5_about: "Artem Kholomyanskiy, EVAI Consulting (Polska). 11 lat pracy po stronie zamawiającego w energetyce: analiza procesów, wymagania, nadzór i odbiory wdrożeń. SAP IS-U, SCADA, Smart Grid, BPMN, UAT. Na tych mapach procesów opierały się decyzje o dużych budżetach. Autor ANSS Standard, otwartej metodologii specyfikacji dla projektów AI. Dziś prowadzę projekty AI i automatyzacji po stronie biznesu.",
+    s5_facts: "<b>11 lat</b> · procesy enterprise<br><b>BPMN · UAT</b> · mapy procesów<br><b>ANSS</b> · otwarta metodologia",
     s6_num: "6.0 // PRZEBIEG PRACY", s6_h2: "Jak to przebiega",
     s6_li1: "Piszesz do mnie i opisujesz dział w trzech zdaniach: ile osób, czym się zajmują, co boli.",
     s6_li2: "Rozmowa 30 minut, bezpłatnie. Mówię, czy audyt ma sens, i podaję stałą cenę.",
@@ -503,8 +503,8 @@ var T = {
     s4_inv3: "If the first week shows there's nothing worth automating in the department, I'll say so directly — and you pay only for the express stage.",
     s4_inv4: "The price is fixed and quoted after a free 30-minute conversation. No hourly billing: you pay for results.",
     s5_num: "5.0 // AUTHOR", s5_h2: "Who conducts it",
-    s5_about: "Artem Kholomyanskiy, EVAI Consulting (Poland). 11+ years of process auditing and definition in the energy sector: SAP IS-U, SCADA, Smart Grid, BPMN, UAT — exactly the kind of work where big-budget decisions are made from process maps. Author of ANSS Standard, an open specification methodology for AI development. I build and deploy AI agents daily on my own and client projects.",
-    s5_facts: "<b>11+ years</b> · enterprise processes<br><b>BPMN · UAT</b> · process maps<br><b>ANSS</b> · open methodology<br><b>RU · PL · EN</b> · working languages",
+    s5_about: "Artem Kholomianskyi, EVAI Consulting (Poland). 11 years on the client side in the energy sector: process analysis, requirements, vendor supervision and acceptance. SAP IS-U, SCADA, Smart Grid, BPMN, UAT. Budget decisions were made from those process maps. Author of ANSS Standard, an open specification methodology for AI projects. Today I run AI and automation projects from the business side.",
+    s5_facts: "<b>11 years</b> · enterprise processes<br><b>BPMN · UAT</b> · process maps<br><b>ANSS</b> · open methodology",
     s6_num: "6.0 // HOW IT WORKS", s6_h2: "How it works",
     s6_li1: "You write to me and describe the department in three sentences: how many people, what they do, what hurts.",
     s6_li2: "A 30-minute conversation, free. I tell you whether an audit makes sense and quote a fixed price.",
