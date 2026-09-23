@@ -4,3 +4,5 @@ _private/
 Thumbs.db
 new/
 screens/
+__pycache__/
+*.pyc
