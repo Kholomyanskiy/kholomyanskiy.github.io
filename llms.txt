@@ -17,7 +17,7 @@
 - [ANSS Standard](https://github.com/Kholomyanskiy/anss-standard): AI-Native System Specification Standard — открытый стандарт описания задач и требований для AI-систем, лицензия CC BY 4.0
 - [Методичка "ИИ в отделе"](https://kholomyanskiy.com/metodichka.html): бесплатное руководство по внедрению ИИ в отдел, пять этапов (аудит, отбор, спецификация, внедрение, масштабирование)
 - [Книга "ИИ в отделе" (полная версия)](https://aimethodology.gumroad.com/l/ai-v-otdele): расширенная версия методички на Gumroad
-- [AI-аудит отдела](https://kholomyanskiy.com/audit.html): услуга диагностики процессов перед внедрением AI
+- [AI Readiness Assessment / аудит отдела](https://kholomyanskiy.com/audit.html): диагностика процессов перед внедрением AI. Express от 3 500 zł (7–10 дней), Department от 9 000 zł (до 10 сотрудников, 3–4 недели), итоговая цена по объёму. PL: https://kholomyanskiy.com/pl/audit.html · RU: https://kholomyanskiy.com/ru/audit.html
 - [Спецификация как услуга](https://kholomyanskiy.com/spec.html): технические спецификации для разработки AI-систем — аудиты и ТЗ, по которым Claude Code и разработчики строят системы предсказуемо
 
 ## Контакты

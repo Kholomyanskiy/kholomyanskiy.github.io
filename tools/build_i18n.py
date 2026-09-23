@@ -2,10 +2,12 @@
 """Собирает языковые версии страниц (en/pl/ru) из шаблонов в src/.
 См. TZ-i18n-migration-v1.1.md, раздел 4. Только stdlib (INV-08)."""
 import argparse
+import datetime
 import html as html_lib
 import json
 import re
 import sys
+import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -145,7 +147,51 @@ def detect_pattern(src: str) -> str:
 # ---------- подстановка текста ----------
 
 DATA_I18N_RE = re.compile(r'(<[^>]+?\sdata-i18n="([^"]+)"[^>]*>)([^<]*)')
-DATA_I18N_HTML_RE = re.compile(r'(<[^>]+?\sdata-i18n-html="([^"]+)"[^>]*>)(.*?)(?=</)', re.DOTALL)
+DATA_I18N_HTML_OPEN_RE = re.compile(r'<([a-zA-Z][a-zA-Z0-9]*)\b[^>]*?\sdata-i18n-html="([^"]+)"[^>]*>')
+
+
+def find_matching_close(html: str, tag: str, start: int) -> int:
+    """Ищет позицию </tag>, соответствующего открывающему тегу, учитывая
+    вложенные теги с тем же именем (простой первый '</' не годится, т.к.
+    внутри почти всегда есть вложенные <em>/<a> со своим закрытием)."""
+    open_re = re.compile(rf"<{tag}\b[^>]*>")
+    close_re = re.compile(rf"</{tag}>")
+    depth = 1
+    pos = start
+    while True:
+        cm = close_re.search(html, pos)
+        if cm is None:
+            return -1
+        om = open_re.search(html, pos)
+        if om and om.start() < cm.start():
+            depth += 1
+            pos = om.end()
+            continue
+        depth -= 1
+        if depth == 0:
+            return cm.start()
+        pos = cm.end()
+
+
+def substitute_html_blocks(page_html: str, lang_dict: dict, lang: str) -> str:
+    out = []
+    i = 0
+    while True:
+        m = DATA_I18N_HTML_OPEN_RE.search(page_html, i)
+        if not m:
+            out.append(page_html[i:])
+            break
+        tag_name, key = m.group(1), m.group(2)
+        if key not in lang_dict:
+            raise StopCondition(f"Нет ключа '{key}' для языка '{lang}' (data-i18n-html)")
+        open_end = m.end()
+        close_start = find_matching_close(page_html, tag_name, open_end)
+        if close_start == -1:
+            raise StopCondition(f"Не нашёл закрывающий тег </{tag_name}> для data-i18n-html='{key}'")
+        out.append(page_html[i:open_end])
+        out.append(lang_dict[key])
+        i = close_start
+    return "".join(out)
 
 
 def substitute_text(page_html: str, lang_dict: dict, lang: str) -> str:
@@ -155,14 +201,8 @@ def substitute_text(page_html: str, lang_dict: dict, lang: str) -> str:
             raise StopCondition(f"Нет ключа '{key}' для языка '{lang}' (data-i18n)")
         return tag + html_lib.escape(lang_dict[key])
 
-    def sub_html(m):
-        tag, key = m.group(1), m.group(2)
-        if key not in lang_dict:
-            raise StopCondition(f"Нет ключа '{key}' для языка '{lang}' (data-i18n-html)")
-        return tag + lang_dict[key]
-
     page_html = DATA_I18N_RE.sub(sub_text, page_html)
-    page_html = DATA_I18N_HTML_RE.sub(sub_html, page_html)
+    page_html = substitute_html_blocks(page_html, lang_dict, lang)
     return page_html
 
 
@@ -182,6 +222,10 @@ def page_url(page: str, lang: str) -> str:
     else:
         path = f"/{page}.html" if lang == "en" else f"/{lang}/{page}.html"
     return SITE_URL + path
+
+
+def page_path(page: str, lang: str) -> str:
+    return page_url(page, lang)[len(SITE_URL):]
 
 
 def set_head(page_html: str, lang: str, page: str, title: str, desc: str) -> str:
@@ -258,7 +302,7 @@ def classify_and_rewrite(url: str, lang: str, migrated: set) -> str:
         if page.endswith(".html"):
             page = page[:-5]
         page = page.split("?")[0]
-        if page == "index":
+        if page == "index" and page in migrated:
             base = "/" if lang == "en" else f"/{lang}/"
         elif page in migrated:
             base = f"/{page}.html" if lang == "en" else f"/{lang}/{page}.html"
@@ -278,17 +322,56 @@ def rewrite_links(page_html: str, lang: str, migrated: set) -> str:
     return HREF_SRC_RE.sub(sub, page_html)
 
 
-# ---------- JSON-LD: язык и url (INV-06), без изменения @id ----------
+# ---------- переключатель языков (INV-05: кнопки -> ссылки на соседние версии) ----------
 
-def update_jsonld_lang(page_html: str, lang: str, page: str) -> str:
+LANG_LINK_RE = re.compile(r'<a class="([^"]*)" data-lang="(en|pl|ru)">')
+
+
+def rewrite_lang_links(page_html: str, page: str, lang: str) -> str:
+    def sub(m):
+        cls, target = m.group(1), m.group(2)
+        if target == lang and "active" not in cls.split():
+            cls = f"{cls} active"
+        href = page_path(page, target)
+        return f'<a class="{cls}" data-lang="{target}" href="{href}">'
+
+    return LANG_LINK_RE.sub(sub, page_html)
+
+
+# ---------- mailto subject (раньше писался JS-ом из T[lang].mailto_subject) ----------
+
+MAILTO_BTN_RE = re.compile(r'(<a\b[^>]*\bid="mailto-btn"[^>]*\bhref="mailto:[^"?]*\?subject=)[^"]*(")')
+
+
+def rewrite_mailto_subject(page_html: str, lang_dict: dict) -> str:
+    if "mailto_subject" not in lang_dict:
+        return page_html
+    subject = urllib.parse.quote(lang_dict["mailto_subject"])
+    return MAILTO_BTN_RE.sub(lambda m: m.group(1) + subject + m.group(2), page_html)
+
+
+# ---------- JSON-LD: язык, url (INV-06, без изменения @id) и текст из словаря ----------
+
+def resolve_t_marker(value: str, lang_dict: dict) -> str:
+    """'$t:key' в шаблоне JSON-LD -> текст из словаря T, теги вырезаны (JSON-LD не HTML)."""
+    key = value[3:]
+    if key not in lang_dict:
+        raise StopCondition(f"Нет ключа '{key}' для JSON-LD (маркер $t:)")
+    return re.sub(r"<[^>]+>", "", lang_dict[key]).strip()
+
+
+def update_jsonld_lang(page_html: str, lang: str, page: str, lang_dict: dict) -> str:
     def walk(node):
         if isinstance(node, dict):
             if "inLanguage" in node:
                 node["inLanguage"] = lang
             if "url" in node and isinstance(node["url"], str) and node["url"].startswith(SITE_URL):
                 node["url"] = page_url(page, lang)
-            for v in node.values():
-                walk(v)
+            for k, v in node.items():
+                if isinstance(v, str) and v.startswith("$t:"):
+                    node[k] = resolve_t_marker(v, lang_dict)
+                else:
+                    walk(v)
         elif isinstance(node, list):
             for v in node:
                 walk(v)
@@ -313,7 +396,12 @@ def strip_arrow(text: str) -> str:
     return re.sub(r"^[←\s]+", "", text).strip()
 
 
-def inject_breadcrumbs(page_html: str, page: str, lang: str, lang_dict: dict) -> str:
+def linked_url(page: str, lang: str, migrated: set) -> str:
+    """Абсолютный url страницы с учётом того, смигрирована ли она уже (как в rewrite_links)."""
+    return SITE_URL + classify_and_rewrite(f"{page}.html", lang, migrated)
+
+
+def inject_breadcrumbs(page_html: str, page: str, lang: str, lang_dict: dict, migrated: set) -> str:
     parent = BREADCRUMB_PARENT.get(page)
     if not parent:
         return page_html
@@ -330,8 +418,8 @@ def inject_breadcrumbs(page_html: str, page: str, lang: str, lang_dict: dict) ->
     page_name = re.sub(r"<[^>]+>", "", lang_dict["h1_title"]).strip()
 
     items = [
-        {"@type": "ListItem", "position": 1, "name": home_name, "item": page_url("index", lang)},
-        {"@type": "ListItem", "position": 2, "name": parent_name, "item": page_url(PARENT_PAGE[parent], lang)},
+        {"@type": "ListItem", "position": 1, "name": home_name, "item": linked_url("index", lang, migrated)},
+        {"@type": "ListItem", "position": 2, "name": parent_name, "item": linked_url(PARENT_PAGE[parent], lang, migrated)},
         {"@type": "ListItem", "position": 3, "name": page_name, "item": page_url(page, lang)},
     ]
     ld = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items}
@@ -364,8 +452,10 @@ def render_page(template_src: str, page: str, lang: str, full_dict: dict, migrat
     out = strip_lang_switch_code(out, pattern)
     out = inject_lang_switch_script(out)
     out = rewrite_links(out, lang, migrated)
-    out = update_jsonld_lang(out, lang, page)
-    out = inject_breadcrumbs(out, page, lang, lang_dict)
+    out = rewrite_lang_links(out, page, lang)
+    out = rewrite_mailto_subject(out, lang_dict)
+    out = update_jsonld_lang(out, lang, page, lang_dict)
+    out = inject_breadcrumbs(out, page, lang, lang_dict, migrated)
 
     banner = f"<!-- GENERATED by tools/build_i18n.py from src/{page}.template.html; do not edit -->\n"
     out = banner + out
@@ -382,6 +472,58 @@ def load_pages_config() -> list:
     if not PAGES_JSON.exists():
         return []
     return json.loads(PAGES_JSON.read_text(encoding="utf-8"))
+
+
+# ---------- sitemap.xml (шаг 9): мигрированные страницы -> 3 языка, остальные как есть ----------
+
+def page_name_from_loc(loc: str) -> str:
+    path = loc[len(SITE_URL):] if loc.startswith(SITE_URL) else loc
+    path = path.lstrip("/")
+    if path.startswith("articles/"):
+        return None  # статьи в эту миграцию не входят
+    parts = path.split("/", 1)
+    if parts[0] in LANGS:
+        rest = parts[1] if len(parts) > 1 else ""
+    else:
+        rest = path
+    if rest in ("", "index.html"):
+        return "index"
+    return rest[:-5] if rest.endswith(".html") else rest
+
+
+def rebuild_sitemap(migrated: set) -> None:
+    if not SITEMAP.exists():
+        return
+    src = SITEMAP.read_text(encoding="utf-8")
+    m = re.match(r"(.*?<urlset[^>]*>\n)((?: <url>.*?</url>\n)*)(</urlset>\n?)", src, re.DOTALL)
+    if not m:
+        return
+    header, body, footer = m.groups()
+    out = []
+    seen_migrated = set()
+    for content in re.findall(r" <url>\n(.*?)\n </url>\n", body, re.DOTALL):
+        loc = re.search(r"<loc>([^<]+)</loc>", content).group(1)
+        page = page_name_from_loc(loc)
+        if page is None or page not in migrated:
+            out.append(f" <url>\n{content}\n </url>\n")
+            continue
+        if page in seen_migrated:
+            continue  # уже развернули в 3 языка при более раннем блоке той же страницы (повторный прогон сборки)
+        seen_migrated.add(page)
+        cf_m = re.search(r"<changefreq>([^<]+)</changefreq>", content)
+        pr_m = re.search(r"<priority>([^<]+)</priority>", content)
+        changefreq = cf_m.group(1) if cf_m else "monthly"
+        priority = pr_m.group(1) if pr_m else "0.7"
+        for lang in LANGS:
+            out.append(
+                " <url>\n"
+                f" <loc>{page_url(page, lang)}</loc>\n"
+                f" <lastmod>{datetime.date.today().isoformat()}</lastmod>\n"
+                f" <changefreq>{changefreq}</changefreq>\n"
+                f" <priority>{priority}</priority>\n"
+                " </url>\n"
+            )
+    SITEMAP.write_text(header + "".join(out) + footer, encoding="utf-8")
 
 
 def build_page(page: str, migrated: set) -> None:
@@ -417,6 +559,8 @@ def main():
     except StopCondition as e:
         print(f"СТОП: {e}", file=sys.stderr)
         return 1
+    rebuild_sitemap(migrated)
+    print(f"sitemap.xml пересобран ({SITEMAP.relative_to(ROOT)})")
     return 0
 
 
