@@ -6,3 +6,5 @@ new/
 screens/
 __pycache__/
 *.pyc
+docs/
+HANDOFF.md
