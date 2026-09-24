@@ -128,7 +128,19 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/metodichka.html</loc>
- <lastmod>2026-09-21</lastmod>
+ <lastmod>2026-09-25</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.8</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/metodichka.html</loc>
+ <lastmod>2026-09-25</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.8</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/metodichka.html</loc>
+ <lastmod>2026-09-25</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.8</priority>
  </url>
