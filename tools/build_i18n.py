@@ -321,7 +321,8 @@ def classify_and_rewrite(url: str, lang: str, migrated: set) -> str:
         elif page in migrated:
             base = f"/{page}.html" if lang == "en" else f"/{lang}/{page}.html"
         else:
-            base = f"/{page}.html" if lang == "en" else f"/{page}.html?lang={lang}"
+            # ?lang= и для EN: иначе старая страница возьмёт язык из localStorage прошлых заходов
+            base = f"/{page}.html?lang={lang}"
         return base + anchor
 
     # статический ресурс (img/, files/, favicon.ico, apple-touch-icon.png, ...)

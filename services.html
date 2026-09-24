@@ -433,7 +433,7 @@ function applyLang(lang){
 document.querySelectorAll('.lang-btn').forEach(btn=>{
  btn.addEventListener('click', ()=>applyLang(btn.dataset.lang));
 });
-const saved = localStorage.getItem('site-lang');
+const saved = new URLSearchParams(location.search).get('lang') || localStorage.getItem('site-lang');
 if(saved && T[saved]) applyLang(saved);
 
 document.querySelectorAll('.acc-head').forEach(head=>{
