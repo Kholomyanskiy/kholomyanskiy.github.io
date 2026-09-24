@@ -255,6 +255,19 @@ def set_head(page_html: str, lang: str, page: str, title: str, desc: str) -> str
     return page_html
 
 
+def set_social_meta(page_html: str, title: str, desc: str) -> str:
+    for attr, name, value in (
+        ("property", "og:title", title), ("property", "og:description", desc),
+        ("name", "twitter:title", title), ("name", "twitter:description", desc),
+    ):
+        page_html = re.sub(
+            rf'(<meta {attr}="{name}" content=")[^"]*(")',
+            lambda m: m.group(1) + html_lib.escape(value) + m.group(2),
+            page_html, count=1,
+        )
+    return page_html
+
+
 # ---------- удаление старого кода переключения языков ----------
 
 def strip_lang_switch_code(page_html: str, pattern: str) -> str:
@@ -282,6 +295,7 @@ def inject_lang_switch_script(page_html: str) -> str:
 # ---------- ссылки ----------
 
 HREF_SRC_RE = re.compile(r'(href|src)="([^"]*)"')
+SRCSET_RE = re.compile(r'srcset="([^"]*)"')
 
 
 def classify_and_rewrite(url: str, lang: str, migrated: set) -> str:
@@ -319,7 +333,16 @@ def rewrite_links(page_html: str, lang: str, migrated: set) -> str:
         attr, url = m.group(1), m.group(2)
         return f'{attr}="{classify_and_rewrite(url, lang, migrated)}"'
 
-    return HREF_SRC_RE.sub(sub, page_html)
+    def sub_srcset(m):
+        items = []
+        for item in m.group(1).split(","):
+            parts = item.strip().split(None, 1)
+            parts[0] = classify_and_rewrite(parts[0], lang, migrated)
+            items.append(" ".join(parts))
+        return f'srcset="{", ".join(items)}"'
+
+    page_html = HREF_SRC_RE.sub(sub, page_html)
+    return SRCSET_RE.sub(sub_srcset, page_html)
 
 
 # ---------- переключатель языков (INV-05: кнопки -> ссылки на соседние версии) ----------
@@ -352,12 +375,25 @@ def rewrite_mailto_subject(page_html: str, lang_dict: dict) -> str:
 
 # ---------- JSON-LD: язык, url (INV-06, без изменения @id) и текст из словаря ----------
 
+# Сущности, общие для всех языков (INV-06): их url — адрес сайта, а не языковой версии.
+SHARED_ENTITY_IDS = {f"{SITE_URL}/#organization", f"{SITE_URL}/#person", f"{SITE_URL}/#anss"}
+
+def html_to_plain(text: str) -> str:
+    """HTML из словаря -> чистый текст для JSON-LD: <a>…</a> вырезаются целиком
+    вместе с текстом (это ссылки вида «Подробнее →»), <br> -> пробел, остальные
+    теги (<b>, <em>, ...) снимаются с сохранением текста. Пробелы схлопываются."""
+    text = re.sub(r"<a\b[^>]*>.*?</a>", " ", text, flags=re.DOTALL | re.IGNORECASE)
+    text = re.sub(r"<br\s*/?>", " ", text, flags=re.IGNORECASE)
+    text = re.sub(r"<[^>]+>", "", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
 def resolve_t_marker(value: str, lang_dict: dict) -> str:
-    """'$t:key' в шаблоне JSON-LD -> текст из словаря T, теги вырезаны (JSON-LD не HTML)."""
+    """'$t:key' в шаблоне JSON-LD -> текст из словаря T без разметки (JSON-LD не HTML)."""
     key = value[3:]
     if key not in lang_dict:
         raise StopCondition(f"Нет ключа '{key}' для JSON-LD (маркер $t:)")
-    return re.sub(r"<[^>]+>", "", lang_dict[key]).strip()
+    return html_to_plain(lang_dict[key])
 
 
 def update_jsonld_lang(page_html: str, lang: str, page: str, lang_dict: dict) -> str:
@@ -365,7 +401,8 @@ def update_jsonld_lang(page_html: str, lang: str, page: str, lang_dict: dict) ->
         if isinstance(node, dict):
             if "inLanguage" in node:
                 node["inLanguage"] = lang
-            if "url" in node and isinstance(node["url"], str) and node["url"].startswith(SITE_URL):
+            shared = node.get("@id") in SHARED_ENTITY_IDS
+            if not shared and "url" in node and isinstance(node["url"], str) and node["url"].startswith(SITE_URL):
                 node["url"] = page_url(page, lang)
             for k, v in node.items():
                 if isinstance(v, str) and v.startswith("$t:"):
@@ -388,6 +425,19 @@ def update_jsonld_lang(page_html: str, lang: str, page: str, lang_dict: dict) ->
         r'<script type="application/ld\+json">\s*(.*?)\s*</script>',
         sub, page_html, flags=re.DOTALL,
     )
+
+
+def resolve_script_markers(page_html: str, lang_dict: dict) -> str:
+    """"$t:key" в JS-строках (после JSON-LD остаются только они) -> JS-строка
+    с текстом словаря как есть. Так JS, которому нужны тексты (сообщения формы),
+    получает их без словаря T в собранном файле."""
+    def sub(m):
+        key = m.group(1)
+        if key not in lang_dict:
+            raise StopCondition(f"Нет ключа '{key}' для маркера $t: в скрипте")
+        return json.dumps(lang_dict[key], ensure_ascii=False).replace("</", "<\\/")
+
+    return re.sub(r'"\$t:([^"]+)"', sub, page_html)
 
 
 # ---------- хлебные крошки (шаг 8) ----------
@@ -449,12 +499,15 @@ def render_page(template_src: str, page: str, lang: str, full_dict: dict, migrat
     out = substitute_text(template_src, lang_dict, lang)
     title, desc = meta_title_desc(lang_dict, page)
     out = set_head(out, lang, page, title, desc)
+    if 'meta[property="og:title"]' in template_src:
+        out = set_social_meta(out, title, desc)  # старый JS переводил og/twitter — переносим в сборку
     out = strip_lang_switch_code(out, pattern)
     out = inject_lang_switch_script(out)
     out = rewrite_links(out, lang, migrated)
     out = rewrite_lang_links(out, page, lang)
     out = rewrite_mailto_subject(out, lang_dict)
     out = update_jsonld_lang(out, lang, page, lang_dict)
+    out = resolve_script_markers(out, lang_dict)
     out = inject_breadcrumbs(out, page, lang, lang_dict, migrated)
 
     banner = f"<!-- GENERATED by tools/build_i18n.py from src/{page}.template.html; do not edit -->\n"
