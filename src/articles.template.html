@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Articles — Artem Kholomyanskiy · AI Consulting and Automation</title>
+<meta name="description" content="Notes on AI specifications, process automation, and AI implementation.">
+<link rel="canonical" href="https://kholomyanskiy.com/articles.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Articles — Artem Kholomyanskiy · AI Consulting and Automation">
+<meta property="og:description" content="Notes on AI specifications, process automation, and AI implementation.">
+<meta property="og:url" content="https://kholomyanskiy.com/articles.html">
+<meta property="og:image" content="https://kholomyanskiy.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Artem Kholomyanskiy — AI Implementation Consultant">
+<meta name="twitter:image" content="https://kholomyanskiy.com/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Articles — Artem Kholomyanskiy · AI Consulting and Automation">
+<meta name="twitter:description" content="Notes on AI specifications, process automation, and AI implementation.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+ --paper:#F2F3EE; --panel:#FAFBF7; --ink:#1B2027; --ink-soft:#4A5361;
+ --line:#C9CEC2; --line-soft:#DEE1D8; --blue:#2B5B8A; --blue-deep:#1E4266; --stamp:#9A3B33;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+ font-family:'Inter',sans-serif; background:var(--paper);
+ background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+ background-size:32px 32px; color:var(--ink); line-height:1.7; font-size:16px;
+}
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-inner{max-width:820px;margin:0 auto;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-family:'JetBrains Mono',monospace;font-size:13px}
+.topnav-brand{font-weight:600;color:var(--ink);letter-spacing:.04em;text-decoration:none;line-height:1.3}
+.topnav-brand .role{display:block;font-weight:400;font-size:10px;color:var(--ink-soft);letter-spacing:.03em;text-transform:none}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+.topnav-links a.current{color:var(--ink);font-weight:600}
+.lang-switch{display:flex;gap:4px;border:1px solid var(--line);padding:2px}
+.lang-btn{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;background:transparent;border:none;color:var(--ink-soft);padding:4px 9px;cursor:pointer;text-decoration:none;display:inline-block;line-height:normal}
+.lang-btn.active{background:var(--ink);color:#EDEFF2}
+.lang-btn:hover:not(.active){color:var(--ink)}
+@media(max-width:680px){.topnav-inner{padding:12px 20px;gap:8px}.topnav-links{gap:14px;font-size:12px}}
+
+.sheet{max-width:820px;margin:32px auto 40px;background:var(--panel);border:1.5px solid var(--ink);box-shadow:8px 8px 0 rgba(27,32,39,.08)}
+.titleblock{border-bottom:1.5px solid var(--ink)}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-top .brand{font-weight:500;color:var(--ink);letter-spacing:.08em}
+.tb-main{padding:44px 32px 36px}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,42px);line-height:1.12;max-width:640px}
+.tb-main .sub{margin-top:14px;max-width:560px;color:var(--ink-soft);font-size:17px}
+
+section{padding:40px 32px;border-bottom:1px solid var(--line);scroll-margin-top:70px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:25px;margin-bottom:14px}
+h3{font-family:'Spectral',serif;font-weight:600;font-size:19px;margin-bottom:6px}
+p{max-width:620px;margin-bottom:14px}
+.muted{color:var(--ink-soft)}
+a{color:var(--blue)}
+
+.article-grid{display:grid;grid-template-columns:1fr;gap:2px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+.article-card{background:var(--panel);padding:24px 26px;position:relative}
+.article-source{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:8px}
+.article-card h3{margin-bottom:6px}
+.article-card p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px;max-width:none}
+.article-cta{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.05em;color:var(--blue);text-decoration:none}
+.article-cta:hover{text-decoration:underline}
+.article-alt{display:block;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink-soft)}
+.article-alt a{color:var(--ink-soft);text-decoration:underline}
+.article-alt a:hover{color:var(--blue)}
+
+.closing-cta{background:var(--ink);color:#EDEFF2;padding:44px 32px;text-align:center}
+.closing-cta h2{color:#fff;margin-bottom:10px}
+.closing-cta p{color:#B9C1CC;max-width:520px;margin:0 auto 20px}
+.closing-cta a.btn3{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;padding:14px 30px;text-decoration:none}
+.closing-cta a.btn3:hover{background:transparent;color:#EDEFF2}
+
+footer{max-width:820px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+.footer-links{display:flex;flex-wrap:wrap;gap:18px}
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em}
+.footer-links a:hover{color:var(--blue)}
+.footer-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+
+@media(max-width:680px){
+ .sheet{margin:10px 12px 32px}
+ section,.tb-main{padding-left:20px;padding-right:20px}
+ .tb-top{padding:12px 20px}
+ footer{margin:0 12px 32px;padding:20px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+ <div class="topnav-inner">
+ <a class="topnav-brand" href="index.html"><span data-i18n="brand.name">ARTEM KHOLOMYANSKIY</span><span class="role" data-i18n="brand.role">EVAI Consulting · AI Solution Development and Implementation</span></a>
+ <div class="topnav-links">
+ <a href="services.html" data-i18n="nav.services">Services</a>
+ <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+ <a href="products.html" data-i18n="nav.products">Products</a>
+ <a href="articles.html" class="current" data-i18n="nav.articles">Articles</a>
+ <a href="index.html#contact" data-i18n="nav.contacts">Contact</a>
+ <span class="lang-switch">
+ <a class="lang-btn" data-lang="en">EN</a>
+ <a class="lang-btn" data-lang="pl">PL</a>
+ <a class="lang-btn" data-lang="ru">RU</a>
+ </span>
+ </div>
+ </div>
+</nav>
+
+<div class="sheet">
+
+ <header class="titleblock">
+ <div class="tb-top">
+ <span class="brand">EVAI CONSULTING</span>
+ <span>Elbląg, Poland</span>
+ </div>
+ <div class="tb-main">
+ <h1 data-i18n="page.title">Articles</h1>
+ <p class="sub" data-i18n="page.sub">Notes on AI specifications, process automation, and AI implementation.</p>
+ </div>
+ </header>
+
+ <section>
+ <div class="article-grid">
+ <div class="article-card">
+ <span class="article-source">June 3, 2026</span>
+ <h3 data-i18n="a1.h">Why AI Agents Keep Breaking Your Code (And What to Do About It)</h3>
+ <p data-i18n="a1.p">Classic spec formats were written for human readers who tolerate ambiguity. AI agents don't — they fill gaps on their own. A look at the four ANSS mechanisms that close that gap.</p>
+ <a class="article-cta" href="articles/why-ai-agents-keep-breaking-your-code.html" data-i18n="a.cta">Read →</a>
+ <span class="article-alt"><a href="https://dev.to/artem_kholomyanskiy/why-ai-agents-keep-breaking-your-code-and-what-to-do-about-it-5bp0" data-i18n="a.devto">also published on Dev.to</a></span>
+ </div>
+ <div class="article-card">
+ <span class="article-source">June 4, 2026</span>
+ <h3 data-i18n="a4.h">ANSS: A Specification Standard Built for AI Agents, Not Just Humans</h3>
+ <p data-i18n="a4.p">Classic spec formats weren't built for AI agents. ANSS gives both humans and coding agents a shared, unambiguous language — and cut iteration cycles from 5–7 to 2–3 on real projects.</p>
+ <a class="article-cta" href="articles/anss-specification-standard-for-ai-agents.html" data-i18n="a.cta">Read →</a>
+ <span class="article-alt"><a href="https://kholomyanskiy.hashnode.dev/anss-a-specification-standard-built-for-ai-agents-not-just-humans" data-i18n="a.hashnode_only">also published on Hashnode</a></span>
+ </div>
+ <div class="article-card">
+ <span class="article-source">June 23, 2026</span>
+ <h3 data-i18n="a2.h">Classic specs were written for humans.</h3>
+ <p data-i18n="a2.p">A short note on where ANSS came from and what changed in practice after adopting it — iteration cycles with an agent dropped from 5–7 to 2–3.</p>
+ <a class="article-cta" href="articles/classic-specs-were-written-for-humans.html" data-i18n="a.cta">Read →</a>
+ <span class="article-alt"><a href="https://dev.to/artem_kholomyanskiy/classic-specs-were-written-for-humans-1813" data-i18n="a.devto">also published on Dev.to</a> · <a href="https://kholomyanskiy.hashnode.dev/classic-specs-were-written-for-humans" data-i18n="a.hashnode">Hashnode</a></span>
+ </div>
+ </div>
+ </section>
+
+ <div class="closing-cta">
+ <h2 data-i18n="closing.title">Not sure what you need?</h2>
+ <p data-i18n="closing.p">Describe what's happening in your department in a couple of sentences — I'll give you an honest read on whether it's worth doing and where to start.</p>
+ <a class="btn3" href="mailto:artem@kholomyanskiy.com?subject=Task" data-i18n="closing.btn">Write →</a>
+ </div>
+
+</div>
+
+<footer>
+ <div class="footer-links">
+ <a href="services.html" data-i18n="nav.services">Services</a>
+ <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+ <a href="products.html" data-i18n="nav.products">Products</a>
+ <a href="articles.html" data-i18n="nav.articles">Articles</a>
+ <a href="index.html#contact" data-i18n="nav.contacts">Contact</a>
+ </div>
+ <div class="footer-meta">
+ <span>EVAI Consulting · Elbląg, Poland</span>
+ <span><a href="tel:+48508409363">+48 508 409 363</a> · <a href="mailto:artem@kholomyanskiy.com">artem@kholomyanskiy.com</a> · <a href="https://linkedin.com/in/kholomyanskiy">LinkedIn</a> · <a href="https://t.me/kholomyanskiy">Telegram</a></span>
+ </div>
+</footer>
+
+<script>
+const T = {
+ ru: {
+ "brand.name":"АРТЁМ ХОЛОМЯНСКИЙ","brand.role":"EVAI Consulting · Разработка и внедрение AI-решений",
+ "nav.services":"Услуги","nav.portfolio":"Портфолио","nav.products":"Продукты","nav.articles":"Статьи","nav.contacts":"Контакты",
+ "page.title":"Статьи",
+ "page.sub":"Заметки об AI-спецификациях, автоматизации процессов и внедрении ИИ.",
+ "a.cta":"Читать (EN) →",
+ "a.devto":"также опубликовано на Dev.to",
+ "a.hashnode":"Hashnode",
+ "a.hashnode_only":"также опубликовано на Hashnode",
+ "a1.h":"Почему AI-агенты постоянно ломают ваш код",
+ "a1.p":"Классические форматы ТЗ писались для людей, которые прощают недосказанность. Агенты — нет: они заполняют пробелы по своему усмотрению. Разбор четырёх механизмов ANSS, которые убирают это пространство для домыслов.",
+ "a2.h":"Классические спецификации писались для людей",
+ "a2.p":"Короткая заметка о том, откуда взялся ANSS и что изменилось в работе после перехода на него — цикл итераций с агентом упал с 5–7 до 2–3.",
+ "a4.h":"ANSS: стандарт спецификаций, созданный для AI-агентов, а не только для людей",
+ "a4.p":"Классические форматы ТЗ создавались не для AI-агентов. ANSS даёт людям и агентам, пишущим код, общий однозначный язык — и сократил циклы итераций с 5–7 до 2–3 на реальных проектах.",
+ "closing.title":"Не уверены, что вам нужно?",
+ "closing.p":"Опишите пару предложений о том, что происходит в отделе — отвечу честно, стоит ли этим заниматься и с чего начать.",
+ "closing.btn":"Написать →",
+ "meta.title":"Статьи — Артём Холомянский · AI-консалтинг и автоматизация",
+ "meta.description":"Заметки об AI-спецификациях, автоматизации процессов и внедрении ИИ."
+ },
+ pl: {
+ "brand.name":"ARTEM KHOLOMYANSKIY","brand.role":"EVAI Consulting · Tworzenie i wdrażanie rozwiązań AI",
+ "nav.services":"Usługi","nav.portfolio":"Portfolio","nav.products":"Produkty","nav.articles":"Artykuły","nav.contacts":"Kontakt",
+ "page.title":"Artykuły",
+ "page.sub":"Notatki o specyfikacjach AI, automatyzacji procesów i wdrażaniu AI.",
+ "a.cta":"Czytaj (EN) →",
+ "a.devto":"opublikowano też na Dev.to",
+ "a.hashnode":"Hashnode",
+ "a.hashnode_only":"opublikowano też na Hashnode",
+ "a1.h":"Dlaczego agenci AI wciąż psują Twój kod (i co z tym zrobić)",
+ "a1.p":"Klasyczne formaty specyfikacji pisano z myślą o czytelnikach, którzy tolerują niejednoznaczność. Agenci AI — nie: sami wypełniają luki. Przegląd czterech mechanizmów ANSS, które to domykają.",
+ "a2.h":"Klasyczne specyfikacje pisano dla ludzi.",
+ "a2.p":"Krótka notatka o tym, skąd wziął się ANSS i co zmieniło się w praktyce po jego wdrożeniu — cykle iteracji z agentem spadły z 5–7 do 2–3.",
+ "a4.h":"ANSS: standard specyfikacji stworzony dla agentów AI, nie tylko dla ludzi",
+ "a4.p":"Klasyczne formaty specyfikacji nie powstały z myślą o agentach AI. ANSS daje ludziom i agentom piszącym kod wspólny, jednoznaczny język — i skrócił cykle iteracji z 5–7 do 2–3 na realnych projektach.",
+ "closing.title":"Nie jesteś pewien, czego potrzebujesz?",
+ "closing.p":"Opisz w kilku zdaniach, co dzieje się w Twoim dziale — odpowiem szczerze, czy warto się tym zająć i od czego zacząć.",
+ "closing.btn":"Napisz →",
+ "meta.title":"Artykuły — Artem Kholomyanskiy · Konsulting AI i automatyzacja",
+ "meta.description":"Notatki o specyfikacjach AI, automatyzacji procesów i wdrażaniu AI."
+ },
+ en: {
+ "brand.name":"ARTEM KHOLOMYANSKIY","brand.role":"EVAI Consulting · AI Solution Development and Implementation",
+ "nav.services":"Services","nav.portfolio":"Portfolio","nav.products":"Products","nav.articles":"Articles","nav.contacts":"Contact",
+ "page.title":"Articles",
+ "page.sub":"Notes on AI specifications, process automation, and AI implementation.",
+ "a.cta":"Read →",
+ "a.devto":"also published on Dev.to",
+ "a.hashnode":"Hashnode",
+ "a.hashnode_only":"also published on Hashnode",
+ "a1.h":"Why AI Agents Keep Breaking Your Code (And What to Do About It)",
+ "a1.p":"Classic spec formats were written for human readers who tolerate ambiguity. AI agents don't — they fill gaps on their own. A look at the four ANSS mechanisms that close that gap.",
+ "a2.h":"Classic specs were written for humans.",
+ "a2.p":"A short note on where ANSS came from and what changed in practice after adopting it — iteration cycles with an agent dropped from 5–7 to 2–3.",
+ "a4.h":"ANSS: A Specification Standard Built for AI Agents, Not Just Humans",
+ "a4.p":"Classic spec formats weren't built for AI agents. ANSS gives both humans and coding agents a shared, unambiguous language — and cut iteration cycles from 5–7 to 2–3 on real projects.",
+ "closing.title":"Not sure what you need?",
+ "closing.p":"Describe what's happening in your department in a couple of sentences — I'll give you an honest read on whether it's worth doing and where to start.",
+ "closing.btn":"Write →",
+ "meta.title":"Articles — Artem Kholomyanskiy · AI Consulting and Automation",
+ "meta.description":"Notes on AI specifications, process automation, and AI implementation."
+ }
+};
+
+function applyLang(lang){
+ document.querySelectorAll('[data-i18n]').forEach(el=>{
+ const key = el.getAttribute('data-i18n');
+ if(T[lang] && T[lang][key]) el.textContent = T[lang][key];
+ });
+ const t = T[lang];
+ if(t && t['meta.title']){
+ document.title = t['meta.title'];
+ document.querySelector('meta[name="description"]')?.setAttribute('content', t['meta.description']);
+ document.querySelector('meta[property="og:title"]')?.setAttribute('content', t['meta.title']);
+ document.querySelector('meta[property="og:description"]')?.setAttribute('content', t['meta.description']);
+ document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', t['meta.title']);
+ document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', t['meta.description']);
+ }
+ document.documentElement.lang = lang;
+ document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+ localStorage.setItem('site-lang', lang);
+}
+document.querySelectorAll('.lang-btn').forEach(btn=>{
+ btn.addEventListener('click', ()=>applyLang(btn.dataset.lang));
+});
+const saved = new URLSearchParams(location.search).get('lang') || localStorage.getItem('site-lang');
+if(saved && T[saved]) applyLang(saved);
+</script>
+
+</body>
+</html>

@@ -6,6 +6,7 @@ import datetime
 import html as html_lib
 import json
 import re
+import subprocess
 import sys
 import urllib.parse
 from pathlib import Path
@@ -545,6 +546,22 @@ def page_name_from_loc(loc: str) -> str:
     return rest[:-5] if rest.endswith(".html") else rest
 
 
+def lastmod_for(path: Path) -> str:
+    """Изменён/новый после сборки -> сегодня; иначе дата последнего коммита файла; нет git -> сегодня."""
+    today = datetime.date.today().isoformat()
+    rel = path.relative_to(ROOT).as_posix()
+    try:
+        status = subprocess.run(["git", "status", "--porcelain", "--", rel], cwd=ROOT,
+                                capture_output=True, text=True, check=True).stdout.strip()
+        if status:
+            return today
+        last = subprocess.run(["git", "log", "-1", "--format=%cs", "--", rel], cwd=ROOT,
+                              capture_output=True, text=True, check=True).stdout.strip()
+        return last or today
+    except (OSError, subprocess.CalledProcessError):
+        return today
+
+
 def rebuild_sitemap(migrated: set) -> None:
     if not SITEMAP.exists():
         return
@@ -572,7 +589,7 @@ def rebuild_sitemap(migrated: set) -> None:
             out.append(
                 " <url>\n"
                 f" <loc>{page_url(page, lang)}</loc>\n"
-                f" <lastmod>{datetime.date.today().isoformat()}</lastmod>\n"
+                f" <lastmod>{lastmod_for(output_path(page, lang))}</lastmod>\n"
                 f" <changefreq>{changefreq}</changefreq>\n"
                 f" <priority>{priority}</priority>\n"
                 " </url>\n"
