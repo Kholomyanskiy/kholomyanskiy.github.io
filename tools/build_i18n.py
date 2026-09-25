@@ -503,8 +503,7 @@ def render_page(template_src: str, page: str, lang: str, full_dict: dict, migrat
     out = substitute_text(template_src, lang_dict, lang)
     title, desc = meta_title_desc(lang_dict, page)
     out = set_head(out, lang, page, title, desc)
-    if 'meta[property="og:title"]' in template_src:
-        out = set_social_meta(out, title, desc)  # старый JS переводил og/twitter — переносим в сборку
+    out = set_social_meta(out, title, desc)  # og/twitter на языке версии для всех страниц (C2-4, C2-9)
     out = strip_lang_switch_code(out, pattern)
     out = inject_lang_switch_script(out)
     out = rewrite_links(out, lang, migrated)
