@@ -317,6 +317,8 @@ def classify_and_rewrite(url: str, lang: str, migrated: set) -> str:
         if page.endswith(".html"):
             page = page[:-5]
         page = page.split("?")[0]
+        if page.startswith("articles/"):
+            return f"/{page}.html" + anchor  # статьи только EN, без переключателя (батч 7) — ?lang= не нужен
         if page == "index" and page in migrated:
             base = "/" if lang == "en" else f"/{lang}/"
         elif page in migrated:
@@ -535,7 +537,7 @@ def page_name_from_loc(loc: str) -> str:
     path = loc[len(SITE_URL):] if loc.startswith(SITE_URL) else loc
     path = path.lstrip("/")
     if path.startswith("articles/"):
-        return None  # статьи в эту миграцию не входят
+        return None  # статьи только EN, в sitemap остаются как есть
     parts = path.split("/", 1)
     if parts[0] in LANGS:
         rest = parts[1] if len(parts) > 1 else ""

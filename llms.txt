@@ -6,19 +6,19 @@
 
 ## Основное
 
-- [Главная / визитка](https://kholomyanskiy.com/index.html): кто такой Артём, подход, философия, ссылки на все разделы
-- [Услуги](https://kholomyanskiy.com/services.html): аудит процессов перед внедрением AI, проектирование AI-решений, проектирование требований (AI-спецификация/ТЗ), автоматизация процессов, консалтинг
-- [Продукты](https://kholomyanskiy.com/products.html): ANSS Standard (открытый стандарт), методичка и книга "ИИ в отделе", AI Automation Decision System
-- [Портфолио](https://kholomyanskiy.com/portfolio.html): технические кейсы — Solo Founder OS, LombardPRO, eSowa KPI Bot, ELA City Bot, Decor Engine
-- [Статьи](https://kholomyanskiy.com/articles.html): заметки об AI-спецификациях и автоматизации на Hashnode и Dev.to
+- [Главная / визитка](https://kholomyanskiy.com/index.html): кто такой Артём, подход, философия, ссылки на все разделы. PL: https://kholomyanskiy.com/pl/ · RU: https://kholomyanskiy.com/ru/
+- [Услуги](https://kholomyanskiy.com/services.html): аудит процессов перед внедрением AI, проектирование AI-решений, проектирование требований (AI-спецификация/ТЗ), автоматизация процессов, консалтинг. PL: https://kholomyanskiy.com/pl/services.html · RU: https://kholomyanskiy.com/ru/services.html
+- [Продукты](https://kholomyanskiy.com/products.html): ANSS Standard (открытый стандарт), методичка и книга "ИИ в отделе", AI Automation Decision System. PL: https://kholomyanskiy.com/pl/products.html · RU: https://kholomyanskiy.com/ru/products.html
+- [Портфолио](https://kholomyanskiy.com/portfolio.html): технические кейсы — Solo Founder OS, LombardPRO, eSowa KPI Bot, ELA City Bot, Decor Engine. PL: https://kholomyanskiy.com/pl/portfolio.html · RU: https://kholomyanskiy.com/ru/portfolio.html
+- [Статьи](https://kholomyanskiy.com/articles.html): заметки об AI-спецификациях и автоматизации на Hashnode и Dev.to. PL: https://kholomyanskiy.com/pl/articles.html · RU: https://kholomyanskiy.com/ru/articles.html
 
 ## Ключевые продукты и стандарты
 
 - [ANSS Standard](https://github.com/Kholomyanskiy/anss-standard): AI-Native System Specification Standard — открытый стандарт описания задач и требований для AI-систем, лицензия CC BY 4.0
-- [Методичка "ИИ в отделе"](https://kholomyanskiy.com/metodichka.html): бесплатное руководство по внедрению ИИ в отдел, пять этапов (аудит, отбор, спецификация, внедрение, масштабирование)
+- [Методичка "ИИ в отделе"](https://kholomyanskiy.com/metodichka.html): бесплатное руководство по внедрению ИИ в отдел, пять этапов (аудит, отбор, спецификация, внедрение, масштабирование). PL: https://kholomyanskiy.com/pl/metodichka.html · RU: https://kholomyanskiy.com/ru/metodichka.html
 - [Книга "ИИ в отделе" (полная версия)](https://aimethodology.gumroad.com/l/ai-v-otdele): расширенная версия методички на Gumroad
 - [AI Readiness Assessment / аудит отдела](https://kholomyanskiy.com/audit.html): диагностика процессов перед внедрением AI. Express от 3 500 zł (7–10 дней), Department от 9 000 zł (до 10 сотрудников, 3–4 недели), итоговая цена по объёму. PL: https://kholomyanskiy.com/pl/audit.html · RU: https://kholomyanskiy.com/ru/audit.html
-- [Спецификация как услуга](https://kholomyanskiy.com/spec.html): технические спецификации для разработки AI-систем — аудиты и ТЗ, по которым Claude Code и разработчики строят системы предсказуемо
+- [Спецификация как услуга](https://kholomyanskiy.com/spec.html): технические спецификации для разработки AI-систем — аудиты и ТЗ, по которым Claude Code и разработчики строят системы предсказуемо. PL: https://kholomyanskiy.com/pl/spec.html · RU: https://kholomyanskiy.com/ru/spec.html
 
 ## Контакты
 
