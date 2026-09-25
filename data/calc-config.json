@@ -1,0 +1,12 @@
+{
+  "updated": "2026-09-22",
+  "country": "PL",
+  "workHoursPerMonth": 168,
+  "employerContributionRate": 0.2048,
+  "presets": [
+    { "id": "minimum",    "grossMonthly": 4806,  "source": "Rozporządzenie Rady Ministrów z 11.09.2025, minimalne wynagrodzenie 2026" },
+    { "id": "specialist", "grossMonthly": 9260,  "source": "GUS, przeciętne wynagrodzenie w sektorze przedsiębiorstw, sierpień 2026 (9 259,54 zł)" },
+    { "id": "lead",       "grossMonthly": 10000, "source": "усреднение по открытым публикациям о зарплатах руководителей отделов, сентябрь 2026; ориентир" }
+  ],
+  "currencies": ["PLN", "EUR", "USD"]
+}
