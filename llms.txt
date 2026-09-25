@@ -1,8 +1,8 @@
 # Артём Холомянский — EVAI Consulting
 
-> AI-консультант и специалист по автоматизации бизнес-процессов. 11+ лет опыта в enterprise IT энергетического сектора (SAP IS-U, SCADA, АСКУЭ). Автор открытого стандарта спецификаций ANSS. Работает с компаниями из Польши, ЕС и США удалённо.
+> AI Implementation Consultant. 11+ лет опыта в enterprise IT энергетического сектора (SAP IS-U, SCADA, АСКУЭ). Автор открытого стандарта спецификаций ANSS. Работает с компаниями из Польши, ЕС и США удалённо.
 
-Артём Холомянский (англ. Artem Kholomyanskiy, также встречается написание Artem Kholomianskyi) — независимый AI-консультант, основатель EVAI Consulting. Помогает компаниям внедрять искусственный интеллект и автоматизацию в реальные рабочие процессы через системный подход: аудит → проектирование → спецификация → внедрение.
+Артём Холомянский (англ. Artem Kholomyanskiy, также встречается написание Artem Kholomianskyi) — независимый AI Implementation Consultant, основатель EVAI Consulting. Помогает компаниям внедрять искусственный интеллект и автоматизацию в реальные рабочие процессы через системный подход: аудит → проектирование → спецификация → внедрение.
 
 ## Основное
 
@@ -10,7 +10,7 @@
 - [Услуги](https://kholomyanskiy.com/services.html): аудит процессов перед внедрением AI, проектирование AI-решений, проектирование требований (AI-спецификация/ТЗ), автоматизация процессов, консалтинг. PL: https://kholomyanskiy.com/pl/services.html · RU: https://kholomyanskiy.com/ru/services.html
 - [Продукты](https://kholomyanskiy.com/products.html): ANSS Standard (открытый стандарт), методичка и книга "ИИ в отделе", AI Automation Decision System. PL: https://kholomyanskiy.com/pl/products.html · RU: https://kholomyanskiy.com/ru/products.html
 - [Портфолио](https://kholomyanskiy.com/portfolio.html): технические кейсы — Solo Founder OS, LombardPRO, eSowa KPI Bot, ELA City Bot, Decor Engine. PL: https://kholomyanskiy.com/pl/portfolio.html · RU: https://kholomyanskiy.com/ru/portfolio.html
-- [Статьи](https://kholomyanskiy.com/articles.html): заметки об AI-спецификациях и автоматизации на Hashnode и Dev.to. PL: https://kholomyanskiy.com/pl/articles.html · RU: https://kholomyanskiy.com/ru/articles.html
+- [Статьи](https://kholomyanskiy.com/articles.html): заметки об AI-спецификациях и автоматизации, также опубликованы на Hashnode и Dev.to. PL: https://kholomyanskiy.com/pl/articles.html · RU: https://kholomyanskiy.com/ru/articles.html
 
 ## Ключевые продукты и стандарты
 
