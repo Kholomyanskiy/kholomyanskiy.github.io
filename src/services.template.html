@@ -171,6 +171,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <span class="svc-price" data-i18n="s1.price">From 3,500 zł</span>
  <div class="svc-cta">
  <a class="primary" href="audit.html" data-i18n="s1.cta1">Details and pricing →</a>
+ <a class="secondary" href="kalkulator.html" data-i18n="s1.cta2">Calculate the effect first</a>
  </div>
  </div>
  </section>
@@ -285,6 +286,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <a href="services.html" data-i18n="nav.services">Services</a>
  <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
  <a href="products.html" data-i18n="nav.products">Products</a>
+ <a href="kalkulator.html" data-i18n="nav.calculator">Calculator</a>
  <a href="articles.html" data-i18n="nav.articles">Articles</a>
  <a href="index.html#contact" data-i18n="nav.contacts">Contact</a>
  </div>
@@ -298,13 +300,13 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 const T = {
  ru: {
  "brand.name":"АРТЁМ ХОЛОМЯНСКИЙ","brand.role":"EVAI Consulting · Разработка и внедрение AI-решений",
- "nav.services":"Услуги","nav.portfolio":"Портфолио","nav.products":"Продукты","nav.articles":"Статьи","nav.contacts":"Контакты",
+ "nav.services":"Услуги","nav.portfolio":"Портфолио","nav.products":"Продукты","nav.calculator":"Калькулятор","nav.articles":"Статьи","nav.contacts":"Контакты",
  "page.title":"Услуги",
  "page.sub":"Пять услуг, которые можно заказать по отдельности или как последовательный цикл: от диагностики до работающего решения.",
  "s1.num":"УСЛУГА 01","s1.h":"Аудит процессов перед внедрением AI",
  "s1.p1":"Разбираем, из чего на самом деле состоит рабочий день сотрудников — не должностные инструкции, а реальные задачи. Сотрудники фиксируют, что делают, как часто и сколько это занимает.",
  "s1.p2":"Находим, где рутина съедает время и где ошибка обходится дорого. Результат — карта задач с оценкой, что и сколько можно автоматизировать, и с чего начинать в первую очередь.",
- "s1.price":"От 3 500 zł","s1.cta1":"Подробнее и тарифы →",
+ "s1.price":"От 3 500 zł","s1.cta1":"Подробнее и тарифы →","s1.cta2":"Сначала посчитать эффект",
  "s2.num":"УСЛУГА 02","s2.h":"Проектирование AI-решений",
  "s2.p1":"Прежде чем что-то внедрять, нужна архитектура: какие процессы автоматизируем в первую очередь, какой подход выбрать, как это встроится в существующие системы.",
  "s2.p2":"Результат — план внедрения с приоритетами и оценкой сложности, а не набор разрозненных инструментов, купленных на волне энтузиазма.",
@@ -336,13 +338,13 @@ const T = {
  },
  pl: {
  "brand.name":"ARTEM KHOLOMYANSKIY","brand.role":"EVAI Consulting · Tworzenie i wdrażanie rozwiązań AI",
- "nav.services":"Usługi","nav.portfolio":"Portfolio","nav.products":"Produkty","nav.articles":"Artykuły","nav.contacts":"Kontakt",
+ "nav.services":"Usługi","nav.portfolio":"Portfolio","nav.products":"Produkty","nav.calculator":"Kalkulator","nav.articles":"Artykuły","nav.contacts":"Kontakt",
  "page.title":"Usługi",
  "page.sub":"Pięć usług, które można zamówić osobno lub jako sekwencyjny cykl: od diagnozy do działającego rozwiązania.",
  "s1.num":"USŁUGA 01","s1.h":"Audyt procesów przed wdrożeniem AI",
  "s1.p1":"Rozkładamy na czynniki pierwsze to, z czego naprawdę składa się dzień pracy pracowników — nie opisy stanowisk, lecz realne zadania. Pracownicy notują, co robią, jak często i ile to zajmuje.",
  "s1.p2":"Znajdujemy, gdzie rutyna pożera czas i gdzie błąd jest kosztowny. Rezultat — mapa zadań z oceną, co i w jakim stopniu można zautomatyzować, i od czego zacząć.",
- "s1.price":"Od 3 500 zł","s1.cta1":"Szczegóły i cennik →",
+ "s1.price":"Od 3 500 zł","s1.cta1":"Szczegóły i cennik →","s1.cta2":"Najpierw policz efekt",
  "s2.num":"USŁUGA 02","s2.h":"Projektowanie rozwiązań AI",
  "s2.p1":"Zanim cokolwiek wdrożysz, potrzebna jest architektura: które procesy zautomatyzować w pierwszej kolejności, jakie podejście wybrać, jak to wpasuje się w istniejące systemy.",
  "s2.p2":"Rezultat: plan wdrożenia z priorytetami i oceną złożoności, a nie stos niepowiązanych narzędzi kupionych w przypływie entuzjazmu.",
@@ -374,13 +376,13 @@ const T = {
  },
  en: {
  "brand.name":"ARTEM KHOLOMYANSKIY","brand.role":"EVAI Consulting · AI Solution Development and Implementation",
- "nav.services":"Services","nav.portfolio":"Portfolio","nav.products":"Products","nav.articles":"Articles","nav.contacts":"Contact",
+ "nav.services":"Services","nav.portfolio":"Portfolio","nav.products":"Products","nav.calculator":"Calculator","nav.articles":"Articles","nav.contacts":"Contact",
  "page.title":"Services",
  "page.sub":"Five services you can order individually or as a sequential cycle: from diagnosis to a working solution.",
  "s1.num":"SERVICE 01","s1.h":"Process Audit Before AI Implementation",
  "s1.p1":"We break down what employees' workday actually consists of — not job descriptions, but real tasks. Employees log what they do, how often, and how long it takes.",
  "s1.p2":"We find where routine eats time and where mistakes are costly. Result: a task map with an estimate of what and how much can be automated, and where to start.",
- "s1.price":"From 3,500 zł","s1.cta1":"Details and pricing →",
+ "s1.price":"From 3,500 zł","s1.cta1":"Details and pricing →","s1.cta2":"Calculate the effect first",
  "s2.num":"SERVICE 02","s2.h":"AI Solution Design",
  "s2.p1":"Before implementing anything, you need architecture: which processes to automate first, which approach to take, how it fits into existing systems.",
  "s2.p2":"Result: an implementation plan with priorities and complexity estimates, not a pile of disconnected tools bought in a moment of enthusiasm.",

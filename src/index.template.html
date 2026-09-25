@@ -265,6 +265,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <a class="primary" href="mailto:artem@kholomyanskiy.com?subject=Task" data-i18n="hero.cta_primary">Discuss a task</a>
  <a class="secondary" href="portfolio.html" data-i18n="hero.cta_secondary">View projects</a>
  <a class="secondary" href="files/CV_Artem_Kholomianskyi.pdf" download data-i18n="hero.cta_cv">Download CV</a>
+ <a class="secondary" href="kalkulator.html" data-i18n="hero.cta_calc">Calculate the effect</a>
  </div>
  </div>
  <img class="hero-photo" src="img/photo-hero.webp" srcset="img/photo-hero.webp 1x, img/photo-hero@2x.webp 2x" width="150" height="150" alt="Artem Kholomyanskiy, AI consultant" loading="lazy">
@@ -430,6 +431,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <a href="services.html" data-i18n="nav.services">Services</a>
  <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
  <a href="products.html" data-i18n="nav.products">Products</a>
+ <a href="kalkulator.html" data-i18n="nav.calculator">Calculator</a>
  <a href="articles.html" data-i18n="nav.articles">Articles</a>
  <a href="index.html#contact" data-i18n="nav.contacts">Contact</a>
  </div>
@@ -443,10 +445,10 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 const T = {
  ru: {
  "brand.name":"АРТЁМ ХОЛОМЯНСКИЙ","brand.role":"EVAI Consulting · Разработка и внедрение AI-решений",
- "nav.services":"Услуги","nav.portfolio":"Портфолио","nav.products":"Продукты","nav.articles":"Статьи","nav.contacts":"Контакты",
+ "nav.services":"Услуги","nav.portfolio":"Портфолио","nav.products":"Продукты","nav.calculator":"Калькулятор","nav.articles":"Статьи","nav.contacts":"Контакты",
  "hero.name":"Артём Холомянский",
  "hero.sub":"AI-консалтинг, проектирование и автоматизация бизнес-процессов. Искусственный интеллект становится полезным только тогда, когда задача описана достаточно точно.",
- "hero.cta_primary":"Обсудить задачу","hero.cta_secondary":"Смотреть проекты","hero.cta_cv":"Скачать CV",
+ "hero.cta_primary":"Обсудить задачу","hero.cta_secondary":"Смотреть проекты","hero.cta_cv":"Скачать CV","hero.cta_calc":"Посчитать эффект",
  "approach.secnum":"ПОДХОД",
  "approach.lead":"Начинаю с анализа процессов, затем проектирую решение и сопровождаю внедрение до получения стабильного результата.",
  "approach.exp":"11+ лет в enterprise IT энергетического сектора со стороны заказчика — бизнес-аналитик и проектный менеджер, а не подрядчик. SAP IS-U, SCADA, АСКУЭ, проекты с высокой стоимостью ошибки и жёсткими требованиями к качеству. Работал с проектами компании суммарным бюджетом более $10 млн. Использую современные AI-инструменты и платформы автоматизации: Claude, Claude Code, n8n, API-интеграции и другие технологии, подходящие под конкретную задачу.",
@@ -501,10 +503,10 @@ const T = {
  },
  pl: {
  "brand.name":"ARTEM KHOLOMYANSKIY","brand.role":"EVAI Consulting · Tworzenie i wdrażanie rozwiązań AI",
- "nav.services":"Usługi","nav.portfolio":"Portfolio","nav.products":"Produkty","nav.articles":"Artykuły","nav.contacts":"Kontakt",
+ "nav.services":"Usługi","nav.portfolio":"Portfolio","nav.products":"Produkty","nav.calculator":"Kalkulator","nav.articles":"Artykuły","nav.contacts":"Kontakt",
  "hero.name":"Artem Kholomyanskiy",
  "hero.sub":"Konsulting AI, projektowanie rozwiązań i automatyzacja procesów biznesowych. Sztuczna inteligencja staje się użyteczna dopiero wtedy, gdy zadanie jest opisane wystarczająco precyzyjnie.",
- "hero.cta_primary":"Omów zadanie","hero.cta_secondary":"Zobacz projekty","hero.cta_cv":"Pobierz CV",
+ "hero.cta_primary":"Omów zadanie","hero.cta_secondary":"Zobacz projekty","hero.cta_cv":"Pobierz CV","hero.cta_calc":"Policz efekt",
  "approach.secnum":"PODEJŚCIE",
  "approach.lead":"Zaczynam od analizy procesów, następnie projektuję rozwiązanie i wspieram wdrożenie aż do uzyskania stabilnego rezultatu.",
  "approach.exp":"11+ lat w enterprise IT sektora energetycznego po stronie zamawiającego — jako analityk biznesowy i kierownik projektu, nie podwykonawca. SAP IS-U, SCADA, systemy pomiarowe, projekty o wysokim koszcie błędu i rygorystycznych wymaganiach jakościowych. Pracowałem przy projektach firmy o łącznym budżecie ponad 10 mln USD. Korzystam z nowoczesnych narzędzi AI i platform automatyzacji: Claude, Claude Code, n8n, integracje API i inne technologie dopasowane do zadania.",
@@ -559,10 +561,10 @@ const T = {
  },
  en: {
  "brand.name":"ARTEM KHOLOMYANSKIY","brand.role":"EVAI Consulting · AI Solution Development and Implementation",
- "nav.services":"Services","nav.portfolio":"Portfolio","nav.products":"Products","nav.articles":"Articles","nav.contacts":"Contact",
+ "nav.services":"Services","nav.portfolio":"Portfolio","nav.products":"Products","nav.calculator":"Calculator","nav.articles":"Articles","nav.contacts":"Contact",
  "hero.name":"Artem Kholomyanskiy",
  "hero.sub":"AI consulting, solution design, and business process automation. AI becomes useful only when the task is described precisely enough.",
- "hero.cta_primary":"Discuss a task","hero.cta_secondary":"View projects","hero.cta_cv":"Download CV",
+ "hero.cta_primary":"Discuss a task","hero.cta_secondary":"View projects","hero.cta_cv":"Download CV","hero.cta_calc":"Calculate the effect",
  "approach.secnum":"APPROACH",
  "approach.lead":"I start with process analysis, then design the solution and support implementation through to a stable result.",
  "approach.exp":"11+ years in enterprise IT in the energy sector, on the client side — a business analyst and project manager, not a contractor. SAP IS-U, SCADA, metering systems, projects with high cost of error and strict quality requirements. Worked on company projects with a combined budget of over $10M. I use modern AI tools and automation platforms: Claude, Claude Code, n8n, API integrations, and other technologies suited to the task.",
