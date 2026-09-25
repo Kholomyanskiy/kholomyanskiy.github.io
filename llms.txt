@@ -26,7 +26,7 @@
 - LinkedIn: https://linkedin.com/in/kholomyanskiy
 - GitHub: https://github.com/Kholomyanskiy
 - Telegram: https://t.me/kholomyanskiy
-- Локация: Эльблонг, Польша. Работает удалённо с клиентами из ЕС и США
+- Локация: Эльблонг, Польша. Работает удалённо
 
 ## Инструменты и стек
 
