@@ -1,0 +1,57 @@
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+}
+.spec-nav{
+  max-width:880px;
+  margin:24px auto 0;
+  padding:0 4px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+}
+.spec-nav-home{color:var(--ink-soft);text-decoration:none;letter-spacing:.04em}
+.spec-nav-home:hover{color:var(--blue)}
+.spec-lang-bar{display:flex;gap:2px}
+.spec-lang-btn{
+  background:none;border:1px solid var(--line);
+  color:var(--ink-soft);font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.08em;padding:4px 10px;
+  cursor:pointer;transition:background .15s,color .15s;
+  text-decoration:none;display:inline-block;line-height:normal
+}
+.spec-lang-btn:hover{background:var(--ink);color:var(--panel)}
+.spec-lang-btn.active{background:var(--ink);color:var(--panel)}
+.sheet{
+  max-width:880px;
+  margin:16px auto 40px;
+  background:var(--panel);
+  border:1.5px solid var(--ink);
+  box-shadow:8px 8px 0 rgba(27,32,39,.08);
+}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-main{padding:44px 28px 36px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;max-width:560px;color:var(--ink-soft);font-size:17px}
+section{padding:40px 28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
+p{max-width:620px;margin-bottom:14px}
+.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
+.cta h2{color:#fff}
+footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+@media(max-width:680px){
+  .sheet{margin:8px 12px 32px}
+  .spec-nav{padding:0 12px}
+}

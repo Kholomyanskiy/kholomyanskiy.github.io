@@ -91,6 +91,34 @@ def cmd_report() -> int:
     return 0
 
 
+FOOTER_RE = re.compile(r'<footer\b.*?</footer>', re.DOTALL)
+FOOTER_HREF_RE = re.compile(r'href="([^"]*)"')
+
+
+def footer_links(html: str) -> set:
+    """Ссылки подвала без префикса пути: 404 пишет корневые (/x), статьи — относительные (../x)."""
+    m = FOOTER_RE.search(html)
+    if not m:
+        return set()
+    return {re.sub(r'^(?:\.\./|/)', '', h) for h in FOOTER_HREF_RE.findall(m.group(0))}
+
+
+def warn_footer_copies() -> None:
+    """ТЗ-I, I-3: подвал в 404.html и articles/*.html — ручные копии src/partials/footer.html. Только предупреждение."""
+    partial = ROOT / "src" / "partials" / "footer.html"
+    if not partial.exists():
+        return
+    expected = footer_links(partial.read_text(encoding="utf-8"))
+    copies = [ROOT / "404.html"] + sorted((ROOT / "articles").glob("*.html"))
+    for path in copies:
+        if not path.exists():
+            continue
+        got = footer_links(path.read_text(encoding="utf-8"))
+        if got != expected:
+            print(f"ПРЕДУПРЕЖДЕНИЕ: подвал {path.relative_to(ROOT).as_posix()} расходится с src/partials/footer.html: "
+                  f"нет {sorted(expected - got)}, лишние {sorted(got - expected)}")
+
+
 def cmd_verify_build() -> int:
     configured = load_pages_config()
     if not configured:
@@ -133,6 +161,8 @@ def cmd_verify_build() -> int:
                 rel = clean[1:] + ("index.html" if clean.endswith("/") else "")
                 if not (ROOT / rel).exists():
                     problems.append(f"{page} [{lang}]: битая внутренняя ссылка {href}")
+
+    warn_footer_copies()
 
     if problems:
         for p in problems:

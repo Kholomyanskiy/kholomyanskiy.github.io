@@ -32,6 +32,78 @@ class StopCondition(Exception):
     """Соответствует разделу 9 ТЗ — требует решения Артёма, сборка не продолжается."""
 
 
+# ---------- общие части (ТЗ-I): src/partials/ ----------
+
+PARTIALS_DIR = SRC_DIR / "partials"
+COMMON_I18N = PARTIALS_DIR / "common.i18n.json"
+HTML_INCLUDE_RE = re.compile(r'<!-- @include ([a-z-]+)((?: [a-z]+=[a-z0-9_-]+)*) -->')
+CSS_INCLUDE_RE = re.compile(r'/\* @include ([a-z.-]+) \*/')
+HTML_PARTIALS = {"footer", "topnav", "specnav", "head-common"}
+CSS_PARTIALS = {"common.css"}
+NAV_CSS = [("topnav", "topnav.css"), ("specnav", "specnav.css")]  # CSS шапки идёт следом за common.css, только на страницы с этой шапкой
+
+
+def read_partial(name: str) -> str:
+    path = PARTIALS_DIR / name
+    if not path.exists():
+        raise StopCondition(f"Нет фрагмента {path}")
+    return path.read_text(encoding="utf-8").strip("\n")
+
+
+def expand_includes(src: str, page: str) -> str:
+    """Первый шаг сборки: метки @include -> фрагменты из src/partials/. Неизвестная метка — ошибка."""
+    used = set()
+
+    def html_repl(m):
+        name = m.group(1)
+        params = dict(kv.split("=", 1) for kv in m.group(2).split())
+        if name not in HTML_PARTIALS:
+            raise StopCondition(f"{page}: неизвестная метка @include {name}")
+        allowed = {"current"} if name == "topnav" else set()
+        if set(params) - allowed:
+            raise StopCondition(f"{page}: у @include {name} неизвестные параметры {sorted(set(params) - allowed)}")
+        text = read_partial(f"{name}.html")
+        if "current" in params:
+            link = f'href="{params["current"]}.html"'
+            if text.count(link) != 1:
+                raise StopCondition(f"{page}: в topnav нет ссылки {link} для current={params['current']}")
+            text = text.replace(link, link + ' class="current"')
+        used.add(name)
+        return text
+
+    out = HTML_INCLUDE_RE.sub(html_repl, src)
+
+    def css_repl(m):
+        name = m.group(1)
+        if name not in CSS_PARTIALS:
+            raise StopCondition(f"{page}: неизвестная метка /* @include {name} */")
+        return "\n".join([read_partial(name)] + [read_partial(css) for nav, css in NAV_CSS if nav in used])
+
+    out = CSS_INCLUDE_RE.sub(css_repl, out)
+    if "@include" in out:
+        raise StopCondition(f"{page}: нераспознанная метка @include")
+    return out
+
+
+def merge_common_dict(full_dict: dict, page: str) -> dict:
+    """Словарь страницы = common.i18n.json + T шаблона. Расхождение значений — стоп со списком."""
+    if not COMMON_I18N.exists():
+        return full_dict
+    common = json.loads(COMMON_I18N.read_text(encoding="utf-8"))
+    conflicts = []
+    merged = {}
+    for lang in LANGS:
+        d = dict(common.get(lang, {}))
+        for k, v in full_dict.get(lang, {}).items():
+            if k in d and d[k] != v:
+                conflicts.append(f"{lang} {k}: в шаблоне «{v}», в common.i18n.json «{d[k]}»")
+            d[k] = v
+        merged[lang] = d
+    if conflicts:
+        raise StopCondition(f"{page}: значения ключей расходятся с common.i18n.json:\n  " + "\n  ".join(conflicts))
+    return merged
+
+
 # ---------- извлечение словаря T ----------
 
 def find_t_block(src: str) -> str:
@@ -603,7 +675,8 @@ def build_page(page: str, migrated: set) -> None:
     if not tpl_path.exists():
         raise StopCondition(f"Нет шаблона {tpl_path}")
     template_src = tpl_path.read_text(encoding="utf-8")
-    full_dict = extract_dict(template_src)
+    full_dict = merge_common_dict(extract_dict(template_src), page)
+    template_src = expand_includes(template_src, page)
     for lang in LANGS:
         rendered = render_page(template_src, page, lang, full_dict, migrated)
         out_path = output_path(page, lang)

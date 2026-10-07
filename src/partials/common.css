@@ -1,0 +1,14 @@
+:root{
+ --paper:#F2F3EE; --panel:#FAFBF7; --ink:#1B2027; --ink-soft:#4A5361;
+ --line:#C9CEC2; --line-soft:#DEE1D8; --blue:#2B5B8A; --blue-deep:#1E4266; --stamp:#9A3B33;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+.titleblock{border-bottom:1.5px solid var(--ink)}
+.tb-top .brand{font-weight:500;color:var(--ink);letter-spacing:.08em}
+.muted{color:var(--ink-soft)}
+.footer-links{display:flex;flex-wrap:wrap;gap:18px}
+.footer-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+}

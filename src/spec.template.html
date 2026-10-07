@@ -10,15 +10,7 @@
 <meta property="og:title" content="Specification as a Service — EVAI Consulting">
 <meta property="og:description" content="Technical specifications for AI development. Audits and specs that allow Claude Code and developers to build systems predictably.">
 <meta property="og:url" content="https://kholomyanskiy.com/spec.html">
-<meta property="og:image" content="https://kholomyanskiy.com/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Artem Kholomyanskiy — AI Implementation Consultant">
-<meta name="twitter:image" content="https://kholomyanskiy.com/og-image.png">
-<meta property="og:locale" content="en_US">
-<meta property="og:locale:alternate" content="ru_RU">
-<meta property="og:locale:alternate" content="pl_PL">
-<meta name="twitter:card" content="summary_large_image">
+<!-- @include head-common -->
 <meta name="twitter:title" content="Specification as a Service — EVAI Consulting">
 <meta name="twitter:description" content="Technical specifications for AI development. Audits and specs that allow Claude Code and developers to build systems predictably.">
 <link rel="icon" href="favicon.ico" sizes="48x48">
@@ -27,69 +19,9 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="fonts/fonts.css">
 <style>
-:root{
-  --paper:#F2F3EE;
-  --panel:#FAFBF7;
-  --ink:#1B2027;
-  --ink-soft:#4A5361;
-  --line:#C9CEC2;
-  --line-soft:#DEE1D8;
-  --blue:#2B5B8A;
-  --blue-deep:#1E4266;
-  --stamp:#9A3B33;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--paper);
-  background-image:
-    linear-gradient(var(--line-soft) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
-  background-size:32px 32px;
-  color:var(--ink);
-  line-height:1.65;
-  font-size:16px;
-}
+/* @include common.css */
 /* ---------- spec-nav ---------- */
-.spec-nav{
-  max-width:880px;
-  margin:24px auto 0;
-  padding:0 4px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-family:'JetBrains Mono',monospace;
-  font-size:12px;
-}
-.spec-nav-home{color:var(--ink-soft);text-decoration:none;letter-spacing:.04em}
-.spec-nav-home:hover{color:var(--blue)}
-.spec-lang-bar{display:flex;gap:2px}
-.spec-lang-btn{
-  background:none;border:1px solid var(--line);
-  color:var(--ink-soft);font-family:'JetBrains Mono',monospace;
-  font-size:11px;letter-spacing:.08em;padding:4px 10px;
-  cursor:pointer;transition:background .15s,color .15s;
-  text-decoration:none;display:inline-block;line-height:normal
-}
-.spec-lang-btn:hover{background:var(--ink);color:var(--panel)}
-.spec-lang-btn.active{background:var(--ink);color:var(--panel)}
-.sheet{
-  max-width:880px;
-  margin:16px auto 40px;
-  background:var(--panel);
-  border:1.5px solid var(--ink);
-  box-shadow:8px 8px 0 rgba(27,32,39,.08);
-}
 /* ---------- title block ---------- */
-.titleblock{border-bottom:1.5px solid var(--ink)}
-.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
-.tb-top .brand{font-weight:500;color:var(--ink);letter-spacing:.08em}
-.tb-main{padding:44px 28px 36px;position:relative}
-.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
-.tb-main h1 em{font-style:normal;color:var(--blue)}
-.tb-main .sub{margin-top:16px;max-width:560px;color:var(--ink-soft);font-size:17px}
 .stamp{
   position:absolute;top:36px;right:28px;
   border:2px solid var(--stamp);color:var(--stamp);
@@ -102,13 +34,7 @@ body{
 .tb-meta div:last-child{border-right:none}
 .tb-meta .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:2px}
 /* ---------- sections ---------- */
-section{padding:40px 28px;border-bottom:1px solid var(--line)}
-section:last-of-type{border-bottom:none}
-.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
-h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
-p{max-width:620px;margin-bottom:14px}
 p.lead{font-size:17.5px}
-.muted{color:var(--ink-soft)}
 .log{
   font-family:'JetBrains Mono',monospace;font-size:13px;
   background:var(--ink);color:#D8DDE4;
@@ -147,8 +73,6 @@ p.lead{font-size:17.5px}
   position:absolute;left:0;top:12px;
   font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue);
 }
-.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
-.cta h2{color:#fff}
 .cta p{color:#B9C1CC}
 .cta a.btn{
   display:inline-block;margin-top:10px;
@@ -160,16 +84,11 @@ p.lead{font-size:17.5px}
 .cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .cta .alt{margin-top:16px;font-size:14px}
 .cta .alt a{color:#EDEFF2}
-footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
-.footer-links{display:flex;flex-wrap:wrap;gap:18px}
 .footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
 .footer-links a:hover{color:var(--blue)}
-.footer-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 footer a{color:var(--ink);text-decoration:none;font-weight:500}
 footer a:hover{color:var(--blue);text-decoration:underline}
 @media(max-width:680px){
-  .sheet{margin:8px 12px 32px}
-  .spec-nav{padding:0 12px}
   .tb-meta{grid-template-columns:repeat(2,1fr)}
   .tb-meta div:nth-child(2){border-right:none}
   .formats{grid-template-columns:1fr}
@@ -179,14 +98,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 </head>
 <body>
 
-<nav class="spec-nav">
-  <a href="index.html" class="spec-nav-home" data-i18n="nav_home">← Home</a>
-  <div class="spec-lang-bar">
-    <a class="spec-lang-btn" data-lang="en">EN</a>
-    <a class="spec-lang-btn" data-lang="pl">PL</a>
-    <a class="spec-lang-btn" data-lang="ru">RU</a>
-  </div>
-</nav>
+<!-- @include specnav -->
 
 <div class="sheet">
 
@@ -340,20 +252,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 
 </div>
 
-<footer>
-  <div class="footer-links">
-  <a href="services.html" data-i18n="nav.services">Services</a>
-  <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
-  <a href="products.html" data-i18n="nav.products">Products</a>
-  <a href="kalkulator.html" data-i18n="nav.calculator">Calculator</a>
-  <a href="articles.html" data-i18n="nav.articles">Articles</a>
-  <a href="index.html#contact" data-i18n="nav.contacts">Contact</a>
-  </div>
-  <div class="footer-meta">
-  <span>EVAI Consulting · Elbląg, Poland</span>
-  <span><a href="tel:+48508409363">+48 508 409 363</a> · <a href="mailto:artem@kholomyanskiy.com">artem@kholomyanskiy.com</a> · <a href="https://linkedin.com/in/kholomyanskiy">LinkedIn</a> · <a href="https://t.me/kholomyanskiy">Telegram</a></span>
-  </div>
-</footer>
+<!-- @include footer -->
 
 <script>
 var T = {
@@ -361,8 +260,7 @@ var T = {
     page_title: "Спецификация как услуга — EVAI Consulting",
     meta_desc: "Технические задания для AI-разработки. Аудит и спецификации, по которым Claude Code и разработчики строят системы предсказуемо.",
     mailto_subject: "Спецификация",
-    nav_home: "← Главная", stamp: "Действует · v1.0",
-    "nav.services": "Услуги", "nav.portfolio": "Портфолио", "nav.products": "Продукты", "nav.calculator": "Калькулятор", "nav.articles": "Статьи", "nav.contacts": "Контакты",
+    stamp: "Действует · v1.0",
     h1_title: "Спецификация <em>как услуга</em>",
     tb_sub: "Технические задания, по которым AI-агент или разработчик строит систему предсказуемо. За 2–3 итерации вместо бесконечных переделок.",
     tb_doc_k: "Документ", tb_doc_v: "Коммерческое предложение",
@@ -410,8 +308,7 @@ var T = {
     page_title: "Specyfikacja jako usługa — EVAI Consulting",
     meta_desc: "Dokumentacja techniczna dla AI development. Audyty i specyfikacje, według których Claude Code i programiści budują systemy przewidywalnie.",
     mailto_subject: "Specyfikacja",
-    nav_home: "← Strona główna", stamp: "Aktywny · v1.0",
-    "nav.services": "Usługi", "nav.portfolio": "Portfolio", "nav.products": "Produkty", "nav.calculator": "Kalkulator", "nav.articles": "Artykuły", "nav.contacts": "Kontakt",
+    stamp: "Aktywny · v1.0",
     h1_title: "Specyfikacja <em>jako usługa</em>",
     tb_sub: "Dokumentacja techniczna, według której agent AI lub programista buduje system przewidywalnie. W 2–3 iteracjach zamiast nieskończonych poprawek.",
     tb_doc_k: "Dokument", tb_doc_v: "Oferta handlowa",
@@ -459,8 +356,7 @@ var T = {
     page_title: "Specification as a Service — EVAI Consulting",
     meta_desc: "Technical specifications for AI development. Audits and specs that allow Claude Code and developers to build systems predictably.",
     mailto_subject: "Specification",
-    nav_home: "← Home", stamp: "Active · v1.0",
-    "nav.services": "Services", "nav.portfolio": "Portfolio", "nav.products": "Products", "nav.calculator": "Calculator", "nav.articles": "Articles", "nav.contacts": "Contact",
+    stamp: "Active · v1.0",
     h1_title: "Specification <em>as a Service</em>",
     tb_sub: "Technical specifications that allow an AI agent or developer to build a system predictably. In 2–3 iterations instead of endless rework.",
     tb_doc_k: "Document", tb_doc_v: "Commercial Offer",
