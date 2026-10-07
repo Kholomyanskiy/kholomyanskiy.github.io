@@ -132,6 +132,9 @@ p.lead{font-size:17.5px}
 .card-foot{padding:14px 20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
 .price{font-family:'Spectral',serif;font-size:21px;font-weight:700}
 .term{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft)}
+.card-action{padding:14px 20px}
+.card-action a.btn2{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:#fff;background:var(--blue);border:1.5px solid var(--blue);padding:11px 22px;text-decoration:none}
+.card-action a.btn2:hover{background:transparent;color:var(--blue)}
 .inv{border:1px solid var(--line);background:var(--paper);padding:16px 20px;margin-bottom:12px;max-width:660px;display:flex;gap:16px}
 .inv .code{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--stamp);min-width:64px;padding-top:2px}
 .inv p{margin:0;font-size:15px}
@@ -158,6 +161,18 @@ p.lead{font-size:17.5px}
 .cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .cta .alt{margin-top:16px;font-size:14px}
 .cta .alt a{color:#EDEFF2}
+.contact-form{max-width:460px;display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.contact-form label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.05em;color:#B9C1CC;display:block;margin-bottom:5px}
+.contact-form input[type=text],.contact-form input[type=email],.contact-form select,.contact-form textarea{width:100%;background:#2A313C;border:1px solid #4A5361;color:#EDEFF2;padding:10px 12px;font-family:'Inter',sans-serif;font-size:14px}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:2px solid var(--blue);outline-offset:1px}
+.contact-form textarea{resize:vertical;min-height:120px}
+.contact-form button{align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;padding:12px 26px;cursor:pointer}
+.contact-form button:hover{background:transparent;color:#EDEFF2}
+.contact-form button:disabled{opacity:.6;cursor:default}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-status{font-family:'JetBrains Mono',monospace;font-size:13px;margin:0;min-height:16px}
+.form-status.success{color:#7FD99A}
+.form-status.error{color:#E08585}
 footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
 .footer-links{display:flex;flex-wrap:wrap;gap:18px}
 .footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
@@ -343,6 +358,9 @@ footer a:hover{color:var(--blue);text-decoration:underline}
           <span class="price" data-i18n="s3_c1_price">od 3 500 zł</span>
           <span class="term" data-i18n="s3_c1_term">7–10 dni</span>
         </div>
+        <div class="card-action">
+          <a class="btn2" href="#audit-contact" data-format="express" data-i18n="s3_c1_btn">Zamów audyt ekspresowy →</a>
+        </div>
       </div>
       <div class="card">
         <div class="card-head">
@@ -360,6 +378,9 @@ footer a:hover{color:var(--blue);text-decoration:underline}
         <div class="card-foot">
           <span class="price" data-i18n="s3_c2_price">od 9 000 zł</span>
           <span class="term" data-i18n="s3_c2_term">3–4 tygodnie</span>
+        </div>
+        <div class="card-action">
+          <a class="btn2" href="#audit-contact" data-format="department" data-i18n="s3_c2_btn">Zamów audyt działu →</a>
         </div>
       </div>
     </div>
@@ -406,12 +427,39 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     </ol>
   </section>
 
-  <div class="cta">
+  <div class="cta" id="audit-contact">
     <span class="secnum" style="color:#7FA8CC" data-i18n="s7_num">7.0 // KONTAKT</span>
     <h2 data-i18n="s7_h2">Najpierw liczby — potem wdrożenie</h2>
     <p data-i18n="s7_p">Opisz dział w trzech zdaniach. Odpiszę w ciągu dnia roboczego: czy audyt ma sens i od czego zacząć.</p>
-    <a class="btn" id="mailto-btn" href="mailto:artem@kholomyanskiy.com?subject=Audyt" data-i18n="s7_btn">Napisz wiadomość</a>
-    <p class="alt"><span data-i18n="s7_alt_text">lub</span> LinkedIn: <a href="https://linkedin.com/in/kholomyanskiy">/in/kholomyanskiy</a> · Telegram: <a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></p>
+    <form class="contact-form" id="contact-form">
+      <input type="hidden" name="access_key" value="b593308b-f741-4dab-b3a3-19b6036aa1b0">
+      <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="subject">
+      <input type="hidden" name="page">
+      <div>
+        <label for="cf-format" data-i18n="form.format">Format</label>
+        <select id="cf-format" name="audit_format">
+          <option value="express" data-i18n="form.f_express">Audyt ekspresowy</option>
+          <option value="department" data-i18n="form.f_department">Audyt działu</option>
+          <option value="unsure" data-i18n="form.f_unsure" selected>Jeszcze nie wiem, pomóż wybrać</option>
+        </select>
+      </div>
+      <div>
+        <label for="cf-name" data-i18n="form.name">Imię</label>
+        <input type="text" id="cf-name" name="name" required>
+      </div>
+      <div>
+        <label for="cf-email" data-i18n="form.email">Email</label>
+        <input type="email" id="cf-email" name="email" required>
+      </div>
+      <div>
+        <label for="cf-message" data-i18n="form.message">Wiadomość</label>
+        <textarea id="cf-message" name="message" required></textarea>
+      </div>
+      <button type="submit" data-i18n="form.submit">Wyślij →</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+    <p class="alt"><span data-i18n="s7_alt_text">lub</span> <a id="mailto-btn" href="mailto:artem@kholomyanskiy.com?subject=Audyt">artem@kholomyanskiy.com</a> · LinkedIn: <a href="https://linkedin.com/in/kholomyanskiy">/in/kholomyanskiy</a> · Telegram: <a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></p>
     <p class="alt" data-i18n-html="s7_calc">Rząd wielkości można oszacować przed napisaniem: <a href="/pl/kalkulator.html">kalkulator opłacalności automatyzacji</a>.</p>
   </div>
 
@@ -433,6 +481,63 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 </footer>
 
 
+<script>
+var MSG = {
+  sending: "Wysyłanie...", success: "Dziękuję, wiadomość wysłana. Odpowiem w ciągu jednego dnia roboczego.", error: "Nie udało się wysłać. Napisz bezpośrednio na artem@kholomyanskiy.com"
+};
+
+(function() {
+  var LANG = document.documentElement.lang || 'en';
+  var FORMAT_EN = {express: 'Express Audit', department: 'Department Audit', unsure: 'Not sure'};
+  var form = document.getElementById('contact-form');
+  var format = document.getElementById('cf-format');
+  function setPage() {
+    form.elements.page.value = location.origin + location.pathname + ' · ' + LANG;
+  }
+  setPage();
+
+  document.querySelectorAll('.card-action a[data-format]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      format.value = a.getAttribute('data-format');
+      document.getElementById('audit-contact').scrollIntoView();
+      document.getElementById('cf-name').focus({preventScroll: true});
+    });
+  });
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    form.elements.subject.value = 'Audit request: ' + (FORMAT_EN[format.value] || format.value);
+    setPage();
+    var btn = form.querySelector('button[type="submit"]');
+    var status = document.getElementById('form-status');
+    btn.disabled = true;
+    status.className = 'form-status';
+    status.textContent = MSG.sending;
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Accept': 'application/json'},
+        body: new FormData(form)
+      });
+      var json = await res.json();
+      if (json.success) {
+        status.className = 'form-status success';
+        status.textContent = MSG.success;
+        form.reset();
+        setPage(); // reset() очищает и скрытые поля
+      } else {
+        throw new Error(json.message || 'submit failed');
+      }
+    } catch (err) {
+      status.className = 'form-status error';
+      status.textContent = MSG.error;
+    } finally {
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
 <script>
 document.querySelectorAll('[data-lang]').forEach(function(b){
   b.addEventListener('click', function(){ localStorage.setItem('site-lang', b.dataset.lang); });
