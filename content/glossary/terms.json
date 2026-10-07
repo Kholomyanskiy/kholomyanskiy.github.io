@@ -1,0 +1,21 @@
+{
+  "groups": ["process", "spec", "ai"],
+  "terms": [
+    {"slug": "process-audit",            "group": "process"},
+    {"slug": "process-map",              "group": "process"},
+    {"slug": "pilot",                    "group": "process"},
+    {"slug": "failure-point",            "group": "process"},
+    {"slug": "ai-specification",         "group": "spec"},
+    {"slug": "acceptance-criteria",      "group": "spec"},
+    {"slug": "invariant",                "group": "spec"},
+    {"slug": "total-cost-of-ownership",  "group": "spec"},
+    {"slug": "agent",                    "group": "ai"},
+    {"slug": "hallucination",            "group": "ai"},
+    {"slug": "human-in-the-loop",        "group": "ai"},
+    {"slug": "prompt",                   "group": "ai"},
+    {"slug": "rag",                      "group": "ai"},
+    {"slug": "knowledge-base",           "group": "ai"},
+    {"slug": "document-recognition",     "group": "ai"},
+    {"slug": "context-window",           "group": "ai"}
+  ]
+}
