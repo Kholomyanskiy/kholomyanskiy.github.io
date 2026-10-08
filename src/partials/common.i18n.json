@@ -7,7 +7,7 @@
     "nav.articles": "Articles",
     "nav.contacts": "Contact",
     "brand.name": "ARTEM KHOLOMYANSKIY",
-    "brand.role": "EVAI Consulting · AI Solution Development and Implementation",
+    "brand.role": "EVAI Consulting · AI Implementation Consultant",
     "nav_home": "← Home"
   },
   "pl": {
@@ -18,7 +18,7 @@
     "nav.articles": "Artykuły",
     "nav.contacts": "Kontakt",
     "brand.name": "ARTEM KHOLOMYANSKIY",
-    "brand.role": "EVAI Consulting · Tworzenie i wdrażanie rozwiązań AI",
+    "brand.role": "EVAI Consulting · Konsultant ds. wdrożeń AI",
     "nav_home": "← Strona główna"
   },
   "ru": {
@@ -29,7 +29,7 @@
     "nav.articles": "Статьи",
     "nav.contacts": "Контакты",
     "brand.name": "АРТЁМ ХОЛОМЯНСКИЙ",
-    "brand.role": "EVAI Consulting · Разработка и внедрение AI-решений",
+    "brand.role": "EVAI Consulting · Консультант по внедрению ИИ",
     "nav_home": "← Главная"
   }
 }
