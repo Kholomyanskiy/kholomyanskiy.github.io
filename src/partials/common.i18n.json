@@ -1,6 +1,9 @@
 {
   "en": {
     "nav.services": "Services",
+    "nav.services_menu_audit": "Department audit",
+    "nav.services_menu_spec": "AI specification",
+    "nav.services_menu_calc": "ROI calculator",
     "nav.portfolio": "Portfolio",
     "nav.products": "Products",
     "nav.calculator": "Calculator",
@@ -12,6 +15,9 @@
   },
   "pl": {
     "nav.services": "Usługi",
+    "nav.services_menu_audit": "Audyt działu",
+    "nav.services_menu_spec": "Specyfikacja AI",
+    "nav.services_menu_calc": "Kalkulator opłacalności",
     "nav.portfolio": "Portfolio",
     "nav.products": "Produkty",
     "nav.calculator": "Kalkulator",
@@ -23,6 +29,9 @@
   },
   "ru": {
     "nav.services": "Услуги",
+    "nav.services_menu_audit": "Аудит отдела",
+    "nav.services_menu_spec": "Спецификация ИИ-задачи",
+    "nav.services_menu_calc": "Калькулятор окупаемости",
     "nav.portfolio": "Портфолио",
     "nav.products": "Продукты",
     "nav.calculator": "Калькулятор",

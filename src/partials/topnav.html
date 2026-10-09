@@ -2,7 +2,13 @@
  <div class="topnav-inner">
  <a class="topnav-brand" href="index.html"><span data-i18n="brand.name">ARTEM KHOLOMYANSKIY</span><span class="role" data-i18n="brand.role">EVAI Consulting · AI Implementation Consultant</span></a>
  <div class="topnav-links">
- <a href="services.html" data-i18n="nav.services">Services</a>
+ <span class="nav-drop"><a href="services.html" data-i18n="nav.services">Services</a><span class="nav-drop-arrow" aria-hidden="true"><svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M.5.5 4 4 7.5.5" stroke="currentColor" stroke-width="1.2"/></svg></span>
+ <span class="nav-drop-list">
+ <a href="audit.html" data-i18n="nav.services_menu_audit">Department audit</a>
+ <a href="spec.html" data-i18n="nav.services_menu_spec">AI specification</a>
+ <a href="kalkulator.html" data-i18n="nav.services_menu_calc">ROI calculator</a>
+ </span>
+ </span>
  <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
  <a href="products.html" data-i18n="nav.products">Products</a>
  <a href="articles.html" data-i18n="nav.articles">Articles</a>
@@ -15,3 +21,10 @@
  </div>
  </div>
 </nav>
+<script>
+document.querySelectorAll('.nav-drop').forEach(function(d){
+ d.addEventListener('keydown',function(e){if(e.key==='Escape'){d.classList.add('nav-drop-off');d.querySelector('a').focus();}});
+ d.addEventListener('mouseleave',function(){d.classList.remove('nav-drop-off');});
+ d.addEventListener('focusout',function(e){if(!d.contains(e.relatedTarget))d.classList.remove('nav-drop-off');});
+});
+</script>

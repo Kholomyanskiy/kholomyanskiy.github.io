@@ -54,6 +54,16 @@ body{
 .lang-btn.active{background:var(--ink);color:#EDEFF2}
 .lang-btn:hover:not(.active){color:var(--ink)}
 .topnav .topnav-links a.current{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--blue);text-decoration-thickness:2px;text-underline-offset:5px}
+.nav-drop-arrow,.nav-drop-list{display:none}
+@media(hover:hover) and (pointer:fine) and (min-width:681px){
+  .nav-drop{position:relative}
+  .nav-drop-arrow{display:inline-block;margin-left:5px;vertical-align:middle;line-height:0;color:var(--ink-soft)}
+  .nav-drop-list{display:block;position:absolute;top:calc(100% + 14px);left:-15px;min-width:max-content;padding:6px 0;background:var(--panel);border:1.5px solid var(--ink);box-shadow:8px 8px 0 rgba(27,32,39,.08);visibility:hidden;transition:visibility 0s linear .25s}
+  .nav-drop-list::before{content:"";position:absolute;left:0;right:0;top:-16px;height:16px}
+  .nav-drop:hover .nav-drop-list,.nav-drop:focus-within .nav-drop-list{visibility:visible;transition-delay:0s}
+  .nav-drop.nav-drop-off .nav-drop-list{visibility:hidden;transition:none}
+  .topnav .nav-drop-list a{display:block;padding:6px 14px;white-space:nowrap}
+}
 .sheet{max-width:820px;margin:32px auto 40px;background:var(--panel);border:1.5px solid var(--ink);box-shadow:8px 8px 0 rgba(27,32,39,.08)}
 .tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
 section{padding:40px 32px;border-bottom:1px solid var(--line);scroll-margin-top:70px}
@@ -117,7 +127,13 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <div class="topnav-inner">
  <a class="topnav-brand" href="/pl/"><span data-i18n="brand.name">ARTEM KHOLOMYANSKIY</span><span class="role" data-i18n="brand.role">EVAI Consulting · Konsultant ds. wdrożeń AI</span></a>
  <div class="topnav-links">
- <a href="/pl/services.html" data-i18n="nav.services">Usługi</a>
+ <span class="nav-drop"><a href="/pl/services.html" data-i18n="nav.services">Usługi</a><span class="nav-drop-arrow" aria-hidden="true"><svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M.5.5 4 4 7.5.5" stroke="currentColor" stroke-width="1.2"/></svg></span>
+ <span class="nav-drop-list">
+ <a href="/pl/audit.html" data-i18n="nav.services_menu_audit">Audyt działu</a>
+ <a href="/pl/spec.html" data-i18n="nav.services_menu_spec">Specyfikacja AI</a>
+ <a href="/pl/kalkulator.html" data-i18n="nav.services_menu_calc">Kalkulator opłacalności</a>
+ </span>
+ </span>
  <a href="/pl/portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
  <a href="/pl/products.html" data-i18n="nav.products">Produkty</a>
  <a href="/pl/articles.html" class="current" data-i18n="nav.articles">Artykuły</a>
@@ -130,6 +146,13 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  </div>
  </div>
 </nav>
+<script>
+document.querySelectorAll('.nav-drop').forEach(function(d){
+ d.addEventListener('keydown',function(e){if(e.key==='Escape'){d.classList.add('nav-drop-off');d.querySelector('a').focus();}});
+ d.addEventListener('mouseleave',function(){d.classList.remove('nav-drop-off');});
+ d.addEventListener('focusout',function(e){if(!d.contains(e.relatedTarget))d.classList.remove('nav-drop-off');});
+});
+</script>
 
 <div class="sheet">
 
