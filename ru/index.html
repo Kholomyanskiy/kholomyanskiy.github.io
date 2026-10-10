@@ -305,6 +305,8 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 .form-status.success{color:#7FD99A}
 .form-status.error{color:#E08585}
 .form-divider{margin:28px 0 6px;color:#8A93A0;font-size:13px}
+.closing-cta .alt{margin:16px 0 0;font-size:14px}
+.closing-cta .alt a{color:#EDEFF2}
 @media(max-width:680px){
  .topnav-links{gap:14px;font-size:12px}
 }
@@ -523,6 +525,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  </div>
  <button type="submit" data-i18n="form.submit">Отправить →</button>
  <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+ <p class="alt" data-i18n-html="form.privacy">Отправляя форму, вы передаёте мне имя, email и текст сообщения, чтобы я мог ответить. Подробнее: <a href="/ru/privacy.html">Политика конфиденциальности</a>.</p>
  </form>
  <p class="form-divider" data-i18n="form.or">или написать на почту напрямую:</p>
  <a class="btn3" href="mailto:artem@kholomyanskiy.com?subject=Task" data-i18n="closing.btn">Написать →</a>
@@ -539,6 +542,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <a href="/ru/articles.html" data-i18n="nav.articles">Статьи</a>
  <a href="/ru/glossary/" data-i18n="nav.glossary">Словарь</a>
  <a href="/ru/#contact" data-i18n="nav.contacts">Контакты</a>
+ <a href="/ru/privacy.html" data-i18n="nav.privacy">Конфиденциальность</a>
  </div>
  <div class="footer-meta">
  <span>EVAI Consulting · Elbląg, Poland</span>

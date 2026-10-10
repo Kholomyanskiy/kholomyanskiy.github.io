@@ -10,6 +10,7 @@
     "nav.articles": "Articles",
     "nav.glossary": "Glossary",
     "nav.contacts": "Contact",
+    "nav.privacy": "Privacy",
     "brand.name": "ARTEM KHOLOMYANSKIY",
     "brand.role": "EVAI Consulting · AI Implementation Consultant",
     "nav_home": "← Home"
@@ -25,6 +26,7 @@
     "nav.articles": "Artykuły",
     "nav.glossary": "Słownik",
     "nav.contacts": "Kontakt",
+    "nav.privacy": "Prywatność",
     "brand.name": "ARTEM KHOLOMYANSKIY",
     "brand.role": "EVAI Consulting · Konsultant ds. wdrożeń AI",
     "nav_home": "← Strona główna"
@@ -40,6 +42,7 @@
     "nav.articles": "Статьи",
     "nav.glossary": "Словарь",
     "nav.contacts": "Контакты",
+    "nav.privacy": "Конфиденциальность",
     "brand.name": "АРТЁМ ХОЛОМЯНСКИЙ",
     "brand.role": "EVAI Consulting · Консультант по внедрению ИИ",
     "nav_home": "← Главная"

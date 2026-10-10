@@ -177,6 +177,8 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 .form-status.success{color:#7FD99A}
 .form-status.error{color:#E08585}
 .form-divider{margin:28px 0 6px;color:#8A93A0;font-size:13px}
+.closing-cta .alt{margin:16px 0 0;font-size:14px}
+.closing-cta .alt a{color:#EDEFF2}
 @media(max-width:680px){
  .topnav-links{gap:14px;font-size:12px}
 }
@@ -360,6 +362,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  </div>
  <button type="submit" data-i18n="form.submit">Send →</button>
  <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+ <p class="alt" data-i18n-html="form.privacy">By sending this form you share your name, email and message so I can reply. Details: <a href="privacy.html">Privacy policy</a>.</p>
  </form>
  <p class="form-divider" data-i18n="form.or">or write directly to my email:</p>
  <a class="btn3" href="mailto:artem@kholomyanskiy.com?subject=Task" data-i18n="closing.btn">Write →</a>
@@ -420,7 +423,7 @@ const T = {
  "closing.title":"Не уверены, что вам нужно?",
  "closing.p":"Опишите пару предложений о том, что происходит в отделе. Отвечу честно, стоит ли этим заниматься и с чего начать.",
  "closing.btn":"Написать →",
- "form.name":"Имя","form.email":"Email","form.message":"Сообщение","form.submit":"Отправить →",
+ "form.privacy":"Отправляя форму, вы передаёте мне имя, email и текст сообщения, чтобы я мог ответить. Подробнее: <a href=\"privacy.html\">Политика конфиденциальности</a>.", "form.name":"Имя","form.email":"Email","form.message":"Сообщение","form.submit":"Отправить →",
  "form.or":"или написать на почту напрямую:",
  "form.sending":"Отправка...","form.success":"Спасибо, сообщение отправлено. Отвечу в течение одного-двух дней.",
  "form.error":"Не получилось отправить. Напишите напрямую на artem@kholomyanskiy.com",
@@ -476,7 +479,7 @@ const T = {
  "closing.title":"Nie jesteś pewien, czego potrzebujesz?",
  "closing.p":"Opisz w kilku zdaniach, co dzieje się w Twoim dziale. Odpowiem szczerze, czy warto się tym zająć i od czego zacząć.",
  "closing.btn":"Napisz →",
- "form.name":"Imię","form.email":"Email","form.message":"Wiadomość","form.submit":"Wyślij →",
+ "form.privacy":"Wysyłając formularz, przekazujesz mi imię, e-mail i treść wiadomości, żebym mógł odpowiedzieć. Szczegóły: <a href=\"privacy.html\">Polityka prywatności</a>.", "form.name":"Imię","form.email":"Email","form.message":"Wiadomość","form.submit":"Wyślij →",
  "form.or":"lub napisz bezpośrednio na maila:",
  "form.sending":"Wysyłanie...","form.success":"Dziękuję, wiadomość została wysłana. Odpowiem w ciągu jednego lub dwóch dni.",
  "form.error":"Nie udało się wysłać. Napisz bezpośrednio na artem@kholomyanskiy.com",
@@ -532,7 +535,7 @@ const T = {
  "closing.title":"Not sure what you need?",
  "closing.p":"Describe what's happening in your department in a couple of sentences. I'll give you an honest read on whether it's worth doing and where to start.",
  "closing.btn":"Write →",
- "form.name":"Name","form.email":"Email","form.message":"Message","form.submit":"Send →",
+ "form.privacy":"By sending this form you share your name, email and message so I can reply. Details: <a href=\"privacy.html\">Privacy policy</a>.", "form.name":"Name","form.email":"Email","form.message":"Message","form.submit":"Send →",
  "form.or":"or write directly to my email:",
  "form.sending":"Sending...","form.success":"Thanks, your message is sent. I'll reply within a day or two.",
  "form.error":"Couldn't send it. Please write directly to artem@kholomyanskiy.com",
