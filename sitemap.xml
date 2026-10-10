@@ -180,4 +180,40 @@
  <changefreq>monthly</changefreq>
  <priority>0.7</priority>
  </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/</loc>
+ <lastmod>2026-10-10</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.7</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/process-audit.html</loc>
+ <lastmod>2026-10-10</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/process-map.html</loc>
+ <lastmod>2026-10-10</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/pilot.html</loc>
+ <lastmod>2026-10-10</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/ai-specification.html</loc>
+ <lastmod>2026-10-10</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/acceptance-criteria.html</loc>
+ <lastmod>2026-10-10</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
 </urlset>

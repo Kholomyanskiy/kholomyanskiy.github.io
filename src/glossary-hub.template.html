@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{url}}">
+{{hreflang}}<meta property="og:type" content="website">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{url}}">
+<!-- @include head-common -->
+<meta name="twitter:title" content="{{title}}">
+<meta name="twitter:description" content="{{description}}">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+{{jsonld}}<style>
+/* @include common.css */
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+@media(max-width:680px){.topnav-links{gap:14px;font-size:12px}}
+
+.tb-main{padding:44px 32px 36px}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,42px);line-height:1.12;max-width:640px}
+.tb-main .sub{margin-top:14px;max-width:560px;color:var(--ink-soft);font-size:17px}
+
+h2{font-family:'Spectral',serif;font-weight:600;font-size:25px;margin-bottom:14px}
+h3{font-family:'Spectral',serif;font-weight:600;font-size:19px;margin-bottom:6px}
+a{color:var(--blue)}
+
+.article-grid{display:grid;grid-template-columns:1fr;gap:2px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+.article-card{background:var(--panel);padding:24px 26px;position:relative}
+.article-card h3{margin-bottom:6px}
+.article-card p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px;max-width:none}
+.article-cta{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.05em;color:var(--blue);text-decoration:none}
+.article-cta:hover{text-decoration:underline}
+.article-cta::after{content:"";position:absolute;inset:0}
+
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em}
+.footer-links a:hover{color:var(--blue)}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+
+@media(max-width:680px){
+ section,.tb-main{padding-left:20px;padding-right:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- @include topnav -->
+
+<div class="sheet">
+
+ <header class="titleblock">
+ <div class="tb-top">
+ <span class="brand">EVAI CONSULTING</span>
+ <span>Elbląg, Poland</span>
+ </div>
+ <div class="tb-main">
+ <h1>{{h1}}</h1>
+ <p class="sub">{{intro}}</p>
+ </div>
+ </header>
+
+{{groups}}
+</div>
+
+<!-- @include footer -->
+
+</body>
+</html>
