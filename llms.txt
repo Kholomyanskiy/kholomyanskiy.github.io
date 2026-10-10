@@ -20,7 +20,25 @@
 - [AI Readiness Assessment / аудит отдела](https://kholomyanskiy.com/audit.html): диагностика процессов перед внедрением AI. Express от 3 500 zł (7–10 дней), Department от 9 000 zł (до 10 сотрудников, 3–4 недели), итоговая цена по объёму. PL: https://kholomyanskiy.com/pl/audit.html · RU: https://kholomyanskiy.com/ru/audit.html
 - [Спецификация как услуга](https://kholomyanskiy.com/spec.html): технические спецификации для разработки AI-систем — аудиты и ТЗ, по которым Claude Code и разработчики строят системы предсказуемо. PL: https://kholomyanskiy.com/pl/spec.html · RU: https://kholomyanskiy.com/ru/spec.html
 
-## Словарь
+## Glossary
+
+### English
+
+- [Process audit](https://kholomyanskiy.com/glossary/process-audit.html): A process audit before AI implementation examines how work is actually done in a company: what people do, how long it takes, which data and tools they use, and where delays and errors occur.
+- [Process map](https://kholomyanskiy.com/glossary/process-map.html): A process map shows how work actually moves through a department or company: who does what, in which order, what they pass on, where work waits, and where people bypass rules to get things done.
+- [Pilot](https://kholomyanskiy.com/glossary/pilot.html): A pilot is a time-limited, small-scale launch of a solution using real data and real people, with success criteria written down in advance.
+- [AI specification](https://kholomyanskiy.com/glossary/ai-specification.html): An AI specification is a document that describes a task so a model or agent can perform it predictably and its output can be checked: what goes in, what comes out, which rules must not be broken, and how to tell when the work is done.
+- [Acceptance criteria](https://kholomyanskiy.com/glossary/acceptance-criteria.html): Acceptance criteria are verifiable conditions used to decide whether work is complete.
+
+### Polski
+
+- [Audyt procesów](https://kholomyanskiy.com/pl/glossary/process-audit.html): Audyt procesów przed wdrożeniem AI to analiza tego, jak naprawdę przebiega praca w firmie: jakie zadania wykonują ludzie, ile czasu im to zajmuje, z jakich danych i narzędzi korzystają oraz gdzie pojawiają się opóźnienia i błędy.
+- [Mapa procesów](https://kholomyanskiy.com/pl/glossary/process-map.html): Mapa procesów pokazuje, jak praca naprawdę przebiega w dziale lub firmie: kto co robi, w jakiej kolejności, co przekazuje dalej, gdzie czeka i gdzie omija zasady, żeby zdążyć.
+- [Pilotaż](https://kholomyanskiy.com/pl/glossary/pilot.html): Pilotaż to ograniczone czasowo i zakresem uruchomienie rozwiązania na prawdziwych danych i z udziałem prawdziwych użytkowników, z kryteriami sukcesu zapisanymi z góry.
+- [Specyfikacja AI](https://kholomyanskiy.com/pl/glossary/ai-specification.html): Specyfikacja AI to dokument opisujący zadanie tak, aby model lub agent wykonywał je przewidywalnie, a wynik dało się sprawdzić: co jest na wejściu i wyjściu, jakich zasad nie wolno łamać i po czym poznać, że praca jest gotowa.
+- [Kryteria odbioru](https://kholomyanskiy.com/pl/glossary/acceptance-criteria.html): Kryteria odbioru to sprawdzalne warunki, które pozwalają stwierdzić, czy praca została ukończona.
+
+### Русский
 
 - [Аудит процессов](https://kholomyanskiy.com/ru/glossary/process-audit.html): Аудитом процессов перед внедрением ИИ называют разбор того, как работа в компании выполняется на самом деле: какие задачи делают люди, сколько времени на них уходит, какие данные и инструменты используются, где возникают задержки и ошибки.
 - [Карта процессов](https://kholomyanskiy.com/ru/glossary/process-map.html): Картой процессов называют схему того, как работа на самом деле проходит через отдел или компанию: кто что делает, в каком порядке, что передаёт дальше, где ждёт и где обходит правила, чтобы успеть.

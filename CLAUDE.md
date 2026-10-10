@@ -67,11 +67,11 @@ docs/                 ТЗ, по которым ведётся работа
 
 ## Словарь
 
-Оглавление `/ru/glossary/` и страницы терминов `/ru/glossary/<slug>.html` (EN — `/glossary/`, PL — `/pl/glossary/`). ТЗ: `docs/TZ-glossary-E.md`.
+Оглавление и страницы терминов на трёх языках: `/glossary/`, `/pl/glossary/`, `/ru/glossary/` + `<slug>.html`. ТЗ: `docs/TZ-glossary-E.md`.
 
 - Тексты: `content/glossary/<lang>/<slug>.md` и `<lang>/_index.md` (заголовки групп, «Подробнее →», «← Словарь»). Порядок и группы терминов: `content/glossary/terms.json`. Тексты не редактируются при сборке и выводятся дословно.
 - Шаблоны: `src/glossary-hub.template.html`, `src/glossary-term.template.html`, на общих частях (topnav без `current`, footer, head-common, common.css, topnav.css).
-- Сборка всего сайта: `python3 tools/build_i18n.py && python3 tools/build_glossary.py && python3 tools/check_i18n.py`. Словарь собирается вторым: ему нужны собранные страницы для проверки ссылок. Он же пересобирает блоки `/glossary/` в `sitemap.xml` и раздел «## Словарь» в `llms.txt`.
+- Сборка всего сайта: `python3 tools/build_i18n.py && python3 tools/build_glossary.py && python3 tools/check_i18n.py`. Словарь собирается вторым: ему нужны собранные страницы для проверки ссылок. Он же пересобирает блоки `/glossary/` в `sitemap.xml` и раздел «## Glossary» в `llms.txt` (подразделы English, Polski, Русский).
 - Страница термина на языке появляется, только если есть MD на этом языке; оглавление — если есть `_index.md` и хотя бы один термин. hreflang ставится только на существующие версии, x-default — только при наличии EN.
 - **Добавить термин:** положить `<lang>/<slug>.md` (slug из `terms.json`), собрать. Ссылки `slownik/<slug>.html` в других статьях восстановятся сами, пока термина нет — они снимаются, остаётся текст, сборка пишет предупреждение.
 - **Добавить язык:** положить `content/glossary/<lang>/_index.md` и статьи, собрать. После появления EN-оглавления — пункт «Словарь» в `src/partials/topnav.html` отдельной правкой.
