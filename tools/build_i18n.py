@@ -391,7 +391,9 @@ def classify_and_rewrite(url: str, lang: str, migrated: set) -> str:
         page = page.split("?")[0]
         if page.startswith("articles/"):
             return f"/{page}.html" + anchor  # статьи только EN, без переключателя (батч 7) — ?lang= не нужен
-        if page == "index" and page in migrated:
+        if page == "glossary":  # оглавление словаря (ТЗ-K): /glossary/, /pl/glossary/, /ru/glossary/
+            base = "/glossary/" if lang == "en" else f"/{lang}/glossary/"
+        elif page == "index" and page in migrated:
             base = "/" if lang == "en" else f"/{lang}/"
         elif page in migrated:
             base = f"/{page}.html" if lang == "en" else f"/{lang}/{page}.html"

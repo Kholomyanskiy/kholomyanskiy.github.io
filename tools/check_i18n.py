@@ -100,7 +100,9 @@ def footer_links(html: str) -> set:
     m = FOOTER_RE.search(html)
     if not m:
         return set()
-    return {re.sub(r'^(?:\.\./|/)', '', h) for h in FOOTER_HREF_RE.findall(m.group(0))}
+    links = {re.sub(r'^(?:\.\./|/)', '', h) for h in FOOTER_HREF_RE.findall(m.group(0))}
+    # ТЗ-K: в footer.html оглавление словаря записано glossary.html, в ручных копиях — glossary/
+    return {"glossary.html" if h == "glossary/" else h for h in links}
 
 
 def warn_footer_copies() -> None:
