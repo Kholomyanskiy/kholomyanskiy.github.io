@@ -11,6 +11,7 @@ body{
 .lang-btn.active{background:var(--ink);color:#EDEFF2}
 .lang-btn:hover:not(.active){color:var(--ink)}
 .topnav .topnav-links a.current{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--blue);text-decoration-thickness:2px;text-underline-offset:5px}
+@media(hover:hover){.topnav .topnav-links>a:not(.current):hover,.topnav .nav-drop>a:not(.current):hover{text-decoration:underline;text-decoration-color:var(--blue);text-decoration-thickness:1px;text-underline-offset:5px}}
 .nav-drop-arrow,.nav-drop-list{display:none}
 @media(hover:hover) and (pointer:fine) and (min-width:681px){
   .nav-drop{position:relative}
