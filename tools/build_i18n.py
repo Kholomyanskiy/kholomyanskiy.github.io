@@ -457,10 +457,11 @@ def rewrite_mailto_subject(page_html: str, lang_dict: dict) -> str:
 SHARED_ENTITY_IDS = {f"{SITE_URL}/#organization", f"{SITE_URL}/#person", f"{SITE_URL}/#anss"}
 
 def html_to_plain(text: str) -> str:
-    """HTML из словаря -> чистый текст для JSON-LD: <a>…</a> вырезаются целиком
-    вместе с текстом (это ссылки вида «Подробнее →»), <br> -> пробел, остальные
-    теги (<b>, <em>, ...) снимаются с сохранением текста. Пробелы схлопываются."""
-    text = re.sub(r"<a\b[^>]*>.*?</a>", " ", text, flags=re.DOTALL | re.IGNORECASE)
+    """HTML из словаря -> чистый текст для JSON-LD: <a>…</a> со стрелкой (→/←) в тексте
+    вырезаются целиком (это ссылки вида «Подробнее →»), у остальных ссылок (термин
+    в тексте, ТЗ-L) остаётся текст, <br> -> пробел, остальные теги (<b>, <em>, ...)
+    снимаются с сохранением текста. Пробелы схлопываются."""
+    text = re.sub(r"<a\b[^>]*>(?:(?!</a>).)*?[→←].*?</a>", " ", text, flags=re.DOTALL | re.IGNORECASE)
     text = re.sub(r"<br\s*/?>", " ", text, flags=re.IGNORECASE)
     text = re.sub(r"<[^>]+>", "", text)
     return re.sub(r"\s+", " ", text).strip()
