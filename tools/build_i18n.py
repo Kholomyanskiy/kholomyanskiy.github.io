@@ -36,11 +36,11 @@ class StopCondition(Exception):
 
 PARTIALS_DIR = SRC_DIR / "partials"
 COMMON_I18N = PARTIALS_DIR / "common.i18n.json"
-HTML_INCLUDE_RE = re.compile(r'<!-- @include ([a-z-]+)((?: [a-z]+=[a-z0-9_-]+)*) -->')
+HTML_INCLUDE_RE = re.compile(r'<!-- @include ([a-z-]+)((?: [a-z]+=[a-z0-9_,-]+)*) -->')
 CSS_INCLUDE_RE = re.compile(r'/\* @include ([a-z.-]+) \*/')
-HTML_PARTIALS = {"footer", "topnav", "specnav", "head-common"}
+HTML_PARTIALS = {"footer", "topnav", "head-common"}
 CSS_PARTIALS = {"common.css"}
-NAV_CSS = [("topnav", "topnav.css"), ("specnav", "specnav.css")]  # CSS шапки идёт следом за common.css, только на страницы с этой шапкой
+NAV_CSS = [("topnav", "topnav.css")]  # CSS шапки идёт следом за common.css, только на страницы с этой шапкой
 
 
 def read_partial(name: str) -> str:
@@ -63,10 +63,10 @@ def expand_includes(src: str, page: str) -> str:
         if set(params) - allowed:
             raise StopCondition(f"{page}: у @include {name} неизвестные параметры {sorted(set(params) - allowed)}")
         text = read_partial(f"{name}.html")
-        if "current" in params:
-            link = f'href="{params["current"]}.html"'
+        for cur in filter(None, params.get("current", "").split(",")):
+            link = f'href="{cur}.html"'
             if text.count(link) != 1:
-                raise StopCondition(f"{page}: в topnav нет ссылки {link} для current={params['current']}")
+                raise StopCondition(f"{page}: в topnav нет ссылки {link} для current={cur}")
             text = text.replace(link, link + ' class="current"')
         used.add(name)
         return text

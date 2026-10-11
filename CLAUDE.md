@@ -52,17 +52,17 @@ docs/                 ТЗ, по которым ведётся работа
 | Файл | Что | Метка в шаблоне |
 |---|---|---|
 | `footer.html` | подвал всех 9 страниц | `<!-- @include footer -->` |
-| `topnav.html` | шапка index, services, products, portfolio, articles и словаря | `<!-- @include topnav current=services -->` (на главной без `current`, в словаре `current=glossary`) |
-| `specnav.html` | шапка audit, spec, kalkulator | `<!-- @include specnav -->` |
+| `topnav.html` | шапка всех страниц, кроме 404 и статей | `<!-- @include topnav current=services -->` (на главной и privacy без `current`, в словаре `current=glossary`, на audit/spec/kalkulator `current=services,<страница>`, на metodichka `current=products`) |
 | `head-common.html` | og:image, twitter:card, og:locale | `<!-- @include head-common -->` |
 | `common.css` | правила, одинаковые на всех страницах | `/* @include common.css */` в начале `<style>` |
-| `topnav.css`, `specnav.css` | правила, одинаковые на всех страницах с этой шапкой | отдельной метки нет: идут следом за `common.css` на страницах с `topnav` или `specnav` |
+| `topnav.css` | правила, одинаковые на всех страницах с шапкой | отдельной метки нет: идёт следом за `common.css` на страницах с `topnav` |
 | `common.i18n.json` | ключи шапки и подвала на трёх языках | |
 
-- `current=` ставит `class="current"` у ссылки раздела.
+- `current=` ставит `class="current"` у ссылки раздела; несколько значений через запятую помечают каждую ссылку (раздел и пункт выпадающего списка).
+- Вёрстка листа audit, spec, kalkulator (ширина 880px, поля 28px) лежит в самих шаблонах, блок `/* лист страниц услуг */` сразу после `topnav`-правил. Правится в трёх шаблонах одинаково.
 - Если ключ из `common.i18n.json` есть в словаре шаблона с другим значением, сборка останавливается со списком. Неизвестная метка `@include` тоже останавливает сборку.
 - Часть правил шапки и подвала осталась в шаблонах: перенос поменял бы порядок каскада. Список в `HANDOFF.md`, раздел ТЗ-I.
-- **Исключение metodichka:** своя шапка со ссылкой на аудит (`nav_service`), её CSS тоже в шаблоне. Подвал, head-common и common.css общие.
+- Все страницы, кроме 404 и статей, используют `topnav`. На metodichka ссылка на аудит (`nav_service`) стоит в начале титульного блока.
 - **Ручные копии:** подвал в `404.html` (корневые ссылки `/x.html`) и в `articles/*.html` (ссылки `../x.html`). При правке `footer.html` поправить и их; `check_i18n.py` предупреждает о расхождении.
 
 ## Словарь
