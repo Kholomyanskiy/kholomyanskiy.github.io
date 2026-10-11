@@ -162,6 +162,18 @@ p.lead{font-size:17.5px}
 .cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .cta .alt{margin-top:16px;font-size:14px}
 .cta .alt a{color:#EDEFF2}
+.contact-form{max-width:460px;display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.contact-form label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.05em;color:#B9C1CC;display:block;margin-bottom:5px}
+.contact-form input[type=text],.contact-form input[type=email],.contact-form select,.contact-form textarea{width:100%;background:#2A313C;border:1px solid #4A5361;color:#EDEFF2;padding:10px 12px;font-family:'Inter',sans-serif;font-size:14px}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:2px solid var(--blue);outline-offset:1px}
+.contact-form textarea{resize:vertical;min-height:120px}
+.contact-form button{align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;padding:12px 26px;cursor:pointer}
+.contact-form button:hover{background:transparent;color:#EDEFF2}
+.contact-form button:disabled{opacity:.6;cursor:default}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-status{font-family:'JetBrains Mono',monospace;font-size:13px;margin:0;min-height:16px}
+.form-status.success{color:#7FD99A}
+.form-status.error{color:#E08585}
 .footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
 .footer-links a:hover{color:var(--blue)}
 footer a{color:var(--ink);text-decoration:none;font-weight:500}
@@ -358,12 +370,32 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     </ol>
   </section>
 
-  <div class="cta">
+  <div class="cta" id="spec-contact">
     <span class="secnum" style="color:#7FA8CC" data-i18n="s7_num">7.0 // CONTACT</span>
     <h2 data-i18n="s7_h2">A project is worth saving while it&#x27;s still small</h2>
     <p data-i18n="s7_p">Describe your situation in three sentences. I&#x27;ll reply within a day or two: whether the format fits and what to do next.</p>
-    <a class="btn" id="mailto-btn" href="mailto:artem@kholomyanskiy.com?subject=Specification" data-i18n="s7_btn">Send a message</a>
-    <p class="alt"><span data-i18n="s7_alt_text">or</span> LinkedIn: <a href="https://linkedin.com/in/kholomyanskiy">/in/kholomyanskiy</a> · Telegram: <a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></p>
+    <form class="contact-form" id="contact-form">
+      <input type="hidden" name="access_key" value="b593308b-f741-4dab-b3a3-19b6036aa1b0">
+      <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="subject" value="Spec request">
+      <input type="hidden" name="page">
+      <div>
+        <label for="cf-name" data-i18n="form.name">Name</label>
+        <input type="text" id="cf-name" name="name" required>
+      </div>
+      <div>
+        <label for="cf-email" data-i18n="form.email">Email</label>
+        <input type="email" id="cf-email" name="email" required>
+      </div>
+      <div>
+        <label for="cf-message" data-i18n="form.message">Message</label>
+        <textarea id="cf-message" name="message" required></textarea>
+      </div>
+      <button type="submit" data-i18n="form.submit">Send →</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      <p class="alt" data-i18n-html="form.privacy">By sending this form you share your name, email and message so I can reply. Details: <a href="/privacy.html">Privacy policy</a>.</p>
+    </form>
+    <p class="alt"><span data-i18n="s7_alt_text">or</span> <a id="mailto-btn" href="mailto:artem@kholomyanskiy.com?subject=Specification">artem@kholomyanskiy.com</a> · <a href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="cta.book_call">Book a 30-min call</a> · LinkedIn: <a href="https://linkedin.com/in/kholomyanskiy">/in/kholomyanskiy</a> · Telegram: <a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></p>
   </div>
 
 </div>
@@ -386,6 +418,50 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 </footer>
 
 
+<script>
+var MSG = {
+  sending: "Sending...", success: "Thanks, your message is sent. I'll reply within a day or two.", error: "Couldn't send it. Please write directly to artem@kholomyanskiy.com"
+};
+(function() {
+  var LANG = document.documentElement.lang || 'en';
+  var form = document.getElementById('contact-form');
+  function setPage() {
+    form.elements.page.value = location.origin + location.pathname + ' · ' + LANG;
+  }
+  setPage();
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    setPage();
+    var btn = form.querySelector('button[type="submit"]');
+    var status = document.getElementById('form-status');
+    btn.disabled = true;
+    status.className = 'form-status';
+    status.textContent = MSG.sending;
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Accept': 'application/json'},
+        body: new FormData(form)
+      });
+      var json = await res.json();
+      if (json.success) {
+        status.className = 'form-status success';
+        status.textContent = MSG.success;
+        form.reset();
+        setPage(); // reset() очищает и скрытые поля
+      } else {
+        throw new Error(json.message || 'submit failed');
+      }
+    } catch (err) {
+      status.className = 'form-status error';
+      status.textContent = MSG.error;
+    } finally {
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
 
 <script>
 document.querySelectorAll('[data-lang]').forEach(function(b){
