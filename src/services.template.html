@@ -110,6 +110,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <p data-i18n="s1.p1">We break down what employees' workday actually consists of: not job descriptions, but real tasks. Employees log what they do, how often, and how long it takes.</p>
  <p data-i18n="s1.p2">We find where routine eats time and where mistakes are costly. Result: a task map with an estimate of what and how much can be automated, and where to start.</p>
  <span class="svc-price" data-i18n="s1.price">From 3,500 zł</span>
+ <span class="svc-num" data-i18n="price.net">Prices are net, excluding VAT.</span>
  <div class="svc-cta">
  <a class="primary" href="audit.html" data-i18n="s1.cta1">Details and pricing →</a>
  <a class="secondary" href="kalkulator.html" data-i18n="s1.cta2">Calculate the effect first</a>
@@ -125,6 +126,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <p data-i18n="s2.p1">Before implementing anything, you need architecture: which processes to automate first, which approach to take, how it fits into existing systems.</p>
  <p data-i18n="s2.p2">Result: an implementation plan with priorities and complexity estimates, not a pile of disconnected tools bought in a moment of enthusiasm.</p>
  <span class="svc-price" data-i18n="s2.price">From 4,500 zł</span>
+ <span class="svc-num" data-i18n="price.net">Prices are net, excluding VAT.</span>
  <div class="svc-cta">
  <a class="primary" href="index.html#contact" data-i18n="s2.cta1">Discuss a task →</a>
  </div>
@@ -138,7 +140,8 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <h3 data-i18n="s3.h">Requirements Design for Implementation (AI Spec/TOR)</h3>
  <p data-i18n="s3.p1">I write a precise specification for a specific task using the ANSS methodology: input, output, rules, and what the system must never do.</p>
  <p data-i18n="s3.p2">With this spec the task can be handed to development or configured directly, and the system's behavior becomes predictable.</p>
- <span class="svc-price" data-i18n="s3.price">From 2,000 zł</span>
+ <span class="svc-price" data-i18n="s3.price">From 2,500 zł</span>
+ <span class="svc-num" data-i18n="price.net">Prices are net, excluding VAT.</span>
  <div class="svc-cta">
  <a class="primary" href="spec.html" data-i18n="s3.cta1">Details →</a>
  </div>
@@ -168,6 +171,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <p data-i18n="s4.t3.p">Agent chains, multiple systems, custom logic, testing at scale</p>
  </div>
  </div>
+ <span class="svc-num" data-i18n="price.net">Prices are net, excluding VAT.</span>
  <div class="svc-cta">
  <a class="primary" href="index.html#contact" data-i18n="s4.cta1">Discuss a task →</a>
  </div>
@@ -181,6 +185,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <h3 data-i18n="s5.h">Consulting</h3>
  <p data-i18n="s5.p1">A one-off consultation with no commitment to the full cycle: figure out whether your department needs automation at all, what to check first, where the risks are.</p>
  <span class="svc-price" data-i18n="s5.price">From 150 zł/hour</span>
+ <span class="svc-num" data-i18n="price.net">Prices are net, excluding VAT.</span>
  <div class="svc-cta">
  <a class="primary" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="s5.cta1">Book a slot →</a>
  </div>
@@ -240,7 +245,7 @@ const T = {
  "s3.num":"УСЛУГА 03","s3.h":"Проектирование требований для внедрения (AI-спецификация/ТЗ)",
  "s3.p1":"Пишу точное техническое задание для конкретной задачи по методологии ANSS: что на входе, что на выходе, по каким правилам, что машине нельзя делать никогда.",
  "s3.p2":"С такой спецификацией задачу можно передать в разработку или настроить самостоятельно, и поведение системы становится предсказуемым.",
- "s3.price":"От 2 000 zł","s3.cta1":"Подробнее →",
+ "s3.price":"От 2 500 zł","s3.cta1":"Подробнее →",
  "s4.num":"УСЛУГА 04","s4.h":"Автоматизация процессов",
  "s4.p1":"Интеграции CRM, почты, мессенджеров, внутренних систем; рабочие сценарии и цепочки без лишнего ручного труда. ИИ здесь не обязателен: иногда достаточно правильно связать существующие инструменты.",
  "s4.t1.name":"Простая","s4.t1.price":"От 2 500 zł","s4.t1.p":"Одна интеграция или сценарий, например, письмо → CRM, уведомление в мессенджер",
@@ -249,7 +254,7 @@ const T = {
  "s4.cta1":"Обсудить задачу →",
  "s5.num":"УСЛУГА 05","s5.h":"Консалтинг",
  "s5.p1":"Разовая консультация без привязки к полному циклу: разобраться, стоит ли вашему отделу автоматизация вообще, что стоит проверить в первую очередь, где риски.",
- "s5.price":"От 150 zł/час","s5.cta1":"Записаться →",
+ "s5.price":"От 150 zł/час","price.net":"Цены указаны без НДС (нетто).","s5.cta1":"Записаться →",
  "faq.title":"Частые вопросы",
  "faq.q1.h":"Чем занимается AI-консультант?","faq.q1.p":"Разбирает реальные процессы компании, находит задачи, которые можно передать ИИ или автоматизации, проектирует и сопровождает внедрение до стабильного результата.",
  "faq.q2.h":"Как выбрать, с какой услуги начать?","faq.q2.p":"Если ИИ ещё не внедряли, начните с аудита. Если внедряете конкретную задачу, начните со спецификации. Если не уверены, напишите, подскажу.",
@@ -276,7 +281,7 @@ const T = {
  "s3.num":"USŁUGA 03","s3.h":"Projektowanie wymagań wdrożeniowych (specyfikacja AI/TOR)",
  "s3.p1":"Piszę precyzyjną specyfikację dla konkretnego zadania według metodologii ANSS: co na wejściu, co na wyjściu, według jakich reguł, czego system nigdy nie może zrobić.",
  "s3.p2":"Z taką specyfikacją zadanie można przekazać do developmentu lub skonfigurować samodzielnie. Zachowanie systemu staje się przewidywalne.",
- "s3.price":"Od 2 000 zł","s3.cta1":"Szczegóły →",
+ "s3.price":"Od 2 500 zł","s3.cta1":"Szczegóły →",
  "s4.num":"USŁUGA 04","s4.h":"Automatyzacja procesów",
  "s4.p1":"Integracje CRM, poczty, komunikatorów, systemów wewnętrznych; scenariusze pracy i łańcuchy bez zbędnej pracy ręcznej. AI nie jest tu obowiązkowe: czasem wystarczy poprawnie połączyć istniejące narzędzia.",
  "s4.t1.name":"Prosta","s4.t1.price":"Od 2 500 zł","s4.t1.p":"Jedna integracja lub scenariusz, np. mail → CRM, powiadomienie w komunikatorze",
@@ -285,7 +290,7 @@ const T = {
  "s4.cta1":"Omów zadanie →",
  "s5.num":"USŁUGA 05","s5.h":"Konsulting",
  "s5.p1":"Jednorazowa konsultacja bez zobowiązania do pełnego cyklu: sprawdzenie, czy Twój dział w ogóle potrzebuje automatyzacji, co sprawdzić najpierw, gdzie są ryzyka.",
- "s5.price":"Od 150 zł/godz.","s5.cta1":"Zarezerwuj termin →",
+ "s5.price":"Od 150 zł/godz.","price.net":"Ceny netto.","s5.cta1":"Zarezerwuj termin →",
  "faq.title":"Najczęstsze pytania",
  "faq.q1.h":"Czym zajmuje się konsultant AI?","faq.q1.p":"Analizuje rzeczywiste procesy firmy, znajduje zadania, które można przekazać AI lub automatyzacji, projektuje i wspiera wdrożenie aż do stabilnego rezultatu.",
  "faq.q2.h":"Jak wybrać, od której usługi zacząć?","faq.q2.p":"Jeśli AI nie jest jeszcze wdrożone, zacznij od audytu. Jeśli masz konkretne zadanie do wdrożenia, zacznij od specyfikacji. Jeśli nie masz pewności, napisz, a podpowiem.",
@@ -312,7 +317,7 @@ const T = {
  "s3.num":"SERVICE 03","s3.h":"Requirements Design for Implementation (AI Spec/TOR)",
  "s3.p1":"I write a precise specification for a specific task using the ANSS methodology: input, output, rules, and what the system must never do.",
  "s3.p2":"With this spec the task can be handed to development or configured directly, and the system's behavior becomes predictable.",
- "s3.price":"From 2,000 zł","s3.cta1":"Details →",
+ "s3.price":"From 2,500 zł","s3.cta1":"Details →",
  "s4.num":"SERVICE 04","s4.h":"Process Automation",
  "s4.p1":"CRM, email, messenger, and internal system integrations; workflows and chains without unnecessary manual work. AI isn't required here: sometimes it's enough to connect existing tools correctly.",
  "s4.t1.name":"Simple","s4.t1.price":"From 2,500 zł","s4.t1.p":"One integration or workflow, e.g. email → CRM, messenger notification",
@@ -321,7 +326,7 @@ const T = {
  "s4.cta1":"Discuss a task →",
  "s5.num":"SERVICE 05","s5.h":"Consulting",
  "s5.p1":"A one-off consultation with no commitment to the full cycle: figure out whether your department needs automation at all, what to check first, where the risks are.",
- "s5.price":"From 150 zł/hour","s5.cta1":"Book a slot →",
+ "s5.price":"From 150 zł/hour","price.net":"Prices are net, excluding VAT.","s5.cta1":"Book a slot →",
  "faq.title":"Frequently asked questions",
  "faq.q1.h":"What does an AI consultant do?","faq.q1.p":"Analyzes a company's actual processes, finds tasks that can be handed to AI or automation, designs and supports implementation through to a stable result.",
  "faq.q2.h":"How do I choose which service to start with?","faq.q2.p":"If you haven't implemented AI yet, start with the audit. If you're implementing a specific task, start with the specification. If you're not sure, write to me.",
