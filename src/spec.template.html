@@ -60,6 +60,9 @@ p.lead{font-size:17.5px}
 .card-foot{padding:14px 20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
 .price{font-family:'Spectral',serif;font-size:21px;font-weight:700}
 .term{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft)}
+.card-action{padding:14px 20px}
+.card-action a.btn2{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:#fff;background:var(--blue);border:1.5px solid var(--blue);padding:11px 22px;text-decoration:none}
+.card-action a.btn2:hover{background:transparent;color:var(--blue)}
 .inv{border:1px solid var(--line);background:var(--paper);padding:16px 20px;margin-bottom:12px;max-width:660px;display:flex;gap:16px}
 .inv .code{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--stamp);min-width:64px;padding-top:2px}
 .inv p{margin:0;font-size:15px}
@@ -123,6 +126,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       <span class="stamp" data-i18n="stamp">Active · v1.0</span>
       <h1 data-i18n-html="h1_title">Specification <em>as a Service</em></h1>
       <p class="sub" data-i18n="tb_sub">Technical specifications that allow an AI agent or developer to build a system predictably. In 2–3 iterations instead of endless rework.</p>
+      <div class="card-action"><a class="btn2" href="#spec-contact" data-i18n="tb_cta">Discuss your project: 30 min, free →</a></div>
     </div>
     <div class="tb-meta">
       <div><span class="k" data-i18n="tb_doc_k">Document</span><span data-i18n="tb_doc_v">Commercial Offer</span></div>
@@ -195,6 +199,9 @@ footer a:hover{color:var(--blue);text-decoration:underline}
           <span class="price" data-i18n="s3_c1_price">from 2,500 zł</span>
           <span class="term" data-i18n="s3_c1_term">5–7 days</span>
         </div>
+        <div class="card-action">
+          <a class="btn2" href="#spec-contact" data-format="rescue" data-i18n="s3_c1_btn">Request Project Rescue →</a>
+        </div>
       </div>
       <div class="card">
         <div class="card-head">
@@ -212,6 +219,9 @@ footer a:hover{color:var(--blue);text-decoration:underline}
         <div class="card-foot">
           <span class="price" data-i18n="s3_c2_price">from 5,000 zł</span>
           <span class="term" data-i18n="s3_c2_term">10–14 days</span>
+        </div>
+        <div class="card-action">
+          <a class="btn2" href="#spec-contact" data-format="foundation" data-i18n="s3_c2_btn">Request Foundation →</a>
         </div>
       </div>
     </div>
@@ -265,6 +275,14 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       <input type="hidden" name="subject" value="Spec request">
       <input type="hidden" name="page">
       <div>
+        <label for="cf-format" data-i18n="form.format">Format</label>
+        <select id="cf-format" name="spec_format">
+          <option value="rescue" data-i18n="form.f_rescue">Project Rescue</option>
+          <option value="foundation" data-i18n="form.f_foundation">Foundation</option>
+          <option value="unsure" data-i18n="form.f_unsure" selected>Not sure yet, help me choose</option>
+        </select>
+      </div>
+      <div>
         <label for="cf-name" data-i18n="form.name">Name</label>
         <input type="text" id="cf-name" name="name" required>
       </div>
@@ -296,6 +314,7 @@ var T = {
     stamp: "Действует · v1.0",
     h1_title: "Спецификация <em>как услуга</em>",
     tb_sub: "Технические задания, по которым AI-агент или разработчик строит систему предсказуемо. За 2–3 итерации вместо бесконечных переделок.",
+    tb_cta: "Обсудить проект: 30 минут, бесплатно →",
     tb_doc_k: "Документ", tb_doc_v: "Коммерческое предложение",
     tb_author_k: "Автор", tb_method_k: "Методология",
     tb_jur_k: "Юрисдикция", tb_jur_v: "Польша · ЕС",
@@ -321,6 +340,7 @@ var T = {
     s3_c2_li1: "Интервью и анализ требований", s3_c2_li2: "Полный пакет: ARCH, INV, GLOS, AGNT, PLAN",
     s3_c2_li3: "Готово для любого разработчика или Claude Code", s3_c2_li4: "Ревью драфта вместе с вами",
     s3_c2_price: "от 5 000 zł", s3_c2_term: "10–14 дней", s3_net: "Цены указаны без НДС (нетто).",
+    s3_c1_btn: "Заказать реанимацию →", s3_c2_btn: "Заказать фундамент →",
     s4_num: "4.0 // ИНВАРИАНТЫ СОТРУДНИЧЕСТВА", s4_h2: "Правила, которые не нарушаются",
     s4_inv1: "Цена фиксированная и называется после бесплатного 30-минутного разговора. Почасовой оплаты нет: вы платите за результат.",
     s4_inv2: "Спецификация принадлежит вам полностью. С ней можно идти к любому исполнителю, зависимости от меня не возникает.",
@@ -337,6 +357,7 @@ var T = {
     s7_p: "Опишите ситуацию в трёх предложениях. Отвечу в течение одного-двух дней: подходит ли формат и что делать дальше.",
     s7_alt_text: "или",
     "form.privacy": "Отправляя форму, вы передаёте мне имя, email и текст сообщения, чтобы я мог ответить. Подробнее: <a href=\"privacy.html\">Политика конфиденциальности</a>.", "form.name": "Имя", "form.email": "Email", "form.message": "Сообщение", "form.submit": "Отправить →",
+    "form.format": "Формат", "form.f_rescue": "Реанимация", "form.f_foundation": "Фундамент", "form.f_unsure": "Пока не знаю, помогите выбрать",
     "form.sending": "Отправка...", "form.success": "Спасибо, сообщение отправлено. Отвечу в течение одного-двух дней.",
     "form.error": "Не получилось отправить. Напишите напрямую на artem@kholomyanskiy.com"
   },
@@ -347,6 +368,7 @@ var T = {
     stamp: "Aktywny · v1.0",
     h1_title: "Specyfikacja <em>jako usługa</em>",
     tb_sub: "Dokumentacja techniczna, według której agent AI lub programista buduje system przewidywalnie. W 2–3 iteracjach zamiast nieskończonych poprawek.",
+    tb_cta: "Omów projekt: 30 min, bezpłatnie →",
     tb_doc_k: "Dokument", tb_doc_v: "Oferta handlowa",
     tb_author_k: "Autor", tb_method_k: "Metodologia",
     tb_jur_k: "Jurysdykcja", tb_jur_v: "Polska · UE",
@@ -372,6 +394,7 @@ var T = {
     s3_c2_li1: "Wywiad i analiza wymagań", s3_c2_li2: "Pełny pakiet: ARCH, INV, GLOS, AGNT, PLAN",
     s3_c2_li3: "Gotowe dla każdego programisty lub Claude Code", s3_c2_li4: "Przegląd draftu razem z Tobą",
     s3_c2_price: "od 5 000 zł", s3_c2_term: "10–14 dni", s3_net: "Ceny netto.",
+    s3_c1_btn: "Zamów reanimację projektu →", s3_c2_btn: "Zamów fundament →",
     s4_num: "4.0 // INWARIANTY WSPÓŁPRACY", s4_h2: "Zasady, których nie łamiemy",
     s4_inv1: "Cena jest stała i podawana po bezpłatnej 30-minutowej rozmowie. Bez rozliczeń godzinowych: płacisz za wynik.",
     s4_inv2: "Specyfikacja należy w całości do Ciebie. Możesz z nią iść do dowolnego wykonawcy, bez żadnej zależności ode mnie.",
@@ -388,6 +411,7 @@ var T = {
     s7_p: "Opisz sytuację w trzech zdaniach. Odpiszę w ciągu jednego lub dwóch dni: czy format pasuje i co robić dalej.",
     s7_alt_text: "lub",
     "form.privacy": "Wysyłając formularz, przekazujesz mi imię, e-mail i treść wiadomości, żebym mógł odpowiedzieć. Szczegóły: <a href=\"privacy.html\">Polityka prywatności</a>.", "form.name": "Imię", "form.email": "Email", "form.message": "Wiadomość", "form.submit": "Wyślij →",
+    "form.format": "Format", "form.f_rescue": "Reanimacja projektu", "form.f_foundation": "Fundament", "form.f_unsure": "Jeszcze nie wiem, pomóż wybrać",
     "form.sending": "Wysyłanie...", "form.success": "Dziękuję, wiadomość została wysłana. Odpowiem w ciągu jednego lub dwóch dni.",
     "form.error": "Nie udało się wysłać. Napisz bezpośrednio na artem@kholomyanskiy.com"
   },
@@ -398,6 +422,7 @@ var T = {
     stamp: "Active · v1.0",
     h1_title: "Specification <em>as a Service</em>",
     tb_sub: "Technical specifications that allow an AI agent or developer to build a system predictably. In 2–3 iterations instead of endless rework.",
+    tb_cta: "Discuss your project: 30 min, free →",
     tb_doc_k: "Document", tb_doc_v: "Commercial Offer",
     tb_author_k: "Author", tb_method_k: "Methodology",
     tb_jur_k: "Jurisdiction", tb_jur_v: "Poland · EU",
@@ -423,6 +448,7 @@ var T = {
     s3_c2_li1: "Interview and requirements analysis", s3_c2_li2: "Full package: ARCH, INV, GLOS, AGNT, PLAN",
     s3_c2_li3: "Ready for any developer or Claude Code", s3_c2_li4: "Draft review together with you",
     s3_c2_price: "from 5,000 zł", s3_c2_term: "10–14 days", s3_net: "Prices are net, excluding VAT.",
+    s3_c1_btn: "Request Project Rescue →", s3_c2_btn: "Request Foundation →",
     s4_num: "4.0 // ENGAGEMENT INVARIANTS", s4_h2: "Rules that are never broken",
     s4_inv1: "The price is fixed and quoted after a free 30-minute conversation. No hourly billing: you pay for results.",
     s4_inv2: "The specification belongs to you entirely. You can take it to any developer, no dependency on me.",
@@ -439,6 +465,7 @@ var T = {
     s7_p: "Describe your situation in three sentences. I'll reply within a day or two: whether the format fits and what to do next.",
     s7_alt_text: "or",
     "form.privacy": "By sending this form you share your name, email and message so I can reply. Details: <a href=\"privacy.html\">Privacy policy</a>.", "form.name": "Name", "form.email": "Email", "form.message": "Message", "form.submit": "Send →",
+    "form.format": "Format", "form.f_rescue": "Project Rescue", "form.f_foundation": "Foundation", "form.f_unsure": "Not sure yet, help me choose",
     "form.sending": "Sending...", "form.success": "Thanks, your message is sent. I'll reply within a day or two.",
     "form.error": "Couldn't send it. Please write directly to artem@kholomyanskiy.com"
   }
@@ -480,14 +507,26 @@ var MSG = {
 };
 (function() {
   var LANG = document.documentElement.lang || 'en';
+  var FORMAT_EN = {rescue: 'Project Rescue', foundation: 'Foundation', unsure: 'Not sure'};
   var form = document.getElementById('contact-form');
+  var format = document.getElementById('cf-format');
   function setPage() {
     form.elements.page.value = location.origin + location.pathname + ' · ' + LANG;
   }
   setPage();
 
+  document.querySelectorAll('.card-action a[data-format]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      format.value = a.getAttribute('data-format');
+      document.getElementById('spec-contact').scrollIntoView();
+      document.getElementById('cf-name').focus({preventScroll: true});
+    });
+  });
+
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
+    form.elements.subject.value = 'Spec request: ' + (FORMAT_EN[format.value] || format.value);
     setPage();
     var btn = form.querySelector('button[type="submit"]');
     var status = document.getElementById('form-status');

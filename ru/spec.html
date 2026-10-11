@@ -138,6 +138,9 @@ p.lead{font-size:17.5px}
 .card-foot{padding:14px 20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
 .price{font-family:'Spectral',serif;font-size:21px;font-weight:700}
 .term{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft)}
+.card-action{padding:14px 20px}
+.card-action a.btn2{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:#fff;background:var(--blue);border:1.5px solid var(--blue);padding:11px 22px;text-decoration:none}
+.card-action a.btn2:hover{background:transparent;color:var(--blue)}
 .inv{border:1px solid var(--line);background:var(--paper);padding:16px 20px;margin-bottom:12px;max-width:660px;display:flex;gap:16px}
 .inv .code{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--stamp);min-width:64px;padding-top:2px}
 .inv p{margin:0;font-size:15px}
@@ -239,6 +242,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       <span class="stamp" data-i18n="stamp">Действует · v1.0</span>
       <h1 data-i18n-html="h1_title">Спецификация <em>как услуга</em></h1>
       <p class="sub" data-i18n="tb_sub">Технические задания, по которым AI-агент или разработчик строит систему предсказуемо. За 2–3 итерации вместо бесконечных переделок.</p>
+      <div class="card-action"><a class="btn2" href="#spec-contact" data-i18n="tb_cta">Обсудить проект: 30 минут, бесплатно →</a></div>
     </div>
     <div class="tb-meta">
       <div><span class="k" data-i18n="tb_doc_k">Документ</span><span data-i18n="tb_doc_v">Коммерческое предложение</span></div>
@@ -311,6 +315,9 @@ footer a:hover{color:var(--blue);text-decoration:underline}
           <span class="price" data-i18n="s3_c1_price">от 2 500 zł</span>
           <span class="term" data-i18n="s3_c1_term">5–7 дней</span>
         </div>
+        <div class="card-action">
+          <a class="btn2" href="#spec-contact" data-format="rescue" data-i18n="s3_c1_btn">Заказать реанимацию →</a>
+        </div>
       </div>
       <div class="card">
         <div class="card-head">
@@ -328,6 +335,9 @@ footer a:hover{color:var(--blue);text-decoration:underline}
         <div class="card-foot">
           <span class="price" data-i18n="s3_c2_price">от 5 000 zł</span>
           <span class="term" data-i18n="s3_c2_term">10–14 дней</span>
+        </div>
+        <div class="card-action">
+          <a class="btn2" href="#spec-contact" data-format="foundation" data-i18n="s3_c2_btn">Заказать фундамент →</a>
         </div>
       </div>
     </div>
@@ -381,6 +391,14 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       <input type="hidden" name="subject" value="Spec request">
       <input type="hidden" name="page">
       <div>
+        <label for="cf-format" data-i18n="form.format">Формат</label>
+        <select id="cf-format" name="spec_format">
+          <option value="rescue" data-i18n="form.f_rescue">Реанимация</option>
+          <option value="foundation" data-i18n="form.f_foundation">Фундамент</option>
+          <option value="unsure" data-i18n="form.f_unsure" selected>Пока не знаю, помогите выбрать</option>
+        </select>
+      </div>
+      <div>
         <label for="cf-name" data-i18n="form.name">Имя</label>
         <input type="text" id="cf-name" name="name" required>
       </div>
@@ -425,14 +443,26 @@ var MSG = {
 };
 (function() {
   var LANG = document.documentElement.lang || 'en';
+  var FORMAT_EN = {rescue: 'Project Rescue', foundation: 'Foundation', unsure: 'Not sure'};
   var form = document.getElementById('contact-form');
+  var format = document.getElementById('cf-format');
   function setPage() {
     form.elements.page.value = location.origin + location.pathname + ' · ' + LANG;
   }
   setPage();
 
+  document.querySelectorAll('.card-action a[data-format]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      format.value = a.getAttribute('data-format');
+      document.getElementById('spec-contact').scrollIntoView();
+      document.getElementById('cf-name').focus({preventScroll: true});
+    });
+  });
+
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
+    form.elements.subject.value = 'Spec request: ' + (FORMAT_EN[format.value] || format.value);
     setPage();
     var btn = form.querySelector('button[type="submit"]');
     var status = document.getElementById('form-status');
