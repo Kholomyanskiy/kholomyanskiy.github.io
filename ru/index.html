@@ -67,7 +67,7 @@
     },
     {
       "@type": "Service",
-      "name": "Проектирование требований для внедрения (AI-спецификация/ТЗ)",
+      "name": "AI-спецификация (ТЗ для ИИ)",
       "provider": {
         "@id": "https://kholomyanskiy.com/#organization"
       }
@@ -81,7 +81,7 @@
     },
     {
       "@type": "Service",
-      "name": "Консалтинг",
+      "name": "Консультации",
       "provider": {
         "@id": "https://kholomyanskiy.com/#organization"
       }
@@ -265,6 +265,16 @@ p.lead{font-size:17.5px}
 .grid-item p{font-size:14px;margin-bottom:0;color:var(--ink-soft);max-width:none}
 a.grid-item{display:block;text-decoration:none;color:inherit;cursor:pointer}
 a.grid-item:hover h3{color:var(--blue)}
+.grid-services{grid-template-columns:repeat(6,1fr)}
+.grid-services .grid-item{grid-column:span 2;display:flex;flex-direction:column}
+/* 5 карточек: 4-я и 5-я на всю ширину второго ряда. При 6 карточках эти два правила удалить. */
+.grid-services .grid-item:nth-child(4),.grid-services .grid-item:nth-child(5){grid-column:span 3}
+.grid-services .grid-item p{flex:1}
+.grid-services .more{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--blue);transition:transform .15s}
+.grid-services a.grid-item{transition:background .15s,box-shadow .15s}
+.grid-services a.grid-item:hover{background:var(--paper);box-shadow:inset 3px 0 0 var(--blue)}
+.grid-services a.grid-item:hover .more{transform:translateX(4px)}
+@media(max-width:680px){.grid-services{grid-template-columns:1fr}.grid-services .grid-item,.grid-services .grid-item:nth-child(4),.grid-services .grid-item:nth-child(5){grid-column:auto}}
 .section-more{margin-top:22px}
 .section-more a{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--ink);background:transparent;border:1.5px solid var(--ink);padding:11px 22px;text-decoration:none}
 .section-more a:hover{background:var(--ink);color:#EDEFF2}
@@ -401,13 +411,13 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 
  <section id="services">
  <span class="secnum">1.0 // <span data-i18n="services.secnum">УСЛУГИ</span></span>
- <h2 data-i18n="services.title">Чем я занимаюсь</h2>
- <div class="grid">
- <a class="grid-item" href="/ru/audit.html"><span class="num">01</span><h3 data-i18n="services.s1.h">Аудит процессов перед внедрением AI</h3><p data-i18n="services.s1.p">Что происходит на самом деле</p></a>
- <div class="grid-item"><span class="num">02</span><h3 data-i18n="services.s2.h">Проектирование AI-решений</h3><p data-i18n="services.s2.p">Архитектура и план внедрения</p></div>
- <a class="grid-item" href="/ru/spec.html"><span class="num">03</span><h3 data-i18n="services.s3.h">Проектирование требований для внедрения (AI-спецификация/ТЗ)</h3><p data-i18n="services.s3.p">Точное ТЗ для внедрения</p></a>
- <div class="grid-item"><span class="num">04</span><h3 data-i18n="services.s4.h">Автоматизация процессов</h3><p data-i18n="services.s4.p">Интеграции и рабочие сценарии</p></div>
- <a class="grid-item" href="/ru/consulting.html"><span class="num">05</span><h3 data-i18n="services.s5.h">Консалтинг</h3><p data-i18n="services.s5.p">Разовая консультация</p></a>
+ <h2 data-i18n="services.title">Услуги: от аудита до консультации</h2>
+ <div class="grid grid-services">
+ <a class="grid-item" href="/ru/audit.html"><span class="num">01</span><h3 data-i18n="services.s1.h">Аудит процессов перед внедрением AI</h3><p data-i18n="services.s1.p">Фотография рабочей недели и карта задач: что автоматизировать, что оставить людям, сколько часов высвобождается.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
+ <div class="grid-item"><span class="num">02</span><h3 data-i18n="services.s2.h">Проектирование AI-решений</h3><p data-i18n="services.s2.p">План внедрения с приоритетами и оценкой сложности, в котором каждый инструмент привязан к задаче.</p></div>
+ <a class="grid-item" href="/ru/spec.html"><span class="num">03</span><h3 data-i18n="services.s3.h">AI-спецификация (ТЗ для ИИ)</h3><p data-i18n="services.s3.p">Документ, по которому подрядчик или ИИ-агент строит решение предсказуемо, с проверяемым результатом.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
+ <div class="grid-item"><span class="num">04</span><h3 data-i18n="services.s4.h">Автоматизация процессов</h3><p data-i18n="services.s4.p">Интеграции и рабочие сценарии под конкретную задачу, от простых связок до цепочек агентов.</p></div>
+ <a class="grid-item" href="/ru/consulting.html"><span class="num">05</span><h3 data-i18n="services.s5.h">Консультации</h3><p data-i18n="services.s5.p">Разовая консультация по вопросу или рабочая сессия над процессом. Первые 30 минут бесплатно.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
  </div>
  <p class="section-more"><a href="/ru/services.html" data-i18n="services.more">Все услуги →</a></p>
  </section>

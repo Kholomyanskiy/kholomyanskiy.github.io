@@ -136,6 +136,16 @@ p.lead{font-size:17.5px}
 .grid-item p{font-size:14px;margin-bottom:0;color:var(--ink-soft);max-width:none}
 a.grid-item{display:block;text-decoration:none;color:inherit;cursor:pointer}
 a.grid-item:hover h3{color:var(--blue)}
+.grid-services{grid-template-columns:repeat(6,1fr)}
+.grid-services .grid-item{grid-column:span 2;display:flex;flex-direction:column}
+/* 5 карточек: 4-я и 5-я на всю ширину второго ряда. При 6 карточках эти два правила удалить. */
+.grid-services .grid-item:nth-child(4),.grid-services .grid-item:nth-child(5){grid-column:span 3}
+.grid-services .grid-item p{flex:1}
+.grid-services .more{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--blue);transition:transform .15s}
+.grid-services a.grid-item{transition:background .15s,box-shadow .15s}
+.grid-services a.grid-item:hover{background:var(--paper);box-shadow:inset 3px 0 0 var(--blue)}
+.grid-services a.grid-item:hover .more{transform:translateX(4px)}
+@media(max-width:680px){.grid-services{grid-template-columns:1fr}.grid-services .grid-item,.grid-services .grid-item:nth-child(4),.grid-services .grid-item:nth-child(5){grid-column:auto}}
 .section-more{margin-top:22px}
 .section-more a{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--ink);background:transparent;border:1.5px solid var(--ink);padding:11px 22px;text-decoration:none}
 .section-more a:hover{background:var(--ink);color:#EDEFF2}
@@ -236,13 +246,13 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 
  <section id="services">
  <span class="secnum">1.0 // <span data-i18n="services.secnum">SERVICES</span></span>
- <h2 data-i18n="services.title">What I do</h2>
- <div class="grid">
- <a class="grid-item" href="audit.html"><span class="num">01</span><h3 data-i18n="services.s1.h">Process Audit Before AI Implementation</h3><p data-i18n="services.s1.p">What's actually happening</p></a>
- <div class="grid-item"><span class="num">02</span><h3 data-i18n="services.s2.h">AI Solution Design</h3><p data-i18n="services.s2.p">Architecture and implementation plan</p></div>
- <a class="grid-item" href="spec.html"><span class="num">03</span><h3 data-i18n="services.s3.h">Requirements Design for Implementation (AI Spec/TOR)</h3><p data-i18n="services.s3.p">Precise spec for implementation</p></a>
- <div class="grid-item"><span class="num">04</span><h3 data-i18n="services.s4.h">Process Automation</h3><p data-i18n="services.s4.p">Integrations and workflows</p></div>
- <a class="grid-item" href="consulting.html"><span class="num">05</span><h3 data-i18n="services.s5.h">Consulting</h3><p data-i18n="services.s5.p">One-off consultation</p></a>
+ <h2 data-i18n="services.title">Services: from audit to consulting</h2>
+ <div class="grid grid-services">
+ <a class="grid-item" href="audit.html"><span class="num">01</span><h3 data-i18n="services.s1.h">Process Audit Before AI Implementation</h3><p data-i18n="services.s1.p">A work-week snapshot and a task map: what to automate, what to keep human, how many hours get freed up.</p><span class="more" data-i18n="services.more_card">Details →</span></a>
+ <div class="grid-item"><span class="num">02</span><h3 data-i18n="services.s2.h">AI Solution Design</h3><p data-i18n="services.s2.p">An implementation plan with priorities and complexity estimates, where every tool is tied to a task.</p></div>
+ <a class="grid-item" href="spec.html"><span class="num">03</span><h3 data-i18n="services.s3.h">AI Specification</h3><p data-i18n="services.s3.p">A document a contractor or an AI agent can build from predictably, with a result that can be checked.</p><span class="more" data-i18n="services.more_card">Details →</span></a>
+ <div class="grid-item"><span class="num">04</span><h3 data-i18n="services.s4.h">Process Automation</h3><p data-i18n="services.s4.p">Integrations and workflows for a specific task, from simple connections to agent chains.</p></div>
+ <a class="grid-item" href="consulting.html"><span class="num">05</span><h3 data-i18n="services.s5.h">Consulting</h3><p data-i18n="services.s5.p">A one-off consultation on a question or a working session on a process. The first 30 minutes are free.</p><span class="more" data-i18n="services.more_card">Details →</span></a>
  </div>
  <p class="section-more"><a href="services.html" data-i18n="services.more">All services →</a></p>
  </section>
@@ -389,12 +399,12 @@ const T = {
  "why.p1":"Мне всегда было интересно искать способы сделать процессы проще и удобнее. Ещё до появления современных AI-инструментов я постоянно замечал повторяющиеся действия, лишние шаги и неудобные процессы, которые можно было изменить. От бытовых мелочей до рабочих систем: если действие повторяется регулярно, обычно есть возможность сделать его проще или эффективнее.",
  "why.p2":"В бизнесе происходит то же самое. Сотрудники каждый день выполняют множество повторяющихся операций: ищут информацию, обрабатывают письма, заполняют документы, готовят отчёты, переносят данные между системами. Мне интересно находить такие места, где процесс можно сделать проще, быстрее и надёжнее.",
  "why.p3":"Опыт в enterprise IT научил меня подходить к этому системно: сначала понять задачу, затем описать процесс и только после этого выбирать технологию. Сегодня искусственный интеллект стал следующим этапом развития этого подхода. Он позволяет создавать системы, которые берут на себя рутину и освобождают время для решений, где действительно нужен человек.",
- "services.secnum":"УСЛУГИ","services.title":"Чем я занимаюсь",
- "services.s1.h":"Аудит процессов перед внедрением AI","services.s1.p":"Что происходит на самом деле",
- "services.s2.h":"Проектирование AI-решений","services.s2.p":"Архитектура и план внедрения",
- "services.s3.h":"Проектирование требований для внедрения (AI-спецификация/ТЗ)","services.s3.p":"Точное ТЗ для внедрения",
- "services.s4.h":"Автоматизация процессов","services.s4.p":"Интеграции и рабочие сценарии",
- "services.s5.h":"Консалтинг","services.s5.p":"Разовая консультация",
+ "services.secnum":"УСЛУГИ","services.title":"Услуги: от аудита до консультации","services.more_card":"Подробнее →",
+ "services.s1.h":"Аудит процессов перед внедрением AI","services.s1.p":"Фотография рабочей недели и карта задач: что автоматизировать, что оставить людям, сколько часов высвобождается.",
+ "services.s2.h":"Проектирование AI-решений","services.s2.p":"План внедрения с приоритетами и оценкой сложности, в котором каждый инструмент привязан к задаче.",
+ "services.s3.h":"AI-спецификация (ТЗ для ИИ)","services.s3.p":"Документ, по которому подрядчик или ИИ-агент строит решение предсказуемо, с проверяемым результатом.",
+ "services.s4.h":"Автоматизация процессов","services.s4.p":"Интеграции и рабочие сценарии под конкретную задачу, от простых связок до цепочек агентов.",
+ "services.s5.h":"Консультации","services.s5.p":"Разовая консультация по вопросу или рабочая сессия над процессом. Первые 30 минут бесплатно.",
  "services.more":"Все услуги →",
  "audience.secnum":"ДЛЯ КОГО","audience.title":"Для кого я работаю",
  "audience.p1":"С компаниями и командами, которые хотят внедрить ИИ в реальные процессы, а не просто попробовать.",
@@ -445,12 +455,12 @@ const T = {
  "why.p1":"Zawsze interesowało mnie szukanie sposobów, by procesy były prostsze i wygodniejsze. Jeszcze przed pojawieniem się nowoczesnych narzędzi AI zauważałem powtarzalne czynności, zbędne kroki i niewygodne procesy, które dało się zmienić. Od codziennych spraw po systemy pracy: jeśli czynność powtarza się regularnie, zwykle istnieje sposób, by zrobić ją prościej lub efektywniej.",
  "why.p2":"To samo dzieje się w biznesie. Pracownicy codziennie wykonują wiele powtarzalnych czynności: szukają informacji, przetwarzają maile, wypełniają dokumenty, przygotowują raporty, przenoszą dane między systemami. Interesuje mnie znajdowanie miejsc, gdzie proces można zrobić prostszym, szybszym i bardziej niezawodnym.",
  "why.p3":"Doświadczenie w enterprise IT nauczyło mnie podejścia systemowego: najpierw zrozumieć zadanie, potem opisać proces i dopiero wtedy wybrać technologię. Dziś sztuczna inteligencja stała się kolejnym etapem tego podejścia. Pozwala budować systemy, które przejmują rutynę i uwalniają czas na decyzje, w których naprawdę potrzebny jest człowiek.",
- "services.secnum":"USŁUGI","services.title":"Czym się zajmuję",
- "services.s1.h":"Audyt procesów przed wdrożeniem AI","services.s1.p":"Co naprawdę się dzieje",
- "services.s2.h":"Projektowanie rozwiązań AI","services.s2.p":"Architektura i plan wdrożenia",
- "services.s3.h":"Projektowanie wymagań wdrożeniowych (specyfikacja AI/TOR)","services.s3.p":"Precyzyjna specyfikacja do wdrożenia",
- "services.s4.h":"Automatyzacja procesów","services.s4.p":"Integracje i scenariusze pracy",
- "services.s5.h":"Konsulting","services.s5.p":"Jednorazowa konsultacja",
+ "services.secnum":"USŁUGI","services.title":"Usługi: od audytu do konsultacji","services.more_card":"Szczegóły →",
+ "services.s1.h":"Audyt procesów przed wdrożeniem AI","services.s1.p":"Fotografia tygodnia pracy i mapa zadań: co zautomatyzować, co zostawić ludziom, ile godzin się uwalnia.",
+ "services.s2.h":"Projektowanie rozwiązań AI","services.s2.p":"Plan wdrożenia z priorytetami i oceną złożoności, w którym każde narzędzie jest powiązane z zadaniem.",
+ "services.s3.h":"Specyfikacja AI","services.s3.p":"Dokument, na podstawie którego wykonawca lub agent AI buduje rozwiązanie przewidywalnie, z wynikiem możliwym do sprawdzenia.",
+ "services.s4.h":"Automatyzacja procesów","services.s4.p":"Integracje i scenariusze pracy pod konkretne zadanie, od prostych połączeń po łańcuchy agentów.",
+ "services.s5.h":"Konsultacje","services.s5.p":"Jednorazowa konsultacja w konkretnej sprawie lub sesja robocza nad procesem. Pierwsze 30 minut bezpłatnie.",
  "services.more":"Wszystkie usługi →",
  "audience.secnum":"DLA KOGO","audience.title":"Z kim pracuję",
  "audience.p1":"Z firmami i zespołami, które chcą wdrożyć AI w realne procesy, a nie tylko wypróbować.",
@@ -501,12 +511,12 @@ const T = {
  "why.p1":"I've always been interested in finding ways to make processes simpler and more convenient. Even before modern AI tools, I kept noticing repetitive actions, unnecessary steps, and awkward processes that could be changed. From everyday things to work systems: if an action repeats regularly, there's usually a way to make it simpler or more efficient.",
  "why.p2":"The same happens in business. Employees perform many repetitive operations every day: searching for information, processing emails, filling out documents, preparing reports, transferring data between systems. I'm interested in finding the places where a process can be made simpler, faster, and more reliable.",
  "why.p3":"My enterprise IT experience taught me to approach this systematically: first understand the task, then describe the process, and only then choose the technology. Today AI has become the next stage of this approach. It lets you build systems that take over routine work and free up time for decisions where a human is genuinely needed.",
- "services.secnum":"SERVICES","services.title":"What I do",
- "services.s1.h":"Process Audit Before AI Implementation","services.s1.p":"What's actually happening",
- "services.s2.h":"AI Solution Design","services.s2.p":"Architecture and implementation plan",
- "services.s3.h":"Requirements Design for Implementation (AI Spec/TOR)","services.s3.p":"Precise spec for implementation",
- "services.s4.h":"Process Automation","services.s4.p":"Integrations and workflows",
- "services.s5.h":"Consulting","services.s5.p":"One-off consultation",
+ "services.secnum":"SERVICES","services.title":"Services: from audit to consulting","services.more_card":"Details →",
+ "services.s1.h":"Process Audit Before AI Implementation","services.s1.p":"A work-week snapshot and a task map: what to automate, what to keep human, how many hours get freed up.",
+ "services.s2.h":"AI Solution Design","services.s2.p":"An implementation plan with priorities and complexity estimates, where every tool is tied to a task.",
+ "services.s3.h":"AI Specification","services.s3.p":"A document a contractor or an AI agent can build from predictably, with a result that can be checked.",
+ "services.s4.h":"Process Automation","services.s4.p":"Integrations and workflows for a specific task, from simple connections to agent chains.",
+ "services.s5.h":"Consulting","services.s5.p":"A one-off consultation on a question or a working session on a process. The first 30 minutes are free.",
  "services.more":"All services →",
  "audience.secnum":"WHO FOR","audience.title":"Who I work with",
  "audience.p1":"Companies and teams who want to implement AI in real processes, not just try it out.",

@@ -67,7 +67,7 @@
     },
     {
       "@type": "Service",
-      "name": "Projektowanie wymagań wdrożeniowych (specyfikacja AI/TOR)",
+      "name": "Specyfikacja AI",
       "provider": {
         "@id": "https://kholomyanskiy.com/#organization"
       }
@@ -81,7 +81,7 @@
     },
     {
       "@type": "Service",
-      "name": "Konsulting",
+      "name": "Konsultacje",
       "provider": {
         "@id": "https://kholomyanskiy.com/#organization"
       }
@@ -265,6 +265,16 @@ p.lead{font-size:17.5px}
 .grid-item p{font-size:14px;margin-bottom:0;color:var(--ink-soft);max-width:none}
 a.grid-item{display:block;text-decoration:none;color:inherit;cursor:pointer}
 a.grid-item:hover h3{color:var(--blue)}
+.grid-services{grid-template-columns:repeat(6,1fr)}
+.grid-services .grid-item{grid-column:span 2;display:flex;flex-direction:column}
+/* 5 карточек: 4-я и 5-я на всю ширину второго ряда. При 6 карточках эти два правила удалить. */
+.grid-services .grid-item:nth-child(4),.grid-services .grid-item:nth-child(5){grid-column:span 3}
+.grid-services .grid-item p{flex:1}
+.grid-services .more{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--blue);transition:transform .15s}
+.grid-services a.grid-item{transition:background .15s,box-shadow .15s}
+.grid-services a.grid-item:hover{background:var(--paper);box-shadow:inset 3px 0 0 var(--blue)}
+.grid-services a.grid-item:hover .more{transform:translateX(4px)}
+@media(max-width:680px){.grid-services{grid-template-columns:1fr}.grid-services .grid-item,.grid-services .grid-item:nth-child(4),.grid-services .grid-item:nth-child(5){grid-column:auto}}
 .section-more{margin-top:22px}
 .section-more a{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--ink);background:transparent;border:1.5px solid var(--ink);padding:11px 22px;text-decoration:none}
 .section-more a:hover{background:var(--ink);color:#EDEFF2}
@@ -401,13 +411,13 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 
  <section id="services">
  <span class="secnum">1.0 // <span data-i18n="services.secnum">USŁUGI</span></span>
- <h2 data-i18n="services.title">Czym się zajmuję</h2>
- <div class="grid">
- <a class="grid-item" href="/pl/audit.html"><span class="num">01</span><h3 data-i18n="services.s1.h">Audyt procesów przed wdrożeniem AI</h3><p data-i18n="services.s1.p">Co naprawdę się dzieje</p></a>
- <div class="grid-item"><span class="num">02</span><h3 data-i18n="services.s2.h">Projektowanie rozwiązań AI</h3><p data-i18n="services.s2.p">Architektura i plan wdrożenia</p></div>
- <a class="grid-item" href="/pl/spec.html"><span class="num">03</span><h3 data-i18n="services.s3.h">Projektowanie wymagań wdrożeniowych (specyfikacja AI/TOR)</h3><p data-i18n="services.s3.p">Precyzyjna specyfikacja do wdrożenia</p></a>
- <div class="grid-item"><span class="num">04</span><h3 data-i18n="services.s4.h">Automatyzacja procesów</h3><p data-i18n="services.s4.p">Integracje i scenariusze pracy</p></div>
- <a class="grid-item" href="/pl/consulting.html"><span class="num">05</span><h3 data-i18n="services.s5.h">Konsulting</h3><p data-i18n="services.s5.p">Jednorazowa konsultacja</p></a>
+ <h2 data-i18n="services.title">Usługi: od audytu do konsultacji</h2>
+ <div class="grid grid-services">
+ <a class="grid-item" href="/pl/audit.html"><span class="num">01</span><h3 data-i18n="services.s1.h">Audyt procesów przed wdrożeniem AI</h3><p data-i18n="services.s1.p">Fotografia tygodnia pracy i mapa zadań: co zautomatyzować, co zostawić ludziom, ile godzin się uwalnia.</p><span class="more" data-i18n="services.more_card">Szczegóły →</span></a>
+ <div class="grid-item"><span class="num">02</span><h3 data-i18n="services.s2.h">Projektowanie rozwiązań AI</h3><p data-i18n="services.s2.p">Plan wdrożenia z priorytetami i oceną złożoności, w którym każde narzędzie jest powiązane z zadaniem.</p></div>
+ <a class="grid-item" href="/pl/spec.html"><span class="num">03</span><h3 data-i18n="services.s3.h">Specyfikacja AI</h3><p data-i18n="services.s3.p">Dokument, na podstawie którego wykonawca lub agent AI buduje rozwiązanie przewidywalnie, z wynikiem możliwym do sprawdzenia.</p><span class="more" data-i18n="services.more_card">Szczegóły →</span></a>
+ <div class="grid-item"><span class="num">04</span><h3 data-i18n="services.s4.h">Automatyzacja procesów</h3><p data-i18n="services.s4.p">Integracje i scenariusze pracy pod konkretne zadanie, od prostych połączeń po łańcuchy agentów.</p></div>
+ <a class="grid-item" href="/pl/consulting.html"><span class="num">05</span><h3 data-i18n="services.s5.h">Konsultacje</h3><p data-i18n="services.s5.p">Jednorazowa konsultacja w konkretnej sprawie lub sesja robocza nad procesem. Pierwsze 30 minut bezpłatnie.</p><span class="more" data-i18n="services.more_card">Szczegóły →</span></a>
  </div>
  <p class="section-more"><a href="/pl/services.html" data-i18n="services.more">Wszystkie usługi →</a></p>
  </section>
