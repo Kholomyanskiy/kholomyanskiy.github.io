@@ -22,12 +22,16 @@ portfolio.html        проекты
 articles.html         список статей
 articles/*.html       3 статьи, тексты только на английском
 audit.html            аудит отдела: Express от 3 500 zł, Department от 9 000 zł
-spec.html             спецификация как услуга
+spec.html             спецификация как услуга: реанимация от 2 500 zł, фундамент от 5 000 zł
+kalkulator.html       калькулятор окупаемости
 metodichka.html       бесплатная методичка, самая большая страница
+privacy.html          политика конфиденциальности
+glossary/             словарь (собирается из content/glossary/)
 404.html
 llms.txt  robots.txt  sitemap.xml  CNAME
 img/  files/  favicon*
-docs/                 ТЗ, по которым ведётся работа
+src/  tools/  content/  исходники, сборка, тексты словаря
+docs/                 ТЗ, бэклог, копилка; локально, в .gitignore
 ```
 
 ## Как устроены языки
@@ -51,7 +55,7 @@ docs/                 ТЗ, по которым ведётся работа
 
 | Файл | Что | Метка в шаблоне |
 |---|---|---|
-| `footer.html` | подвал всех 9 страниц | `<!-- @include footer -->` |
+| `footer.html` | подвал всех страниц сборки и словаря | `<!-- @include footer -->` |
 | `topnav.html` | шапка всех страниц, кроме 404 и статей | `<!-- @include topnav current=services -->` (на главной и privacy без `current`, в словаре `current=glossary`, на audit/spec/kalkulator `current=services,<страница>`, на metodichka `current=products`) |
 | `head-common.html` | og:image, twitter:card, og:locale | `<!-- @include head-common -->` |
 | `common.css` | правила, одинаковые на всех страницах | `/* @include common.css */` в начале `<style>` |
@@ -78,6 +82,15 @@ docs/                 ТЗ, по которым ведётся работа
 - Разметка MD только из раздела 2.1 ТЗ; ссылки только из таблицы 2.2 (плюс `products.html`, `portfolio.html`, `articles.html`, `index.html`). Остальное — ошибка сборки с файлом и строкой.
 - Пункт «Словарь» в шапке и подвале: `glossary.html` в `topnav.html`/`footer.html`, сборка превращает его в `/glossary/`, `/pl/glossary/`, `/ru/glossary/`. В ручных копиях (404, статьи) — `/glossary/` и `../glossary/`.
 - Собранные страницы словаря руками не правятся (строка `GENERATED` в начале), устаревшие сборка удаляет сама.
+
+## Формы и контакты
+
+- Формы на index (`#contact`), audit (`#audit-contact`), spec (`#spec-contact`), kalkulator (`#calc-contact`). Отправка через Web3Forms запросом `fetch`, без сторонних скриптов. У якорей `scroll-margin-top:70px`, чтобы форма не уходила под шапку.
+- Главные кнопки сайта ведут на форму; почта остаётся запасной строкой под формой, в подвале, в `closing.btn` главной и в 404.
+- Под каждой формой: строка `form.privacy` со ссылкой на `privacy.html` и ссылка на запись `https://cal.com/kholomyanskiy/30min` (только ссылкой, без встраивания).
+- На audit и spec кнопки у карточек форматов выставляют формат в форме; тема письма `Audit request: …` / `Spec request: …`.
+- Срок ответа везде один: «в течение одного-двух дней» (`form.success` одинаковый на всех формах).
+- Новые поля форм, новые получатели данных или хранение в браузере требуют правки `privacy.html` на трёх языках. Сейчас в браузере хранится только выбранный язык (`localStorage`, ключ `site-lang`).
 
 ## Абсолютные правила
 
@@ -109,6 +122,6 @@ docs/                 ТЗ, по которым ведётся работа
 
 ## Где что лежит
 
-- ТЗ — `docs/` в этом репозитории.
+- ТЗ, `BACKLOG-site.md`, копилка `TZ-small-fixes-C2.md`, `HANDOFF.md` — `docs/` и корень, локально: они в `.gitignore` и в git не попадают.
 - Стратегия, каналы, шаблоны писем, контент-план — Google Drive, в репозиторий не кладутся.
 - Книга и методичка — отдельные продукты, их тексты в репозитории не правятся.
