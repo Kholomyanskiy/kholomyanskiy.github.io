@@ -1,16 +1,16 @@
 ---
 slug: process-map
 title: "Mapa procesów: czym jest i po co ją tworzyć przed wdrożeniem AI"
-description: "Mapa procesów pokazuje, jak naprawdę przebiega praca w dziale. Czym różni się od schematu blokowego, jak ją przygotować i co ustalić przed wdrożeniem AI."
+description: "Mapa procesów pokazuje, jak naprawdę przebiega praca w dziale. Czym różni się od schematu w procedurze, jak ją przygotować i co ustalić przed wdrożeniem AI."
 ---
 
 # Mapa procesów
 
 Mapa procesów pokazuje, jak praca naprawdę przebiega w dziale lub firmie: kto co robi, w jakiej kolejności, co przekazuje dalej, gdzie czeka i gdzie omija zasady, żeby zdążyć. Tworzy się ją na podstawie tego, co ludzie faktycznie robią. Pomaga zdecydować, co zautomatyzować, a czego nie ruszać.
 
-## Czym mapa różni się od schematu blokowego
+## Czym mapa różni się od schematu w procedurze
 
-Schemat blokowy w procedurze pokazuje, jak proces ma przebiegać. Mapa pokazuje, jak przebiega naprawdę. Zawiera to, czego nie ma w procedurze: prywatne arkusze w Excelu, telefon do kolegi, żeby „dopytać”, ręczne sprawdzenie, które jedna osoba wykonuje z przyzwyczajenia, wiadomość czekającą tydzień na odpowiedź. AI zawodzi właśnie w tych miejscach, bo nikt o nich nie powiedział.
+Schemat w procedurze pokazuje, jak proces ma przebiegać. Mapa pokazuje, jak przebiega naprawdę. Jeśli procedura jest aktualna i przestrzegana, oba obrazy są prawie takie same. Częściej mapa zawiera to, czego nie ma w procedurze: prywatne arkusze w Excelu, telefon do kolegi, żeby „dopytać”, ręczne sprawdzenie, które jedna osoba wykonuje z przyzwyczajenia, wiadomość czekającą tydzień na odpowiedź. AI zawodzi właśnie w tych miejscach, bo nikt o nich nie powiedział.
 
 Na mapie zaznacza się:
 

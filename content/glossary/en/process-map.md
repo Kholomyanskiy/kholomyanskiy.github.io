@@ -1,16 +1,16 @@
 ---
 slug: process-map
 title: "Process map: what it is and why you need one before AI implementation"
-description: "A process map shows how work actually moves through a department. How it differs from a flowchart, how to build one, and what to decide before AI."
+description: "A process map shows how work actually moves through a department. How it differs from a procedure flowchart, how to build one, and what to decide before AI."
 ---
 
 # Process map
 
 A process map shows how work actually moves through a department or company: who does what, in which order, what they pass on, where work waits, and where people bypass rules to get things done. It is built from what people actually do and helps decide what to automate and what to leave alone.
 
-## How a process map differs from a flowchart
+## How a process map differs from a procedure flowchart
 
-A flowchart in a procedure shows how a process is supposed to work. A process map shows how it does work. It includes things missing from the procedure: personal Excel spreadsheets, a call to a colleague to “check,” a manual review one person does out of habit, an email that waits a week for a reply. AI breaks down in exactly these places because no one mentioned them.
+A flowchart in a procedure shows how a process is supposed to work. A process map shows how it actually works. If the procedure is current and followed, the two are close. More often the map includes things missing from the procedure: personal Excel spreadsheets, a call to a colleague to “check,” a manual review one person does out of habit, an email that waits a week for a reply. AI breaks down in exactly these places because no one mentioned them.
 
 A process map records:
 
