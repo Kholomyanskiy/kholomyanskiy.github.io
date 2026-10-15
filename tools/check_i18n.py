@@ -101,6 +101,8 @@ def footer_links(html: str) -> set:
     if not m:
         return set()
     links = {re.sub(r'^(?:\.\./|/)', '', h) for h in FOOTER_HREF_RE.findall(m.group(0))}
+    # C2M: index.html#X, /#X и #X — одна ссылка
+    links = {re.sub(r'^index\.html(?=#)', '', h) for h in links}
     # ТЗ-K: в footer.html оглавление словаря записано glossary.html, в ручных копиях — glossary/
     return {"glossary.html" if h == "glossary/" else h for h in links}
 
