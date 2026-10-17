@@ -133,6 +133,8 @@ footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrai
 .tb-meta .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:2px}
 /* ---------- sections ---------- */
 p.lead{font-size:17.5px}
+.case-shot{aspect-ratio:16/9;background:var(--paper);border:1px solid var(--line-soft);margin-bottom:16px;overflow:hidden}
+.case-shot img{width:100%;height:100%;object-fit:contain;display:block}
 .formats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}
 .card{border:1.5px solid var(--ink);background:var(--paper);display:flex;flex-direction:column}
 .card-head{padding:16px 20px;border-bottom:1px solid var(--line)}
@@ -368,6 +370,14 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
     <span class="secnum" data-i18n="s5_num">5.0 // ГРАНИЦЫ ФОРМАТА</span>
     <h2 data-i18n="s5_h2">Что консультация не заменяет</h2>
     <p data-i18n-html="s5_p">Консультация отвечает на конкретный вопрос. Полная карта процессов отдела и расчёт эффекта делаются в рамках <a href="/ru/audit.html">аудита процессов</a>. Документ, по которому подрядчик строит решение, это <a href="/ru/spec.html">спецификация</a>. Прикинуть окупаемость до встречи можно в <a href="/ru/kalkulator.html">калькуляторе</a>. Если задачу хочется научиться решать самостоятельно, для этого есть <a href="/ru/training.html">сессии на задачах клиента</a>.</p>
+  </section>
+
+  <section>
+    <span class="secnum">6.0 // ПОДКАСТ</span>
+    <h2>ИИ или сотрудники</h2>
+    <a href="https://youtu.be/aXml80uZQas" target="_blank" rel="noopener"><div class="case-shot"><img src="/img/podcast-saburov.jpg" width="880" height="495" loading="lazy" alt="Подкаст «ИИ или сотрудники», превью видео"></div></a>
+    <p>Разговор с маркетологом Антоном Сабуровым о том, что малому и среднему бизнесу стоит автоматизировать и что лучше оставить людям. 48 минут, YouTube.</p>
+    <p><a href="https://youtu.be/aXml80uZQas" target="_blank" rel="noopener">Смотреть на YouTube →</a></p>
   </section>
 
   <div class="cta">

@@ -87,6 +87,37 @@ def expand_includes(src: str, page: str) -> str:
     return out
 
 
+LANG_BLOCK_RE = re.compile(r'[ \t]*<!-- @(lang [a-z]+|endlang) -->[ \t]*\n?')
+
+
+def apply_lang_blocks(src: str, page: str, lang: str) -> str:
+    """Блок между <!-- @lang xx --> и <!-- @endlang --> остаётся только в версии xx, метки убираются. Без пары или с неизвестным языком — ошибка."""
+    out, pos, open_m = [], 0, None
+    for m in LANG_BLOCK_RE.finditer(src):
+        tag = m.group(1)
+        if tag == "endlang":
+            if open_m is None:
+                raise StopCondition(f"{page}: <!-- @endlang --> без <!-- @lang -->")
+            block_lang = open_m.group(1).split()[1]
+            if block_lang == lang:
+                out.append(src[open_m.end():m.start()])
+            open_m, pos = None, m.end()
+        else:
+            if open_m is not None:
+                raise StopCondition(f"{page}: <!-- @{tag} --> внутри незакрытого <!-- @{open_m.group(1)} -->")
+            if tag.split()[1] not in LANGS:
+                raise StopCondition(f"{page}: неизвестный язык в <!-- @{tag} -->")
+            out.append(src[pos:m.start()])
+            open_m = m
+    if open_m is not None:
+        raise StopCondition(f"{page}: <!-- @{open_m.group(1)} --> без <!-- @endlang -->")
+    out.append(src[pos:])
+    res = "".join(out)
+    if "<!-- @lang" in res or "<!-- @endlang" in res:
+        raise StopCondition(f"{page}: нераспознанная метка @lang")
+    return res
+
+
 def merge_common_dict(full_dict: dict, page: str) -> dict:
     """Словарь страницы = common.i18n.json + T шаблона. Расхождение значений — стоп со списком."""
     if not COMMON_I18N.exists():
@@ -577,7 +608,8 @@ def render_page(template_src: str, page: str, lang: str, full_dict: dict, migrat
     lang_dict = full_dict[lang]
     pattern = detect_pattern(template_src)
 
-    out = substitute_text(template_src, lang_dict, lang)
+    out = apply_lang_blocks(template_src, page, lang)
+    out = substitute_text(out, lang_dict, lang)
     title, desc = meta_title_desc(lang_dict, page)
     out = set_head(out, lang, page, title, desc)
     out = set_social_meta(out, title, desc)  # og/twitter на языке версии для всех страниц (C2-4, C2-9)
