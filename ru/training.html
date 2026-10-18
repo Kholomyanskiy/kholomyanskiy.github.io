@@ -182,6 +182,15 @@ section > h3{font-family:'Spectral',serif;font-weight:600;font-size:19px;margin-
 .footer-links a:hover{color:var(--blue)}
 footer a{color:var(--ink);text-decoration:none;font-weight:500}
 footer a:hover{color:var(--blue);text-decoration:underline}
+.accordion{margin-top:20px;border:1px solid var(--line)}
+.acc-item{border-bottom:1px solid var(--line)}
+.acc-item:last-child{border-bottom:none}
+.acc-head{width:100%;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:var(--panel);border:none;text-align:left;cursor:pointer;font-family:'Spectral',serif;font-weight:600;font-size:16px;color:var(--ink)}
+.acc-head:hover{background:var(--paper)}
+.acc-plus{font-family:'JetBrains Mono',monospace;font-size:18px;color:var(--blue);flex-shrink:0;margin-left:16px;transition:transform .2s}
+.acc-item.open .acc-plus{transform:rotate(45deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .25s ease}
+.acc-body-inner{padding:0 20px 18px;font-size:15px;color:var(--ink-soft);max-width:560px}
 @media(max-width:680px){
   .tb-meta{grid-template-columns:repeat(2,1fr)}
   .tb-meta div:nth-child(2){border-right:none}
@@ -214,6 +223,63 @@ footer a:hover{color:var(--blue);text-decoration:underline}
         "priceCurrency": "PLN",
         "unitCode": "HUR",
         "valueAddedTaxIncluded": false
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://kholomyanskiy.com/training.html#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Нужно ли уметь программировать?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Код пишет ChatGPT или Claude по описанию задачи. Участник учится описывать задачу и проверять результат."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какие подписки понадобятся?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Платная подписка на инструмент, выбранный под задачу: ChatGPT, Claude или Claude Code. Что подходит, решается на бесплатном звонке, до покупки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Входит ли подготовка в цену?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. План до встречи и резюме после неё входят в стоимость."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько стоит, если участников двое или больше?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Цена для команды называется после бесплатного звонка, когда понятны задача и число участников."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать с конфиденциальными материалами?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Начать можно с обезличенных примеров. Если задача связана с персональными данными, например с CV кандидатов, первым шагом настраивается их обезличивание до отправки в облачный сервис."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какой результат реален за одну встречу?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Одна рабочая часть задачи: например, описание задачи для Claude Code и первый проверенный прогон. Что именно, согласуется до встречи."
       }
     }
   ]
@@ -297,7 +363,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
     <div class="tb-main">
       <span class="stamp" data-i18n="stamp">Действует · v1.0</span>
       <h1 data-i18n-html="h1_title">Автоматизация <em>своих задач</em> с ИИ: практические сессии</h1>
-      <p class="sub" data-i18n="tb_sub">Индивидуальные сессии для специалистов и небольших команд. Участник работает над своей рабочей задачей в ChatGPT, Claude или Claude Code и сам строит решение, консультант ведёт и объясняет. Без программы курса и презентаций.</p>
+      <p class="sub" data-i18n="tb_sub">Индивидуальные сессии для специалистов и небольших команд. Участник работает над своей рабочей задачей в ChatGPT, Claude или Claude Code и сам строит решение, консультант ведёт и объясняет. План встреч составляется под задачу участника.</p>
       <p class="sub" data-i18n="tb_free">Первые 30 минут бесплатно: разбор задачи и оценка, сколько сессий понадобится.</p>
       <div class="card-action"><a class="btn2" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="tb_cta">Записаться на бесплатный звонок, 30 минут →</a></div>
     </div>
@@ -344,7 +410,9 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
   <section>
     <span class="secnum" data-i18n="s3_num">3.0 // ЧТО ОСТАЁТСЯ</span>
     <h2 data-i18n="s3_h2">Результат сессий</h2>
-    <p data-i18n="s3_p1">Инструмент, собранный на сессиях и запущенный на компьютере участника: скрипт, шаблон промпта, простой рабочий процесс.</p>
+    <p data-i18n="s3_p1">После каждой встречи: сделанная часть работы, проверенный результат и следующий шаг.</p>
+    <p data-i18n="s3_p1b">По итогам серии: скрипт, шаблон промпта или простой рабочий процесс на компьютере участника, если задача реализуема с выбранными инструментами.</p>
+    <p data-i18n="s3_p1c">Ожидаемый результат каждой встречи согласуется заранее.</p>
     <p data-i18n="s3_p2">Умение описать следующую задачу так, чтобы модель сделала то, что нужно.</p>
     <p data-i18n="s3_p3">Понимание, когда хватает ChatGPT или Claude, а когда нужен Claude Code.</p>
     <p data-i18n="s3_intro">Было: «хочу автоматически делать summary встреч из Teams» и ручная цепочка «календарь, встреча, скачать транскрипцию, вставить в чат». После сессии про транскрипции у агентства осталось вот это.</p>
@@ -385,7 +453,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
   <section>
     <span class="secnum" data-i18n="s4_num">4.0 // СТОИМОСТЬ И УСЛОВИЯ</span>
     <h2 data-i18n="s4_h2">Оплата за согласованное время</h2>
-    <p data-i18n="s4_p1">Рабочая сессия: от 250 zł за час, нетто. Обычно 60–90 минут.</p>
+    <p data-i18n="s4_p1">Сессия: от 250 zł за час, нетто. Обычно 60–90 минут.</p>
     <p data-i18n="s4_p2">Число сессий зависит от задачи и оценивается на бесплатном звонке. Простая задача может уложиться в одну сессию, сложная займёт несколько.</p>
     <p data-i18n="s4_p2a">Для команды из нескольких человек цена называется после бесплатного звонка.</p>
     <p data-i18n-html="s4_p3">Оплата вперёд, перенос и отмена, счёт работают так же, как у <a href="/ru/consulting.html">консультаций</a>.</p>
@@ -396,6 +464,37 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
     <span class="secnum" data-i18n="s5_num">5.0 // ГРАНИЦЫ ФОРМАТА</span>
     <h2 data-i18n="s5_h2">Что этот формат не включает</h2>
     <p data-i18n-html="s5_p">Это не курс с программой, презентациями и домашними заданиями. Между сессиями решение за участника не строится, готовая автоматизация не обещается. Если нужна система, которую построит подрядчик, начинать стоит со <a href="/ru/spec.html">спецификации</a>. Если сначала нужно оценить процессы всего отдела, для этого есть <a href="/ru/audit.html">аудит</a>. Если нужен только совет, без работы руками, подходит <a href="/ru/consulting.html">консультация</a>.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s6_num">6.0 // ВОПРОСЫ</span>
+    <h2 data-i18n="s6_h2">Перед первой встречей</h2>
+    <div class="accordion" id="faq-accordion">
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="s6_q1_h">Нужно ли уметь программировать?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q1_p">Нет. Код пишет ChatGPT или Claude по описанию задачи. Участник учится описывать задачу и проверять результат.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="s6_q2_h">Какие подписки понадобятся?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q2_p">Платная подписка на инструмент, выбранный под задачу: ChatGPT, Claude или Claude Code. Что подходит, решается на бесплатном звонке, до покупки.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="s6_q3_h">Входит ли подготовка в цену?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q3_p">Да. План до встречи и резюме после неё входят в стоимость.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="s6_q4_h">Сколько стоит, если участников двое или больше?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q4_p">Цена для команды называется после бесплатного звонка, когда понятны задача и число участников.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="s6_q5_h">Что делать с конфиденциальными материалами?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q5_p">Начать можно с обезличенных примеров. Если задача связана с персональными данными, например с CV кандидатов, первым шагом настраивается их обезличивание до отправки в облачный сервис.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="s6_q6_h">Какой результат реален за одну встречу?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q6_p">Одна рабочая часть задачи: например, описание задачи для Claude Code и первый проверенный прогон. Что именно, согласуется до встречи.</div></div>
+ </div>
+    </div>
   </section>
 
   <div class="cta">
@@ -424,6 +523,20 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 </footer>
 
 
+<script>
+document.querySelectorAll('.acc-head').forEach(head=>{
+ head.addEventListener('click', ()=>{
+ const item = head.closest('.acc-item');
+ const body = item.querySelector('.acc-body');
+ const isOpen = item.classList.contains('open');
+ item.parentElement.querySelectorAll('.acc-item.open').forEach(other=>{
+ if(other!==item){ other.classList.remove('open'); other.querySelector('.acc-body').style.maxHeight=null; }
+ });
+ if(isOpen){ item.classList.remove('open'); body.style.maxHeight=null; }
+ else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight+'px'; }
+ });
+});
+</script>
 
 <script>
 document.querySelectorAll('[data-lang]').forEach(function(b){

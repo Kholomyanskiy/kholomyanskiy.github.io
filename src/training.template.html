@@ -123,6 +123,15 @@ section > h3{font-family:'Spectral',serif;font-weight:600;font-size:19px;margin-
 .footer-links a:hover{color:var(--blue)}
 footer a{color:var(--ink);text-decoration:none;font-weight:500}
 footer a:hover{color:var(--blue);text-decoration:underline}
+.accordion{margin-top:20px;border:1px solid var(--line)}
+.acc-item{border-bottom:1px solid var(--line)}
+.acc-item:last-child{border-bottom:none}
+.acc-head{width:100%;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:var(--panel);border:none;text-align:left;cursor:pointer;font-family:'Spectral',serif;font-weight:600;font-size:16px;color:var(--ink)}
+.acc-head:hover{background:var(--paper)}
+.acc-plus{font-family:'JetBrains Mono',monospace;font-size:18px;color:var(--blue);flex-shrink:0;margin-left:16px;transition:transform .2s}
+.acc-item.open .acc-plus{transform:rotate(45deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .25s ease}
+.acc-body-inner{padding:0 20px 18px;font-size:15px;color:var(--ink-soft);max-width:560px}
 @media(max-width:680px){
   .tb-meta{grid-template-columns:repeat(2,1fr)}
   .tb-meta div:nth-child(2){border-right:none}
@@ -160,6 +169,45 @@ footer a:hover{color:var(--blue);text-decoration:underline}
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://kholomyanskiy.com/training.html#faq",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "$t:s6_q1_h",
+ "acceptedAnswer": { "@type": "Answer", "text": "$t:s6_q1_p" }
+ },
+ {
+ "@type": "Question",
+ "name": "$t:s6_q2_h",
+ "acceptedAnswer": { "@type": "Answer", "text": "$t:s6_q2_p" }
+ },
+ {
+ "@type": "Question",
+ "name": "$t:s6_q3_h",
+ "acceptedAnswer": { "@type": "Answer", "text": "$t:s6_q3_p" }
+ },
+ {
+ "@type": "Question",
+ "name": "$t:s6_q4_h",
+ "acceptedAnswer": { "@type": "Answer", "text": "$t:s6_q4_p" }
+ },
+ {
+ "@type": "Question",
+ "name": "$t:s6_q5_h",
+ "acceptedAnswer": { "@type": "Answer", "text": "$t:s6_q5_p" }
+ },
+ {
+ "@type": "Question",
+ "name": "$t:s6_q6_h",
+ "acceptedAnswer": { "@type": "Answer", "text": "$t:s6_q6_p" }
+ }
+ ]
+}
+</script>
 </head>
 <body>
 
@@ -175,7 +223,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     <div class="tb-main">
       <span class="stamp" data-i18n="stamp">Active · v1.0</span>
       <h1 data-i18n-html="h1_title">AI training on <em>your own tasks</em></h1>
-      <p class="sub" data-i18n="tb_sub">One-to-one sessions for specialists and small teams. Participants work on a real task from their job in ChatGPT, Claude or Claude Code and build the solution themselves, guided by the consultant. No course syllabus, no slides.</p>
+      <p class="sub" data-i18n="tb_sub">One-to-one sessions for specialists and small teams. Participants work on a real task from their job in ChatGPT, Claude or Claude Code and build the solution themselves, guided by the consultant. The meeting plan is built around the participant's task.</p>
       <p class="sub" data-i18n="tb_free">The first 30 minutes are free: a look at the task and an estimate of how many sessions it needs.</p>
       <div class="card-action"><a class="btn2" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="tb_cta">Book a free 30-minute call →</a></div>
     </div>
@@ -222,7 +270,9 @@ footer a:hover{color:var(--blue);text-decoration:underline}
   <section>
     <span class="secnum" data-i18n="s3_num">3.0 // WHAT STAYS</span>
     <h2 data-i18n="s3_h2">Session outcome</h2>
-    <p data-i18n="s3_p1">A tool built during the sessions and running on the participant's computer: a script, a prompt template, a simple workflow.</p>
+    <p data-i18n="s3_p1">After each meeting: a finished part of the work, a checked result and the next step.</p>
+    <p data-i18n="s3_p1b">After the series: a script, a prompt template or a simple workflow on the participant's computer, if the task is feasible with the chosen tools.</p>
+    <p data-i18n="s3_p1c">The expected outcome of each meeting is agreed in advance.</p>
     <p data-i18n="s3_p2">The ability to describe the next task so that the AI model does what is needed.</p>
     <p data-i18n="s3_p3">Knowing when ChatGPT or Claude is enough and when Claude Code is needed.</p>
     <p data-i18n="s3_intro"></p>
@@ -263,7 +313,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
   <section>
     <span class="secnum" data-i18n="s4_num">4.0 // PRICING AND TERMS</span>
     <h2 data-i18n="s4_h2">Payment for agreed time</h2>
-    <p data-i18n="s4_p1">Working session: from 250 zł per hour, net. Usually 60–90 minutes.</p>
+    <p data-i18n="s4_p1">Session: from 250 zł per hour, net. Usually 60–90 minutes.</p>
     <p data-i18n="s4_p2">The number of sessions depends on the task and is estimated on the free call. A simple task may take one session, a complex one several.</p>
     <p data-i18n="s4_p2a">For a team of several people, the price is set after the free call.</p>
     <p data-i18n-html="s4_p3">Advance payment, rescheduling, cancellation and invoicing follow the same terms as <a href="consulting.html">consulting</a>.</p>
@@ -274,6 +324,37 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     <span class="secnum" data-i18n="s5_num">5.0 // FORMAT LIMITS</span>
     <h2 data-i18n="s5_h2">What this format does not include</h2>
     <p data-i18n-html="s5_p">This is not a course with a syllabus, slides and homework. Between sessions the solution is not built for the participant, and a finished automation is not promised. If a vendor needs to build a system, start with a <a href="spec.html">specification</a>. If the processes of a whole department need assessing first, see the <a href="audit.html">audit</a>. If you only need advice, without hands-on work, a <a href="consulting.html">consultation</a> fits.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s6_num">6.0 // QUESTIONS</span>
+    <h2 data-i18n="s6_h2">Before the first meeting</h2>
+    <div class="accordion" id="faq-accordion">
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="s6_q1_h">Do I need to know how to code?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q1_p">No. ChatGPT or Claude writes the code from the task description. The participant learns to describe the task and check the result.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="s6_q2_h">Which subscriptions will I need?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q2_p">A paid subscription to the tool chosen for the task: ChatGPT, Claude or Claude Code. Which one fits is decided on the free call, before you buy.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="s6_q3_h">Is preparation included in the price?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q3_p">Yes. The plan before the meeting and the summary after it are included.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="s6_q4_h">What does it cost for two or more participants?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q4_p">The team price is set after the free call, once the task and the number of participants are clear.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="s6_q5_h">What about confidential materials?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q5_p">You can start with anonymised examples. If the task involves personal data, such as candidates' CVs, the first step is to anonymise it before it goes to a cloud service.</div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="s6_q6_h">What can realistically be done in one meeting?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q6_p">One working part of the task: for example, a task description for Claude Code and a first checked run. What exactly is agreed before the meeting.</div></div>
+ </div>
+    </div>
   </section>
 
   <div class="cta">
@@ -298,7 +379,7 @@ var T = {
     tb_author_k: "Автор",
     tb_format_k: "Формат", tb_format_v: "Онлайн · 1:1 или команда",
     tb_lang_k: "Языки", tb_lang_v: "PL · RU · UA",
-    tb_sub: "Индивидуальные сессии для специалистов и небольших команд. Участник работает над своей рабочей задачей в ChatGPT, Claude или Claude Code и сам строит решение, консультант ведёт и объясняет. Без программы курса и презентаций.",
+    tb_sub: "Индивидуальные сессии для специалистов и небольших команд. Участник работает над своей рабочей задачей в ChatGPT, Claude или Claude Code и сам строит решение, консультант ведёт и объясняет. План встреч составляется под задачу участника.",
     tb_free: "Первые 30 минут бесплатно: разбор задачи и оценка, сколько сессий понадобится.",
     tb_cta: "Записаться на бесплатный звонок, 30 минут →",
     s1_num: "1.0 // ДЛЯ КОГО",
@@ -315,7 +396,9 @@ var T = {
     s2_li5: "После сессии короткое резюме: что работает, что осталось сделать, какой следующий шаг.",
     s3_num: "3.0 // ЧТО ОСТАЁТСЯ",
     s3_h2: "Результат сессий",
-    s3_p1: "Инструмент, собранный на сессиях и запущенный на компьютере участника: скрипт, шаблон промпта, простой рабочий процесс.",
+    s3_p1: "После каждой встречи: сделанная часть работы, проверенный результат и следующий шаг.",
+    s3_p1b: "По итогам серии: скрипт, шаблон промпта или простой рабочий процесс на компьютере участника, если задача реализуема с выбранными инструментами.",
+    s3_p1c: "Ожидаемый результат каждой встречи согласуется заранее.",
     s3_p2: "Умение описать следующую задачу так, чтобы модель сделала то, что нужно.",
     s3_p3: "Понимание, когда хватает ChatGPT или Claude, а когда нужен Claude Code.",
     s2_intro: "Так выглядит план одной сессии. Это фрагмент настоящей шпаргалки ведущего, четвёртая встреча с рекрутинговым агентством.",
@@ -361,7 +444,7 @@ var T = {
     s3_fig3_cap: "РИС. 3. Цикл доработки на второй сессии с агентством.",
     s4_num: "4.0 // СТОИМОСТЬ И УСЛОВИЯ",
     s4_h2: "Оплата за согласованное время",
-    s4_p1: "Рабочая сессия: от 250 zł за час, нетто. Обычно 60–90 минут.",
+    s4_p1: "Сессия: от 250 zł за час, нетто. Обычно 60–90 минут.",
     s4_p2: "Число сессий зависит от задачи и оценивается на бесплатном звонке. Простая задача может уложиться в одну сессию, сложная займёт несколько.",
     s4_p2a: "Для команды из нескольких человек цена называется после бесплатного звонка.",
     s4_p3: "Оплата вперёд, перенос и отмена, счёт работают так же, как у <a href=\"consulting.html\">консультаций</a>.",
@@ -369,6 +452,20 @@ var T = {
     s5_num: "5.0 // ГРАНИЦЫ ФОРМАТА",
     s5_h2: "Что этот формат не включает",
     s5_p: "Это не курс с программой, презентациями и домашними заданиями. Между сессиями решение за участника не строится, готовая автоматизация не обещается. Если нужна система, которую построит подрядчик, начинать стоит со <a href=\"spec.html\">спецификации</a>. Если сначала нужно оценить процессы всего отдела, для этого есть <a href=\"audit.html\">аудит</a>. Если нужен только совет, без работы руками, подходит <a href=\"consulting.html\">консультация</a>.",
+    s6_num: "6.0 // ВОПРОСЫ",
+    s6_h2: "Перед первой встречей",
+    s6_q1_h: "Нужно ли уметь программировать?",
+    s6_q1_p: "Нет. Код пишет ChatGPT или Claude по описанию задачи. Участник учится описывать задачу и проверять результат.",
+    s6_q2_h: "Какие подписки понадобятся?",
+    s6_q2_p: "Платная подписка на инструмент, выбранный под задачу: ChatGPT, Claude или Claude Code. Что подходит, решается на бесплатном звонке, до покупки.",
+    s6_q3_h: "Входит ли подготовка в цену?",
+    s6_q3_p: "Да. План до встречи и резюме после неё входят в стоимость.",
+    s6_q4_h: "Сколько стоит, если участников двое или больше?",
+    s6_q4_p: "Цена для команды называется после бесплатного звонка, когда понятны задача и число участников.",
+    s6_q5_h: "Что делать с конфиденциальными материалами?",
+    s6_q5_p: "Начать можно с обезличенных примеров. Если задача связана с персональными данными, например с CV кандидатов, первым шагом настраивается их обезличивание до отправки в облачный сервис.",
+    s6_q6_h: "Какой результат реален за одну встречу?",
+    s6_q6_p: "Одна рабочая часть задачи: например, описание задачи для Claude Code и первый проверенный прогон. Что именно, согласуется до встречи.",
     cta_h2: "Обсудить задачу и понять, подходит ли формат.",
     s7_alt_text: "или"
   },
@@ -382,7 +479,7 @@ var T = {
     tb_author_k: "Autor",
     tb_format_k: "Format", tb_format_v: "Online · 1:1 lub zespół",
     tb_lang_k: "Języki", tb_lang_v: "PL · RU · UA",
-    tb_sub: "Indywidualne sesje dla specjalistów i małych zespołów. Pracujesz na własnym zadaniu z pracy w ChatGPT, Claude lub Claude Code i sam budujesz rozwiązanie, a konsultant prowadzi i tłumaczy. Bez programu kursu i prezentacji.",
+    tb_sub: "Indywidualne sesje dla specjalistów i małych zespołów. Pracujesz na własnym zadaniu z pracy w ChatGPT, Claude lub Claude Code i sam budujesz rozwiązanie, a konsultant prowadzi i tłumaczy. Plan spotkań układany jest pod Twoje zadanie.",
     tb_free: "Pierwsze 30 minut bezpłatnie: omówienie zadania i ocena, ile sesji będzie potrzebnych.",
     tb_cta: "Umów bezpłatną rozmowę, 30 minut →",
     s1_num: "1.0 // DLA KOGO",
@@ -399,7 +496,9 @@ var T = {
     s2_li5: "Po sesji krótkie podsumowanie: co działa, co zostało do zrobienia, jaki jest następny krok.",
     s3_num: "3.0 // CO ZOSTAJE",
     s3_h2: "Wynik sesji",
-    s3_p1: "Narzędzie zbudowane na sesjach i uruchomione na Twoim komputerze: skrypt, szablon promptu, prosty przepływ pracy.",
+    s3_p1: "Po każdym spotkaniu: wykonana część pracy, sprawdzony wynik i kolejny krok.",
+    s3_p1b: "Po serii: skrypt, szablon promptu lub prosty przepływ pracy na komputerze uczestnika, jeśli zadanie da się zrealizować wybranymi narzędziami.",
+    s3_p1c: "Oczekiwany wynik każdego spotkania uzgadniany jest z góry.",
     s3_p2: "Umiejętność opisania kolejnego zadania tak, żeby model AI zrobił to, czego potrzebujesz.",
     s3_p3: "Wiedza, kiedy wystarczy ChatGPT lub Claude, a kiedy potrzebny jest Claude Code.",
     s2_intro: "Tak wygląda plan jednej sesji. To fragment prawdziwej ściągawki prowadzącego, czwarte spotkanie z agencją rekrutacyjną.",
@@ -445,7 +544,7 @@ var T = {
     s3_fig3_cap: "RYS. 3. Cykl dopracowania na drugiej sesji z agencją.",
     s4_num: "4.0 // STAWKI I WARUNKI",
     s4_h2: "Płatność za uzgodniony czas",
-    s4_p1: "Sesja robocza: od 250 zł za godzinę, netto. Zwykle 60–90 minut.",
+    s4_p1: "Sesja: od 250 zł za godzinę, netto. Zwykle 60–90 minut.",
     s4_p2: "Liczba sesji zależy od zadania i jest oceniana na bezpłatnej rozmowie. Proste zadanie może zająć jedną sesję, bardziej złożone kilka.",
     s4_p2a: "Dla zespołu kilku osób cena jest ustalana po bezpłatnej rozmowie.",
     s4_p3: "Płatność z góry, przeniesienie i odwołanie sesji oraz faktura działają tak samo jak przy <a href=\"consulting.html\">konsultacjach</a>.",
@@ -453,6 +552,20 @@ var T = {
     s5_num: "5.0 // GRANICE FORMATU",
     s5_h2: "Czego ten format nie obejmuje",
     s5_p: "To nie jest kurs z programem, prezentacjami i pracami domowymi. Między sesjami rozwiązanie nie jest budowane za uczestnika, a gotowa automatyzacja nie jest obiecywana. Jeśli potrzebny jest system zbudowany przez wykonawcę, początkiem jest <a href=\"spec.html\">specyfikacja</a>. Jeśli najpierw trzeba ocenić procesy całego działu, służy do tego <a href=\"audit.html\">audyt</a>. Jeśli potrzebna jest tylko porada, bez pracy przy komputerze, odpowiednia jest <a href=\"consulting.html\">konsultacja</a>.",
+    s6_num: "6.0 // PYTANIA",
+    s6_h2: "Przed pierwszym spotkaniem",
+    s6_q1_h: "Czy trzeba umieć programować?",
+    s6_q1_p: "Nie. Kod pisze ChatGPT lub Claude na podstawie opisu zadania. Uczestnik uczy się opisywać zadanie i sprawdzać wynik.",
+    s6_q2_h: "Jakie subskrypcje będą potrzebne?",
+    s6_q2_p: "Płatna subskrypcja narzędzia wybranego pod zadanie: ChatGPT, Claude lub Claude Code. Co pasuje, ustalamy na bezpłatnej rozmowie, przed zakupem.",
+    s6_q3_h: "Czy przygotowanie jest w cenie?",
+    s6_q3_p: "Tak. Plan przed spotkaniem i podsumowanie po nim są wliczone w cenę.",
+    s6_q4_h: "Ile to kosztuje, jeśli uczestników jest dwoje lub więcej?",
+    s6_q4_p: "Cena dla zespołu jest ustalana po bezpłatnej rozmowie, gdy znane są zadanie i liczba uczestników.",
+    s6_q5_h: "Co z materiałami poufnymi?",
+    s6_q5_p: "Można zacząć od zanonimizowanych przykładów. Jeśli zadanie dotyczy danych osobowych, na przykład CV kandydatów, pierwszym krokiem jest ich anonimizacja przed wysłaniem do usługi w chmurze.",
+    s6_q6_h: "Jaki wynik jest realny na jednym spotkaniu?",
+    s6_q6_p: "Jedna działająca część zadania: na przykład opis zadania dla Claude Code i pierwsze sprawdzone uruchomienie. Co dokładnie, uzgadniamy przed spotkaniem.",
     cta_h2: "Omów swoje zadanie i sprawdź, czy ten format pasuje.",
     s7_alt_text: "lub"
   },
@@ -466,7 +579,7 @@ var T = {
     tb_author_k: "Author",
     tb_format_k: "Format", tb_format_v: "Online · 1:1 or team",
     tb_lang_k: "Languages", tb_lang_v: "PL · RU · UA",
-    tb_sub: "One-to-one sessions for specialists and small teams. Participants work on a real task from their job in ChatGPT, Claude or Claude Code and build the solution themselves, guided by the consultant. No course syllabus, no slides.",
+    tb_sub: "One-to-one sessions for specialists and small teams. Participants work on a real task from their job in ChatGPT, Claude or Claude Code and build the solution themselves, guided by the consultant. The meeting plan is built around the participant's task.",
     tb_free: "The first 30 minutes are free: a look at the task and an estimate of how many sessions it needs.",
     tb_cta: "Book a free 30-minute call →",
     s1_num: "1.0 // WHO IT IS FOR",
@@ -483,7 +596,9 @@ var T = {
     s2_li5: "After the session, a short summary: what works, what is left, what the next step is.",
     s3_num: "3.0 // WHAT STAYS",
     s3_h2: "Session outcome",
-    s3_p1: "A tool built during the sessions and running on the participant's computer: a script, a prompt template, a simple workflow.",
+    s3_p1: "After each meeting: a finished part of the work, a checked result and the next step.",
+    s3_p1b: "After the series: a script, a prompt template or a simple workflow on the participant's computer, if the task is feasible with the chosen tools.",
+    s3_p1c: "The expected outcome of each meeting is agreed in advance.",
     s3_p2: "The ability to describe the next task so that the AI model does what is needed.",
     s3_p3: "Knowing when ChatGPT or Claude is enough and when Claude Code is needed.",
     s2_intro: "This is what a single session plan looks like: a fragment of a real facilitator's sheet from the fourth meeting with a recruitment agency.",
@@ -529,7 +644,7 @@ var T = {
     s3_fig3_cap: "FIG. 3. The refinement loop from the second session with the agency.",
     s4_num: "4.0 // PRICING AND TERMS",
     s4_h2: "Payment for agreed time",
-    s4_p1: "Working session: from 250 zł per hour, net. Usually 60–90 minutes.",
+    s4_p1: "Session: from 250 zł per hour, net. Usually 60–90 minutes.",
     s4_p2: "The number of sessions depends on the task and is estimated on the free call. A simple task may take one session, a complex one several.",
     s4_p2a: "For a team of several people, the price is set after the free call.",
     s4_p3: "Advance payment, rescheduling, cancellation and invoicing follow the same terms as <a href=\"consulting.html\">consulting</a>.",
@@ -537,6 +652,20 @@ var T = {
     s5_num: "5.0 // FORMAT LIMITS",
     s5_h2: "What this format does not include",
     s5_p: "This is not a course with a syllabus, slides and homework. Between sessions the solution is not built for the participant, and a finished automation is not promised. If a vendor needs to build a system, start with a <a href=\"spec.html\">specification</a>. If the processes of a whole department need assessing first, see the <a href=\"audit.html\">audit</a>. If you only need advice, without hands-on work, a <a href=\"consulting.html\">consultation</a> fits.",
+    s6_num: "6.0 // QUESTIONS",
+    s6_h2: "Before the first meeting",
+    s6_q1_h: "Do I need to know how to code?",
+    s6_q1_p: "No. ChatGPT or Claude writes the code from the task description. The participant learns to describe the task and check the result.",
+    s6_q2_h: "Which subscriptions will I need?",
+    s6_q2_p: "A paid subscription to the tool chosen for the task: ChatGPT, Claude or Claude Code. Which one fits is decided on the free call, before you buy.",
+    s6_q3_h: "Is preparation included in the price?",
+    s6_q3_p: "Yes. The plan before the meeting and the summary after it are included.",
+    s6_q4_h: "What does it cost for two or more participants?",
+    s6_q4_p: "The team price is set after the free call, once the task and the number of participants are clear.",
+    s6_q5_h: "What about confidential materials?",
+    s6_q5_p: "You can start with anonymised examples. If the task involves personal data, such as candidates' CVs, the first step is to anonymise it before it goes to a cloud service.",
+    s6_q6_h: "What can realistically be done in one meeting?",
+    s6_q6_p: "One working part of the task: for example, a task description for Claude Code and a first checked run. What exactly is agreed before the meeting.",
     cta_h2: "Discuss your task and see whether this format fits.",
     s7_alt_text: "or"
   }
@@ -571,6 +700,20 @@ function setLang(lang) {
   var saved = localStorage.getItem('site-lang');
   if (saved && T[saved]) setLang(saved);
 })();
+</script>
+<script>
+document.querySelectorAll('.acc-head').forEach(head=>{
+ head.addEventListener('click', ()=>{
+ const item = head.closest('.acc-item');
+ const body = item.querySelector('.acc-body');
+ const isOpen = item.classList.contains('open');
+ item.parentElement.querySelectorAll('.acc-item.open').forEach(other=>{
+ if(other!==item){ other.classList.remove('open'); other.querySelector('.acc-body').style.maxHeight=null; }
+ });
+ if(isOpen){ item.classList.remove('open'); body.style.maxHeight=null; }
+ else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight+'px'; }
+ });
+});
 </script>
 
 </body>
