@@ -229,14 +229,14 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     <table class="daylog" aria-label="Client's working folder">
       <thead><tr><th data-i18n="s3_th1"></th><th data-i18n="s3_th2"></th></tr></thead>
       <tbody>
-        <tr><td><code>nowe/</code></td><td data-i18n="s3_r1"></td></tr>
-        <tr><td><code>przetworzone/</code></td><td data-i18n="s3_r2"></td></tr>
-        <tr><td><code>podsumowania/</code></td><td data-i18n="s3_r3"></td></tr>
-        <tr><td><code>CLAUDE.md</code></td><td data-i18n="s3_r4"></td></tr>
-        <tr><td><code>pola.md</code></td><td data-i18n="s3_r5"></td></tr>
-        <tr><td><code>rejestr.md</code></td><td data-i18n="s3_r6"></td></tr>
-        <tr><td><code>/podsumuj</code></td><td data-i18n="s3_r7"></td></tr>
-        <tr><td><code>/znajdz</code></td><td data-i18n="s3_r8"></td></tr>
+        <tr><td><code data-i18n="s3_n1"></code></td><td data-i18n="s3_r1"></td></tr>
+        <tr><td><code data-i18n="s3_n2"></code></td><td data-i18n="s3_r2"></td></tr>
+        <tr><td><code data-i18n="s3_n3"></code></td><td data-i18n="s3_r3"></td></tr>
+        <tr><td><code data-i18n="s3_n4"></code></td><td data-i18n="s3_r4"></td></tr>
+        <tr><td><code data-i18n="s3_n5"></code></td><td data-i18n="s3_r5"></td></tr>
+        <tr><td><code data-i18n="s3_n6"></code></td><td data-i18n="s3_r6"></td></tr>
+        <tr><td><code data-i18n="s3_n7"></code></td><td data-i18n="s3_r7"></td></tr>
+        <tr><td><code data-i18n="s3_n8"></code></td><td data-i18n="s3_r8"></td></tr>
       </tbody>
     </table>
     <figure style="margin-top:0"><figcaption data-i18n="s3_fig2_cap"></figcaption></figure>
@@ -335,15 +335,23 @@ var T = {
     s3_intro: "Было: «хочу автоматически делать summary встреч из Teams» и ручная цепочка «календарь, встреча, скачать транскрипцию, вставить в чат». После сессии про транскрипции у агентства осталось вот это.",
     s3_th1: "Папка или команда",
     s3_th2: "Назначение",
+    s3_n1: "новые/",
+    s3_n2: "обработанные/",
+    s3_n3: "сводки/",
+    s3_n4: "CLAUDE.md",
+    s3_n5: "поля.md",
+    s3_n6: "реестр.md",
+    s3_n7: "/сводка",
+    s3_n8: "/найти",
     s3_r1: "новые транскрипции из Teams",
     s3_r2: "обработанные файлы",
-    s3_r3: "summary по шаблону агентства",
+    s3_r3: "сводки по шаблону агентства",
     s3_r4: "правила обработки для Claude Code",
-    s3_r5: "поля summary и допустимые значения",
+    s3_r5: "поля сводки и допустимые значения",
     s3_r6: "реестр всех встреч",
     s3_r7: "одна команда: обработать новые транскрипции",
     s3_r8: "поиск по встречам своими словами",
-    s3_fig2_cap: "РИС. 2. Рабочая папка агентства после сессии о транскрипциях. Собрана руками клиента. Обезличено.",
+    s3_fig2_cap: "РИС. 2. Рабочая папка агентства после сессии о транскрипциях. Собрана руками клиента. Обезличено. Имена файлов изменены.",
     s3_h3: "Систему улучшает файл критериев",
     s3_inv1: "Эксперт агентства диктует критерии роли: обязательные, желательные, красные флаги. Они записываются в отдельный файл.",
     s3_inv2: "Claude Code разбирает обезличенное CV по этому файлу и пишет рекомендацию по шаблону агентства.",
@@ -410,6 +418,14 @@ var T = {
     s3_intro: "Było: „chcę automatycznie robić podsumowania spotkań z Teams” i ręczny łańcuch „kalendarz, spotkanie, pobrać transkrypcję, wkleić do czatu”. Po sesji o transkrypcjach agencji zostało to.",
     s3_th1: "Folder lub polecenie",
     s3_th2: "Przeznaczenie",
+    s3_n1: "new/",
+    s3_n2: "processed/",
+    s3_n3: "summaries/",
+    s3_n4: "CLAUDE.md",
+    s3_n5: "fields.md",
+    s3_n6: "registry.md",
+    s3_n7: "/summarize",
+    s3_n8: "/find",
     s3_r1: "nowe transkrypcje z Teams",
     s3_r2: "przetworzone pliki",
     s3_r3: "podsumowania według szablonu agencji",
@@ -418,7 +434,7 @@ var T = {
     s3_r6: "rejestr wszystkich spotkań",
     s3_r7: "jedno polecenie: przetworzyć nowe transkrypcje",
     s3_r8: "wyszukiwanie w spotkaniach własnymi słowami",
-    s3_fig2_cap: "RYS. 2. Folder roboczy agencji po sesji o transkrypcjach. Zbudowany rękami klienta. Zanonimizowano.",
+    s3_fig2_cap: "RYS. 2. Folder roboczy agencji po sesji o transkrypcjach. Zbudowany rękami klienta. Zanonimizowano. Nazwy plików zmienione.",
     s3_h3: "System poprawia plik kryteriów",
     s3_inv1: "Ekspert agencji dyktuje kryteria roli: obowiązkowe, pożądane, czerwone flagi. Trafiają do osobnego pliku.",
     s3_inv2: "Claude Code analizuje zanonimizowane CV według tego pliku i pisze rekomendację według szablonu agencji.",
@@ -485,6 +501,14 @@ var T = {
     s3_intro: "Before: \"I want meeting summaries from Teams done automatically\" and a manual chain: calendar, meeting, download the transcript, paste it into a chat. After the transcripts session, the agency was left with this.",
     s3_th1: "Folder or command",
     s3_th2: "Purpose",
+    s3_n1: "new/",
+    s3_n2: "processed/",
+    s3_n3: "summaries/",
+    s3_n4: "CLAUDE.md",
+    s3_n5: "fields.md",
+    s3_n6: "registry.md",
+    s3_n7: "/summarize",
+    s3_n8: "/find",
     s3_r1: "new transcripts from Teams",
     s3_r2: "processed files",
     s3_r3: "summaries in the agency's template",
@@ -493,7 +517,7 @@ var T = {
     s3_r6: "registry of all meetings",
     s3_r7: "one command: process new transcripts",
     s3_r8: "search meetings in plain words",
-    s3_fig2_cap: "FIG. 2. The agency's working folder after the transcripts session. Built by the client. Anonymised.",
+    s3_fig2_cap: "FIG. 2. The agency's working folder after the transcripts session. Built by the client. Anonymised. File names changed.",
     s3_h3: "The criteria file improves the system",
     s3_inv1: "The agency's expert dictates the role criteria: must-haves, nice-to-haves, red flags. They go into a separate file.",
     s3_inv2: "Claude Code reviews an anonymised CV against that file and writes a recommendation in the agency's template.",
