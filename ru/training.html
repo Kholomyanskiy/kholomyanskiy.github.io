@@ -162,6 +162,8 @@ figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink
 .daylog{width:100%;max-width:600px;border-collapse:collapse;margin:20px 0;font-size:13.5px}
 .daylog th{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:8px 10px;border:1px solid var(--line);background:var(--paper)}
 .daylog td{padding:8px 10px;border:1px solid var(--line)}
+.daylog td code{font-family:'JetBrains Mono',monospace;font-size:13px}
+section > h3{font-family:'Spectral',serif;font-weight:600;font-size:19px;margin-bottom:6px}
 .inv{border:1px solid var(--line);background:var(--paper);padding:16px 20px;margin-bottom:12px;max-width:660px;display:flex;gap:16px}
 .inv .code{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--stamp);min-width:64px;padding-top:2px}
 .inv p{margin:0;font-size:15px}
@@ -349,14 +351,14 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
     <table class="daylog" aria-label="Client's working folder">
       <thead><tr><th data-i18n="s3_th1">Папка или команда</th><th data-i18n="s3_th2">Назначение</th></tr></thead>
       <tbody>
-        <tr><td>nowe/</td><td data-i18n="s3_r1">новые транскрипции из Teams</td></tr>
-        <tr><td>przetworzone/</td><td data-i18n="s3_r2">обработанные файлы</td></tr>
-        <tr><td>podsumowania/</td><td data-i18n="s3_r3">summary по шаблону агентства</td></tr>
-        <tr><td>CLAUDE.md</td><td data-i18n="s3_r4">правила обработки для Claude Code</td></tr>
-        <tr><td>pola.md</td><td data-i18n="s3_r5">поля summary и допустимые значения</td></tr>
-        <tr><td>rejestr.md</td><td data-i18n="s3_r6">реестр всех встреч</td></tr>
-        <tr><td>/podsumuj</td><td data-i18n="s3_r7">одна команда: обработать новые транскрипции</td></tr>
-        <tr><td>/znajdz</td><td data-i18n="s3_r8">поиск по встречам своими словами</td></tr>
+        <tr><td><code>nowe/</code></td><td data-i18n="s3_r1">новые транскрипции из Teams</td></tr>
+        <tr><td><code>przetworzone/</code></td><td data-i18n="s3_r2">обработанные файлы</td></tr>
+        <tr><td><code>podsumowania/</code></td><td data-i18n="s3_r3">summary по шаблону агентства</td></tr>
+        <tr><td><code>CLAUDE.md</code></td><td data-i18n="s3_r4">правила обработки для Claude Code</td></tr>
+        <tr><td><code>pola.md</code></td><td data-i18n="s3_r5">поля summary и допустимые значения</td></tr>
+        <tr><td><code>rejestr.md</code></td><td data-i18n="s3_r6">реестр всех встреч</td></tr>
+        <tr><td><code>/podsumuj</code></td><td data-i18n="s3_r7">одна команда: обработать новые транскрипции</td></tr>
+        <tr><td><code>/znajdz</code></td><td data-i18n="s3_r8">поиск по встречам своими словами</td></tr>
       </tbody>
     </table>
     <figure style="margin-top:0"><figcaption data-i18n="s3_fig2_cap">РИС. 2. Рабочая папка агентства после сессии о транскрипциях. Собрана руками клиента. Обезличено.</figcaption></figure>
