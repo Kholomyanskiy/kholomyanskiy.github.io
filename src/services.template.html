@@ -45,11 +45,10 @@
 .route{flex:0 0 280px;border-top:1.5px solid var(--ink);font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.5}
 .route .k{display:block;padding:8px 14px 6px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
 .route-row{display:flex;gap:10px;align-items:baseline;padding:8px 14px;border-top:1px solid var(--line)}
-.route-row > span:first-child{flex:1}
 .route a{color:var(--ink);text-decoration:none}
 .route a:hover{color:var(--blue)}
 .route .num{color:var(--blue);margin-right:6px}
-.route .tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);flex-shrink:0}
+.route .route-row + .k{border-top:1px solid var(--line);margin-top:10px}
 @media (max-width:600px){.tb-row{flex-direction:column;gap:20px}.route{flex:none;width:100%}}
 
 .secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
@@ -115,11 +114,13 @@ footer a:hover{color:var(--blue);text-decoration:underline}
   <p class="sub" data-i18n="page.sub">AI implementation on the client's side: first find where automation pays off, then set the task so the vendor builds what is needed. Each stage is ordered separately and ends with a document or a result that can be checked.</p>
   <nav class="route">
   <span class="k" data-i18n="route.title">PATH</span>
-  <div class="route-row"><span><a href="#consulting"><span class="num">05</span><span data-i18n="s5.h">Consulting</span></a> · <a href="#training"><span class="num">06</span><span data-i18n="s6.h">AI Training on Your Tasks</span></a></span><span class="tag" data-i18n="route.entry">entry</span></div>
-  <div class="route-row"><a href="#audit"><span class="num">01</span><span data-i18n="s1.h">Process Audit Before AI Implementation</span></a></div>
-  <div class="route-row"><a href="#design"><span class="num">02</span><span data-i18n="s2.h">AI Solution Design</span></a></div>
-  <div class="route-row"><a href="#spec"><span class="num">03</span><span data-i18n="s3.h">Requirements Design for Implementation (AI Spec/TOR)</span></a></div>
-  <div class="route-row"><a href="#automation"><span class="num">04</span><span data-i18n="s4.h">Process Automation</span></a></div>
+  <div class="route-row"><a href="#consulting"><span data-i18n="s5.h">Consulting</span></a></div>
+  <div class="route-row"><a href="#audit"><span class="num">↓</span><span data-i18n="s1.h">Process Audit Before AI Implementation</span></a></div>
+  <div class="route-row"><a href="#design"><span class="num">↓</span><span data-i18n="s2.h">AI Solution Design</span></a></div>
+  <div class="route-row"><a href="#spec"><span class="num">↓</span><span data-i18n="s3.h">Requirements Design for Implementation (AI Spec/TOR)</span></a></div>
+  <div class="route-row"><a href="#automation"><span class="num">↓</span><span data-i18n="s4.h">Process Automation</span></a></div>
+  <span class="k" data-i18n="route.separate">SEPARATELY</span>
+  <div class="route-row"><a href="#training"><span data-i18n="s6.h">AI Training on Your Tasks</span></a></div>
   </nav>
  </div>
  </div>
@@ -274,7 +275,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 const T = {
  ru: {
  "page.title":"Услуги",
- "route.title":"МАРШРУТ","route.entry":"вход",
+ "route.title":"МАРШРУТ","route.separate":"ОТДЕЛЬНО",
  "page.sub":"Внедрение ИИ со стороны заказчика: сначала понять, где автоматизация окупится, затем поставить задачу так, чтобы подрядчик построил то, что нужно. Каждый этап заказывается отдельно и заканчивается документом или результатом, который можно проверить.",
  "s1.num":"УСЛУГА 01","s1.h":"Аудит процессов перед внедрением AI",
  "s1.p1":"Аудит показывает, из чего на самом деле состоит рабочий день сотрудников. Сотрудники фиксируют, что делают, как часто и сколько это занимает.",
@@ -314,7 +315,7 @@ const T = {
  },
  pl: {
  "page.title":"Usługi",
- "route.title":"ŚCIEŻKA","route.entry":"wejście",
+ "route.title":"ŚCIEŻKA","route.separate":"OSOBNO",
  "page.sub":"Wdrażanie AI po stronie zamawiającego: najpierw ustalić, gdzie automatyzacja się zwróci, potem postawić zadanie tak, by wykonawca zbudował to, czego potrzeba. Każdy etap zamawia się osobno i kończy się dokumentem lub wynikiem, który można sprawdzić.",
  "s1.num":"USŁUGA 01","s1.h":"Audyt procesów przed wdrożeniem AI",
  "s1.p1":"Audyt pokazuje, z czego naprawdę składa się dzień pracy pracowników. Pracownicy notują, co robią, jak często i ile to zajmuje.",
@@ -354,7 +355,7 @@ const T = {
  },
  en: {
  "page.title":"Services",
- "route.title":"PATH","route.entry":"entry",
+ "route.title":"PATH","route.separate":"SEPARATELY",
  "page.sub":"AI implementation on the client's side: first find where automation pays off, then set the task so the vendor builds what is needed. Each stage is ordered separately and ends with a document or a result that can be checked.",
  "s1.num":"SERVICE 01","s1.h":"Process Audit Before AI Implementation",
  "s1.p1":"The audit shows what employees' workday actually consists of. Employees log what they do, how often, and how long it takes.",

@@ -118,11 +118,10 @@ footer{max-width:820px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrai
 .route{flex:0 0 280px;border-top:1.5px solid var(--ink);font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.5}
 .route .k{display:block;padding:8px 14px 6px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
 .route-row{display:flex;gap:10px;align-items:baseline;padding:8px 14px;border-top:1px solid var(--line)}
-.route-row > span:first-child{flex:1}
 .route a{color:var(--ink);text-decoration:none}
 .route a:hover{color:var(--blue)}
 .route .num{color:var(--blue);margin-right:6px}
-.route .tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);flex-shrink:0}
+.route .route-row + .k{border-top:1px solid var(--line);margin-top:10px}
 @media (max-width:600px){.tb-row{flex-direction:column;gap:20px}.route{flex:none;width:100%}}
 
 .secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
@@ -225,11 +224,13 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
   <p class="sub" data-i18n="page.sub">AI implementation on the client&#x27;s side: first find where automation pays off, then set the task so the vendor builds what is needed. Each stage is ordered separately and ends with a document or a result that can be checked.</p>
   <nav class="route">
   <span class="k" data-i18n="route.title">PATH</span>
-  <div class="route-row"><span><a href="#consulting"><span class="num">05</span><span data-i18n="s5.h">Consulting</span></a> · <a href="#training"><span class="num">06</span><span data-i18n="s6.h">AI Training on Your Tasks</span></a></span><span class="tag" data-i18n="route.entry">entry</span></div>
-  <div class="route-row"><a href="#audit"><span class="num">01</span><span data-i18n="s1.h">Process Audit Before AI Implementation</span></a></div>
-  <div class="route-row"><a href="#design"><span class="num">02</span><span data-i18n="s2.h">AI Solution Design</span></a></div>
-  <div class="route-row"><a href="#spec"><span class="num">03</span><span data-i18n="s3.h">Requirements Design for Implementation (AI Spec/TOR)</span></a></div>
-  <div class="route-row"><a href="#automation"><span class="num">04</span><span data-i18n="s4.h">Process Automation</span></a></div>
+  <div class="route-row"><a href="#consulting"><span data-i18n="s5.h">Consulting</span></a></div>
+  <div class="route-row"><a href="#audit"><span class="num">↓</span><span data-i18n="s1.h">Process Audit Before AI Implementation</span></a></div>
+  <div class="route-row"><a href="#design"><span class="num">↓</span><span data-i18n="s2.h">AI Solution Design</span></a></div>
+  <div class="route-row"><a href="#spec"><span class="num">↓</span><span data-i18n="s3.h">Requirements Design for Implementation (AI Spec/TOR)</span></a></div>
+  <div class="route-row"><a href="#automation"><span class="num">↓</span><span data-i18n="s4.h">Process Automation</span></a></div>
+  <span class="k" data-i18n="route.separate">SEPARATELY</span>
+  <div class="route-row"><a href="#training"><span data-i18n="s6.h">AI Training on Your Tasks</span></a></div>
   </nav>
  </div>
  </div>
