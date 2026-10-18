@@ -98,6 +98,14 @@ p.lead{font-size:17.5px}
   position:absolute;left:0;top:12px;
   font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue);
 }
+figure{margin:26px 0;max-width:660px}
+figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em}
+.daylog{width:100%;max-width:600px;border-collapse:collapse;margin:20px 0;font-size:13.5px}
+.daylog th{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:8px 10px;border:1px solid var(--line);background:var(--paper)}
+.daylog td{padding:8px 10px;border:1px solid var(--line)}
+.inv{border:1px solid var(--line);background:var(--paper);padding:16px 20px;margin-bottom:12px;max-width:660px;display:flex;gap:16px}
+.inv .code{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--stamp);min-width:64px;padding-top:2px}
+.inv p{margin:0;font-size:15px}
 .cta p{color:#B9C1CC}
 .cta a.btn{
   display:inline-block;margin-top:10px;
@@ -195,6 +203,18 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       <li data-i18n="s2_li4">The participant carries out the steps on their own computer. The consultant guides, explains and corrects.</li>
       <li data-i18n="s2_li5">After the session, a short summary: what works, what is left, what the next step is.</li>
     </ol>
+    <p data-i18n="s2_intro"></p>
+    <table class="daylog" aria-label="Session plan">
+      <thead><tr><th data-i18n="s2_th1"></th><th data-i18n="s2_th2"></th><th data-i18n="s2_th3"></th></tr></thead>
+      <tbody>
+        <tr><td>0:00–0:10</td><td data-i18n="s2_r1b"></td><td data-i18n="s2_r1o"></td></tr>
+        <tr><td>0:10–0:30</td><td data-i18n="s2_r2b"></td><td data-i18n="s2_r2o"></td></tr>
+        <tr><td>0:30–0:45</td><td data-i18n="s2_r3b"></td><td data-i18n="s2_r3o"></td></tr>
+        <tr><td>0:45–1:25</td><td data-i18n="s2_r4b"></td><td data-i18n="s2_r4o"></td></tr>
+        <tr><td>1:25–1:40</td><td data-i18n="s2_r5b"></td><td data-i18n="s2_r5o"></td></tr>
+      </tbody>
+    </table>
+    <figure style="margin-top:0"><figcaption data-i18n="s2_fig1_cap"></figcaption></figure>
   </section>
 
   <section>
@@ -203,6 +223,39 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     <p data-i18n="s3_p1">A tool built during the sessions and running on the participant's computer: a script, a prompt template, a simple workflow.</p>
     <p data-i18n="s3_p2">The ability to describe the next task so that the AI model does what is needed.</p>
     <p data-i18n="s3_p3">Knowing when ChatGPT or Claude is enough and when Claude Code is needed.</p>
+    <p data-i18n="s3_intro"></p>
+    <table class="daylog" aria-label="Client's working folder">
+      <thead><tr><th data-i18n="s3_th1"></th><th data-i18n="s3_th2"></th></tr></thead>
+      <tbody>
+        <tr><td>nowe/</td><td data-i18n="s3_r1"></td></tr>
+        <tr><td>przetworzone/</td><td data-i18n="s3_r2"></td></tr>
+        <tr><td>podsumowania/</td><td data-i18n="s3_r3"></td></tr>
+        <tr><td>CLAUDE.md</td><td data-i18n="s3_r4"></td></tr>
+        <tr><td>pola.md</td><td data-i18n="s3_r5"></td></tr>
+        <tr><td>rejestr.md</td><td data-i18n="s3_r6"></td></tr>
+        <tr><td>/podsumuj</td><td data-i18n="s3_r7"></td></tr>
+        <tr><td>/znajdz</td><td data-i18n="s3_r8"></td></tr>
+      </tbody>
+    </table>
+    <figure style="margin-top:0"><figcaption data-i18n="s3_fig2_cap"></figcaption></figure>
+    <h3 data-i18n="s3_h3"></h3>
+    <div class="inv">
+      <span class="code">01</span>
+      <p data-i18n="s3_inv1"></p>
+    </div>
+    <div class="inv">
+      <span class="code">02</span>
+      <p data-i18n="s3_inv2"></p>
+    </div>
+    <div class="inv">
+      <span class="code">03</span>
+      <p data-i18n="s3_inv3"></p>
+    </div>
+    <div class="inv">
+      <span class="code">04</span>
+      <p data-i18n="s3_inv4"></p>
+    </div>
+    <figure style="margin-top:0"><figcaption data-i18n="s3_fig3_cap"></figcaption></figure>
   </section>
 
   <section>
@@ -262,6 +315,39 @@ var T = {
     s3_p1: "Инструмент, собранный на сессиях и запущенный на компьютере участника: скрипт, шаблон промпта, простой рабочий процесс.",
     s3_p2: "Умение описать следующую задачу так, чтобы модель сделала то, что нужно.",
     s3_p3: "Понимание, когда хватает ChatGPT или Claude, а когда нужен Claude Code.",
+    s2_intro: "Так выглядит план одной сессии. Это фрагмент настоящей шпаргалки ведущего, четвёртая встреча с рекрутинговым агентством.",
+    s2_th1: "Время",
+    s2_th2: "Блок",
+    s2_th3: "Итог",
+    s2_r1b: "Неделя на практике",
+    s2_r1o: "Ясно, чего не хватало в summary",
+    s2_r2b: "Поля и реестр",
+    s2_r2o: "Данные копятся в одном формате",
+    s2_r3b: "Ревизия списка задач",
+    s2_r3o: "Выбрана следующая автоматизация",
+    s2_r4b: "Новая автоматизация",
+    s2_r4o: "Критерии роли и первая рекомендация",
+    s2_r5b: "Итоги и задание",
+    s2_r5o: "Понятен следующий шаг",
+    s2_fig1_cap: "РИС. 1. План сессии из шпаргалки ведущего. Обезличено.",
+    s3_intro: "Было: «хочу автоматически делать summary встреч из Teams» и ручная цепочка «календарь, встреча, скачать транскрипцию, вставить в чат». После сессии про транскрипции у агентства осталось вот это.",
+    s3_th1: "Папка или команда",
+    s3_th2: "Назначение",
+    s3_r1: "новые транскрипции из Teams",
+    s3_r2: "обработанные файлы",
+    s3_r3: "summary по шаблону агентства",
+    s3_r4: "правила обработки для Claude Code",
+    s3_r5: "поля summary и допустимые значения",
+    s3_r6: "реестр всех встреч",
+    s3_r7: "одна команда: обработать новые транскрипции",
+    s3_r8: "поиск по встречам своими словами",
+    s3_fig2_cap: "РИС. 2. Рабочая папка агентства после сессии о транскрипциях. Собрана руками клиента. Обезличено.",
+    s3_h3: "Систему улучшает файл критериев",
+    s3_inv1: "Эксперт агентства диктует критерии роли: обязательные, желательные, красные флаги. Они записываются в отдельный файл.",
+    s3_inv2: "Claude Code разбирает обезличенное CV по этому файлу и пишет рекомендацию по шаблону агентства.",
+    s3_inv3: "Первый результат обычно слабый. Ищется, чего не хватило в файле критериев, и дописывается строка.",
+    s3_inv4: "Прогон повторяется, пока результат не устроит эксперта. Следующую роль клиент описывает сам.",
+    s3_fig3_cap: "РИС. 3. Цикл доработки на второй сессии с агентством. Обезличено.",
     s4_num: "4.0 // СТОИМОСТЬ И УСЛОВИЯ",
     s4_h2: "Оплата за согласованное время",
     s4_p1: "Рабочая сессия: от 250 zł за час, нетто. Обычно 60–90 минут.",
@@ -304,6 +390,39 @@ var T = {
     s3_p1: "Narzędzie zbudowane na sesjach i uruchomione na Twoim komputerze: skrypt, szablon promptu, prosty przepływ pracy.",
     s3_p2: "Umiejętność opisania kolejnego zadania tak, żeby model AI zrobił to, czego potrzebujesz.",
     s3_p3: "Wiedza, kiedy wystarczy ChatGPT lub Claude, a kiedy potrzebny jest Claude Code.",
+    s2_intro: "Tak wygląda plan jednej sesji. To fragment prawdziwej ściągawki prowadzącego, czwarte spotkanie z agencją rekrutacyjną.",
+    s2_th1: "Czas",
+    s2_th2: "Blok",
+    s2_th3: "Wynik",
+    s2_r1b: "Tydzień w praktyce",
+    s2_r1o: "Wiadomo, czego brakowało w podsumowaniach",
+    s2_r2b: "Pola i rejestr",
+    s2_r2o: "Dane zbierają się w jednym formacie",
+    s2_r3b: "Przegląd listy zadań",
+    s2_r3o: "Wybrana kolejna automatyzacja",
+    s2_r4b: "Nowa automatyzacja",
+    s2_r4o: "Kryteria roli i pierwsza rekomendacja",
+    s2_r5b: "Podsumowanie i zadanie",
+    s2_r5o: "Jasny kolejny krok",
+    s2_fig1_cap: "RYS. 1. Plan sesji ze ściągawki prowadzącego. Zanonimizowano.",
+    s3_intro: "Było: „chcę automatycznie robić podsumowania spotkań z Teams” i ręczny łańcuch „kalendarz, spotkanie, pobrać transkrypcję, wkleić do czatu”. Po sesji o transkrypcjach agencji zostało to.",
+    s3_th1: "Folder lub polecenie",
+    s3_th2: "Przeznaczenie",
+    s3_r1: "nowe transkrypcje z Teams",
+    s3_r2: "przetworzone pliki",
+    s3_r3: "podsumowania według szablonu agencji",
+    s3_r4: "zasady przetwarzania dla Claude Code",
+    s3_r5: "pola podsumowania i dozwolone wartości",
+    s3_r6: "rejestr wszystkich spotkań",
+    s3_r7: "jedno polecenie: przetworzyć nowe transkrypcje",
+    s3_r8: "wyszukiwanie w spotkaniach własnymi słowami",
+    s3_fig2_cap: "RYS. 2. Folder roboczy agencji po sesji o transkrypcjach. Zbudowany rękami klienta. Zanonimizowano.",
+    s3_h3: "System poprawia plik kryteriów",
+    s3_inv1: "Ekspert agencji dyktuje kryteria roli: obowiązkowe, pożądane, czerwone flagi. Trafiają do osobnego pliku.",
+    s3_inv2: "Claude Code analizuje zanonimizowane CV według tego pliku i pisze rekomendację według szablonu agencji.",
+    s3_inv3: "Pierwszy wynik zwykle jest słaby. Szukamy, czego zabrakło w pliku kryteriów, i dopisujemy linijkę.",
+    s3_inv4: "Przebieg powtarza się, aż wynik zadowoli eksperta. Kolejną rolę klient opisuje sam.",
+    s3_fig3_cap: "RYS. 3. Cykl dopracowania na drugiej sesji z agencją. Zanonimizowano.",
     s4_num: "4.0 // STAWKI I WARUNKI",
     s4_h2: "Płatność za uzgodniony czas",
     s4_p1: "Sesja robocza: od 250 zł za godzinę, netto. Zwykle 60–90 minut.",
@@ -346,6 +465,39 @@ var T = {
     s3_p1: "A tool built during the sessions and running on the participant's computer: a script, a prompt template, a simple workflow.",
     s3_p2: "The ability to describe the next task so that the AI model does what is needed.",
     s3_p3: "Knowing when ChatGPT or Claude is enough and when Claude Code is needed.",
+    s2_intro: "This is what a single session plan looks like: a fragment of a real facilitator's sheet from the fourth meeting with a recruitment agency.",
+    s2_th1: "Time",
+    s2_th2: "Block",
+    s2_th3: "Outcome",
+    s2_r1b: "The week in practice",
+    s2_r1o: "Clear what the summaries were missing",
+    s2_r2b: "Fields and registry",
+    s2_r2o: "Data accumulates in one format",
+    s2_r3b: "Task list review",
+    s2_r3o: "Next automation chosen",
+    s2_r4b: "New automation",
+    s2_r4o: "Role criteria and first recommendation",
+    s2_r5b: "Wrap-up and task",
+    s2_r5o: "Next step is clear",
+    s2_fig1_cap: "FIG. 1. Session plan from the facilitator's sheet. Anonymised.",
+    s3_intro: "Before: \"I want meeting summaries from Teams done automatically\" and a manual chain: calendar, meeting, download the transcript, paste it into a chat. After the transcripts session, the agency was left with this.",
+    s3_th1: "Folder or command",
+    s3_th2: "Purpose",
+    s3_r1: "new transcripts from Teams",
+    s3_r2: "processed files",
+    s3_r3: "summaries in the agency's template",
+    s3_r4: "processing rules for Claude Code",
+    s3_r5: "summary fields and allowed values",
+    s3_r6: "registry of all meetings",
+    s3_r7: "one command: process new transcripts",
+    s3_r8: "search meetings in plain words",
+    s3_fig2_cap: "FIG. 2. The agency's working folder after the transcripts session. Built by the client. Anonymised.",
+    s3_h3: "The criteria file improves the system",
+    s3_inv1: "The agency's expert dictates the role criteria: must-haves, nice-to-haves, red flags. They go into a separate file.",
+    s3_inv2: "Claude Code reviews an anonymised CV against that file and writes a recommendation in the agency's template.",
+    s3_inv3: "The first result is usually weak. The missing piece in the criteria file is found and a line is added.",
+    s3_inv4: "The run is repeated until the expert is satisfied. The client describes the next role on their own.",
+    s3_fig3_cap: "FIG. 3. The refinement loop from the second session with the agency. Anonymised.",
     s4_num: "4.0 // PRICING AND TERMS",
     s4_h2: "Payment for agreed time",
     s4_p1: "Working session: from 250 zł per hour, net. Usually 60–90 minutes.",

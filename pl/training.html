@@ -157,6 +157,14 @@ p.lead{font-size:17.5px}
   position:absolute;left:0;top:12px;
   font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue);
 }
+figure{margin:26px 0;max-width:660px}
+figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);margin-top:8px;letter-spacing:.04em}
+.daylog{width:100%;max-width:600px;border-collapse:collapse;margin:20px 0;font-size:13.5px}
+.daylog th{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:8px 10px;border:1px solid var(--line);background:var(--paper)}
+.daylog td{padding:8px 10px;border:1px solid var(--line)}
+.inv{border:1px solid var(--line);background:var(--paper);padding:16px 20px;margin-bottom:12px;max-width:660px;display:flex;gap:16px}
+.inv .code{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--stamp);min-width:64px;padding-top:2px}
+.inv p{margin:0;font-size:15px}
 .cta p{color:#B9C1CC}
 .cta a.btn{
   display:inline-block;margin-top:10px;
@@ -317,6 +325,18 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
       <li data-i18n="s2_li4">Kroki wykonujesz sam na swoim komputerze. Konsultant prowadzi, tłumaczy i poprawia.</li>
       <li data-i18n="s2_li5">Po sesji krótkie podsumowanie: co działa, co zostało do zrobienia, jaki jest następny krok.</li>
     </ol>
+    <p data-i18n="s2_intro">Tak wygląda plan jednej sesji. To fragment prawdziwej ściągawki prowadzącego, czwarte spotkanie z agencją rekrutacyjną.</p>
+    <table class="daylog" aria-label="Session plan">
+      <thead><tr><th data-i18n="s2_th1">Czas</th><th data-i18n="s2_th2">Blok</th><th data-i18n="s2_th3">Wynik</th></tr></thead>
+      <tbody>
+        <tr><td>0:00–0:10</td><td data-i18n="s2_r1b">Tydzień w praktyce</td><td data-i18n="s2_r1o">Wiadomo, czego brakowało w podsumowaniach</td></tr>
+        <tr><td>0:10–0:30</td><td data-i18n="s2_r2b">Pola i rejestr</td><td data-i18n="s2_r2o">Dane zbierają się w jednym formacie</td></tr>
+        <tr><td>0:30–0:45</td><td data-i18n="s2_r3b">Przegląd listy zadań</td><td data-i18n="s2_r3o">Wybrana kolejna automatyzacja</td></tr>
+        <tr><td>0:45–1:25</td><td data-i18n="s2_r4b">Nowa automatyzacja</td><td data-i18n="s2_r4o">Kryteria roli i pierwsza rekomendacja</td></tr>
+        <tr><td>1:25–1:40</td><td data-i18n="s2_r5b">Podsumowanie i zadanie</td><td data-i18n="s2_r5o">Jasny kolejny krok</td></tr>
+      </tbody>
+    </table>
+    <figure style="margin-top:0"><figcaption data-i18n="s2_fig1_cap">RYS. 1. Plan sesji ze ściągawki prowadzącego. Zanonimizowano.</figcaption></figure>
   </section>
 
   <section>
@@ -325,6 +345,39 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
     <p data-i18n="s3_p1">Narzędzie zbudowane na sesjach i uruchomione na Twoim komputerze: skrypt, szablon promptu, prosty przepływ pracy.</p>
     <p data-i18n="s3_p2">Umiejętność opisania kolejnego zadania tak, żeby model AI zrobił to, czego potrzebujesz.</p>
     <p data-i18n="s3_p3">Wiedza, kiedy wystarczy ChatGPT lub Claude, a kiedy potrzebny jest Claude Code.</p>
+    <p data-i18n="s3_intro">Było: „chcę automatycznie robić podsumowania spotkań z Teams” i ręczny łańcuch „kalendarz, spotkanie, pobrać transkrypcję, wkleić do czatu”. Po sesji o transkrypcjach agencji zostało to.</p>
+    <table class="daylog" aria-label="Client's working folder">
+      <thead><tr><th data-i18n="s3_th1">Folder lub polecenie</th><th data-i18n="s3_th2">Przeznaczenie</th></tr></thead>
+      <tbody>
+        <tr><td>nowe/</td><td data-i18n="s3_r1">nowe transkrypcje z Teams</td></tr>
+        <tr><td>przetworzone/</td><td data-i18n="s3_r2">przetworzone pliki</td></tr>
+        <tr><td>podsumowania/</td><td data-i18n="s3_r3">podsumowania według szablonu agencji</td></tr>
+        <tr><td>CLAUDE.md</td><td data-i18n="s3_r4">zasady przetwarzania dla Claude Code</td></tr>
+        <tr><td>pola.md</td><td data-i18n="s3_r5">pola podsumowania i dozwolone wartości</td></tr>
+        <tr><td>rejestr.md</td><td data-i18n="s3_r6">rejestr wszystkich spotkań</td></tr>
+        <tr><td>/podsumuj</td><td data-i18n="s3_r7">jedno polecenie: przetworzyć nowe transkrypcje</td></tr>
+        <tr><td>/znajdz</td><td data-i18n="s3_r8">wyszukiwanie w spotkaniach własnymi słowami</td></tr>
+      </tbody>
+    </table>
+    <figure style="margin-top:0"><figcaption data-i18n="s3_fig2_cap">RYS. 2. Folder roboczy agencji po sesji o transkrypcjach. Zbudowany rękami klienta. Zanonimizowano.</figcaption></figure>
+    <h3 data-i18n="s3_h3">System poprawia plik kryteriów</h3>
+    <div class="inv">
+      <span class="code">01</span>
+      <p data-i18n="s3_inv1">Ekspert agencji dyktuje kryteria roli: obowiązkowe, pożądane, czerwone flagi. Trafiają do osobnego pliku.</p>
+    </div>
+    <div class="inv">
+      <span class="code">02</span>
+      <p data-i18n="s3_inv2">Claude Code analizuje zanonimizowane CV według tego pliku i pisze rekomendację według szablonu agencji.</p>
+    </div>
+    <div class="inv">
+      <span class="code">03</span>
+      <p data-i18n="s3_inv3">Pierwszy wynik zwykle jest słaby. Szukamy, czego zabrakło w pliku kryteriów, i dopisujemy linijkę.</p>
+    </div>
+    <div class="inv">
+      <span class="code">04</span>
+      <p data-i18n="s3_inv4">Przebieg powtarza się, aż wynik zadowoli eksperta. Kolejną rolę klient opisuje sam.</p>
+    </div>
+    <figure style="margin-top:0"><figcaption data-i18n="s3_fig3_cap">RYS. 3. Cykl dopracowania na drugiej sesji z agencją. Zanonimizowano.</figcaption></figure>
   </section>
 
   <section>
