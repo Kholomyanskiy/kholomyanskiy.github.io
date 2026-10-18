@@ -181,6 +181,14 @@
             "@type": "Answer",
             "text": "Экспресс-аудит (одна роль): от 3 500 zł, 7–10 дней. Аудит отдела (до 10 человек): от 9 000 zł, 3–4 недели. Итоговая цена зависит от числа сотрудников и процессов и фиксируется после бесплатного 30-минутного разговора. Цены указаны без НДС (нетто)."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем обучение отличается от консультации?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Консультация отвечает на вопрос: стоит ли автоматизировать, что проверить первым, как оценить предложение подрядчика. На выходе рекомендация и следующие шаги. Обучение нужно, чтобы собрать решение самому: участник работает над своей задачей на своём компьютере, консультант ведёт. На выходе работающий инструмент и умение сделать следующий."
+          }
         }
       ]
     }
@@ -267,14 +275,12 @@ a.grid-item{display:block;text-decoration:none;color:inherit;cursor:pointer}
 a.grid-item:hover h3{color:var(--blue)}
 .grid-services{grid-template-columns:repeat(6,1fr)}
 .grid-services .grid-item{grid-column:span 2;display:flex;flex-direction:column}
-/* 5 карточек: 4-я и 5-я на всю ширину второго ряда. При 6 карточках эти два правила удалить. */
-.grid-services .grid-item:nth-child(4),.grid-services .grid-item:nth-child(5){grid-column:span 3}
 .grid-services .grid-item p{flex:1}
 .grid-services .more{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--blue);transition:transform .15s}
 .grid-services a.grid-item{transition:background .15s,box-shadow .15s}
 .grid-services a.grid-item:hover{background:var(--paper);box-shadow:inset 3px 0 0 var(--blue)}
 .grid-services a.grid-item:hover .more{transform:translateX(4px)}
-@media(max-width:680px){.grid-services{grid-template-columns:1fr}.grid-services .grid-item,.grid-services .grid-item:nth-child(4),.grid-services .grid-item:nth-child(5){grid-column:auto}}
+@media(max-width:680px){.grid-services{grid-template-columns:1fr}.grid-services .grid-item{grid-column:auto}}
 .section-more{margin-top:22px}
 .section-more a{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--ink);background:transparent;border:1.5px solid var(--ink);padding:11px 22px;text-decoration:none}
 .section-more a:hover{background:var(--ink);color:#EDEFF2}
@@ -419,6 +425,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <a class="grid-item" href="/ru/spec.html"><span class="num">03</span><h3 data-i18n="services.s3.h">AI-спецификация (ТЗ для ИИ)</h3><p data-i18n="services.s3.p">Документ, по которому подрядчик или ИИ-агент строит решение предсказуемо, с проверяемым результатом.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
  <div class="grid-item"><span class="num">04</span><h3 data-i18n="services.s4.h">Автоматизация процессов</h3><p data-i18n="services.s4.p">Интеграции и рабочие сценарии под конкретную задачу, от простых связок до цепочек агентов.</p></div>
  <a class="grid-item" href="/ru/consulting.html"><span class="num">05</span><h3 data-i18n="services.s5.h">Консультации</h3><p data-i18n="services.s5.p">Разовая консультация по вопросу или рабочая сессия над процессом. Первые 30 минут бесплатно.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
+ <a class="grid-item" href="/ru/training.html"><span class="num">06</span><h3 data-i18n="services.s6.h">Обучение на ваших задачах</h3><p data-i18n="services.s6.p">Практические сессии: решение вы строите сами в ChatGPT, Claude или Claude Code, консультант ведёт. Первые 30 минут бесплатно.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
  </div>
  <p class="section-more"><a href="/ru/services.html" data-i18n="services.more">Все услуги →</a></p>
  </section>
@@ -508,6 +515,10 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="faq.q5.h">Сколько стоит аудит?</span><span class="acc-plus">+</span></button>
  <div class="acc-body"><div class="acc-body-inner" data-i18n-html="faq.q5.p">Экспресс-аудит (одна роль): от 3 500 zł, 7–10 дней. Аудит отдела (до 10 человек): от 9 000 zł, 3–4 недели. Итоговая цена зависит от числа сотрудников и процессов и фиксируется после бесплатного 30-минутного разговора. Цены указаны без НДС (нетто). <a href="/ru/audit.html">Подробнее →</a></div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="faq.q6.h">Чем обучение отличается от консультации?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n-html="faq.q6.p">Консультация отвечает на вопрос: стоит ли автоматизировать, что проверить первым, как оценить предложение подрядчика. На выходе рекомендация и следующие шаги. Обучение нужно, чтобы собрать решение самому: участник работает над своей задачей на своём компьютере, консультант ведёт. На выходе работающий инструмент и умение сделать следующий. <a href="/ru/training.html">Подробнее об обучении →</a></div></div>
  </div>
  </div>
  </section>

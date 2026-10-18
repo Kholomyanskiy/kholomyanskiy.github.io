@@ -181,6 +181,14 @@
             "@type": "Answer",
             "text": "Audyt ekspresowy (jedno stanowisko): od 3 500 zł, 7–10 dni. Audyt działu (do 10 osób): od 9 000 zł, 3–4 tygodnie. Cena końcowa zależy od liczby osób i procesów, jest stała i ustalana po bezpłatnej 30-minutowej rozmowie. Ceny netto."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Czym szkolenie różni się od konsultacji?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Konsultacja odpowiada na pytanie: czy warto automatyzować, co sprawdzić najpierw, jak ocenić ofertę wykonawcy. Rezultat: rekomendacja i kolejne kroki. Szkolenie służy temu, by zbudować rozwiązanie samemu: uczestnik pracuje nad własnym zadaniem na swoim komputerze, konsultant prowadzi. Rezultat: działające narzędzie i umiejętność zbudowania kolejnego."
+          }
         }
       ]
     }
@@ -267,14 +275,12 @@ a.grid-item{display:block;text-decoration:none;color:inherit;cursor:pointer}
 a.grid-item:hover h3{color:var(--blue)}
 .grid-services{grid-template-columns:repeat(6,1fr)}
 .grid-services .grid-item{grid-column:span 2;display:flex;flex-direction:column}
-/* 5 карточек: 4-я и 5-я на всю ширину второго ряда. При 6 карточках эти два правила удалить. */
-.grid-services .grid-item:nth-child(4),.grid-services .grid-item:nth-child(5){grid-column:span 3}
 .grid-services .grid-item p{flex:1}
 .grid-services .more{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--blue);transition:transform .15s}
 .grid-services a.grid-item{transition:background .15s,box-shadow .15s}
 .grid-services a.grid-item:hover{background:var(--paper);box-shadow:inset 3px 0 0 var(--blue)}
 .grid-services a.grid-item:hover .more{transform:translateX(4px)}
-@media(max-width:680px){.grid-services{grid-template-columns:1fr}.grid-services .grid-item,.grid-services .grid-item:nth-child(4),.grid-services .grid-item:nth-child(5){grid-column:auto}}
+@media(max-width:680px){.grid-services{grid-template-columns:1fr}.grid-services .grid-item{grid-column:auto}}
 .section-more{margin-top:22px}
 .section-more a{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--ink);background:transparent;border:1.5px solid var(--ink);padding:11px 22px;text-decoration:none}
 .section-more a:hover{background:var(--ink);color:#EDEFF2}
@@ -419,6 +425,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <a class="grid-item" href="/pl/spec.html"><span class="num">03</span><h3 data-i18n="services.s3.h">Specyfikacja AI</h3><p data-i18n="services.s3.p">Dokument, na podstawie którego wykonawca lub agent AI buduje rozwiązanie przewidywalnie, z wynikiem możliwym do sprawdzenia.</p><span class="more" data-i18n="services.more_card">Szczegóły →</span></a>
  <div class="grid-item"><span class="num">04</span><h3 data-i18n="services.s4.h">Automatyzacja procesów</h3><p data-i18n="services.s4.p">Integracje i scenariusze pracy pod konkretne zadanie, od prostych połączeń po łańcuchy agentów.</p></div>
  <a class="grid-item" href="/pl/consulting.html"><span class="num">05</span><h3 data-i18n="services.s5.h">Konsultacje</h3><p data-i18n="services.s5.p">Jednorazowa konsultacja w konkretnej sprawie lub sesja robocza nad procesem. Pierwsze 30 minut bezpłatnie.</p><span class="more" data-i18n="services.more_card">Szczegóły →</span></a>
+ <a class="grid-item" href="/pl/training.html"><span class="num">06</span><h3 data-i18n="services.s6.h">Szkolenie AI na Twoich zadaniach</h3><p data-i18n="services.s6.p">Sesje praktyczne: rozwiązanie budujesz sam w ChatGPT, Claude lub Claude Code, konsultant prowadzi. Pierwsze 30 minut bezpłatnie.</p><span class="more" data-i18n="services.more_card">Szczegóły →</span></a>
  </div>
  <p class="section-more"><a href="/pl/services.html" data-i18n="services.more">Wszystkie usługi →</a></p>
  </section>
@@ -508,6 +515,10 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="faq.q5.h">Ile kosztuje audyt?</span><span class="acc-plus">+</span></button>
  <div class="acc-body"><div class="acc-body-inner" data-i18n-html="faq.q5.p">Audyt ekspresowy (jedno stanowisko): od 3 500 zł, 7–10 dni. Audyt działu (do 10 osób): od 9 000 zł, 3–4 tygodnie. Cena końcowa zależy od liczby osób i procesów, jest stała i ustalana po bezpłatnej 30-minutowej rozmowie. Ceny netto. <a href="/pl/audit.html">Szczegóły →</a></div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="faq.q6.h">Czym szkolenie różni się od konsultacji?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n-html="faq.q6.p">Konsultacja odpowiada na pytanie: czy warto automatyzować, co sprawdzić najpierw, jak ocenić ofertę wykonawcy. Rezultat: rekomendacja i kolejne kroki. Szkolenie służy temu, by zbudować rozwiązanie samemu: uczestnik pracuje nad własnym zadaniem na swoim komputerze, konsultant prowadzi. Rezultat: działające narzędzie i umiejętność zbudowania kolejnego. <a href="/pl/training.html">Więcej o szkoleniu →</a></div></div>
  </div>
  </div>
  </section>

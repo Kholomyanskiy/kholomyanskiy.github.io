@@ -181,6 +181,14 @@
             "@type": "Answer",
             "text": "Express audit (one role): from 3,500 zł, 7–10 days. Department audit (up to 10 people): from 9,000 zł, 3–4 weeks. The final price depends on the number of people and processes and is fixed after a free 30-minute call. Prices are net, excluding VAT."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "How is training different from a consultation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A consultation answers a question: is automation worth it, what to check first, how to assess a vendor's proposal. The outcome is a recommendation and next steps. Training is for building the solution yourself: the participant works on their own task on their own computer, the consultant guides. The outcome is a working tool and the skill to build the next one."
+          }
         }
       ]
     }
@@ -267,14 +275,12 @@ a.grid-item{display:block;text-decoration:none;color:inherit;cursor:pointer}
 a.grid-item:hover h3{color:var(--blue)}
 .grid-services{grid-template-columns:repeat(6,1fr)}
 .grid-services .grid-item{grid-column:span 2;display:flex;flex-direction:column}
-/* 5 карточек: 4-я и 5-я на всю ширину второго ряда. При 6 карточках эти два правила удалить. */
-.grid-services .grid-item:nth-child(4),.grid-services .grid-item:nth-child(5){grid-column:span 3}
 .grid-services .grid-item p{flex:1}
 .grid-services .more{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--blue);transition:transform .15s}
 .grid-services a.grid-item{transition:background .15s,box-shadow .15s}
 .grid-services a.grid-item:hover{background:var(--paper);box-shadow:inset 3px 0 0 var(--blue)}
 .grid-services a.grid-item:hover .more{transform:translateX(4px)}
-@media(max-width:680px){.grid-services{grid-template-columns:1fr}.grid-services .grid-item,.grid-services .grid-item:nth-child(4),.grid-services .grid-item:nth-child(5){grid-column:auto}}
+@media(max-width:680px){.grid-services{grid-template-columns:1fr}.grid-services .grid-item{grid-column:auto}}
 .section-more{margin-top:22px}
 .section-more a{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--ink);background:transparent;border:1.5px solid var(--ink);padding:11px 22px;text-decoration:none}
 .section-more a:hover{background:var(--ink);color:#EDEFF2}
@@ -419,6 +425,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <a class="grid-item" href="/spec.html"><span class="num">03</span><h3 data-i18n="services.s3.h">AI Specification</h3><p data-i18n="services.s3.p">A document a contractor or an AI agent can build from predictably, with a result that can be checked.</p><span class="more" data-i18n="services.more_card">Details →</span></a>
  <div class="grid-item"><span class="num">04</span><h3 data-i18n="services.s4.h">Process Automation</h3><p data-i18n="services.s4.p">Integrations and workflows for a specific task, from simple connections to agent chains.</p></div>
  <a class="grid-item" href="/consulting.html"><span class="num">05</span><h3 data-i18n="services.s5.h">Consulting</h3><p data-i18n="services.s5.p">A one-off consultation on a question or a working session on a process. The first 30 minutes are free.</p><span class="more" data-i18n="services.more_card">Details →</span></a>
+ <a class="grid-item" href="/training.html"><span class="num">06</span><h3 data-i18n="services.s6.h">AI Training on Your Tasks</h3><p data-i18n="services.s6.p">Hands-on sessions: you build the solution yourself in ChatGPT, Claude or Claude Code, the consultant guides. The first 30 minutes are free.</p><span class="more" data-i18n="services.more_card">Details →</span></a>
  </div>
  <p class="section-more"><a href="/services.html" data-i18n="services.more">All services →</a></p>
  </section>
@@ -508,6 +515,10 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="faq.q5.h">How much does an audit cost?</span><span class="acc-plus">+</span></button>
  <div class="acc-body"><div class="acc-body-inner" data-i18n-html="faq.q5.p">Express audit (one role): from 3,500 zł, 7–10 days. Department audit (up to 10 people): from 9,000 zł, 3–4 weeks. The final price depends on the number of people and processes and is fixed after a free 30-minute call. Prices are net, excluding VAT. <a href="/audit.html">Details →</a></div></div>
+ </div>
+ <div class="acc-item">
+ <button class="acc-head" type="button"><span data-i18n="faq.q6.h">How is training different from a consultation?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n-html="faq.q6.p">A consultation answers a question: is automation worth it, what to check first, how to assess a vendor's proposal. The outcome is a recommendation and next steps. Training is for building the solution yourself: the participant works on their own task on their own computer, the consultant guides. The outcome is a working tool and the skill to build the next one. <a href="/training.html">More about training →</a></div></div>
  </div>
  </div>
  </section>

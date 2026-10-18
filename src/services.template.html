@@ -100,7 +100,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  </div>
  <div class="tb-main">
  <h1 data-i18n="page.title">Services</h1>
- <p class="sub" data-i18n="page.sub">Five services you can order individually or as a sequential cycle: from diagnosis to a working solution.</p>
+ <p class="sub" data-i18n="page.sub">Six services you can order individually or as a sequential cycle: from diagnosis to a working solution.</p>
  </div>
  </header>
 
@@ -186,11 +186,27 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <span class="svc-num" data-i18n="s5.num">SERVICE 05</span>
  <h3 data-i18n="s5.h">Consulting</h3>
  <p data-i18n="s5.p1">A one-off consultation with no commitment to the full cycle: figure out whether your department needs automation at all, what to check first, where the risks are.</p>
- <p data-i18n="s5.p2">For hands-on work on a specific process there are working sessions.</p>
+ <p data-i18n-html="s5.p2">For hands-on work on a specific process there are working sessions. To learn to solve such tasks yourself, see <a href="training.html">AI training on your tasks</a>.</p>
  <span class="svc-price" data-i18n="s5.price">Consultation from 150 zł/hour · session from 250 zł/hour</span>
  <span class="svc-num" data-i18n="price.net">Prices are net, excluding VAT.</span>
  <div class="svc-cta">
  <a class="primary" href="consulting.html" data-i18n="s5.cta2">Details and pricing →</a>
+ <a class="secondary" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="s5.cta1">Book a slot →</a>
+ </div>
+ </div>
+ </section>
+
+ <section id="training">
+ <span class="secnum">06</span>
+ <div class="svc-block">
+ <span class="svc-num" data-i18n="s6.num">SERVICE 06</span>
+ <h3 data-i18n="s6.h">AI Training on Your Tasks</h3>
+ <p data-i18n="s6.p1">One-to-one sessions for specialists and small teams. Participants work on their own task from work and build the solution themselves; the consultant guides and explains.</p>
+ <p data-i18n="s6.p2">No course syllabus, no slides. The number of sessions is estimated on the free call.</p>
+ <span class="svc-price" data-i18n="s6.price">Session from 250 zł/hour</span>
+ <span class="svc-num" data-i18n="price.net">Prices are net, excluding VAT.</span>
+ <div class="svc-cta">
+ <a class="primary" href="training.html" data-i18n="s6.cta2">Details and pricing →</a>
  <a class="secondary" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="s5.cta1">Book a slot →</a>
  </div>
  </div>
@@ -237,7 +253,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 const T = {
  ru: {
  "page.title":"Услуги",
- "page.sub":"Пять услуг, которые можно заказать по отдельности или как последовательный цикл: от диагностики до работающего решения.",
+ "page.sub":"Шесть услуг, которые можно заказать по отдельности или как последовательный цикл: от диагностики до работающего решения.",
  "s1.num":"УСЛУГА 01","s1.h":"Аудит процессов перед внедрением AI",
  "s1.p1":"Аудит показывает, из чего на самом деле состоит рабочий день сотрудников. Сотрудники фиксируют, что делают, как часто и сколько это занимает.",
  "s1.p2":"Находим, где рутина съедает время и где ошибка обходится дорого. Результат: карта задач с оценкой, что и сколько можно автоматизировать, и с чего начинать в первую очередь.",
@@ -258,7 +274,10 @@ const T = {
  "s4.cta1":"Обсудить задачу →",
  "s5.num":"УСЛУГА 05","s5.h":"Консалтинг",
  "s5.p1":"Разовая консультация без привязки к полному циклу: разобраться, стоит ли вашему отделу автоматизация вообще, что стоит проверить в первую очередь, где риски.",
- "s5.p2":"Для совместной работы над конкретным процессом есть рабочие сессии.","s5.price":"Консультация от 150 zł/час · сессия от 250 zł/час","s5.cta2":"Подробнее и тарифы →","price.net":"Цены указаны без НДС (нетто).","s5.cta1":"Записаться →",
+ "s5.p2":"Для совместной работы над конкретным процессом есть рабочие сессии. Если хочется научиться решать такие задачи самому, есть <a href=\"training.html\">обучение на ваших задачах</a>.","s5.price":"Консультация от 150 zł/час · сессия от 250 zł/час","s5.cta2":"Подробнее и тарифы →","price.net":"Цены указаны без НДС (нетто).","s5.cta1":"Записаться →",
+ "s6.num":"УСЛУГА 06","s6.h":"Обучение на ваших задачах",
+ "s6.p1":"Индивидуальные сессии для специалистов и небольших команд. Участник работает над своей задачей из работы и сам строит решение, консультант ведёт и объясняет.",
+ "s6.p2":"Без программы курса и презентаций. Число сессий оценивается на бесплатном звонке.","s6.price":"Сессия от 250 zł/час","s6.cta2":"Подробнее и цены →",
  "faq.title":"Частые вопросы",
  "faq.q1.h":"Чем занимается AI-консультант?","faq.q1.p":"Разбирает реальные процессы компании, находит задачи, которые можно передать ИИ или автоматизации, проектирует и сопровождает внедрение до стабильного результата.",
  "faq.q2.h":"Как выбрать, с какой услуги начать?","faq.q2.p":"Если ИИ ещё не внедряли, начните с аудита. Если внедряете конкретную задачу, начните со спецификации. Если не уверены, напишите, подскажу.",
@@ -273,7 +292,7 @@ const T = {
  },
  pl: {
  "page.title":"Usługi",
- "page.sub":"Pięć usług, które można zamówić osobno lub jako sekwencyjny cykl: od diagnozy do działającego rozwiązania.",
+ "page.sub":"Sześć usług, które można zamówić osobno lub jako sekwencyjny cykl: od diagnozy do działającego rozwiązania.",
  "s1.num":"USŁUGA 01","s1.h":"Audyt procesów przed wdrożeniem AI",
  "s1.p1":"Audyt pokazuje, z czego naprawdę składa się dzień pracy pracowników. Pracownicy notują, co robią, jak często i ile to zajmuje.",
  "s1.p2":"Znajdujemy, gdzie rutyna pożera czas i gdzie błąd jest kosztowny. Rezultat: mapa zadań z oceną, co i w jakim stopniu można zautomatyzować, i od czego zacząć.",
@@ -294,7 +313,10 @@ const T = {
  "s4.cta1":"Omów zadanie →",
  "s5.num":"USŁUGA 05","s5.h":"Konsulting",
  "s5.p1":"Jednorazowa konsultacja bez zobowiązania do pełnego cyklu: sprawdzenie, czy Twój dział w ogóle potrzebuje automatyzacji, co sprawdzić najpierw, gdzie są ryzyka.",
- "s5.p2":"Do wspólnej pracy nad konkretnym procesem służą sesje robocze.","s5.price":"Konsultacja od 150 zł/godz. · sesja od 250 zł/godz.","s5.cta2":"Szczegóły i cennik →","price.net":"Ceny netto.","s5.cta1":"Zarezerwuj termin →",
+ "s5.p2":"Do wspólnej pracy nad konkretnym procesem służą sesje robocze. Jeśli chcesz nauczyć się rozwiązywać takie zadania samodzielnie, jest <a href=\"training.html\">szkolenie na Twoich zadaniach</a>.","s5.price":"Konsultacja od 150 zł/godz. · sesja od 250 zł/godz.","s5.cta2":"Szczegóły i cennik →","price.net":"Ceny netto.","s5.cta1":"Zarezerwuj termin →",
+ "s6.num":"USŁUGA 06","s6.h":"Szkolenie AI na Twoich zadaniach",
+ "s6.p1":"Indywidualne sesje dla specjalistów i małych zespołów. Uczestnik pracuje nad własnym zadaniem z pracy i sam buduje rozwiązanie, konsultant prowadzi i tłumaczy.",
+ "s6.p2":"Bez programu kursu i prezentacji. Liczba sesji jest oceniana na bezpłatnej rozmowie.","s6.price":"Sesja od 250 zł/h","s6.cta2":"Szczegóły i ceny →",
  "faq.title":"Najczęstsze pytania",
  "faq.q1.h":"Czym zajmuje się konsultant AI?","faq.q1.p":"Analizuje rzeczywiste procesy firmy, znajduje zadania, które można przekazać AI lub automatyzacji, projektuje i wspiera wdrożenie aż do stabilnego rezultatu.",
  "faq.q2.h":"Jak wybrać, od której usługi zacząć?","faq.q2.p":"Jeśli AI nie jest jeszcze wdrożone, zacznij od audytu. Jeśli masz konkretne zadanie do wdrożenia, zacznij od specyfikacji. Jeśli nie masz pewności, napisz, a podpowiem.",
@@ -309,7 +331,7 @@ const T = {
  },
  en: {
  "page.title":"Services",
- "page.sub":"Five services you can order individually or as a sequential cycle: from diagnosis to a working solution.",
+ "page.sub":"Six services you can order individually or as a sequential cycle: from diagnosis to a working solution.",
  "s1.num":"SERVICE 01","s1.h":"Process Audit Before AI Implementation",
  "s1.p1":"The audit shows what employees' workday actually consists of. Employees log what they do, how often, and how long it takes.",
  "s1.p2":"We find where routine eats time and where mistakes are costly. Result: a task map with an estimate of what and how much can be automated, and where to start.",
@@ -330,7 +352,10 @@ const T = {
  "s4.cta1":"Discuss a task →",
  "s5.num":"SERVICE 05","s5.h":"Consulting",
  "s5.p1":"A one-off consultation with no commitment to the full cycle: figure out whether your department needs automation at all, what to check first, where the risks are.",
- "s5.p2":"For hands-on work on a specific process there are working sessions.","s5.price":"Consultation from 150 zł/hour · session from 250 zł/hour","s5.cta2":"Details and pricing →","price.net":"Prices are net, excluding VAT.","s5.cta1":"Book a slot →",
+ "s5.p2":"For hands-on work on a specific process there are working sessions. To learn to solve such tasks yourself, see <a href=\"training.html\">AI training on your tasks</a>.","s5.price":"Consultation from 150 zł/hour · session from 250 zł/hour","s5.cta2":"Details and pricing →","price.net":"Prices are net, excluding VAT.","s5.cta1":"Book a slot →",
+ "s6.num":"SERVICE 06","s6.h":"AI Training on Your Tasks",
+ "s6.p1":"One-to-one sessions for specialists and small teams. Participants work on their own task from work and build the solution themselves; the consultant guides and explains.",
+ "s6.p2":"No course syllabus, no slides. The number of sessions is estimated on the free call.","s6.price":"Session from 250 zł/hour","s6.cta2":"Details and pricing →",
  "faq.title":"Frequently asked questions",
  "faq.q1.h":"What does an AI consultant do?","faq.q1.p":"Analyzes a company's actual processes, finds tasks that can be handed to AI or automation, designs and supports implementation through to a stable result.",
  "faq.q2.h":"How do I choose which service to start with?","faq.q2.p":"If you haven't implemented AI yet, start with the audit. If you're implementing a specific task, start with the specification. If you're not sure, write to me.",
