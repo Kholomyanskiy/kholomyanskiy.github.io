@@ -130,7 +130,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
   <li><span class="lbl"><span class="k" data-i18n="route.project">Project</span><span class="num">03</span></span><a href="#audit" data-i18n="route.audit">Audit</a></li>
   <li><span class="lbl"><span class="num">04</span></span><a href="#design" data-i18n="route.design">Design</a></li>
   <li><span class="lbl"><span class="num">05</span></span><a href="#spec" data-i18n="route.spec">Specification</a></li>
-  <li><span class="lbl"><span class="num">06</span></span><a href="#automation" data-i18n="route.automation">Automation</a></li>
+  <li><span class="lbl"><span class="num">06</span></span><a href="#automation" data-i18n="route.automation">Implementation</a></li>
   </ol>
   </nav>
  </div>
@@ -220,8 +220,8 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <span class="secnum">06</span>
  <div class="svc-block">
  <span class="svc-num" data-i18n="s4.num">SERVICE 06</span>
- <h3 data-i18n="s4.h">Process Automation</h3>
- <p data-i18n="s4.p1">CRM, email, messenger, and internal system integrations; workflows and chains without unnecessary manual work. AI isn't required here: sometimes it's enough to connect existing tools correctly.</p>
+ <h3 data-i18n="s4.h">AI Solution Implementation</h3>
+ <p data-i18n="s4.p1">Building, configuring and launching automation to a specification: CRM, email, messenger and internal system integrations, workflows with or without AI. Acceptance against criteria, support after launch.</p>
  <div class="tiers">
  <div class="tier">
  <span class="tier-name" data-i18n="s4.t1.name">Simple</span>
@@ -241,7 +241,8 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  </div>
  <span class="svc-num" data-i18n="price.net">Prices are net, excluding VAT.</span>
  <div class="svc-cta">
- <a class="primary" href="index.html#contact" data-i18n="s4.cta1">Discuss a task →</a>
+ <a class="primary" href="implementation.html" data-i18n="s5.cta2">Details and pricing →</a>
+ <a class="secondary" href="index.html#contact" data-i18n="s4.cta1">Discuss a task →</a>
  </div>
  </div>
  </section>
@@ -287,7 +288,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 const T = {
  ru: {
  "page.title":"Услуги",
- "route.start":"Начать","route.project":"Проект","route.consulting":"Консультация","route.training":"Обучение","route.audit":"Аудит","route.design":"Проектирование","route.spec":"Спецификация","route.automation":"Автоматизация",
+ "route.start":"Начать","route.project":"Проект","route.consulting":"Консультация","route.training":"Обучение","route.audit":"Аудит","route.design":"Проектирование","route.spec":"Спецификация","route.automation":"Внедрение",
  "page.sub":"Внедрение ИИ со стороны заказчика: сначала понять, где автоматизация окупится, затем поставить задачу так, чтобы подрядчик построил то, что нужно. Каждый этап заказывается отдельно и заканчивается документом или результатом, который можно проверить.",
  "s1.num":"УСЛУГА 03","s1.h":"Аудит процессов перед внедрением AI",
  "s1.p1":"Аудит показывает, из чего на самом деле состоит рабочий день сотрудников. Сотрудники фиксируют, что делают, как часто и сколько это занимает.",
@@ -301,8 +302,8 @@ const T = {
  "s3.p1":"Пишу точное техническое задание для конкретной задачи по методологии ANSS: что на входе, что на выходе, по каким правилам, что машине нельзя делать никогда.",
  "s3.p2":"С такой спецификацией задачу можно передать в разработку или настроить самостоятельно, и поведение системы становится предсказуемым.",
  "s3.price":"От 2 500 zł","s3.cta1":"Подробнее →",
- "s4.num":"УСЛУГА 06","s4.h":"Автоматизация процессов",
- "s4.p1":"Интеграции CRM, почты, мессенджеров, внутренних систем; рабочие сценарии и цепочки без лишнего ручного труда. ИИ здесь не обязателен: иногда достаточно правильно связать существующие инструменты.",
+ "s4.num":"УСЛУГА 06","s4.h":"Внедрение AI-решения",
+ "s4.p1":"Разработка, настройка и запуск автоматизации по спецификации: интеграции CRM, почты, мессенджеров и внутренних систем, сценарии с ИИ и без. Приёмка по критериям, сопровождение после запуска.",
  "s4.t1.name":"Простая","s4.t1.price":"От 2 500 zł","s4.t1.p":"Одна интеграция или сценарий, например, письмо → CRM, уведомление в мессенджер",
  "s4.t2.name":"Средняя","s4.t2.price":"От 6 000 zł","s4.t2.p":"Несколько связанных сценариев, 2–3 системы, логика с условиями",
  "s4.t3.name":"Сложная","s4.t3.price":"От 15 000 zł","s4.t3.p":"Цепочки агентов, много систем, кастомная логика, тестирование на масштабе",
@@ -327,7 +328,7 @@ const T = {
  },
  pl: {
  "page.title":"Usługi",
- "route.start":"Start","route.project":"Projekt","route.consulting":"Konsultacja","route.training":"Szkolenie","route.audit":"Audyt","route.design":"Projektowanie","route.spec":"Specyfikacja","route.automation":"Automatyzacja",
+ "route.start":"Start","route.project":"Projekt","route.consulting":"Konsultacja","route.training":"Szkolenie","route.audit":"Audyt","route.design":"Projektowanie","route.spec":"Specyfikacja","route.automation":"Wdrożenie",
  "page.sub":"Wdrażanie AI po stronie zamawiającego: najpierw ustalić, gdzie automatyzacja się zwróci, potem postawić zadanie tak, by wykonawca zbudował to, czego potrzeba. Każdy etap zamawia się osobno i kończy się dokumentem lub wynikiem, który można sprawdzić.",
  "s1.num":"USŁUGA 03","s1.h":"Audyt procesów przed wdrożeniem AI",
  "s1.p1":"Audyt pokazuje, z czego naprawdę składa się dzień pracy pracowników. Pracownicy notują, co robią, jak często i ile to zajmuje.",
@@ -341,8 +342,8 @@ const T = {
  "s3.p1":"Piszę precyzyjną specyfikację dla konkretnego zadania według metodologii ANSS: co na wejściu, co na wyjściu, według jakich reguł, czego system nigdy nie może zrobić.",
  "s3.p2":"Z taką specyfikacją zadanie można przekazać do developmentu lub skonfigurować samodzielnie. Zachowanie systemu staje się przewidywalne.",
  "s3.price":"Od 2 500 zł","s3.cta1":"Szczegóły →",
- "s4.num":"USŁUGA 06","s4.h":"Automatyzacja procesów",
- "s4.p1":"Integracje CRM, poczty, komunikatorów, systemów wewnętrznych; scenariusze pracy i łańcuchy bez zbędnej pracy ręcznej. AI nie jest tu obowiązkowe: czasem wystarczy poprawnie połączyć istniejące narzędzia.",
+ "s4.num":"USŁUGA 06","s4.h":"Wdrożenie rozwiązania AI",
+ "s4.p1":"Budowa, konfiguracja i uruchomienie automatyzacji według specyfikacji: integracje CRM, poczty, komunikatorów i systemów wewnętrznych, scenariusze z AI i bez. Odbiór według kryteriów, wsparcie po uruchomieniu.",
  "s4.t1.name":"Prosta","s4.t1.price":"Od 2 500 zł","s4.t1.p":"Jedna integracja lub scenariusz, np. mail → CRM, powiadomienie w komunikatorze",
  "s4.t2.name":"Średnia","s4.t2.price":"Od 6 000 zł","s4.t2.p":"Kilka powiązanych scenariuszy, 2–3 systemy, logika warunkowa",
  "s4.t3.name":"Złożona","s4.t3.price":"Od 15 000 zł","s4.t3.p":"Łańcuchy agentów, wiele systemów, logika na zamówienie, testowanie na dużą skalę",
@@ -367,7 +368,7 @@ const T = {
  },
  en: {
  "page.title":"Services",
- "route.start":"Start","route.project":"Project","route.consulting":"Consultation","route.training":"Training","route.audit":"Audit","route.design":"Design","route.spec":"Specification","route.automation":"Automation",
+ "route.start":"Start","route.project":"Project","route.consulting":"Consultation","route.training":"Training","route.audit":"Audit","route.design":"Design","route.spec":"Specification","route.automation":"Implementation",
  "page.sub":"AI implementation on the client's side: first find where automation pays off, then set the task so the vendor builds what is needed. Each stage is ordered separately and ends with a document or a result that can be checked.",
  "s1.num":"SERVICE 03","s1.h":"Process Audit Before AI Implementation",
  "s1.p1":"The audit shows what employees' workday actually consists of. Employees log what they do, how often, and how long it takes.",
@@ -381,8 +382,8 @@ const T = {
  "s3.p1":"I write a precise specification for a specific task using the ANSS methodology: input, output, rules, and what the system must never do.",
  "s3.p2":"With this spec the task can be handed to development or configured directly, and the system's behavior becomes predictable.",
  "s3.price":"From 2,500 zł","s3.cta1":"Details →",
- "s4.num":"SERVICE 06","s4.h":"Process Automation",
- "s4.p1":"CRM, email, messenger, and internal system integrations; workflows and chains without unnecessary manual work. AI isn't required here: sometimes it's enough to connect existing tools correctly.",
+ "s4.num":"SERVICE 06","s4.h":"AI Solution Implementation",
+ "s4.p1":"Building, configuring and launching automation to a specification: CRM, email, messenger and internal system integrations, workflows with or without AI. Acceptance against criteria, support after launch.",
  "s4.t1.name":"Simple","s4.t1.price":"From 2,500 zł","s4.t1.p":"One integration or workflow, e.g. email → CRM, messenger notification",
  "s4.t2.name":"Medium","s4.t2.price":"From 6,000 zł","s4.t2.p":"Several connected workflows, 2–3 systems, conditional logic",
  "s4.t3.name":"Complex","s4.t3.price":"From 15,000 zł","s4.t3.p":"Agent chains, multiple systems, custom logic, testing at scale",

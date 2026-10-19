@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Solution Implementation — EVAI Consulting</title>
+<meta name="description" content="AI solution implementation: process automation built to a specification, accepted against criteria, supported after launch. From 2,500 zł net.">
+<link rel="canonical" href="https://kholomyanskiy.com/implementation.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Solution Implementation — EVAI Consulting">
+<meta property="og:description" content="AI solution implementation: process automation built to a specification, accepted against criteria, supported after launch. From 2,500 zł net.">
+<meta property="og:url" content="https://kholomyanskiy.com/implementation.html">
+<!-- @include head-common -->
+<meta name="twitter:title" content="AI Solution Implementation — EVAI Consulting">
+<meta name="twitter:description" content="AI solution implementation: process automation built to a specification, accepted against criteria, supported after launch. From 2,500 zł net.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* @include common.css */
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+@media(max-width:680px){.topnav-links{gap:14px;font-size:12px}}
+/* лист страниц услуг */
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+}
+.sheet{
+  max-width:880px;
+  margin:16px auto 40px;
+  background:var(--panel);
+  border:1.5px solid var(--ink);
+  box-shadow:8px 8px 0 rgba(27,32,39,.08);
+}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-main{padding:44px 28px 36px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;max-width:560px;color:var(--ink-soft);font-size:17px}
+section{padding:40px 28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
+p{max-width:620px;margin-bottom:14px}
+.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
+.cta h2{color:#fff}
+footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+@media(max-width:680px){
+  .sheet{margin:8px 12px 32px}
+}
+/* ---------- title block ---------- */
+.stamp{
+  position:absolute;top:36px;right:28px;
+  border:2px solid var(--stamp);color:var(--stamp);
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;
+  padding:6px 12px;transform:rotate(4deg);
+  text-transform:uppercase;background:rgba(154,59,51,.04);
+}
+.tb-meta{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid var(--ink)}
+.tb-meta div{padding:10px 16px;border-right:1px solid var(--line);font-size:13px}
+.tb-meta div:last-child{border-right:none}
+.tb-meta .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:2px}
+/* ---------- sections ---------- */
+p.lead{font-size:17.5px}
+@media (min-width:600px){.tb-main .sub,section > p:not(a ~ p){text-align:justify;hyphens:auto;-webkit-hyphens:auto}}
+.formats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}
+.card{border:1.5px solid var(--ink);background:var(--paper);display:flex;flex-direction:column}
+.card-head{padding:16px 20px;border-bottom:1px solid var(--line)}
+.card-head .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.card-head h3{font-family:'Spectral',serif;font-size:22px;font-weight:600;margin-top:4px}
+.card-body{padding:18px 20px;flex:1}
+.card-body ul{list-style:none}
+.card-body li{padding:6px 0 6px 20px;position:relative;font-size:14.5px}
+.card-body li::before{content:"—";position:absolute;left:0;color:var(--blue)}
+.card-foot{padding:14px 20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
+.price{font-family:'Spectral',serif;font-size:21px;font-weight:700}
+.term{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft)}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px;background:var(--line);border:1px solid var(--line);margin-top:16px}
+.tier{background:var(--panel);padding:16px 18px}
+.tier .tier-name{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:6px}
+.tier .tier-price{font-family:'Spectral',serif;font-weight:600;font-size:20px;margin-bottom:6px}
+.tier p{font-size:13.5px;color:var(--ink-soft);margin-bottom:0;max-width:none}
+.card-action{padding:14px 20px}
+.card-action a.btn2{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:#fff;background:var(--blue);border:1.5px solid var(--blue);padding:11px 22px;text-decoration:none}
+.card-action a.btn2:hover{background:transparent;color:var(--blue)}
+.tb-main .card-action{padding-left:0;padding-right:0}
+.steps{counter-reset:st;max-width:620px;margin-top:8px}
+.steps li{list-style:none;counter-increment:st;padding:12px 0 12px 52px;position:relative;border-top:1px solid var(--line)}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);
+  position:absolute;left:0;top:12px;
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue);
+}
+.cta p{color:#B9C1CC}
+.cta a.btn{
+  display:inline-block;margin-top:10px;
+  font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;
+  color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;
+  padding:13px 26px;text-decoration:none;
+}
+.cta a.btn:hover{background:transparent;color:#EDEFF2}
+.cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.cta .alt{margin-top:16px;font-size:14px}
+.cta .alt a{color:#EDEFF2}
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
+.footer-links a:hover{color:var(--blue)}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+@media(max-width:680px){
+  .tb-meta{grid-template-columns:repeat(2,1fr)}
+  .tb-meta div:nth-child(2){border-right:none}
+  .formats{grid-template-columns:1fr}
+  .stamp{position:static;display:inline-block;margin-top:18px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://kholomyanskiy.com/implementation.html#service",
+  "name": "$t:h1_title",
+  "description": "$t:meta_desc",
+  "url": "https://kholomyanskiy.com/implementation.html",
+  "inLanguage": "en",
+  "provider": {
+    "@id": "https://kholomyanskiy.com/#organization"
+  },
+  "areaServed": [
+    "Poland",
+    "Europe"
+  ],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "$t:s4_t1_name",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": 2500,
+        "priceCurrency": "PLN",
+        "valueAddedTaxIncluded": false
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "$t:s4_t2_name",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": 6000,
+        "priceCurrency": "PLN",
+        "valueAddedTaxIncluded": false
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "$t:s4_t3_name",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": 15000,
+        "priceCurrency": "PLN",
+        "valueAddedTaxIncluded": false
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- @include topnav current=services,implementation -->
+
+<div class="sheet">
+
+  <header class="titleblock">
+    <div class="tb-top">
+      <span class="brand">EVAI CONSULTING</span>
+      <span>EVAI-IMPL-2026-01 · v1.0</span>
+    </div>
+    <div class="tb-main">
+      <span class="stamp" data-i18n="stamp">Active · v1.0</span>
+      <h1 data-i18n-html="h1_title">AI <em>Solution</em> Implementation</h1>
+      <p class="sub" data-i18n="tb_sub">Building, configuring and launching automation to a specification. The solution is done when it meets the acceptance criteria written down before work starts. Support after launch is available.</p>
+      <p class="sub" data-i18n="tb_free">The first 30 minutes are free: getting to know the task and estimating the scope.</p>
+      <div class="card-action"><a class="btn2" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="tb_cta">Book a free 30-min call →</a></div>
+    </div>
+    <div class="tb-meta">
+      <div><span class="k" data-i18n="tb_doc_k">Document</span><span data-i18n="tb_doc_v">Commercial Offer</span></div>
+      <div><span class="k" data-i18n="tb_author_k">Author</span>Artem Kholomyanskiy</div>
+      <div><span class="k" data-i18n="tb_format_k">Format</span><span data-i18n="tb_format_v">Online</span></div>
+      <div><span class="k" data-i18n="tb_lang_k">Languages</span><span data-i18n="tb_lang_v">PL · RU · UA</span></div>
+    </div>
+  </header>
+
+  <section>
+    <span class="secnum" data-i18n="s1_num">1.0 // WHO IT'S FOR</span>
+    <h2 data-i18n="s1_h2">Who it is for</h2>
+    <p data-i18n="s1_p">For a company that knows what it wants to automate: there is a specification, a requirements document or a clear task. Integrations of CRM, email, messengers and internal systems, workflows, chains with AI. AI isn't required here: sometimes it's enough to connect existing tools correctly.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s2_num">2.0 // HOW IT WORKS</span>
+    <h2 data-i18n="s2_h2">How the work goes</h2>
+    <ol class="steps">
+      <li data-i18n-html="s2_1"><b>Free call.</b> The task, the systems, the scope.</li>
+      <li data-i18n-html="s2_2"><b>Specification.</b> If there isn't one, it is written to the ANSS standard. A client's existing requirements document is checked by the same rules: acceptance criteria, boundaries, rollback. Small gaps are closed within the project, large ones with a separate <a href="spec.html">specification</a>.</li>
+      <li data-i18n-html="s2_3"><b>Build and configuration.</b> Strictly to the specification. A change of scope is agreed separately before work on it starts.</li>
+      <li data-i18n-html="s2_4"><b>Acceptance.</b> The solution is checked against the criteria from the specification on the client's data.</li>
+      <li data-i18n-html="s2_5"><b>Launch and handover.</b> The solution runs in the client's processes, documentation is handed over.</li>
+      <li data-i18n-html="s2_6"><b>Support.</b> At the client's choice, monthly.</li>
+    </ol>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s3_num">3.0 // WHAT STAYS</span>
+    <h2 data-i18n="s3_h2">What remains</h2>
+    <p data-i18n="s3_p">A working solution accepted against the acceptance criteria. The specification it was built to, and documentation: how it works, how to make changes, what to do if it fails. The contractor is responsible for the result against the acceptance criteria.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s4_num">4.0 // FORMATS</span>
+    <h2 data-i18n="s4_h2">Formats</h2>
+    <div class="tiers">
+      <div class="tier">
+        <span class="tier-name" data-i18n="s4_t1_name">Simple</span>
+        <div class="tier-price" data-i18n="s4_t1_price">From 2,500 zł</div>
+        <p data-i18n="s4_t1_p">One integration or workflow, e.g. email → CRM, messenger notification</p>
+      </div>
+      <div class="tier">
+        <span class="tier-name" data-i18n="s4_t2_name">Medium</span>
+        <div class="tier-price" data-i18n="s4_t2_price">From 6,000 zł</div>
+        <p data-i18n="s4_t2_p">Several connected workflows, 2–3 systems, conditional logic</p>
+      </div>
+      <div class="tier">
+        <span class="tier-name" data-i18n="s4_t3_name">Complex</span>
+        <div class="tier-price" data-i18n="s4_t3_price">From 15,000 zł</div>
+        <p data-i18n="s4_t3_p">Agent chains, multiple systems, custom logic, testing at scale</p>
+      </div>
+    </div>
+    <p class="term" data-i18n="s4_support">Support after launch: monthly, scope and price are set at handover.</p>
+    <p class="term" data-i18n="s4_note">Prices are net, excluding VAT. The final price is set after the specification.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s5_num">5.0 // SCOPE</span>
+    <h2 data-i18n="s5_h2">Format boundaries</h2>
+    <p data-i18n-html="s5_p">A simple task can be built in-house during <a href="training.html">AI training on your tasks</a>: the client builds the solution, the consultant guides. If it is unclear which solution is needed, <a href="solution-design.html">solution design</a> comes first. A document for a contractor without the build is the <a href="spec.html">specification</a>.</p>
+  </section>
+
+  <div class="cta">
+    <h2 data-i18n="cta_h2">Describe the task and estimate the scope.</h2>
+    <a class="btn" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="tb_cta">Book a free 30-min call →</a>
+    <p class="alt"><span data-i18n="s7_alt_text">or</span> <a id="mailto-btn" href="mailto:artem@kholomyanskiy.com?subject=AI%20solution%20implementation">artem@kholomyanskiy.com</a> · <a href="https://linkedin.com/in/kholomyanskiy">LinkedIn</a> · <a href="https://t.me/kholomyanskiy">Telegram</a></p>
+  </div>
+
+</div>
+
+<!-- @include footer -->
+
+<script>
+var T = {
+  ru: {
+    page_title: "Внедрение AI-решения — EVAI Consulting",
+    meta_desc: "Внедрение AI-решения: автоматизация процессов по спецификации, приёмка по критериям, сопровождение после запуска. От 2 500 zł нетто.",
+    mailto_subject: "Внедрение AI-решения",
+    stamp: "Действует · v1.0",
+    h1_title: "Внедрение <em>AI-решения</em>",
+    tb_doc_k: "Документ",
+    tb_doc_v: "Коммерческое предложение",
+    tb_author_k: "Автор",
+    tb_format_k: "Формат",
+    tb_format_v: "Онлайн",
+    tb_lang_k: "Языки",
+    tb_lang_v: "PL · RU · UA",
+    tb_sub: "Разработка, настройка и запуск автоматизации по спецификации. Решение считается готовым, когда выполнены критерии приёмки, записанные до начала работ. После запуска возможно сопровождение.",
+    tb_free: "Первые 30 минут бесплатно: знакомство с задачей и оценка объёма.",
+    tb_cta: "Записаться на бесплатный звонок, 30 минут →",
+    s1_num: "1.0 // ДЛЯ КОГО",
+    s1_h2: "Для кого",
+    s1_p: "Для фирмы, которая знает, что хочет автоматизировать: есть спецификация, ТЗ или понятная задача. Интеграции CRM, почты, мессенджеров и внутренних систем, рабочие сценарии, цепочки с ИИ. ИИ здесь не обязателен: иногда достаточно правильно связать существующие инструменты.",
+    s2_num: "2.0 // ПОРЯДОК РАБОТЫ",
+    s2_h2: "Порядок работы",
+    s2_1: "<b>Бесплатный звонок.</b> Задача, системы, объём.",
+    s2_2: "<b>Спецификация.</b> Если её нет, она пишется по стандарту ANSS. Готовое ТЗ клиента проверяется по тем же правилам: критерии приёмки, границы, откат. Мелкие пробелы закрываются в проекте, крупные отдельной <a href=\"spec.html\">спецификацией</a>.",
+    s2_3: "<b>Разработка и настройка.</b> Строго по спецификации. Изменение объёма согласуется отдельно до начала работ по нему.",
+    s2_4: "<b>Приёмка.</b> Решение проверяется по критериям из спецификации на данных клиента.",
+    s2_5: "<b>Запуск и передача.</b> Решение работает в процессах клиента, документация передана.",
+    s2_6: "<b>Сопровождение.</b> По желанию клиента, ежемесячно.",
+    s3_num: "3.0 // ЧТО ОСТАЁТСЯ",
+    s3_h2: "Что остаётся",
+    s3_p: "Работающее решение, принятое по критериям приёмки. Спецификация, по которой оно построено, и документация: как устроено, как вносить изменения, что делать при сбое. Исполнитель отвечает за результат по критериям приёмки.",
+    s4_num: "4.0 // ФОРМАТЫ",
+    s4_h2: "Форматы",
+    s4_t1_name: "Простая",
+    s4_t1_price: "От 2 500 zł",
+    s4_t1_p: "Одна интеграция или сценарий, например, письмо → CRM, уведомление в мессенджер",
+    s4_t2_name: "Средняя",
+    s4_t2_price: "От 6 000 zł",
+    s4_t2_p: "Несколько связанных сценариев, 2–3 системы, логика с условиями",
+    s4_t3_name: "Сложная",
+    s4_t3_price: "От 15 000 zł",
+    s4_t3_p: "Цепочки агентов, много систем, кастомная логика, тестирование на масштабе",
+    s4_support: "Сопровождение после запуска: ежемесячно, объём и цена фиксируются при сдаче решения.",
+    s4_note: "Цены нетто. Итоговая цена фиксируется после спецификации.",
+    s5_num: "5.0 // ГРАНИЦЫ ФОРМАТА",
+    s5_h2: "Границы формата",
+    s5_p: "Простую задачу можно собрать самостоятельно на <a href=\"training.html\">обучении на задачах</a>: решение строит сам клиент, консультант ведёт. Если неясно, какое решение нужно, сначала идёт <a href=\"solution-design.html\">проектирование</a>. Документ для исполнителя без разработки даёт <a href=\"spec.html\">спецификация</a>.",
+    cta_h2: "Описать задачу и оценить объём.",
+    s7_alt_text: "или"
+  },
+  pl: {
+    page_title: "Wdrożenie rozwiązania AI — EVAI Consulting",
+    meta_desc: "Wdrożenie rozwiązania AI: automatyzacja procesów według specyfikacji, odbiór według kryteriów, wsparcie po uruchomieniu. Od 2 500 zł netto.",
+    mailto_subject: "Wdrożenie rozwiązania AI",
+    stamp: "Obowiązuje · v1.0",
+    h1_title: "Wdrożenie <em>rozwiązania</em> AI",
+    tb_doc_k: "Dokument",
+    tb_doc_v: "Oferta handlowa",
+    tb_author_k: "Autor",
+    tb_format_k: "Format",
+    tb_format_v: "Online",
+    tb_lang_k: "Języki",
+    tb_lang_v: "PL · RU · UA",
+    tb_sub: "Budowa, konfiguracja i uruchomienie automatyzacji według specyfikacji. Rozwiązanie jest gotowe, gdy spełnia kryteria odbioru zapisane przed rozpoczęciem prac. Po uruchomieniu możliwe jest wsparcie.",
+    tb_free: "Pierwsze 30 minut bezpłatnie: poznanie zadania i ocena zakresu.",
+    tb_cta: "Umów bezpłatną rozmowę, 30 minut →",
+    s1_num: "1.0 // DLA KOGO",
+    s1_h2: "Dla kogo",
+    s1_p: "Dla firmy, która wie, co chce zautomatyzować: jest specyfikacja, opis wymagań lub jasne zadanie. Integracje CRM, poczty, komunikatorów i systemów wewnętrznych, scenariusze pracy, łańcuchy z AI. AI nie jest tu obowiązkowe: czasem wystarczy poprawnie połączyć istniejące narzędzia.",
+    s2_num: "2.0 // PRZEBIEG PRACY",
+    s2_h2: "Przebieg pracy",
+    s2_1: "<b>Bezpłatna rozmowa.</b> Zadanie, systemy, zakres.",
+    s2_2: "<b>Specyfikacja.</b> Jeśli jej nie ma, powstaje według standardu ANSS. Gotowy opis wymagań klienta jest sprawdzany według tych samych zasad: kryteria odbioru, granice, wycofanie zmian. Drobne luki są uzupełniane w projekcie, duże osobną <a href=\"spec.html\">specyfikacją</a>.",
+    s2_3: "<b>Budowa i konfiguracja.</b> Ściśle według specyfikacji. Zmiana zakresu jest uzgadniana osobno przed rozpoczęciem prac nad nią.",
+    s2_4: "<b>Odbiór.</b> Rozwiązanie jest sprawdzane według kryteriów ze specyfikacji na danych klienta.",
+    s2_5: "<b>Uruchomienie i przekazanie.</b> Rozwiązanie działa w procesach klienta, dokumentacja jest przekazana.",
+    s2_6: "<b>Wsparcie.</b> Na życzenie klienta, co miesiąc.",
+    s3_num: "3.0 // CO ZOSTAJE",
+    s3_h2: "Co zostaje",
+    s3_p: "Działające rozwiązanie odebrane według kryteriów odbioru. Specyfikacja, według której zostało zbudowane, oraz dokumentacja: jak działa, jak wprowadzać zmiany, co robić w razie awarii. Wykonawca odpowiada za wynik według kryteriów odbioru.",
+    s4_num: "4.0 // FORMATY",
+    s4_h2: "Formaty",
+    s4_t1_name: "Prosta",
+    s4_t1_price: "Od 2 500 zł",
+    s4_t1_p: "Jedna integracja lub scenariusz, np. mail → CRM, powiadomienie w komunikatorze",
+    s4_t2_name: "Średnia",
+    s4_t2_price: "Od 6 000 zł",
+    s4_t2_p: "Kilka powiązanych scenariuszy, 2–3 systemy, logika warunkowa",
+    s4_t3_name: "Złożona",
+    s4_t3_price: "Od 15 000 zł",
+    s4_t3_p: "Łańcuchy agentów, wiele systemów, logika na zamówienie, testowanie na dużą skalę",
+    s4_support: "Wsparcie po uruchomieniu: co miesiąc, zakres i cena ustalane przy przekazaniu rozwiązania.",
+    s4_note: "Ceny netto. Ostateczna cena ustalana jest po specyfikacji.",
+    s5_num: "5.0 // GRANICE FORMATU",
+    s5_h2: "Granice formatu",
+    s5_p: "Proste zadanie można zbudować samodzielnie na <a href=\"training.html\">szkoleniu na własnych zadaniach</a>: rozwiązanie buduje klient, konsultant prowadzi. Jeśli nie wiadomo, jakie rozwiązanie jest potrzebne, najpierw jest <a href=\"solution-design.html\">projektowanie</a>. Dokument dla wykonawcy bez budowy daje <a href=\"spec.html\">specyfikacja</a>.",
+    cta_h2: "Opisać zadanie i ocenić zakres.",
+    s7_alt_text: "lub"
+  },
+  en: {
+    page_title: "AI Solution Implementation — EVAI Consulting",
+    meta_desc: "AI solution implementation: process automation built to a specification, accepted against criteria, supported after launch. From 2,500 zł net.",
+    mailto_subject: "AI solution implementation",
+    stamp: "Active · v1.0",
+    h1_title: "AI <em>Solution</em> Implementation",
+    tb_doc_k: "Document",
+    tb_doc_v: "Commercial Offer",
+    tb_author_k: "Author",
+    tb_format_k: "Format",
+    tb_format_v: "Online",
+    tb_lang_k: "Languages",
+    tb_lang_v: "PL · RU · UA",
+    tb_sub: "Building, configuring and launching automation to a specification. The solution is done when it meets the acceptance criteria written down before work starts. Support after launch is available.",
+    tb_free: "The first 30 minutes are free: getting to know the task and estimating the scope.",
+    tb_cta: "Book a free 30-min call →",
+    s1_num: "1.0 // WHO IT'S FOR",
+    s1_h2: "Who it is for",
+    s1_p: "For a company that knows what it wants to automate: there is a specification, a requirements document or a clear task. Integrations of CRM, email, messengers and internal systems, workflows, chains with AI. AI isn't required here: sometimes it's enough to connect existing tools correctly.",
+    s2_num: "2.0 // HOW IT WORKS",
+    s2_h2: "How the work goes",
+    s2_1: "<b>Free call.</b> The task, the systems, the scope.",
+    s2_2: "<b>Specification.</b> If there isn't one, it is written to the ANSS standard. A client's existing requirements document is checked by the same rules: acceptance criteria, boundaries, rollback. Small gaps are closed within the project, large ones with a separate <a href=\"spec.html\">specification</a>.",
+    s2_3: "<b>Build and configuration.</b> Strictly to the specification. A change of scope is agreed separately before work on it starts.",
+    s2_4: "<b>Acceptance.</b> The solution is checked against the criteria from the specification on the client's data.",
+    s2_5: "<b>Launch and handover.</b> The solution runs in the client's processes, documentation is handed over.",
+    s2_6: "<b>Support.</b> At the client's choice, monthly.",
+    s3_num: "3.0 // WHAT STAYS",
+    s3_h2: "What remains",
+    s3_p: "A working solution accepted against the acceptance criteria. The specification it was built to, and documentation: how it works, how to make changes, what to do if it fails. The contractor is responsible for the result against the acceptance criteria.",
+    s4_num: "4.0 // FORMATS",
+    s4_h2: "Formats",
+    s4_t1_name: "Simple",
+    s4_t1_price: "From 2,500 zł",
+    s4_t1_p: "One integration or workflow, e.g. email → CRM, messenger notification",
+    s4_t2_name: "Medium",
+    s4_t2_price: "From 6,000 zł",
+    s4_t2_p: "Several connected workflows, 2–3 systems, conditional logic",
+    s4_t3_name: "Complex",
+    s4_t3_price: "From 15,000 zł",
+    s4_t3_p: "Agent chains, multiple systems, custom logic, testing at scale",
+    s4_support: "Support after launch: monthly, scope and price are set at handover.",
+    s4_note: "Prices are net, excluding VAT. The final price is set after the specification.",
+    s5_num: "5.0 // SCOPE",
+    s5_h2: "Format boundaries",
+    s5_p: "A simple task can be built in-house during <a href=\"training.html\">AI training on your tasks</a>: the client builds the solution, the consultant guides. If it is unclear which solution is needed, <a href=\"solution-design.html\">solution design</a> comes first. A document for a contractor without the build is the <a href=\"spec.html\">specification</a>.",
+    cta_h2: "Describe the task and estimate the scope.",
+    s7_alt_text: "or"
+  }
+};
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.querySelectorAll('.spec-lang-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+  });
+  document.documentElement.lang = lang;
+  if (T[lang].page_title) document.title = T[lang].page_title;
+  var md = document.querySelector('meta[name="description"]');
+  if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
+  var mb = document.getElementById('mailto-btn');
+  if (mb && T[lang].mailto_subject) mb.href = 'mailto:artem@kholomyanskiy.com?subject=' + encodeURIComponent(T[lang].mailto_subject);
+  localStorage.setItem('site-lang', lang);
+}
+
+(function() {
+  var p = new URLSearchParams(window.location.search);
+  var ul = p.get('lang');
+  if (ul && T[ul]) { setLang(ul); return; }
+  var saved = localStorage.getItem('site-lang');
+  if (saved && T[saved]) setLang(saved);
+})();
+</script>
+
+</body>
+</html>
