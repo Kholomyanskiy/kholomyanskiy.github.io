@@ -28,6 +28,7 @@ BREADCRUMB_PARENT = {
     "solution-design": "services",
     "implementation": "services",
     "anss": "products",
+    "contact": "index",
 }
 PARENT_NAV_KEY = {"services": "nav.services", "products": "nav.products", "articles": "nav.articles"}
 PARENT_PAGE = {"services": "services", "products": "products", "articles": "articles"}
@@ -572,21 +573,19 @@ def inject_breadcrumbs(page_html: str, page: str, lang: str, lang_dict: dict, mi
         return page_html
     if "nav_home" not in lang_dict:
         raise StopCondition("Нет ключа nav_home для хлебных крошек")
-    nav_key = PARENT_NAV_KEY[parent]
-    if nav_key not in lang_dict:
+    nav_key = PARENT_NAV_KEY.get(parent)
+    if nav_key and nav_key not in lang_dict:
         raise StopCondition(f"Нет ключа {nav_key} для хлебных крошек")
     if "h1_title" not in lang_dict:
         raise StopCondition("Нет ключа h1_title для хлебных крошек")
 
     home_name = strip_arrow(lang_dict["nav_home"])
-    parent_name = lang_dict[nav_key]
     page_name = re.sub(r"<[^>]+>", "", lang_dict["h1_title"]).strip()
 
-    items = [
-        {"@type": "ListItem", "position": 1, "name": home_name, "item": linked_url("index", lang, migrated)},
-        {"@type": "ListItem", "position": 2, "name": parent_name, "item": linked_url(PARENT_PAGE[parent], lang, migrated)},
-        {"@type": "ListItem", "position": 3, "name": page_name, "item": page_url(page, lang)},
-    ]
+    items = [{"@type": "ListItem", "position": 1, "name": home_name, "item": linked_url("index", lang, migrated)}]
+    if nav_key:  # родитель "index": крошки из двух звеньев, главная -> страница
+        items.append({"@type": "ListItem", "position": 2, "name": lang_dict[nav_key], "item": linked_url(PARENT_PAGE[parent], lang, migrated)})
+    items.append({"@type": "ListItem", "position": len(items) + 1, "name": page_name, "item": page_url(page, lang)})
     ld = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items}
     script = '<script type="application/ld+json">\n' + json.dumps(ld, ensure_ascii=False, indent=2) + "\n</script>\n"
     return page_html.replace("</head>", script + "</head>", 1)
