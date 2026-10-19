@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANSS: an open specification standard for development with AI agents | EVAI Consulting</title>
+<meta name="description" content="ANSS v1.4: an open spec standard for development with AI agents. Invariants, acceptance criteria, a skill for Claude and Claude Code, a Cursor preset. Free.">
+<link rel="canonical" href="https://kholomyanskiy.com/anss.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ANSS: an open specification standard for development with AI agents | EVAI Consulting">
+<meta property="og:description" content="ANSS v1.4: an open spec standard for development with AI agents. Invariants, acceptance criteria, a skill for Claude and Claude Code, a Cursor preset. Free.">
+<meta property="og:url" content="https://kholomyanskiy.com/anss.html">
+<!-- @include head-common -->
+<meta name="twitter:title" content="ANSS: an open specification standard for development with AI agents | EVAI Consulting">
+<meta name="twitter:description" content="ANSS v1.4: an open spec standard for development with AI agents. Invariants, acceptance criteria, a skill for Claude and Claude Code, a Cursor preset. Free.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* @include common.css */
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+@media(max-width:680px){.topnav-links{gap:14px;font-size:12px}}
+/* лист страниц услуг */
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+}
+.sheet{
+  max-width:880px;
+  margin:16px auto 40px;
+  background:var(--panel);
+  border:1.5px solid var(--ink);
+  box-shadow:8px 8px 0 rgba(27,32,39,.08);
+}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-main{padding:44px 28px 36px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;max-width:560px;color:var(--ink-soft);font-size:17px}
+section{padding:40px 28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
+p{max-width:620px;margin-bottom:14px}
+.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
+.cta h2{color:#fff}
+footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+@media(max-width:680px){
+  .sheet{margin:8px 12px 32px}
+}
+/* ---------- title block ---------- */
+.stamp{
+  position:absolute;top:36px;right:28px;
+  border:2px solid var(--stamp);color:var(--stamp);
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;
+  padding:6px 12px;transform:rotate(4deg);
+  text-transform:uppercase;background:rgba(154,59,51,.04);
+}
+.tb-meta{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid var(--ink)}
+.tb-meta div{padding:10px 16px;border-right:1px solid var(--line);font-size:13px}
+.tb-meta div:last-child{border-right:none}
+.tb-meta .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:2px}
+/* ---------- sections ---------- */
+@media (min-width:600px){.tb-main .sub,section > p:not(a ~ p){text-align:justify;hyphens:auto;-webkit-hyphens:auto}}
+/* блок кода как в articles/*.html */
+section pre{background:var(--paper);border:1px solid var(--line);padding:16px 18px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.55;margin:16px 0}
+section code{font-family:'JetBrains Mono',monospace;font-size:0.9em;background:var(--paper);padding:2px 5px;border:1px solid var(--line)}
+section pre code{background:none;border:none;padding:0}
+.cta p{color:#B9C1CC}
+.cta a.btn{
+  display:inline-block;margin-top:10px;
+  font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;
+  color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;
+  padding:13px 26px;text-decoration:none;
+}
+.cta a.btn:hover{background:transparent;color:#EDEFF2}
+.cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.cta .alt{margin-top:16px;font-size:14px}
+.cta .alt a{color:#EDEFF2}
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
+.footer-links a:hover{color:var(--blue)}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+@media(max-width:680px){
+  .tb-meta{grid-template-columns:repeat(2,1fr)}
+  .tb-meta div:nth-child(2){border-right:none}
+  .stamp{position:static;display:inline-block;margin-top:18px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://kholomyanskiy.com/anss.html#webpage",
+  "name": "$t:h1_title",
+  "description": "$t:meta_desc",
+  "url": "https://kholomyanskiy.com/anss.html",
+  "inLanguage": "en",
+  "mainEntity": {
+    "@id": "https://kholomyanskiy.com/#anss"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- @include topnav current=products -->
+
+<div class="sheet">
+
+  <header class="titleblock">
+    <div class="tb-top">
+      <span class="brand">EVAI CONSULTING</span>
+      <span>ANSS v1.4 · CC BY 4.0</span>
+    </div>
+    <div class="tb-main">
+      <span class="stamp" data-i18n="stamp">Active · v1.4</span>
+      <h1 data-i18n-html="h1_title">ANSS <em>Standard</em></h1>
+      <p class="sub" data-i18n="tb_sub">An open standard for technical specifications in development with AI agents. Boundaries, invariants and acceptance criteria are written down before work starts, so the agent does not have to guess what is missing.</p>
+    </div>
+    <div class="tb-meta">
+      <div><span class="k" data-i18n="tb_ver_k">Version</span>1.4</div>
+      <div><span class="k" data-i18n="tb_lic_k">License</span>CC BY 4.0</div>
+      <div><span class="k" data-i18n="tb_price_k">Price</span><span data-i18n="tb_price_v">Free</span></div>
+      <div><span class="k" data-i18n="tb_lang_k">Languages</span>EN, RU</div>
+    </div>
+  </header>
+
+  <section>
+    <span class="secnum" data-i18n="s1_num">1.0 // PROBLEM</span>
+    <h2 data-i18n="s1_h2">The problem it solves</h2>
+    <p data-i18n="s1_p">Classic spec formats (IEEE 830, ISO/IEC 29148, GOST 34.602) were written for people: a person fills the gaps with domain knowledge. An AI agent fills them immediately and in its own way, using its training data. Most of the time that works. When it doesn't, code that was never supposed to exist has to be unwound by hand.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s2_num">2.0 // STRUCTURE</span>
+    <h2 data-i18n="s2_h2">How it works</h2>
+    <p data-i18n="s2_p1">Every section of a specification is tagged with a layer: what to build (for the client), how to build (for the developer), rules for the agent (the agent reads these first).</p>
+    <p data-i18n="s2_p2">An invariant is written in four fields: what is forbidden, why, and how to check it. The check field is specific, and the agent tests its own output against it.</p>
+<pre><code>INV-001: No external npm packages
+Cannot:  add require() of npm modules
+Reason:  app must run without npm install
+Check:   no node_modules imports in server.js</code></pre>
+    <p data-i18n="s2_p3">Three levels: Core for most projects (bots, integrations, automations, SaaS), Extended for security requirements and detailed testing, Enterprise for regulated industries.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s3_num">3.0 // WHO IT'S FOR</span>
+    <h2 data-i18n="s3_h2">Who it is for</h2>
+    <p data-i18n="s3_p">For clients commissioning development without an engineering department of their own, solo developers and small teams, and companies automating processes with AI. In a large company, tickets, code review and CI provide the discipline. Here a single document takes their place.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s4_num">4.0 // CONTENTS</span>
+    <h2 data-i18n="s4_h2">What is in the repository</h2>
+    <p data-i18n="s4_p">The standard in English and Russian. A Core-level template. A skill for Claude and Claude Code: writes a specification, converts an existing requirements document to ANSS and reviews a specification before development. Presets for CLAUDE.md, AGENTS.md and Cursor. Two examples from real projects.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s5_num">5.0 // SETUP</span>
+    <h2 data-i18n="s5_h2">How to set it up</h2>
+    <p data-i18n-html="s5_claude"><b>Claude (claude.ai and the app).</b> Download <a href="https://github.com/Kholomyanskiy/anss-standard/releases/latest/download/anss-skill.zip">anss-skill.zip</a>. Open claude.ai/customize/skills, click “+”, then “Create skill” and “Upload a skill”, and pick the archive. Code execution must be on (claude.ai/settings/capabilities).</p>
+    <p data-i18n-html="s5_code"><b>Claude Code.</b> Copy the <code>skills/anss/</code> folder to <code>~/.claude/skills/anss/</code> (all projects) or <code>.claude/skills/anss/</code> (one project).</p>
+    <p data-i18n-html="s5_cursor"><b>Cursor.</b> Put <code>templates/anss.mdc</code> in <code>.cursor/rules/</code>.</p>
+    <p data-i18n-html="s5_agents"><b>Codex, Copilot and other agents.</b> <code>templates/AGENTS.md</code> in the project root.</p>
+    <p data-i18n-html="s5_more">Terminal commands are in the <a href="https://github.com/Kholomyanskiy/anss-standard#use-anss-in-your-project">repository README</a>.</p>
+  </section>
+
+  <div class="cta">
+    <h2 data-i18n="s6_h2">Next step</h2>
+    <p class="alt" data-i18n-html="s6_p">The standard is free. An ANSS specification for a specific project can be <a href="spec.html">ordered</a>, and <a href="training.html">AI training on your tasks</a> teaches how to write one yourself with Claude.</p>
+    <a class="btn" href="https://github.com/Kholomyanskiy/anss-standard" target="_blank" rel="noopener" data-i18n="cta1">Open on GitHub →</a>
+    <a class="btn" href="spec.html" data-i18n="cta2">Order a specification →</a>
+  </div>
+
+</div>
+
+<!-- @include footer -->
+
+<script>
+var T = {
+  ru: {
+    page_title: "ANSS: открытый стандарт спецификаций для разработки с ИИ-агентами | EVAI Consulting",
+    meta_desc: "ANSS v1.4: открытый стандарт ТЗ для разработки с ИИ-агентами. Инварианты, критерии приёмки, навык для Claude и Claude Code, пресеты для Cursor. Бесплатно.",
+    stamp: "Действует · v1.4",
+    h1_title: "ANSS <em>Standard</em>",
+    tb_sub: "Открытый стандарт технических спецификаций для разработки с ИИ-агентами. Границы, инварианты и критерии приёмки записываются до начала работы, и агенту не приходится додумывать недостающее самому.",
+    tb_ver_k: "Версия",
+    tb_lic_k: "Лицензия",
+    tb_price_k: "Цена",
+    tb_price_v: "Бесплатно",
+    tb_lang_k: "Языки",
+    s1_num: "1.0 // ПРОБЛЕМА",
+    s1_h2: "Какую проблему решает",
+    s1_p: "Классические форматы ТЗ (IEEE 830, ISO/IEC 29148, ГОСТ 34.602) писались для людей: человек заполняет пробелы знанием предметной области. ИИ-агент заполняет их сразу и по-своему, опираясь на обучающие данные. Чаще всего это срабатывает. Когда нет, код, которого не должно было быть, приходится разбирать вручную.",
+    s2_num: "2.0 // УСТРОЙСТВО",
+    s2_h2: "Как устроен",
+    s2_p1: "Каждый раздел спецификации помечен слоем: что строить (для заказчика), как строить (для разработчика), правила для агента (агент читает их первыми).",
+    s2_p2: "Инвариант записывается четырьмя полями: что запрещено, почему и как это проверить. Поле проверки конкретное, агент сверяет с ним собственный результат.",
+    s2_p3: "Три уровня: Core для большинства проектов (боты, интеграции, автоматизации, SaaS), Extended для требований безопасности и подробного тестирования, Enterprise для регулируемых отраслей.",
+    s3_num: "3.0 // ДЛЯ КОГО",
+    s3_h2: "Для кого",
+    s3_p: "Для заказчиков разработки без своего инженерного отдела, соло-разработчиков и небольших команд, фирм, которые автоматизируют процессы с помощью ИИ. В крупной компании дисциплину дают тикеты, ревью и CI. Здесь её место занимает один документ.",
+    s4_num: "4.0 // СОСТАВ",
+    s4_h2: "Что в репозитории",
+    s4_p: "Стандарт на английском и русском. Шаблон уровня Core. Навык для Claude и Claude Code: пишет спецификацию, переводит существующее ТЗ в формат ANSS и проверяет спецификацию перед разработкой. Пресеты для CLAUDE.md, AGENTS.md и Cursor. Два примера на реальных проектах.",
+    s5_num: "5.0 // УСТАНОВКА",
+    s5_h2: "Как подключить",
+    s5_claude: "<b>Claude (claude.ai и приложение).</b> Скачать <a href=\"https://github.com/Kholomyanskiy/anss-standard/releases/latest/download/anss-skill.zip\">anss-skill.zip</a>. Открыть claude.ai/customize/skills, нажать «+», затем «Create skill» и «Upload a skill», выбрать архив. Нужно включённое выполнение кода (claude.ai/settings/capabilities).",
+    s5_code: "<b>Claude Code.</b> Скопировать папку <code>skills/anss/</code> в <code>~/.claude/skills/anss/</code> (все проекты) или <code>.claude/skills/anss/</code> (один проект).",
+    s5_cursor: "<b>Cursor.</b> Файл <code>templates/anss.mdc</code> положить в <code>.cursor/rules/</code>.",
+    s5_agents: "<b>Codex, Copilot и другие агенты.</b> Файл <code>templates/AGENTS.md</code> в корень проекта.",
+    s5_more: "Команды для терминала в <a href=\"https://github.com/Kholomyanskiy/anss-standard#use-anss-in-your-project\">README репозитория</a>.",
+    s6_h2: "Следующий шаг",
+    s6_p: "Стандарт бесплатный. Спецификацию по ANSS для конкретного проекта можно <a href=\"spec.html\">заказать</a>, а на <a href=\"training.html\">обучении на задачах</a> научиться писать её самостоятельно вместе с Claude.",
+    cta1: "Открыть на GitHub →",
+    cta2: "Заказать спецификацию →"
+  },
+  pl: {
+    page_title: "ANSS: otwarty standard specyfikacji do pracy z agentami AI | EVAI Consulting",
+    meta_desc: "ANSS v1.4: otwarty standard specyfikacji do pracy z agentami AI. Niezmienniki, kryteria odbioru, skill dla Claude i Claude Code, preset Cursor. Za darmo.",
+    stamp: "Obowiązuje · v1.4",
+    h1_title: "ANSS <em>Standard</em>",
+    tb_sub: "Otwarty standard specyfikacji technicznych do programowania z agentami AI. Granice, niezmienniki i kryteria odbioru są zapisane przed rozpoczęciem pracy, więc agent nie musi sam domyślać się brakujących informacji.",
+    tb_ver_k: "Wersja",
+    tb_lic_k: "Licencja",
+    tb_price_k: "Cena",
+    tb_price_v: "Za darmo",
+    tb_lang_k: "Języki",
+    s1_num: "1.0 // PROBLEM",
+    s1_h2: "Jaki problem rozwiązuje",
+    s1_p: "Klasyczne formaty specyfikacji (IEEE 830, ISO/IEC 29148, GOST 34.602) powstały dla ludzi: człowiek uzupełnia luki wiedzą dziedzinową. Agent AI uzupełnia je od razu i po swojemu, na podstawie danych treningowych. Najczęściej to działa. Gdy nie działa, kod, który nie powinien był powstać, trzeba rozplątywać ręcznie.",
+    s2_num: "2.0 // BUDOWA",
+    s2_h2: "Jak jest zbudowany",
+    s2_p1: "Każda sekcja specyfikacji ma oznaczoną warstwę: co budować (dla zamawiającego), jak budować (dla programisty), reguły dla agenta (agent czyta je jako pierwsze).",
+    s2_p2: "Niezmiennik zapisuje się w czterech polach: co jest zabronione, dlaczego i jak to sprawdzić. Pole sprawdzenia jest konkretne, agent porównuje z nim własny wynik.",
+    s2_p3: "Trzy poziomy: Core dla większości projektów (boty, integracje, automatyzacje, SaaS), Extended dla wymagań bezpieczeństwa i szczegółowego testowania, Enterprise dla branż regulowanych.",
+    s3_num: "3.0 // DLA KOGO",
+    s3_h2: "Dla kogo",
+    s3_p: "Dla zamawiających oprogramowanie bez własnego działu inżynierskiego, programistów działających samodzielnie i małych zespołów, firm automatyzujących procesy z pomocą AI. W dużej firmie dyscyplinę zapewniają zgłoszenia, przeglądy kodu i CI. Tutaj ich miejsce zajmuje jeden dokument.",
+    s4_num: "4.0 // ZAWARTOŚĆ",
+    s4_h2: "Co jest w repozytorium",
+    s4_p: "Standard po angielsku i rosyjsku. Szablon poziomu Core. Skill dla Claude i Claude Code: pisze specyfikację, przenosi istniejący opis wymagań do formatu ANSS i sprawdza specyfikację przed rozpoczęciem prac. Presety dla CLAUDE.md, AGENTS.md i Cursor. Dwa przykłady z prawdziwych projektów.",
+    s5_num: "5.0 // INSTALACJA",
+    s5_h2: "Jak podłączyć",
+    s5_claude: "<b>Claude (claude.ai i aplikacja).</b> Pobrać <a href=\"https://github.com/Kholomyanskiy/anss-standard/releases/latest/download/anss-skill.zip\">anss-skill.zip</a>. Otworzyć claude.ai/customize/skills, kliknąć „+”, potem „Create skill” i „Upload a skill”, wybrać archiwum. Wymagane jest włączone wykonywanie kodu (claude.ai/settings/capabilities).",
+    s5_code: "<b>Claude Code.</b> Skopiować folder <code>skills/anss/</code> do <code>~/.claude/skills/anss/</code> (wszystkie projekty) lub <code>.claude/skills/anss/</code> (jeden projekt).",
+    s5_cursor: "<b>Cursor.</b> Plik <code>templates/anss.mdc</code> umieścić w <code>.cursor/rules/</code>.",
+    s5_agents: "<b>Codex, Copilot i inne agenty.</b> Plik <code>templates/AGENTS.md</code> w katalogu głównym projektu.",
+    s5_more: "Polecenia terminala w <a href=\"https://github.com/Kholomyanskiy/anss-standard#use-anss-in-your-project\">README repozytorium</a>.",
+    s6_h2: "Następny krok",
+    s6_p: "Standard jest bezpłatny. Specyfikację według ANSS dla konkretnego projektu można <a href=\"spec.html\">zamówić</a>, a na <a href=\"training.html\">szkoleniu na własnych zadaniach</a> nauczyć się pisać ją samodzielnie razem z Claude.",
+    cta1: "Otwórz na GitHub →",
+    cta2: "Zamów specyfikację →"
+  },
+  en: {
+    page_title: "ANSS: an open specification standard for development with AI agents | EVAI Consulting",
+    meta_desc: "ANSS v1.4: an open spec standard for development with AI agents. Invariants, acceptance criteria, a skill for Claude and Claude Code, a Cursor preset. Free.",
+    stamp: "Active · v1.4",
+    h1_title: "ANSS <em>Standard</em>",
+    tb_sub: "An open standard for technical specifications in development with AI agents. Boundaries, invariants and acceptance criteria are written down before work starts, so the agent does not have to guess what is missing.",
+    tb_ver_k: "Version",
+    tb_lic_k: "License",
+    tb_price_k: "Price",
+    tb_price_v: "Free",
+    tb_lang_k: "Languages",
+    s1_num: "1.0 // PROBLEM",
+    s1_h2: "The problem it solves",
+    s1_p: "Classic spec formats (IEEE 830, ISO/IEC 29148, GOST 34.602) were written for people: a person fills the gaps with domain knowledge. An AI agent fills them immediately and in its own way, using its training data. Most of the time that works. When it doesn't, code that was never supposed to exist has to be unwound by hand.",
+    s2_num: "2.0 // STRUCTURE",
+    s2_h2: "How it works",
+    s2_p1: "Every section of a specification is tagged with a layer: what to build (for the client), how to build (for the developer), rules for the agent (the agent reads these first).",
+    s2_p2: "An invariant is written in four fields: what is forbidden, why, and how to check it. The check field is specific, and the agent tests its own output against it.",
+    s2_p3: "Three levels: Core for most projects (bots, integrations, automations, SaaS), Extended for security requirements and detailed testing, Enterprise for regulated industries.",
+    s3_num: "3.0 // WHO IT'S FOR",
+    s3_h2: "Who it is for",
+    s3_p: "For clients commissioning development without an engineering department of their own, solo developers and small teams, and companies automating processes with AI. In a large company, tickets, code review and CI provide the discipline. Here a single document takes their place.",
+    s4_num: "4.0 // CONTENTS",
+    s4_h2: "What is in the repository",
+    s4_p: "The standard in English and Russian. A Core-level template. A skill for Claude and Claude Code: writes a specification, converts an existing requirements document to ANSS and reviews a specification before development. Presets for CLAUDE.md, AGENTS.md and Cursor. Two examples from real projects.",
+    s5_num: "5.0 // SETUP",
+    s5_h2: "How to set it up",
+    s5_claude: "<b>Claude (claude.ai and the app).</b> Download <a href=\"https://github.com/Kholomyanskiy/anss-standard/releases/latest/download/anss-skill.zip\">anss-skill.zip</a>. Open claude.ai/customize/skills, click “+”, then “Create skill” and “Upload a skill”, and pick the archive. Code execution must be on (claude.ai/settings/capabilities).",
+    s5_code: "<b>Claude Code.</b> Copy the <code>skills/anss/</code> folder to <code>~/.claude/skills/anss/</code> (all projects) or <code>.claude/skills/anss/</code> (one project).",
+    s5_cursor: "<b>Cursor.</b> Put <code>templates/anss.mdc</code> in <code>.cursor/rules/</code>.",
+    s5_agents: "<b>Codex, Copilot and other agents.</b> <code>templates/AGENTS.md</code> in the project root.",
+    s5_more: "Terminal commands are in the <a href=\"https://github.com/Kholomyanskiy/anss-standard#use-anss-in-your-project\">repository README</a>.",
+    s6_h2: "Next step",
+    s6_p: "The standard is free. An ANSS specification for a specific project can be <a href=\"spec.html\">ordered</a>, and <a href=\"training.html\">AI training on your tasks</a> teaches how to write one yourself with Claude.",
+    cta1: "Open on GitHub →",
+    cta2: "Order a specification →"
+  }
+};
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.querySelectorAll('.spec-lang-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+  });
+  document.documentElement.lang = lang;
+  if (T[lang].page_title) document.title = T[lang].page_title;
+  var md = document.querySelector('meta[name="description"]');
+  if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
+  localStorage.setItem('site-lang', lang);
+}
+
+(function() {
+  var p = new URLSearchParams(window.location.search);
+  var ul = p.get('lang');
+  if (ul && T[ul]) { setLang(ul); return; }
+  var saved = localStorage.getItem('site-lang');
+  if (saved && T[saved]) setLang(saved);
+})();
+</script>
+
+</body>
+</html>

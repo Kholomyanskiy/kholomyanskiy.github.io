@@ -27,6 +27,7 @@ BREADCRUMB_PARENT = {
     "training": "services",
     "solution-design": "services",
     "implementation": "services",
+    "anss": "products",
 }
 PARENT_NAV_KEY = {"services": "nav.services", "products": "nav.products", "articles": "nav.articles"}
 PARENT_PAGE = {"services": "services", "products": "products", "articles": "articles"}

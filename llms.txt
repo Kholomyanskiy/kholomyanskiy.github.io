@@ -14,7 +14,7 @@
 
 ## Ключевые продукты и стандарты
 
-- [ANSS Standard](https://github.com/Kholomyanskiy/anss-standard): AI-Native System Specification Standard — открытый стандарт описания задач и требований для AI-систем, лицензия CC BY 4.0
+- [ANSS Standard](https://kholomyanskiy.com/anss.html): открытый стандарт спецификаций для разработки с ИИ-агентами, v1.4, CC BY 4.0; навык для Claude и Claude Code, пресеты для Cursor, CLAUDE.md и AGENTS.md; репозиторий https://github.com/Kholomyanskiy/anss-standard. PL: https://kholomyanskiy.com/pl/anss.html · RU: https://kholomyanskiy.com/ru/anss.html
   - Пресеты для AI-агентов: [templates/](https://github.com/Kholomyanskiy/anss-standard/tree/master/templates) (AGENTS.md, CLAUDE.md, .cursorrules, anss.mdc) и skill для Claude Code [skills/anss](https://github.com/Kholomyanskiy/anss-standard/tree/master/skills/anss)
 - [Методичка "ИИ в отделе"](https://kholomyanskiy.com/metodichka.html): бесплатное руководство по внедрению ИИ в отдел, пять этапов (аудит, отбор, спецификация, внедрение, масштабирование). PL: https://kholomyanskiy.com/pl/metodichka.html · RU: https://kholomyanskiy.com/ru/metodichka.html
 - [Книга "ИИ в отделе" (полная версия)](https://aimethodology.gumroad.com/l/ai-v-otdele): расширенная версия методички на Gumroad
