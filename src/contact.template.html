@@ -60,18 +60,19 @@ footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrai
   .sheet{margin:8px 12px 32px}
 }
 /* ---------- sections ---------- */
-@media (min-width:600px){.tb-main .sub{text-align:justify;hyphens:auto;-webkit-hyphens:auto}}
+p,.tb-main .sub{max-width:none}
+.tb-main .sub{text-align:left;hyphens:none;-webkit-hyphens:none}
 a.btn2{display:inline-block;margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:#fff;background:var(--blue);border:1.5px solid var(--blue);padding:11px 22px;text-decoration:none}
 a.btn2:hover{background:transparent;color:var(--blue)}
 section a:not(.map),section a:not(.map):visited{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
 section a:not(.map):hover{color:var(--blue);text-decoration-color:var(--blue)}
-.ways{display:grid;grid-template-columns:1fr 1fr;gap:22px 32px}
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 32px}
 .ways dt{font-size:13px;color:var(--ink-soft)}
 .ways dd{font-size:18px}
 .reqs{font-size:14px;color:var(--ink-soft)}
-.map{display:block;max-width:720px;margin-top:24px}
+.map{display:block;width:100%;margin-top:24px}
 .map img{display:block;width:100%;height:auto;border:1px solid var(--line)}
-.map-note{font-size:14px;color:var(--ink-soft);margin-top:8px}
+@media(max-width:900px){.ways{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.ways{grid-template-columns:1fr}}
 .cta a.btn{
   display:inline-block;margin-top:10px;
@@ -144,7 +145,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     </div>
     <div class="tb-main">
       <h1 data-i18n-html="h1_title"><em>Contact</em></h1>
-      <p class="sub" data-i18n="tb_sub">The first conversation is free: 30 minutes online to get to know the task and see which format fits.</p>
+      <p class="sub" data-i18n="tb_sub">Getting to know the task and seeing which format fits.</p>
       <a class="btn2" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="tb_btn">Book a free 30 minutes</a>
     </div>
   </header>
@@ -153,8 +154,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     <h2 data-i18n="s1_h2">How to get in touch</h2>
     <dl class="ways">
       <div><dt data-i18n="w_mail">Email</dt><dd><a href="mailto:artem@kholomyanskiy.com">artem@kholomyanskiy.com</a></dd></div>
-      <div><dt data-i18n="w_phone">Phone</dt><dd><a href="tel:+48508409363">+48 508 409 363</a></dd></div>
-      <div><dt data-i18n="w_wa">WhatsApp</dt><dd><a href="https://wa.me/48508409363">+48 508 409 363</a></dd></div>
+      <div><dt data-i18n="w_phone">Phone and WhatsApp</dt><dd><a href="tel:+48508409363">+48 508 409 363</a> <a href="https://wa.me/48508409363">WhatsApp</a></dd></div>
       <div><dt data-i18n="w_tg">Telegram</dt><dd><a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></dd></div>
       <div><dt data-i18n="w_li">LinkedIn</dt><dd><a href="https://linkedin.com/in/kholomyanskiy">in/kholomyanskiy</a></dd></div>
       <div><dt data-i18n="w_form">Form on the site</dt><dd><a href="index.html#contact" data-i18n="w_form_v">Describe the task</a></dd></div>
@@ -177,7 +177,6 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       <img src="img/map-world-ru.svg" width="720" height="420" loading="lazy" alt="$t:s2_map_alt">
       <!-- @endlang -->
     </a>
-    <p class="map-note" data-i18n="map_note">Online: any country</p>
   </section>
 
   <div class="cta">
@@ -195,12 +194,11 @@ var T = {
     page_title: "Контакты: консультации по внедрению ИИ в Польше и Европе | EVAI Consulting",
     meta_desc: "Связь с EVAI Consulting: бесплатный 30-минутный разговор, почта, телефон, WhatsApp, Telegram. Эльблонг и Труймясто, онлайн по всей Польше и Европе.",
     h1_title: "<em>Контакты</em>",
-    tb_sub: "Первый разговор бесплатный: 30 минут онлайн, знакомство с задачей и оценка, какой формат подходит.",
+    tb_sub: "Знакомство с задачей и оценка, какой формат подходит.",
     tb_btn: "Записаться на бесплатные 30 минут",
     s1_h2: "Как связаться",
     w_mail: "Почта",
-    w_phone: "Телефон",
-    w_wa: "WhatsApp",
+    w_phone: "Телефон и WhatsApp",
     w_tg: "Telegram",
     w_li: "LinkedIn",
     w_form: "Форма на сайте",
@@ -209,7 +207,6 @@ var T = {
     s2_p1: "Работа ведётся из Эльблонга. Встречи на месте по договорённости в радиусе 100 км: Труймясто (Гданьск, Гдыня, Сопот), Мальборк, Тчев, Квидзын, Бранево, Оструда, Илава, Ольштын.",
     s2_p2: "Онлайн: вся Польша, Европа и русскоязычные клиенты в других странах. Языки работы: польский, русский, украинский, английский.",
     s2_map_alt: "Карта мира с направлениями онлайн-работы из Эльблонга и врезка Польши с кругом радиусом 100 км",
-    map_note: "Онлайн: любая страна",
     s3_p: "EVAI Consulting, Эльблонг, Польша. NIP 5783172003.",
     cta_h2: "Описать задачу и выбрать удобный способ связи.",
     cta_btn: "Записаться на бесплатный звонок, 30 минут →"
@@ -218,12 +215,11 @@ var T = {
     page_title: "Kontakt: doradca AI w Elblągu i Trójmieście, online w całej Polsce | EVAI Consulting",
     meta_desc: "Kontakt z EVAI Consulting: bezpłatna 30-minutowa rozmowa, e-mail, telefon, WhatsApp, Telegram. Elbląg i Trójmiasto, online w całej Polsce i Europie.",
     h1_title: "<em>Kontakt</em>",
-    tb_sub: "Pierwsza rozmowa jest bezpłatna: 30 minut online, poznanie zadania i ocena, który format pasuje.",
+    tb_sub: "Poznanie zadania i ocena, który format pasuje.",
     tb_btn: "Umów bezpłatne 30 minut",
     s1_h2: "Jak się skontaktować",
     w_mail: "E-mail",
-    w_phone: "Telefon",
-    w_wa: "WhatsApp",
+    w_phone: "Telefon i WhatsApp",
     w_tg: "Telegram",
     w_li: "LinkedIn",
     w_form: "Formularz na stronie",
@@ -232,7 +228,6 @@ var T = {
     s2_p1: "Praca prowadzona jest z Elbląga. Spotkania na miejscu po uzgodnieniu w promieniu 100 km: Trójmiasto (Gdańsk, Gdynia, Sopot), Malbork, Tczew, Kwidzyn, Braniewo, Ostróda, Iława, Olsztyn.",
     s2_p2: "Online: cała Polska, Europa i klienci rosyjskojęzyczni w innych krajach. Języki pracy: polski, rosyjski, ukraiński, angielski.",
     s2_map_alt: "Mapa świata z kierunkami pracy online z Elbląga i wstawka Polski z okręgiem o promieniu 100 km",
-    map_note: "Online: dowolny kraj",
     s3_p: "EVAI Consulting, Elbląg. NIP 5783172003.",
     cta_h2: "Opisać zadanie i wybrać wygodny sposób kontaktu.",
     cta_btn: "Umów bezpłatną rozmowę, 30 minut →"
@@ -241,12 +236,11 @@ var T = {
     page_title: "Contact: AI implementation consultant in Poland and Europe | EVAI Consulting",
     meta_desc: "Contact EVAI Consulting: a free 30-minute call, email, phone, WhatsApp, Telegram. Elbląg and the Tricity, online across Poland and Europe.",
     h1_title: "<em>Contact</em>",
-    tb_sub: "The first conversation is free: 30 minutes online to get to know the task and see which format fits.",
+    tb_sub: "Getting to know the task and seeing which format fits.",
     tb_btn: "Book a free 30 minutes",
     s1_h2: "How to get in touch",
     w_mail: "Email",
-    w_phone: "Phone",
-    w_wa: "WhatsApp",
+    w_phone: "Phone and WhatsApp",
     w_tg: "Telegram",
     w_li: "LinkedIn",
     w_form: "Form on the site",
@@ -255,7 +249,6 @@ var T = {
     s2_p1: "Based in Elbląg. In-person meetings by arrangement within 100 km: the Tricity (Gdańsk, Gdynia, Sopot), Malbork, Tczew, Kwidzyn, Braniewo, Ostróda, Iława, Olsztyn.",
     s2_p2: "Online: all of Poland, Europe and Russian-speaking clients in other countries. Working languages: Polish, Russian, Ukrainian, English.",
     s2_map_alt: "World map with online work directions from Elbląg and an inset of Poland with a 100 km radius circle",
-    map_note: "Online: any country",
     s3_p: "EVAI Consulting, Elbląg, Poland. NIP 5783172003.",
     cta_h2: "Describe the task and pick a convenient way to get in touch.",
     cta_btn: "Book a free 30-min call →"

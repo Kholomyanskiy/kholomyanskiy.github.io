@@ -119,18 +119,19 @@ footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrai
   .sheet{margin:8px 12px 32px}
 }
 /* ---------- sections ---------- */
-@media (min-width:600px){.tb-main .sub{text-align:justify;hyphens:auto;-webkit-hyphens:auto}}
+p,.tb-main .sub{max-width:none}
+.tb-main .sub{text-align:left;hyphens:none;-webkit-hyphens:none}
 a.btn2{display:inline-block;margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:#fff;background:var(--blue);border:1.5px solid var(--blue);padding:11px 22px;text-decoration:none}
 a.btn2:hover{background:transparent;color:var(--blue)}
 section a:not(.map),section a:not(.map):visited{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
 section a:not(.map):hover{color:var(--blue);text-decoration-color:var(--blue)}
-.ways{display:grid;grid-template-columns:1fr 1fr;gap:22px 32px}
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 32px}
 .ways dt{font-size:13px;color:var(--ink-soft)}
 .ways dd{font-size:18px}
 .reqs{font-size:14px;color:var(--ink-soft)}
-.map{display:block;max-width:720px;margin-top:24px}
+.map{display:block;width:100%;margin-top:24px}
 .map img{display:block;width:100%;height:auto;border:1px solid var(--line)}
-.map-note{font-size:14px;color:var(--ink-soft);margin-top:8px}
+@media(max-width:900px){.ways{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.ways{grid-template-columns:1fr}}
 .cta a.btn{
   display:inline-block;margin-top:10px;
@@ -301,7 +302,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
     </div>
     <div class="tb-main">
       <h1 data-i18n-html="h1_title"><em>Contact</em></h1>
-      <p class="sub" data-i18n="tb_sub">The first conversation is free: 30 minutes online to get to know the task and see which format fits.</p>
+      <p class="sub" data-i18n="tb_sub">Getting to know the task and seeing which format fits.</p>
       <a class="btn2" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="tb_btn">Book a free 30 minutes</a>
     </div>
   </header>
@@ -310,8 +311,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
     <h2 data-i18n="s1_h2">How to get in touch</h2>
     <dl class="ways">
       <div><dt data-i18n="w_mail">Email</dt><dd><a href="mailto:artem@kholomyanskiy.com">artem@kholomyanskiy.com</a></dd></div>
-      <div><dt data-i18n="w_phone">Phone</dt><dd><a href="tel:+48508409363">+48 508 409 363</a></dd></div>
-      <div><dt data-i18n="w_wa">WhatsApp</dt><dd><a href="https://wa.me/48508409363">+48 508 409 363</a></dd></div>
+      <div><dt data-i18n="w_phone">Phone and WhatsApp</dt><dd><a href="tel:+48508409363">+48 508 409 363</a> <a href="https://wa.me/48508409363">WhatsApp</a></dd></div>
       <div><dt data-i18n="w_tg">Telegram</dt><dd><a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></dd></div>
       <div><dt data-i18n="w_li">LinkedIn</dt><dd><a href="https://linkedin.com/in/kholomyanskiy">in/kholomyanskiy</a></dd></div>
       <div><dt data-i18n="w_form">Form on the site</dt><dd><a href="/#contact" data-i18n="w_form_v">Describe the task</a></dd></div>
@@ -326,7 +326,6 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
     <a class="map" href="https://www.google.com/maps/place/Elbląg" target="_blank" rel="noopener">
       <img src="/img/map-world-en.svg" width="720" height="420" loading="lazy" alt="World map with online work directions from Elbląg and an inset of Poland with a 100 km radius circle">
     </a>
-    <p class="map-note" data-i18n="map_note">Online: any country</p>
   </section>
 
   <div class="cta">
