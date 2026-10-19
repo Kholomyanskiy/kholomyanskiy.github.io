@@ -70,7 +70,7 @@ section a:not(.map):hover{color:var(--blue);text-decoration-color:var(--blue)}
 .ways dd{font-size:18px}
 .reqs{font-size:14px;color:var(--ink-soft)}
 .map{display:block;max-width:720px;margin-top:24px}
-.map img{display:block;width:100%;height:auto}
+.map img{display:block;width:100%;height:auto;border:1px solid var(--line)}
 .map-note{font-size:14px;color:var(--ink-soft);margin-top:8px}
 @media(max-width:600px){.ways{grid-template-columns:1fr}}
 .cta a.btn{
@@ -165,8 +165,18 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     <h2 data-i18n="s2_h2">Where the work happens</h2>
     <p data-i18n="s2_p1">Based in Elbląg. In-person meetings by arrangement within 100 km: the Tricity (Gdańsk, Gdynia, Sopot), Malbork, Tczew, Kwidzyn, Braniewo, Ostróda, Iława, Olsztyn.</p>
     <p data-i18n="s2_p2">Online: all of Poland, Europe and Russian-speaking clients in other countries. Working languages: Polish, Russian, Ukrainian, English.</p>
-    <p class="reqs" data-i18n="s3_p">EVAI Consulting, sole proprietorship, Elbląg, Poland. NIP 5783172003.</p>
-    <a class="map" href="https://www.google.com/maps/place/Elbląg" target="_blank" rel="noopener"><img src="img/map-world.svg" width="720" height="420" loading="lazy" alt="$t:s2_map_alt"></a>
+    <p class="reqs" data-i18n="s3_p">EVAI Consulting, Elbląg, Poland. NIP 5783172003.</p>
+    <a class="map" href="https://www.google.com/maps/place/Elbląg" target="_blank" rel="noopener">
+      <!-- @lang en -->
+      <img src="img/map-world-en.svg" width="720" height="420" loading="lazy" alt="$t:s2_map_alt">
+      <!-- @endlang -->
+      <!-- @lang pl -->
+      <img src="img/map-world-pl.svg" width="720" height="420" loading="lazy" alt="$t:s2_map_alt">
+      <!-- @endlang -->
+      <!-- @lang ru -->
+      <img src="img/map-world-ru.svg" width="720" height="420" loading="lazy" alt="$t:s2_map_alt">
+      <!-- @endlang -->
+    </a>
     <p class="map-note" data-i18n="map_note">Online: any country</p>
   </section>
 
@@ -200,7 +210,7 @@ var T = {
     s2_p2: "Онлайн: вся Польша, Европа и русскоязычные клиенты в других странах. Языки работы: польский, русский, украинский, английский.",
     s2_map_alt: "Карта мира с направлениями онлайн-работы из Эльблонга и врезка Польши с кругом радиусом 100 км",
     map_note: "Онлайн: любая страна",
-    s3_p: "EVAI Consulting, индивидуальная предпринимательская деятельность (JDG), Эльблонг, Польша. NIP 5783172003.",
+    s3_p: "EVAI Consulting, Эльблонг, Польша. NIP 5783172003.",
     cta_h2: "Описать задачу и выбрать удобный способ связи.",
     cta_btn: "Записаться на бесплатный звонок, 30 минут →"
   },
@@ -223,7 +233,7 @@ var T = {
     s2_p2: "Online: cała Polska, Europa i klienci rosyjskojęzyczni w innych krajach. Języki pracy: polski, rosyjski, ukraiński, angielski.",
     s2_map_alt: "Mapa świata z kierunkami pracy online z Elbląga i wstawka Polski z okręgiem o promieniu 100 km",
     map_note: "Online: dowolny kraj",
-    s3_p: "EVAI Consulting, jednoosobowa działalność gospodarcza, Elbląg. NIP 5783172003.",
+    s3_p: "EVAI Consulting, Elbląg. NIP 5783172003.",
     cta_h2: "Opisać zadanie i wybrać wygodny sposób kontaktu.",
     cta_btn: "Umów bezpłatną rozmowę, 30 minut →"
   },
@@ -246,7 +256,7 @@ var T = {
     s2_p2: "Online: all of Poland, Europe and Russian-speaking clients in other countries. Working languages: Polish, Russian, Ukrainian, English.",
     s2_map_alt: "World map with online work directions from Elbląg and an inset of Poland with a 100 km radius circle",
     map_note: "Online: any country",
-    s3_p: "EVAI Consulting, sole proprietorship, Elbląg, Poland. NIP 5783172003.",
+    s3_p: "EVAI Consulting, Elbląg, Poland. NIP 5783172003.",
     cta_h2: "Describe the task and pick a convenient way to get in touch.",
     cta_btn: "Book a free 30-min call →"
   }

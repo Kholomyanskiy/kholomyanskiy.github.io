@@ -129,7 +129,7 @@ section a:not(.map):hover{color:var(--blue);text-decoration-color:var(--blue)}
 .ways dd{font-size:18px}
 .reqs{font-size:14px;color:var(--ink-soft)}
 .map{display:block;max-width:720px;margin-top:24px}
-.map img{display:block;width:100%;height:auto}
+.map img{display:block;width:100%;height:auto;border:1px solid var(--line)}
 .map-note{font-size:14px;color:var(--ink-soft);margin-top:8px}
 @media(max-width:600px){.ways{grid-template-columns:1fr}}
 .cta a.btn{
@@ -322,8 +322,10 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
     <h2 data-i18n="s2_h2">Gdzie odbywa się praca</h2>
     <p data-i18n="s2_p1">Praca prowadzona jest z Elbląga. Spotkania na miejscu po uzgodnieniu w promieniu 100 km: Trójmiasto (Gdańsk, Gdynia, Sopot), Malbork, Tczew, Kwidzyn, Braniewo, Ostróda, Iława, Olsztyn.</p>
     <p data-i18n="s2_p2">Online: cała Polska, Europa i klienci rosyjskojęzyczni w innych krajach. Języki pracy: polski, rosyjski, ukraiński, angielski.</p>
-    <p class="reqs" data-i18n="s3_p">EVAI Consulting, jednoosobowa działalność gospodarcza, Elbląg. NIP 5783172003.</p>
-    <a class="map" href="https://www.google.com/maps/place/Elbląg" target="_blank" rel="noopener"><img src="/img/map-world.svg" width="720" height="420" loading="lazy" alt="Mapa świata z kierunkami pracy online z Elbląga i wstawka Polski z okręgiem o promieniu 100 km"></a>
+    <p class="reqs" data-i18n="s3_p">EVAI Consulting, Elbląg. NIP 5783172003.</p>
+    <a class="map" href="https://www.google.com/maps/place/Elbląg" target="_blank" rel="noopener">
+      <img src="/img/map-world-pl.svg" width="720" height="420" loading="lazy" alt="Mapa świata z kierunkami pracy online z Elbląga i wstawka Polski z okręgiem o promieniu 100 km">
+    </a>
     <p class="map-note" data-i18n="map_note">Online: dowolny kraj</p>
   </section>
 
