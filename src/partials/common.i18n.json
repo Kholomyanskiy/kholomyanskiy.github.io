@@ -2,6 +2,7 @@
   "en": {
     "nav.services": "Services",
     "nav.services_menu_audit": "Department audit",
+    "nav.services_menu_design": "AI solution design",
     "nav.services_menu_spec": "AI specification",
     "nav.services_menu_consult": "Consulting",
     "nav.services_menu_training": "AI training",
@@ -21,6 +22,7 @@
   "pl": {
     "nav.services": "Usługi",
     "nav.services_menu_audit": "Audyt działu",
+    "nav.services_menu_design": "Projektowanie rozwiązania",
     "nav.services_menu_spec": "Specyfikacja AI",
     "nav.services_menu_consult": "Konsultacje",
     "nav.services_menu_training": "Szkolenie AI",
@@ -40,6 +42,7 @@
   "ru": {
     "nav.services": "Услуги",
     "nav.services_menu_audit": "Аудит отдела",
+    "nav.services_menu_design": "Проектирование решения",
     "nav.services_menu_spec": "Спецификация ИИ-задачи",
     "nav.services_menu_consult": "Консультации",
     "nav.services_menu_training": "Обучение на задачах",

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Solution Design — EVAI Consulting</title>
+<meta name="description" content="AI solution design: a survey, options compared from ready-made services to a custom build, and a concept with a recommendation. From 4,500 zł net.">
+<link rel="canonical" href="https://kholomyanskiy.com/solution-design.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Solution Design — EVAI Consulting">
+<meta property="og:description" content="AI solution design: a survey, options compared from ready-made services to a custom build, and a concept with a recommendation. From 4,500 zł net.">
+<meta property="og:url" content="https://kholomyanskiy.com/solution-design.html">
+<!-- @include head-common -->
+<meta name="twitter:title" content="AI Solution Design — EVAI Consulting">
+<meta name="twitter:description" content="AI solution design: a survey, options compared from ready-made services to a custom build, and a concept with a recommendation. From 4,500 zł net.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* @include common.css */
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+@media(max-width:680px){.topnav-links{gap:14px;font-size:12px}}
+/* лист страниц услуг */
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+}
+.sheet{
+  max-width:880px;
+  margin:16px auto 40px;
+  background:var(--panel);
+  border:1.5px solid var(--ink);
+  box-shadow:8px 8px 0 rgba(27,32,39,.08);
+}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-main{padding:44px 28px 36px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;max-width:560px;color:var(--ink-soft);font-size:17px}
+section{padding:40px 28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
+p{max-width:620px;margin-bottom:14px}
+.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
+.cta h2{color:#fff}
+footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+@media(max-width:680px){
+  .sheet{margin:8px 12px 32px}
+}
+/* ---------- title block ---------- */
+.stamp{
+  position:absolute;top:36px;right:28px;
+  border:2px solid var(--stamp);color:var(--stamp);
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;
+  padding:6px 12px;transform:rotate(4deg);
+  text-transform:uppercase;background:rgba(154,59,51,.04);
+}
+.tb-meta{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid var(--ink)}
+.tb-meta div{padding:10px 16px;border-right:1px solid var(--line);font-size:13px}
+.tb-meta div:last-child{border-right:none}
+.tb-meta .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:2px}
+/* ---------- sections ---------- */
+p.lead{font-size:17.5px}
+@media (min-width:600px){.tb-main .sub,section > p:not(a ~ p){text-align:justify;hyphens:auto;-webkit-hyphens:auto}}
+.formats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}
+.card{border:1.5px solid var(--ink);background:var(--paper);display:flex;flex-direction:column}
+.card-head{padding:16px 20px;border-bottom:1px solid var(--line)}
+.card-head .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.card-head h3{font-family:'Spectral',serif;font-size:22px;font-weight:600;margin-top:4px}
+.card-body{padding:18px 20px;flex:1}
+.card-body ul{list-style:none}
+.card-body li{padding:6px 0 6px 20px;position:relative;font-size:14.5px}
+.card-body li::before{content:"—";position:absolute;left:0;color:var(--blue)}
+.card-foot{padding:14px 20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
+.price{font-family:'Spectral',serif;font-size:21px;font-weight:700}
+.term{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft)}
+.card-action{padding:14px 20px}
+.card-action a.btn2{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:#fff;background:var(--blue);border:1.5px solid var(--blue);padding:11px 22px;text-decoration:none}
+.card-action a.btn2:hover{background:transparent;color:var(--blue)}
+.tb-main .card-action{padding-left:0;padding-right:0}
+.steps{counter-reset:st;max-width:620px;margin-top:8px}
+.steps li{list-style:none;counter-increment:st;padding:12px 0 12px 52px;position:relative;border-top:1px solid var(--line)}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);
+  position:absolute;left:0;top:12px;
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue);
+}
+.cta p{color:#B9C1CC}
+.cta a.btn{
+  display:inline-block;margin-top:10px;
+  font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;
+  color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;
+  padding:13px 26px;text-decoration:none;
+}
+.cta a.btn:hover{background:transparent;color:#EDEFF2}
+.cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.cta .alt{margin-top:16px;font-size:14px}
+.cta .alt a{color:#EDEFF2}
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
+.footer-links a:hover{color:var(--blue)}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+@media(max-width:680px){
+  .tb-meta{grid-template-columns:repeat(2,1fr)}
+  .tb-meta div:nth-child(2){border-right:none}
+  .formats{grid-template-columns:1fr}
+  .stamp{position:static;display:inline-block;margin-top:18px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://kholomyanskiy.com/solution-design.html#service",
+  "name": "$t:h1_title",
+  "description": "$t:meta_desc",
+  "url": "https://kholomyanskiy.com/solution-design.html",
+  "inLanguage": "en",
+  "provider": {
+    "@id": "https://kholomyanskiy.com/#organization"
+  },
+  "areaServed": [
+    "Poland",
+    "Europe"
+  ],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "$t:s4_c1_h3",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": 4500,
+        "priceCurrency": "PLN",
+        "valueAddedTaxIncluded": false
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- @include topnav current=services,solution-design -->
+
+<div class="sheet">
+
+  <header class="titleblock">
+    <div class="tb-top">
+      <span class="brand">EVAI CONSULTING</span>
+      <span>EVAI-DESIGN-2026-01 · v1.0</span>
+    </div>
+    <div class="tb-main">
+      <span class="stamp" data-i18n="stamp">Active · v1.0</span>
+      <h1 data-i18n-html="h1_title">AI <em>Solution</em> Design</h1>
+      <p class="sub" data-i18n="tb_sub">For a company that knows which task it wants to solve but not which solution to choose. A pre-project survey, a comparison of options and a solution concept with a recommendation, before money goes into development or subscriptions.</p>
+      <p class="sub" data-i18n="tb_free">The first 30 minutes are free: getting to know the task and estimating the scope.</p>
+      <div class="card-action"><a class="btn2" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="tb_cta">Book a free 30-min call →</a></div>
+    </div>
+    <div class="tb-meta">
+      <div><span class="k" data-i18n="tb_doc_k">Document</span><span data-i18n="tb_doc_v">Commercial Offer</span></div>
+      <div><span class="k" data-i18n="tb_author_k">Author</span>Artem Kholomyanskiy</div>
+      <div><span class="k" data-i18n="tb_format_k">Format</span><span data-i18n="tb_format_v">Online</span></div>
+      <div><span class="k" data-i18n="tb_lang_k">Languages</span><span data-i18n="tb_lang_v">PL · RU · UA</span></div>
+    </div>
+  </header>
+
+  <section>
+    <span class="secnum" data-i18n="s1_num">1.0 // WHO IT'S FOR</span>
+    <h2 data-i18n="s1_h2">When solution design is needed</h2>
+    <p data-i18n="s1_p">The task is clear, but there are several ways to solve it: a ready-made service, configuring systems already in place, or a custom build. Vendors propose different things, and there is nothing to compare their offers against. The solution will touch several systems or departments, and a wrong choice will be costly.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s2_num">2.0 // HOW IT WORKS</span>
+    <h2 data-i18n="s2_h2">How the work goes</h2>
+    <ol class="steps">
+      <li data-i18n-html="s2_1"><b>Free call.</b> The task, its boundaries, the scope of work.</li>
+      <li data-i18n-html="s2_2"><b>Survey.</b> Conversations with the people who do the work; existing systems and data; budget and time constraints.</li>
+      <li data-i18n-html="s2_3"><b>Options.</b> Ready-made services, configuring existing systems, a custom build. For each: what it covers, the cost of ownership, the risks.</li>
+      <li data-i18n-html="s2_4"><b>Concept and recommendation.</b> A document with a recommendation and its rationale, reviewed at a meeting.</li>
+    </ol>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s3_num">3.0 // WHAT STAYS</span>
+    <h2 data-i18n="s3_h2">What the client receives</h2>
+    <p data-i18n="s3_p1">A "Solution Concept" document: goal and success criteria, current situation, comparison of options, recommendation with rationale. If a custom build is needed, the document includes the solution's components, tools and integrations, the implementation order by priority, and a complexity estimate.</p>
+    <p data-i18n="s3_p2">The recommendation can also be: nothing needs to be built, a ready-made service covers the task. For the company this is usually the cheapest outcome.</p>
+    <!-- @lang ru -->
+    <p>Структура документа следует стадиям «обследование» и «концепция» комплекса ГОСТ 34 на автоматизированные системы.</p>
+    <!-- @endlang -->
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s4_num">4.0 // FORMATS</span>
+    <h2 data-i18n="s4_h2">Scope and price</h2>
+    <div class="formats">
+      <div class="card">
+        <div class="card-head">
+          <h3 data-i18n="s4_c1_h3">Standard</h3>
+        </div>
+        <div class="card-body">
+          <p data-i18n="s4_c1_p">One process or department, several solution options.</p>
+        </div>
+        <div class="card-foot">
+          <span class="price" data-i18n="s4_c1_price">From 4,500 zł</span>
+          <span class="term" data-i18n="s4_c1_term">Timeline: 7–14 days</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <h3 data-i18n="s4_c2_h3">Large system</h3>
+        </div>
+        <div class="card-body">
+          <p data-i18n="s4_c2_p">Several systems, integrations, phased rollout.</p>
+        </div>
+        <div class="card-foot">
+          <span class="price" data-i18n="s4_c2_price">Price and timeline after a free call</span>
+        </div>
+      </div>
+    </div>
+    <p class="term" data-i18n="s4_note">Prices are net, excluding VAT. The final price is fixed after a free 30-minute call.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s5_num">5.0 // SCOPE</span>
+    <h2 data-i18n="s5_h2">What solution design is not</h2>
+    <p data-i18n-html="s5_p">If there is one task and the solution is obvious, there is nothing to design: a <a href="consulting.html">consultation</a> is enough, and the document for a contractor is the <a href="spec.html">specification</a>. A full map of a department's tasks with an estimate of freed-up hours comes from the <a href="audit.html">process audit</a>. Solution design does not include building or rollout. A specification based on the finished concept can be ordered here, written in-house, or ordered from another contractor.</p>
+  </section>
+
+  <div class="cta">
+    <h2 data-i18n="cta_h2">Describe the task and estimate the scope.</h2>
+    <a class="btn" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="tb_cta">Book a free 30-min call →</a>
+    <p class="alt"><span data-i18n="s7_alt_text">or</span> <a id="mailto-btn" href="mailto:artem@kholomyanskiy.com?subject=AI%20solution%20design">artem@kholomyanskiy.com</a> · <a href="https://linkedin.com/in/kholomyanskiy">LinkedIn</a> · <a href="https://t.me/kholomyanskiy">Telegram</a></p>
+  </div>
+
+</div>
+
+<!-- @include footer -->
+
+<script>
+var T = {
+  ru: {
+    page_title: "Проектирование AI-решения — EVAI Consulting",
+    meta_desc: "Проектирование AI-решения: обследование, сравнение вариантов от готовых сервисов до своей разработки, концепция с рекомендацией. От 4 500 zł нетто.",
+    mailto_subject: "Проектирование AI-решения",
+    stamp: "Действует · v1.0",
+    h1_title: "Проектирование <em>AI-решения</em>",
+    tb_doc_k: "Документ",
+    tb_doc_v: "Коммерческое предложение",
+    tb_author_k: "Автор",
+    tb_format_k: "Формат",
+    tb_format_v: "Онлайн",
+    tb_lang_k: "Языки",
+    tb_lang_v: "PL · RU · UA",
+    tb_sub: "Для фирмы, которая знает, какую задачу хочет закрыть, но не знает, каким решением. Обследование, сравнение вариантов и концепция решения с рекомендацией до того, как деньги уйдут на разработку или подписки.",
+    tb_free: "Первые 30 минут бесплатно: знакомство с задачей и оценка объёма.",
+    tb_cta: "Записаться на бесплатный звонок, 30 минут →",
+    s1_num: "1.0 // ДЛЯ КОГО",
+    s1_h2: "Когда нужно проектирование",
+    s1_p: "Задача понятна, а способов её закрыть несколько: готовый сервис, настройка уже купленных систем, своя разработка. Подрядчики предлагают разное, и сравнить их предложения не на чем. Решение затронет несколько систем или отделов, и ошибка в выборе обойдётся дорого.",
+    s2_num: "2.0 // ПОРЯДОК РАБОТЫ",
+    s2_h2: "Как идёт работа",
+    s2_1: "<b>Бесплатный звонок.</b> Задача, границы, объём работы.",
+    s2_2: "<b>Обследование.</b> Разговоры с людьми, которые выполняют работу; системы и данные, которые уже есть; ограничения по бюджету и срокам.",
+    s2_3: "<b>Варианты.</b> Готовые сервисы, настройка имеющихся систем, своя разработка. По каждому: что закрывает, сколько стоит владение, какие риски.",
+    s2_4: "<b>Концепция и вердикт.</b> Документ с рекомендацией и обоснованием, разбор на встрече.",
+    s3_num: "3.0 // ЧТО ОСТАЁТСЯ",
+    s3_h2: "Что на руках",
+    s3_p1: "Документ «Концепция решения»: цель и критерии успеха, текущая ситуация, сравнение вариантов, рекомендация с обоснованием. Если нужна разработка, в документ входят состав решения, инструменты и интеграции, порядок внедрения по приоритетам и оценка сложности.",
+    s3_p2: "Вердикт может быть и таким: разрабатывать ничего не нужно, задачу закрывает готовый сервис. Для фирмы это обычно самый дешёвый исход.",
+    s4_num: "4.0 // ФОРМАТЫ",
+    s4_h2: "Объём и цена",
+    s4_c1_h3: "Стандарт",
+    s4_c1_p: "Один процесс или отдел, несколько вариантов решения.",
+    s4_c1_price: "от 4 500 zł",
+    s4_c1_term: "Срок: 7–14 дней",
+    s4_c2_h3: "Крупная система",
+    s4_c2_p: "Несколько систем, интеграции, внедрение по этапам.",
+    s4_c2_price: "Цена и срок после бесплатного звонка",
+    s4_note: "Цены нетто. Итоговая цена фиксируется после бесплатного 30-минутного разговора.",
+    s5_num: "5.0 // ГРАНИЦЫ ФОРМАТА",
+    s5_h2: "Чем проектирование не является",
+    s5_p: "Если задача одна и решение очевидно, проектировать нечего: хватит <a href=\"consulting.html\">консультации</a>, а документ для исполнителя даёт <a href=\"spec.html\">спецификация</a>. Полную карту задач отдела с расчётом высвобождаемых часов даёт <a href=\"audit.html\">аудит процессов</a>. Разработка и внедрение в проектирование не входят. Спецификацию по готовой концепции можно заказать здесь, написать самостоятельно или заказать у другого подрядчика.",
+    cta_h2: "Описать задачу и оценить объём.",
+    s7_alt_text: "или"
+  },
+  pl: {
+    page_title: "Projektowanie rozwiązania AI — EVAI Consulting",
+    meta_desc: "Projektowanie rozwiązania AI: analiza, porównanie wariantów od gotowych usług po własne oprogramowanie, koncepcja z rekomendacją. Od 4 500 zł netto.",
+    mailto_subject: "Projektowanie rozwiązania AI",
+    stamp: "Obowiązuje · v1.0",
+    h1_title: "Projektowanie <em>rozwiązania</em> AI",
+    tb_doc_k: "Dokument",
+    tb_doc_v: "Oferta handlowa",
+    tb_author_k: "Autor",
+    tb_format_k: "Format",
+    tb_format_v: "Online",
+    tb_lang_k: "Języki",
+    tb_lang_v: "PL · RU · UA",
+    tb_sub: "Dla firmy, która wie, jakie zadanie chce rozwiązać, ale nie wie, jakim rozwiązaniem. Analiza przedwdrożeniowa, porównanie wariantów i koncepcja rozwiązania z rekomendacją, zanim pieniądze pójdą na wdrożenie lub abonamenty.",
+    tb_free: "Pierwsze 30 minut bezpłatnie: poznanie zadania i ocena zakresu.",
+    tb_cta: "Umów bezpłatną rozmowę, 30 minut →",
+    s1_num: "1.0 // DLA KOGO",
+    s1_h2: "Kiedy potrzebne jest projektowanie",
+    s1_p: "Zadanie jest jasne, ale sposobów jego rozwiązania jest kilka: gotowa usługa, konfiguracja już kupionych systemów, własne oprogramowanie. Wykonawcy proponują różne rzeczy i nie ma na czym oprzeć porównania ofert. Rozwiązanie obejmie kilka systemów lub działów, a błąd w wyborze będzie kosztowny.",
+    s2_num: "2.0 // PRZEBIEG PRACY",
+    s2_h2: "Jak przebiega praca",
+    s2_1: "<b>Bezpłatna rozmowa.</b> Zadanie, granice, zakres pracy.",
+    s2_2: "<b>Analiza.</b> Rozmowy z osobami, które wykonują pracę; istniejące systemy i dane; ograniczenia budżetu i terminów.",
+    s2_3: "<b>Warianty.</b> Gotowe usługi, konfiguracja posiadanych systemów, własne oprogramowanie. Dla każdego: co rozwiązuje, ile kosztuje utrzymanie, jakie są ryzyka.",
+    s2_4: "<b>Koncepcja i rekomendacja.</b> Dokument z rekomendacją i uzasadnieniem, omówienie na spotkaniu.",
+    s3_num: "3.0 // CO ZOSTAJE",
+    s3_h2: "Co otrzymuje klient",
+    s3_p1: "Dokument „Koncepcja rozwiązania”: cel i kryteria sukcesu, obecna sytuacja, porównanie wariantów, rekomendacja z uzasadnieniem. Jeśli potrzebne jest własne oprogramowanie, dokument zawiera skład rozwiązania, narzędzia i integracje, kolejność wdrożenia według priorytetów oraz ocenę złożoności.",
+    s3_p2: "Rekomendacja może brzmieć też tak: nic nie trzeba budować, zadanie rozwiąże gotowa usługa. Dla firmy to zwykle najtańszy wynik.",
+    s4_num: "4.0 // FORMATY",
+    s4_h2: "Zakres i cena",
+    s4_c1_h3: "Standard",
+    s4_c1_p: "Jeden proces lub dział, kilka wariantów rozwiązania.",
+    s4_c1_price: "od 4 500 zł",
+    s4_c1_term: "Termin: 7–14 dni",
+    s4_c2_h3: "Duży system",
+    s4_c2_p: "Kilka systemów, integracje, wdrożenie etapami.",
+    s4_c2_price: "Cena i termin po bezpłatnej rozmowie",
+    s4_note: "Ceny netto. Ostateczna cena ustalana jest po bezpłatnej 30-minutowej rozmowie.",
+    s5_num: "5.0 // GRANICE FORMATU",
+    s5_h2: "Czym projektowanie nie jest",
+    s5_p: "Jeśli zadanie jest jedno, a rozwiązanie oczywiste, nie ma czego projektować: wystarczy <a href=\"consulting.html\">konsultacja</a>, a dokument dla wykonawcy daje <a href=\"spec.html\">specyfikacja</a>. Pełną mapę zadań działu z wyliczeniem odzyskanych godzin daje <a href=\"audit.html\">audyt procesów</a>. Projektowanie nie obejmuje budowy ani wdrożenia. Specyfikację na podstawie gotowej koncepcji można zamówić tutaj, napisać samodzielnie lub zamówić u innego wykonawcy.",
+    cta_h2: "Opisać zadanie i ocenić zakres.",
+    s7_alt_text: "lub"
+  },
+  en: {
+    page_title: "AI Solution Design — EVAI Consulting",
+    meta_desc: "AI solution design: a survey, options compared from ready-made services to a custom build, and a concept with a recommendation. From 4,500 zł net.",
+    mailto_subject: "AI solution design",
+    stamp: "Active · v1.0",
+    h1_title: "AI <em>Solution</em> Design",
+    tb_doc_k: "Document",
+    tb_doc_v: "Commercial Offer",
+    tb_author_k: "Author",
+    tb_format_k: "Format",
+    tb_format_v: "Online",
+    tb_lang_k: "Languages",
+    tb_lang_v: "PL · RU · UA",
+    tb_sub: "For a company that knows which task it wants to solve but not which solution to choose. A pre-project survey, a comparison of options and a solution concept with a recommendation, before money goes into development or subscriptions.",
+    tb_free: "The first 30 minutes are free: getting to know the task and estimating the scope.",
+    tb_cta: "Book a free 30-min call →",
+    s1_num: "1.0 // WHO IT'S FOR",
+    s1_h2: "When solution design is needed",
+    s1_p: "The task is clear, but there are several ways to solve it: a ready-made service, configuring systems already in place, or a custom build. Vendors propose different things, and there is nothing to compare their offers against. The solution will touch several systems or departments, and a wrong choice will be costly.",
+    s2_num: "2.0 // HOW IT WORKS",
+    s2_h2: "How the work goes",
+    s2_1: "<b>Free call.</b> The task, its boundaries, the scope of work.",
+    s2_2: "<b>Survey.</b> Conversations with the people who do the work; existing systems and data; budget and time constraints.",
+    s2_3: "<b>Options.</b> Ready-made services, configuring existing systems, a custom build. For each: what it covers, the cost of ownership, the risks.",
+    s2_4: "<b>Concept and recommendation.</b> A document with a recommendation and its rationale, reviewed at a meeting.",
+    s3_num: "3.0 // WHAT STAYS",
+    s3_h2: "What the client receives",
+    s3_p1: "A \"Solution Concept\" document: goal and success criteria, current situation, comparison of options, recommendation with rationale. If a custom build is needed, the document includes the solution's components, tools and integrations, the implementation order by priority, and a complexity estimate.",
+    s3_p2: "The recommendation can also be: nothing needs to be built, a ready-made service covers the task. For the company this is usually the cheapest outcome.",
+    s4_num: "4.0 // FORMATS",
+    s4_h2: "Scope and price",
+    s4_c1_h3: "Standard",
+    s4_c1_p: "One process or department, several solution options.",
+    s4_c1_price: "From 4,500 zł",
+    s4_c1_term: "Timeline: 7–14 days",
+    s4_c2_h3: "Large system",
+    s4_c2_p: "Several systems, integrations, phased rollout.",
+    s4_c2_price: "Price and timeline after a free call",
+    s4_note: "Prices are net, excluding VAT. The final price is fixed after a free 30-minute call.",
+    s5_num: "5.0 // SCOPE",
+    s5_h2: "What solution design is not",
+    s5_p: "If there is one task and the solution is obvious, there is nothing to design: a <a href=\"consulting.html\">consultation</a> is enough, and the document for a contractor is the <a href=\"spec.html\">specification</a>. A full map of a department's tasks with an estimate of freed-up hours comes from the <a href=\"audit.html\">process audit</a>. Solution design does not include building or rollout. A specification based on the finished concept can be ordered here, written in-house, or ordered from another contractor.",
+    cta_h2: "Describe the task and estimate the scope.",
+    s7_alt_text: "or"
+  }
+};
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.querySelectorAll('.spec-lang-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+  });
+  document.documentElement.lang = lang;
+  if (T[lang].page_title) document.title = T[lang].page_title;
+  var md = document.querySelector('meta[name="description"]');
+  if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
+  var mb = document.getElementById('mailto-btn');
+  if (mb && T[lang].mailto_subject) mb.href = 'mailto:artem@kholomyanskiy.com?subject=' + encodeURIComponent(T[lang].mailto_subject);
+  localStorage.setItem('site-lang', lang);
+}
+
+(function() {
+  var p = new URLSearchParams(window.location.search);
+  var ul = p.get('lang');
+  if (ul && T[ul]) { setLang(ul); return; }
+  var saved = localStorage.getItem('site-lang');
+  if (saved && T[saved]) setLang(saved);
+})();
+</script>
+
+</body>
+</html>
