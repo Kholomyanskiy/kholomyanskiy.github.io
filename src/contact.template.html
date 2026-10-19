@@ -51,7 +51,6 @@ body{
 .tb-main .sub{margin-top:16px;max-width:560px;color:var(--ink-soft);font-size:17px}
 section{padding:40px 28px;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:none}
-.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
 h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
 p{max-width:620px;margin-bottom:14px}
 .cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
@@ -62,8 +61,18 @@ footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrai
 }
 /* ---------- sections ---------- */
 @media (min-width:600px){.tb-main .sub{text-align:justify;hyphens:auto;-webkit-hyphens:auto}}
-.map{display:block;max-width:620px;margin-top:8px}
-.map img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+a.btn2{display:inline-block;margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:#fff;background:var(--blue);border:1.5px solid var(--blue);padding:11px 22px;text-decoration:none}
+a.btn2:hover{background:transparent;color:var(--blue)}
+section a:not(.map),section a:not(.map):visited{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
+section a:not(.map):hover{color:var(--blue);text-decoration-color:var(--blue)}
+.ways{display:grid;grid-template-columns:1fr 1fr;gap:22px 32px}
+.ways dt{font-size:13px;color:var(--ink-soft)}
+.ways dd{font-size:18px}
+.reqs{font-size:14px;color:var(--ink-soft)}
+.map{display:block;max-width:720px;margin-top:24px}
+.map img{display:block;width:100%;height:auto}
+.map-note{font-size:14px;color:var(--ink-soft);margin-top:8px}
+@media(max-width:600px){.ways{grid-template-columns:1fr}}
 .cta a.btn{
   display:inline-block;margin-top:10px;
   font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;
@@ -136,32 +145,29 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     <div class="tb-main">
       <h1 data-i18n-html="h1_title"><em>Contact</em></h1>
       <p class="sub" data-i18n="tb_sub">The first conversation is free: 30 minutes online to get to know the task and see which format fits.</p>
+      <a class="btn2" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="tb_btn">Book a free 30 minutes</a>
     </div>
   </header>
 
   <section>
-    <span class="secnum">1.0</span>
     <h2 data-i18n="s1_h2">How to get in touch</h2>
-    <p data-i18n-html="s1_cal"><b>Free 30 minutes.</b> Book in the calendar: <a href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener">cal.com/kholomyanskiy/30min</a></p>
-    <p data-i18n-html="s1_form"><b>Form.</b> A short description of the task: <a href="index.html#contact">form on the home page</a></p>
-    <p data-i18n-html="s1_mail"><b>Email.</b> <a href="mailto:artem@kholomyanskiy.com">artem@kholomyanskiy.com</a></p>
-    <p data-i18n-html="s1_phone"><b>Phone and <a href="https://wa.me/48508409363">WhatsApp</a>.</b> <a href="tel:+48508409363">+48 508 409 363</a></p>
-    <p data-i18n-html="s1_tg"><b>Telegram.</b> <a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></p>
-    <p data-i18n-html="s1_li"><b>LinkedIn.</b> <a href="https://linkedin.com/in/kholomyanskiy">linkedin.com/in/kholomyanskiy</a></p>
+    <dl class="ways">
+      <div><dt data-i18n="w_mail">Email</dt><dd><a href="mailto:artem@kholomyanskiy.com">artem@kholomyanskiy.com</a></dd></div>
+      <div><dt data-i18n="w_phone">Phone</dt><dd><a href="tel:+48508409363">+48 508 409 363</a></dd></div>
+      <div><dt data-i18n="w_wa">WhatsApp</dt><dd><a href="https://wa.me/48508409363">+48 508 409 363</a></dd></div>
+      <div><dt data-i18n="w_tg">Telegram</dt><dd><a href="https://t.me/kholomyanskiy">@kholomyanskiy</a></dd></div>
+      <div><dt data-i18n="w_li">LinkedIn</dt><dd><a href="https://linkedin.com/in/kholomyanskiy">in/kholomyanskiy</a></dd></div>
+      <div><dt data-i18n="w_form">Form on the site</dt><dd><a href="index.html#contact" data-i18n="w_form_v">Describe the task</a></dd></div>
+    </dl>
   </section>
 
   <section>
-    <span class="secnum">2.0</span>
     <h2 data-i18n="s2_h2">Where the work happens</h2>
     <p data-i18n="s2_p1">Based in Elbląg. In-person meetings by arrangement within 100 km: the Tricity (Gdańsk, Gdynia, Sopot), Malbork, Tczew, Kwidzyn, Braniewo, Ostróda, Iława, Olsztyn.</p>
     <p data-i18n="s2_p2">Online: all of Poland, Europe and Russian-speaking clients in other countries. Working languages: Polish, Russian, Ukrainian, English.</p>
-    <a class="map" href="https://www.google.com/maps/place/Elbląg" target="_blank" rel="noopener"><img src="img/map-poland.svg" width="600" height="570" loading="lazy" alt="$t:s2_map_alt"></a>
-  </section>
-
-  <section>
-    <span class="secnum">3.0</span>
-    <h2 data-i18n="s3_h2">Company details</h2>
-    <p data-i18n="s3_p">EVAI Consulting, sole proprietorship, Elbląg, Poland. NIP 5783172003.</p>
+    <p class="reqs" data-i18n="s3_p">EVAI Consulting, sole proprietorship, Elbląg, Poland. NIP 5783172003.</p>
+    <a class="map" href="https://www.google.com/maps/place/Elbląg" target="_blank" rel="noopener"><img src="img/map-world.svg" width="720" height="420" loading="lazy" alt="$t:s2_map_alt"></a>
+    <p class="map-note" data-i18n="map_note">Online: any country</p>
   </section>
 
   <div class="cta">
@@ -180,18 +186,20 @@ var T = {
     meta_desc: "Связь с EVAI Consulting: бесплатный 30-минутный разговор, почта, телефон, WhatsApp, Telegram. Эльблонг и Труймясто, онлайн по всей Польше и Европе.",
     h1_title: "<em>Контакты</em>",
     tb_sub: "Первый разговор бесплатный: 30 минут онлайн, знакомство с задачей и оценка, какой формат подходит.",
+    tb_btn: "Записаться на бесплатные 30 минут",
     s1_h2: "Как связаться",
-    s1_cal: "<b>Бесплатные 30 минут.</b> Запись в календаре: <a href=\"https://cal.com/kholomyanskiy/30min\" target=\"_blank\" rel=\"noopener\">cal.com/kholomyanskiy/30min</a>",
-    s1_form: "<b>Форма.</b> Короткое описание задачи: <a href=\"index.html#contact\">форма на главной</a>",
-    s1_mail: "<b>Почта.</b> <a href=\"mailto:artem@kholomyanskiy.com\">artem@kholomyanskiy.com</a>",
-    s1_phone: "<b>Телефон и <a href=\"https://wa.me/48508409363\">WhatsApp</a>.</b> <a href=\"tel:+48508409363\">+48 508 409 363</a>",
-    s1_tg: "<b>Telegram.</b> <a href=\"https://t.me/kholomyanskiy\">@kholomyanskiy</a>",
-    s1_li: "<b>LinkedIn.</b> <a href=\"https://linkedin.com/in/kholomyanskiy\">linkedin.com/in/kholomyanskiy</a>",
+    w_mail: "Почта",
+    w_phone: "Телефон",
+    w_wa: "WhatsApp",
+    w_tg: "Telegram",
+    w_li: "LinkedIn",
+    w_form: "Форма на сайте",
+    w_form_v: "Описать задачу",
     s2_h2: "Где идёт работа",
     s2_p1: "Работа ведётся из Эльблонга. Встречи на месте по договорённости в радиусе 100 км: Труймясто (Гданьск, Гдыня, Сопот), Мальборк, Тчев, Квидзын, Бранево, Оструда, Илава, Ольштын.",
     s2_p2: "Онлайн: вся Польша, Европа и русскоязычные клиенты в других странах. Языки работы: польский, русский, украинский, английский.",
-    s2_map_alt: "Карта Польши: Эльблонг и города, где возможны встречи на месте",
-    s3_h2: "Реквизиты",
+    s2_map_alt: "Карта мира с направлениями онлайн-работы из Эльблонга и врезка Польши с кругом радиусом 100 км",
+    map_note: "Онлайн: любая страна",
     s3_p: "EVAI Consulting, индивидуальная предпринимательская деятельность (JDG), Эльблонг, Польша. NIP 5783172003.",
     cta_h2: "Описать задачу и выбрать удобный способ связи.",
     cta_btn: "Записаться на бесплатный звонок, 30 минут →"
@@ -201,18 +209,20 @@ var T = {
     meta_desc: "Kontakt z EVAI Consulting: bezpłatna 30-minutowa rozmowa, e-mail, telefon, WhatsApp, Telegram. Elbląg i Trójmiasto, online w całej Polsce i Europie.",
     h1_title: "<em>Kontakt</em>",
     tb_sub: "Pierwsza rozmowa jest bezpłatna: 30 minut online, poznanie zadania i ocena, który format pasuje.",
+    tb_btn: "Umów bezpłatne 30 minut",
     s1_h2: "Jak się skontaktować",
-    s1_cal: "<b>Bezpłatne 30 minut.</b> Zapis w kalendarzu: <a href=\"https://cal.com/kholomyanskiy/30min\" target=\"_blank\" rel=\"noopener\">cal.com/kholomyanskiy/30min</a>",
-    s1_form: "<b>Formularz.</b> Krótki opis zadania: <a href=\"index.html#contact\">formularz na stronie głównej</a>",
-    s1_mail: "<b>E-mail.</b> <a href=\"mailto:artem@kholomyanskiy.com\">artem@kholomyanskiy.com</a>",
-    s1_phone: "<b>Telefon i <a href=\"https://wa.me/48508409363\">WhatsApp</a>.</b> <a href=\"tel:+48508409363\">+48 508 409 363</a>",
-    s1_tg: "<b>Telegram.</b> <a href=\"https://t.me/kholomyanskiy\">@kholomyanskiy</a>",
-    s1_li: "<b>LinkedIn.</b> <a href=\"https://linkedin.com/in/kholomyanskiy\">linkedin.com/in/kholomyanskiy</a>",
+    w_mail: "E-mail",
+    w_phone: "Telefon",
+    w_wa: "WhatsApp",
+    w_tg: "Telegram",
+    w_li: "LinkedIn",
+    w_form: "Formularz na stronie",
+    w_form_v: "Opisać zadanie",
     s2_h2: "Gdzie odbywa się praca",
     s2_p1: "Praca prowadzona jest z Elbląga. Spotkania na miejscu po uzgodnieniu w promieniu 100 km: Trójmiasto (Gdańsk, Gdynia, Sopot), Malbork, Tczew, Kwidzyn, Braniewo, Ostróda, Iława, Olsztyn.",
     s2_p2: "Online: cała Polska, Europa i klienci rosyjskojęzyczni w innych krajach. Języki pracy: polski, rosyjski, ukraiński, angielski.",
-    s2_map_alt: "Mapa Polski: Elbląg i miasta, w których możliwe są spotkania na miejscu",
-    s3_h2: "Dane firmy",
+    s2_map_alt: "Mapa świata z kierunkami pracy online z Elbląga i wstawka Polski z okręgiem o promieniu 100 km",
+    map_note: "Online: dowolny kraj",
     s3_p: "EVAI Consulting, jednoosobowa działalność gospodarcza, Elbląg. NIP 5783172003.",
     cta_h2: "Opisać zadanie i wybrać wygodny sposób kontaktu.",
     cta_btn: "Umów bezpłatną rozmowę, 30 minut →"
@@ -222,18 +232,20 @@ var T = {
     meta_desc: "Contact EVAI Consulting: a free 30-minute call, email, phone, WhatsApp, Telegram. Elbląg and the Tricity, online across Poland and Europe.",
     h1_title: "<em>Contact</em>",
     tb_sub: "The first conversation is free: 30 minutes online to get to know the task and see which format fits.",
+    tb_btn: "Book a free 30 minutes",
     s1_h2: "How to get in touch",
-    s1_cal: "<b>Free 30 minutes.</b> Book in the calendar: <a href=\"https://cal.com/kholomyanskiy/30min\" target=\"_blank\" rel=\"noopener\">cal.com/kholomyanskiy/30min</a>",
-    s1_form: "<b>Form.</b> A short description of the task: <a href=\"index.html#contact\">form on the home page</a>",
-    s1_mail: "<b>Email.</b> <a href=\"mailto:artem@kholomyanskiy.com\">artem@kholomyanskiy.com</a>",
-    s1_phone: "<b>Phone and <a href=\"https://wa.me/48508409363\">WhatsApp</a>.</b> <a href=\"tel:+48508409363\">+48 508 409 363</a>",
-    s1_tg: "<b>Telegram.</b> <a href=\"https://t.me/kholomyanskiy\">@kholomyanskiy</a>",
-    s1_li: "<b>LinkedIn.</b> <a href=\"https://linkedin.com/in/kholomyanskiy\">linkedin.com/in/kholomyanskiy</a>",
+    w_mail: "Email",
+    w_phone: "Phone",
+    w_wa: "WhatsApp",
+    w_tg: "Telegram",
+    w_li: "LinkedIn",
+    w_form: "Form on the site",
+    w_form_v: "Describe the task",
     s2_h2: "Where the work happens",
     s2_p1: "Based in Elbląg. In-person meetings by arrangement within 100 km: the Tricity (Gdańsk, Gdynia, Sopot), Malbork, Tczew, Kwidzyn, Braniewo, Ostróda, Iława, Olsztyn.",
     s2_p2: "Online: all of Poland, Europe and Russian-speaking clients in other countries. Working languages: Polish, Russian, Ukrainian, English.",
-    s2_map_alt: "Map of Poland: Elbląg and the cities where in-person meetings are possible",
-    s3_h2: "Company details",
+    s2_map_alt: "World map with online work directions from Elbląg and an inset of Poland with a 100 km radius circle",
+    map_note: "Online: any country",
     s3_p: "EVAI Consulting, sole proprietorship, Elbląg, Poland. NIP 5783172003.",
     cta_h2: "Describe the task and pick a convenient way to get in touch.",
     cta_btn: "Book a free 30-min call →"
