@@ -358,7 +358,13 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  </span>
  </span>
  <a href="/pl/portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
- <a href="/pl/products.html" data-i18n="nav.products">Produkty</a>
+ <span class="nav-drop"><a href="/pl/products.html" data-i18n="nav.products">Produkty</a><span class="nav-drop-arrow" aria-hidden="true"><svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M.5.5 4 4 7.5.5" stroke="currentColor" stroke-width="1.2"/></svg></span>
+ <span class="nav-drop-list">
+ <a href="/pl/anss.html" data-i18n="nav.products_menu_anss">ANSS Standard</a>
+ <a href="/pl/metodichka.html" data-i18n="nav.products_menu_dept">AI w dziale</a>
+ <a href="/pl/products.html#decision-system" data-i18n="nav.products_menu_ads">AI Automation Decision System</a>
+ </span>
+ </span>
  <a href="/pl/articles.html" data-i18n="nav.articles">Artykuły</a>
  <a href="/pl/glossary/" data-i18n="nav.glossary">Słownik</a>
  <a href="/pl/contact.html" data-i18n="nav.contacts">Kontakt</a>
@@ -486,10 +492,10 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <section id="products">
  <span class="secnum">3.0 // <span data-i18n="products.secnum">PRODUKTY</span></span>
  <h2 data-i18n="products.title">Co można otrzymać od razu</h2>
- <div class="grid">
- <div class="grid-item"><span class="num">01</span><h3>ANSS Standard</h3><p data-i18n="products.p1.p">Otwarty standard specyfikacji</p></div>
- <div class="grid-item"><span class="num">02</span><h3 data-i18n="products.p2.h">AI w dziale</h3><p data-i18n="products.p2.p">Poradnik + książka o wdrożeniu</p></div>
- <div class="grid-item"><span class="num">03</span><h3>AI Automation Decision System</h3><p data-i18n="products.p3.p">Framework do podejmowania decyzji</p></div>
+ <div class="grid grid-services">
+ <a class="grid-item" href="/pl/anss.html"><span class="num">01</span><h3>ANSS Standard</h3><p data-i18n="products.p1.p">Otwarty standard specyfikacji do pracy z agentami AI i skill dla Claude</p><span class="more" data-i18n="services.more_card">Szczegóły →</span></a>
+ <a class="grid-item" href="/pl/metodichka.html"><span class="num">02</span><h3 data-i18n="products.p2.h">AI w dziale</h3><p data-i18n="products.p2.p">Pięć etapów wdrażania AI w dziale: darmowy poradnik i książka robocza z szablonami</p><span class="more" data-i18n="services.more_card">Szczegóły →</span></a>
+ <a class="grid-item" href="/pl/products.html#decision-system"><span class="num">03</span><h3>AI Automation Decision System</h3><p data-i18n="products.p3.p">Czy warto automatyzować zadanie, jakim podejściem i od czego zacząć, przed zatrudnieniem wykonawcy</p><span class="more" data-i18n="services.more_card">Szczegóły →</span></a>
  </div>
  <p class="section-more"><a href="/pl/products.html" data-i18n="products.more">Wszystkie produkty →</a></p>
  </section>

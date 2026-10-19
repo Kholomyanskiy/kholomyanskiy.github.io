@@ -358,7 +358,13 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  </span>
  </span>
  <a href="/ru/portfolio.html" data-i18n="nav.portfolio">Портфолио</a>
- <a href="/ru/products.html" data-i18n="nav.products">Продукты</a>
+ <span class="nav-drop"><a href="/ru/products.html" data-i18n="nav.products">Продукты</a><span class="nav-drop-arrow" aria-hidden="true"><svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M.5.5 4 4 7.5.5" stroke="currentColor" stroke-width="1.2"/></svg></span>
+ <span class="nav-drop-list">
+ <a href="/ru/anss.html" data-i18n="nav.products_menu_anss">ANSS Standard</a>
+ <a href="/ru/metodichka.html" data-i18n="nav.products_menu_dept">ИИ в отделе</a>
+ <a href="/ru/products.html#decision-system" data-i18n="nav.products_menu_ads">AI Automation Decision System</a>
+ </span>
+ </span>
  <a href="/ru/articles.html" data-i18n="nav.articles">Статьи</a>
  <a href="/ru/glossary/" data-i18n="nav.glossary">Словарь</a>
  <a href="/ru/contact.html" data-i18n="nav.contacts">Контакты</a>
@@ -486,10 +492,10 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <section id="products">
  <span class="secnum">3.0 // <span data-i18n="products.secnum">ПРОДУКТЫ</span></span>
  <h2 data-i18n="products.title">Что можно получить сразу</h2>
- <div class="grid">
- <div class="grid-item"><span class="num">01</span><h3>ANSS Standard</h3><p data-i18n="products.p1.p">Открытый стандарт спецификаций</p></div>
- <div class="grid-item"><span class="num">02</span><h3 data-i18n="products.p2.h">ИИ в отделе</h3><p data-i18n="products.p2.p">Методичка + книга о внедрении</p></div>
- <div class="grid-item"><span class="num">03</span><h3>AI Automation Decision System</h3><p data-i18n="products.p3.p">Фреймворк выбора решений</p></div>
+ <div class="grid grid-services">
+ <a class="grid-item" href="/ru/anss.html"><span class="num">01</span><h3>ANSS Standard</h3><p data-i18n="products.p1.p">Открытый стандарт ТЗ для разработки с ИИ-агентами и навык для Claude</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
+ <a class="grid-item" href="/ru/metodichka.html"><span class="num">02</span><h3 data-i18n="products.p2.h">ИИ в отделе</h3><p data-i18n="products.p2.p">Пять этапов внедрения ИИ в отдел: бесплатная методичка и рабочая книга с шаблонами</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
+ <a class="grid-item" href="/ru/products.html#decision-system"><span class="num">03</span><h3>AI Automation Decision System</h3><p data-i18n="products.p3.p">Стоит ли автоматизировать задачу, каким подходом и с чего начать, до найма подрядчика</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
  </div>
  <p class="section-more"><a href="/ru/products.html" data-i18n="products.more">Все продукты →</a></p>
  </section>

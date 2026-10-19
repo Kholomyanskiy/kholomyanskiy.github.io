@@ -358,7 +358,13 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  </span>
  </span>
  <a href="/portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
- <a href="/products.html" data-i18n="nav.products">Products</a>
+ <span class="nav-drop"><a href="/products.html" data-i18n="nav.products">Products</a><span class="nav-drop-arrow" aria-hidden="true"><svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M.5.5 4 4 7.5.5" stroke="currentColor" stroke-width="1.2"/></svg></span>
+ <span class="nav-drop-list">
+ <a href="/anss.html" data-i18n="nav.products_menu_anss">ANSS Standard</a>
+ <a href="/metodichka.html" data-i18n="nav.products_menu_dept">AI in the Department</a>
+ <a href="/products.html#decision-system" data-i18n="nav.products_menu_ads">AI Automation Decision System</a>
+ </span>
+ </span>
  <a href="/articles.html" data-i18n="nav.articles">Articles</a>
  <a href="/glossary/" data-i18n="nav.glossary">Glossary</a>
  <a href="/contact.html" data-i18n="nav.contacts">Contact</a>
@@ -486,10 +492,10 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <section id="products">
  <span class="secnum">3.0 // <span data-i18n="products.secnum">PRODUCTS</span></span>
  <h2 data-i18n="products.title">What you can get right away</h2>
- <div class="grid">
- <div class="grid-item"><span class="num">01</span><h3>ANSS Standard</h3><p data-i18n="products.p1.p">Open specification standard</p></div>
- <div class="grid-item"><span class="num">02</span><h3 data-i18n="products.p2.h">AI in the Department</h3><p data-i18n="products.p2.p">Guide + book on implementation</p></div>
- <div class="grid-item"><span class="num">03</span><h3>AI Automation Decision System</h3><p data-i18n="products.p3.p">Decision-making framework</p></div>
+ <div class="grid grid-services">
+ <a class="grid-item" href="/anss.html"><span class="num">01</span><h3>ANSS Standard</h3><p data-i18n="products.p1.p">An open spec standard for development with AI agents, plus a skill for Claude</p><span class="more" data-i18n="services.more_card">Details →</span></a>
+ <a class="grid-item" href="/metodichka.html"><span class="num">02</span><h3 data-i18n="products.p2.h">AI in the Department</h3><p data-i18n="products.p2.p">Five stages of bringing AI into a department: a free guide and a workbook with templates</p><span class="more" data-i18n="services.more_card">Details →</span></a>
+ <a class="grid-item" href="/products.html#decision-system"><span class="num">03</span><h3>AI Automation Decision System</h3><p data-i18n="products.p3.p">Whether a task is worth automating, which approach to take and where to start, before hiring a contractor</p><span class="more" data-i18n="services.more_card">Details →</span></a>
  </div>
  <p class="section-more"><a href="/products.html" data-i18n="products.more">All products →</a></p>
  </section>
