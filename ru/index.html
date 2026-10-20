@@ -87,6 +87,24 @@
       }
     },
     {
+      "@type": "Service",
+      "@id": "https://kholomyanskiy.com/training.html#service",
+      "name": "Обучение на ваших задачах",
+      "provider": {
+        "@id": "https://kholomyanskiy.com/#organization"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "minPrice": 250,
+          "priceCurrency": "PLN",
+          "unitCode": "HUR",
+          "valueAddedTaxIncluded": false
+        }
+      }
+    },
+    {
       "@type": "Person",
       "@id": "https://kholomyanskiy.com/#person",
       "name": "Artem Kholomyanskiy",
@@ -260,6 +278,7 @@ footer{max-width:820px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrai
 .hero-cta a.primary:hover{background:transparent;color:var(--ink)}
 .hero-cta a.secondary{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
 .hero-cta a.secondary:hover{background:var(--ink);color:#EDEFF2}
+.hero-cv{margin-top:12px;font-size:13px;color:var(--ink-soft)}
 .secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
 h2{font-family:'Spectral',serif;font-weight:600;font-size:27px;margin-bottom:16px}
 h3{font-family:'Spectral',serif;font-weight:600;font-size:18px;margin-bottom:6px}
@@ -398,9 +417,10 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <div class="hero-cta">
  <a class="primary" href="#contact" data-i18n="hero.cta_primary">Обсудить задачу</a>
  <a class="secondary" href="/ru/portfolio.html" data-i18n="hero.cta_secondary">Смотреть проекты</a>
- <a class="secondary" href="/files/CV_Artem_Kholomianskyi.pdf" download data-i18n="hero.cta_cv">Скачать CV</a>
+ <a class="secondary" href="/ru/training.html" data-i18n="hero.cta_train">Обучение на задачах</a>
  <a class="secondary" href="/ru/kalkulator.html" data-i18n="hero.cta_calc">Посчитать эффект</a>
  </div>
+ <p class="hero-cv"><a href="/files/CV_Artem_Kholomianskyi.pdf" download data-i18n="hero.cv_link">CV (PDF)</a></p>
  </div>
  <img class="hero-photo" src="/img/photo-hero-150.webp" srcset="/img/photo-hero-150.webp 1x, /img/photo-hero-300.webp 2x" width="150" height="150" alt="Artem Kholomyanskiy, AI consultant">
  </div>
@@ -414,14 +434,6 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <span class="cl-k" data-i18n="approach.philosophy_label">Философия</span>
  <span data-i18n="approach.philosophy">Большинство проблем при внедрении ИИ начинаются с недостаточно чётко описанной задачи и процесса.</span>
  </div>
- </section>
-
- <section>
- <span class="secnum">0.2 // <span data-i18n="why.secnum">ПОЧЕМУ Я ЭТИМ ЗАНИМАЮСЬ</span></span>
- <h2 data-i18n="why.title">Откуда этот интерес</h2>
- <p data-i18n="why.p1">Мне всегда было интересно искать способы сделать процессы проще и удобнее. Ещё до появления современных AI-инструментов я постоянно замечал повторяющиеся действия, лишние шаги и неудобные процессы, которые можно было изменить. От бытовых мелочей до рабочих систем: если действие повторяется регулярно, обычно есть возможность сделать его проще или эффективнее.</p>
- <p data-i18n="why.p2">В бизнесе происходит то же самое. Сотрудники каждый день выполняют множество повторяющихся операций: ищут информацию, обрабатывают письма, заполняют документы, готовят отчёты, переносят данные между системами. Мне интересно находить такие места, где процесс можно сделать проще, быстрее и надёжнее.</p>
- <p data-i18n="why.p3">Опыт в enterprise IT научил меня подходить к этому системно: сначала понять задачу, затем описать процесс и только после этого выбирать технологию. Сегодня искусственный интеллект стал следующим этапом развития этого подхода. Он позволяет создавать системы, которые берут на себя рутину и освобождают время для решений, где действительно нужен человек.</p>
  </section>
 
  <section id="services">
@@ -464,11 +476,12 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 
  <section>
  <span class="secnum">2.5 // <span data-i18n="process.secnum">ПРОЦЕСС</span></span>
- <h2 data-i18n="process.title">Как проходит работа</h2>
+ <h2 data-i18n="process.title">Как проходит проект внедрения</h2>
+ <p data-i18n="process.intro">Для консультации и обучения путь короче: бесплатный разговор, затем сессии.</p>
  <div class="accordion" id="process-accordion">
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="process.s1.h">01. Первое письмо</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s1.p">Описываете отдел и задачу в двух-трёх предложениях. В ответ скажу, стоит ли этим заниматься и с чего начать.</div></div>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s1.p">Описание отдела и задачи в двух-трёх предложениях. В ответ приходит оценка, стоит ли этим заниматься и с чего начать.</div></div>
  </div>
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="process.s2.h">02. Аудит</span><span class="acc-plus">+</span></button>
@@ -484,9 +497,17 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  </div>
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="process.s5.h">05. Сопровождение</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s5.p">Передаю решение с документацией. Дальше по желанию: разовые консультации или следующий этап автоматизации.</div></div>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s5.p">Решение передаётся с документацией. Дальше по желанию: разовые консультации или следующий этап автоматизации.</div></div>
  </div>
  </div>
+ </section>
+
+ <section>
+ <span class="secnum">2.7 // <span data-i18n="why.secnum">ПОЧЕМУ Я ЭТИМ ЗАНИМАЮСЬ</span></span>
+ <h2 data-i18n="why.title">Откуда этот интерес</h2>
+ <p data-i18n="why.p1">Мне всегда было интересно искать способы сделать процессы проще и удобнее. Ещё до появления современных AI-инструментов я постоянно замечал повторяющиеся действия, лишние шаги и неудобные процессы, которые можно было изменить. От бытовых мелочей до рабочих систем: если действие повторяется регулярно, обычно есть возможность сделать его проще или эффективнее.</p>
+ <p data-i18n="why.p2">В бизнесе происходит то же самое. Сотрудники каждый день выполняют множество повторяющихся операций: ищут информацию, обрабатывают письма, заполняют документы, готовят отчёты, переносят данные между системами. Мне интересно находить такие места, где процесс можно сделать проще, быстрее и надёжнее.</p>
+ <p data-i18n="why.p3">Опыт в enterprise IT научил меня подходить к этому системно: сначала понять задачу, затем описать процесс и только после этого выбирать технологию. Сегодня искусственный интеллект стал следующим этапом развития этого подхода. Он позволяет создавать системы, которые берут на себя рутину и освобождают время для решений, где действительно нужен человек.</p>
  </section>
 
  <section id="products">

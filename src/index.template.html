@@ -40,6 +40,7 @@
  { "@type": "Service", "name": "$t:services.s3.h", "provider": { "@id": "https://kholomyanskiy.com/#organization" } },
  { "@type": "Service", "name": "$t:services.s4.h", "provider": { "@id": "https://kholomyanskiy.com/#organization" } },
  { "@type": "Service", "name": "$t:services.s5.h", "provider": { "@id": "https://kholomyanskiy.com/#organization" } },
+ { "@type": "Service", "@id": "https://kholomyanskiy.com/training.html#service", "name": "$t:services.s6.h", "provider": { "@id": "https://kholomyanskiy.com/#organization" }, "offers": { "@type": "Offer", "priceSpecification": { "@type": "UnitPriceSpecification", "minPrice": 250, "priceCurrency": "PLN", "unitCode": "HUR", "valueAddedTaxIncluded": false } } },
  {
  "@type": "Person",
  "@id": "https://kholomyanskiy.com/#person",
@@ -128,6 +129,7 @@
 .hero-cta a.primary:hover{background:transparent;color:var(--ink)}
 .hero-cta a.secondary{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
 .hero-cta a.secondary:hover{background:var(--ink);color:#EDEFF2}
+.hero-cv{margin-top:12px;font-size:13px;color:var(--ink-soft)}
 .secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
 h2{font-family:'Spectral',serif;font-weight:600;font-size:27px;margin-bottom:16px}
 h3{font-family:'Spectral',serif;font-weight:600;font-size:18px;margin-bottom:6px}
@@ -221,9 +223,10 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <div class="hero-cta">
  <a class="primary" href="#contact" data-i18n="hero.cta_primary">Discuss a task</a>
  <a class="secondary" href="portfolio.html" data-i18n="hero.cta_secondary">View projects</a>
- <a class="secondary" href="files/CV_Artem_Kholomianskyi.pdf" download data-i18n="hero.cta_cv">Download CV</a>
+ <a class="secondary" href="training.html" data-i18n="hero.cta_train">AI training</a>
  <a class="secondary" href="kalkulator.html" data-i18n="hero.cta_calc">Calculate the effect</a>
  </div>
+ <p class="hero-cv"><a href="files/CV_Artem_Kholomianskyi.pdf" download data-i18n="hero.cv_link">CV (PDF)</a></p>
  </div>
  <img class="hero-photo" src="img/photo-hero-150.webp" srcset="img/photo-hero-150.webp 1x, img/photo-hero-300.webp 2x" width="150" height="150" alt="Artem Kholomyanskiy, AI consultant">
  </div>
@@ -237,14 +240,6 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <span class="cl-k" data-i18n="approach.philosophy_label">Philosophy</span>
  <span data-i18n="approach.philosophy">Most problems in AI implementation start with a poorly described task and process.</span>
  </div>
- </section>
-
- <section>
- <span class="secnum">0.2 // <span data-i18n="why.secnum">WHY I DO THIS</span></span>
- <h2 data-i18n="why.title">Where this interest comes from</h2>
- <p data-i18n="why.p1">I've always been interested in finding ways to make processes simpler and more convenient. Even before modern AI tools, I kept noticing repetitive actions, unnecessary steps, and awkward processes that could be changed. From everyday things to work systems: if an action repeats regularly, there's usually a way to make it simpler or more efficient.</p>
- <p data-i18n="why.p2">The same happens in business. Employees perform many repetitive operations every day: searching for information, processing emails, filling out documents, preparing reports, transferring data between systems. I'm interested in finding the places where a process can be made simpler, faster, and more reliable.</p>
- <p data-i18n="why.p3">My enterprise IT experience taught me to approach this systematically: first understand the task, then describe the process, and only then choose the technology. Today AI has become the next stage of this approach. It lets you build systems that take over routine work and free up time for decisions where a human is genuinely needed.</p>
  </section>
 
  <section id="services">
@@ -287,11 +282,12 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 
  <section>
  <span class="secnum">2.5 // <span data-i18n="process.secnum">PROCESS</span></span>
- <h2 data-i18n="process.title">How the work goes</h2>
+ <h2 data-i18n="process.title">How an implementation project goes</h2>
+ <p data-i18n="process.intro">For consulting and training the path is shorter: a free call, then sessions.</p>
  <div class="accordion" id="process-accordion">
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="process.s1.h">01. First message</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s1.p">You describe the department and task in a couple of sentences. I reply with whether it's worth pursuing and where to start.</div></div>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s1.p">A description of the department and the task in two or three sentences. The reply says whether it is worth doing and where to start.</div></div>
  </div>
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="process.s2.h">02. Audit</span><span class="acc-plus">+</span></button>
@@ -307,9 +303,17 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  </div>
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="process.s5.h">05. Handover</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s5.p">I hand over the solution with documentation. After that, it's up to you: occasional consulting or the next stage of automation.</div></div>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s5.p">The solution is handed over with documentation. After that, as needed: one-off consultations or the next stage of automation.</div></div>
  </div>
  </div>
+ </section>
+
+ <section>
+ <span class="secnum">2.7 // <span data-i18n="why.secnum">WHY I DO THIS</span></span>
+ <h2 data-i18n="why.title">Where this interest comes from</h2>
+ <p data-i18n="why.p1">I've always been interested in finding ways to make processes simpler and more convenient. Even before modern AI tools, I kept noticing repetitive actions, unnecessary steps, and awkward processes that could be changed. From everyday things to work systems: if an action repeats regularly, there's usually a way to make it simpler or more efficient.</p>
+ <p data-i18n="why.p2">The same happens in business. Employees perform many repetitive operations every day: searching for information, processing emails, filling out documents, preparing reports, transferring data between systems. I'm interested in finding the places where a process can be made simpler, faster, and more reliable.</p>
+ <p data-i18n="why.p3">My enterprise IT experience taught me to approach this systematically: first understand the task, then describe the process, and only then choose the technology. Today AI has become the next stage of this approach. It lets you build systems that take over routine work and free up time for decisions where a human is genuinely needed.</p>
  </section>
 
  <section id="products">
@@ -397,7 +401,7 @@ const T = {
  ru: {
  "hero.name":"Артём Холомянский",
  "hero.sub":"Бизнес-аналитик на стороне заказчика: аудит процессов, спецификация, надзор за реализацией. Искусственный интеллект становится полезным только тогда, когда задача описана достаточно точно.",
- "hero.cta_primary":"Обсудить задачу","hero.cta_secondary":"Смотреть проекты","hero.cta_cv":"Скачать CV","hero.cta_calc":"Посчитать эффект",
+ "hero.cta_primary":"Обсудить задачу","hero.cta_secondary":"Смотреть проекты","hero.cta_train":"Обучение на задачах","hero.cv_link":"CV (PDF)","hero.cta_calc":"Посчитать эффект",
  "approach.secnum":"ПОДХОД",
  "approach.lead":"Начинаю с анализа процессов, затем проектирую решение и сопровождаю внедрение до получения стабильного результата.",
  "approach.exp":"11+ лет в enterprise IT энергетического сектора на стороне заказчика, в роли бизнес-аналитика и проектного менеджера. SAP IS-U, SCADA, АСКУЭ, проекты с высокой стоимостью ошибки и жёсткими требованиями к качеству. Работал с проектами компании суммарным бюджетом более $10 млн. Использую современные AI-инструменты и платформы автоматизации: Claude, Claude Code, n8n, API-интеграции и другие технологии, подходящие под конкретную задачу.",
@@ -429,12 +433,12 @@ const T = {
  "articles.more":"Все статьи →",
  "midcta.text":"Готовы посмотреть, где в вашем отделе можно сэкономить время? Опишите задачу в двух-трёх предложениях. Отвечу, стоит ли этим заниматься.",
  "midcta.btn":"Написать →",
- "process.secnum":"ПРОЦЕСС","process.title":"Как проходит работа",
- "process.s1.h":"01. Первое письмо","process.s1.p":"Описываете отдел и задачу в двух-трёх предложениях. В ответ скажу, стоит ли этим заниматься и с чего начать.",
+ "process.secnum":"ПРОЦЕСС","process.title":"Как проходит проект внедрения","process.intro":"Для консультации и обучения путь короче: бесплатный разговор, затем сессии.",
+ "process.s1.h":"01. Первое письмо","process.s1.p":"Описание отдела и задачи в двух-трёх предложениях. В ответ приходит оценка, стоит ли этим заниматься и с чего начать.",
  "process.s2.h":"02. Аудит","process.s2.p":"Изучаются реальные процессы: что люди делают каждый день и сколько это занимает. Результат: карта задач с оценкой, что можно автоматизировать. <a href=\"audit.html\">Форматы и цены аудита →</a> · <a href=\"kalkulator.html\">Калькулятор окупаемости автоматизации →</a>",
  "process.s3.h":"03. Проектирование и спецификация","process.s3.p":"Архитектура решения и точное ТЗ для каждой задачи: вход, выход, правила, что нельзя делать никогда.",
  "process.s4.h":"04. Внедрение","process.s4.p":"Запуск по одной задаче за раз, приёмка тем, кто раньше делал её руками, до стабильного результата.",
- "process.s5.h":"05. Сопровождение","process.s5.p":"Передаю решение с документацией. Дальше по желанию: разовые консультации или следующий этап автоматизации.",
+ "process.s5.h":"05. Сопровождение","process.s5.p":"Решение передаётся с документацией. Дальше по желанию: разовые консультации или следующий этап автоматизации.",
  "faq.secnum":"FAQ","faq.title":"Частые вопросы",
  "faq.q1.h":"Чем занимается AI-консультант?","faq.q1.p":"Разбирает реальные процессы компании, находит задачи, которые можно передать ИИ или автоматизации, проектирует и сопровождает внедрение до стабильного результата.",
  "faq.q2.h":"Как проходит аудит процессов?","faq.q2.p":"Сотрудники фиксируют реальные задачи за неделю. По этим данным строится <a href=\"/ru/glossary/process-map.html\">карта процессов</a> с оценкой, где автоматизация даст эффект, а где риск выше пользы.",
@@ -455,7 +459,7 @@ const T = {
  pl: {
  "hero.name":"Artem Kholomyanskiy",
  "hero.sub":"Analityk biznesowy po stronie klienta: audyt procesów, specyfikacja, nadzór nad wdrożeniem. Sztuczna inteligencja staje się użyteczna dopiero wtedy, gdy zadanie jest opisane wystarczająco precyzyjnie.",
- "hero.cta_primary":"Omów zadanie","hero.cta_secondary":"Zobacz projekty","hero.cta_cv":"Pobierz CV","hero.cta_calc":"Policz efekt",
+ "hero.cta_primary":"Omów zadanie","hero.cta_secondary":"Zobacz projekty","hero.cta_train":"Szkolenie AI","hero.cv_link":"CV (PDF)","hero.cta_calc":"Policz efekt",
  "approach.secnum":"PODEJŚCIE",
  "approach.lead":"Zaczynam od analizy procesów, następnie projektuję rozwiązanie i wspieram wdrożenie aż do uzyskania stabilnego rezultatu.",
  "approach.exp":"11+ lat w enterprise IT sektora energetycznego po stronie zamawiającego, jako analityk biznesowy i kierownik projektu. SAP IS-U, SCADA, systemy pomiarowe, projekty o wysokim koszcie błędu i rygorystycznych wymaganiach jakościowych. Pracowałem przy projektach firmy o łącznym budżecie ponad 10 mln USD. Korzystam z nowoczesnych narzędzi AI i platform automatyzacji: Claude, Claude Code, n8n, integracje API i inne technologie dopasowane do zadania.",
@@ -487,12 +491,12 @@ const T = {
  "articles.more":"Wszystkie artykuły →",
  "midcta.text":"Gotowi sprawdzić, gdzie w Waszym dziale można zaoszczędzić czas? Opiszcie zadanie w dwóch-trzech zdaniach. Odpowiem szczerze, czy warto się tym zajmować.",
  "midcta.btn":"Napisz →",
- "process.secnum":"PROCES","process.title":"Jak przebiega praca",
- "process.s1.h":"01. Pierwsza wiadomość","process.s1.p":"Opisujesz dział i zadanie w dwóch-trzech zdaniach. Odpowiadam, czy warto się tym zająć i od czego zacząć.",
+ "process.secnum":"PROCES","process.title":"Jak przebiega projekt wdrożenia","process.intro":"W przypadku konsultacji i szkolenia ścieżka jest krótsza: bezpłatna rozmowa, potem sesje.",
+ "process.s1.h":"01. Pierwsza wiadomość","process.s1.p":"Opis działu i zadania w dwóch-trzech zdaniach. W odpowiedzi przychodzi ocena, czy warto się tym zająć i od czego zacząć.",
  "process.s2.h":"02. Audyt","process.s2.p":"Analizowane są realne procesy: co ludzie robią na co dzień i ile to zajmuje. Rezultat: mapa zadań z oceną, co można zautomatyzować. <a href=\"audit.html\">Formaty i ceny audytu →</a> · <a href=\"kalkulator.html\">Kalkulator opłacalności automatyzacji →</a>",
  "process.s3.h":"03. Projektowanie i specyfikacja","process.s3.p":"Architektura rozwiązania i precyzyjna specyfikacja dla każdego zadania: wejście, wyjście, reguły, czego nigdy nie wolno robić.",
  "process.s4.h":"04. Wdrożenie","process.s4.p":"Wdrażane po jednym zadaniu naraz, odbierane przez osobę, która wcześniej robiła to ręcznie, aż do uzyskania stabilnego rezultatu.",
- "process.s5.h":"05. Przekazanie","process.s5.p":"Przekazuję rozwiązanie wraz z dokumentacją. Dalej do wyboru: doraźne konsultacje albo kolejny etap automatyzacji.",
+ "process.s5.h":"05. Przekazanie","process.s5.p":"Rozwiązanie jest przekazywane z dokumentacją. Dalej według potrzeb: pojedyncze konsultacje lub kolejny etap automatyzacji.",
  "faq.secnum":"FAQ","faq.title":"Najczęstsze pytania",
  "faq.q1.h":"Czym zajmuje się konsultant AI?","faq.q1.p":"Analizuje rzeczywiste procesy firmy, znajduje zadania, które można przekazać AI lub automatyzacji, projektuje i wspiera wdrożenie aż do stabilnego rezultatu.",
  "faq.q2.h":"Jak przebiega audyt procesów?","faq.q2.p":"Pracownicy przez tydzień notują swoje realne zadania. Na tej podstawie powstaje <a href=\"/pl/glossary/process-map.html\">mapa procesów</a> pokazująca, gdzie automatyzacja się opłaca, a gdzie ryzyko przewyższa korzyść.",
@@ -513,7 +517,7 @@ const T = {
  en: {
  "hero.name":"Artem Kholomyanskiy",
  "hero.sub":"Business analyst on the client side: process audit, specification, implementation oversight. AI becomes useful only when the task is described precisely enough.",
- "hero.cta_primary":"Discuss a task","hero.cta_secondary":"View projects","hero.cta_cv":"Download CV","hero.cta_calc":"Calculate the effect",
+ "hero.cta_primary":"Discuss a task","hero.cta_secondary":"View projects","hero.cta_train":"AI training","hero.cv_link":"CV (PDF)","hero.cta_calc":"Calculate the effect",
  "approach.secnum":"APPROACH",
  "approach.lead":"I start with process analysis, then design the solution and support implementation through to a stable result.",
  "approach.exp":"11+ years in enterprise IT in the energy sector, on the client side, as a business analyst and project manager. SAP IS-U, SCADA, metering systems, projects with high cost of error and strict quality requirements. Worked on company projects with a combined budget of over $10M. I use modern AI tools and automation platforms: Claude, Claude Code, n8n, API integrations, and other technologies suited to the task.",
@@ -545,12 +549,12 @@ const T = {
  "articles.more":"All articles →",
  "midcta.text":"Ready to see where your department could save time? Describe the task in a couple of sentences. I'll give you an honest read on whether it's worth doing.",
  "midcta.btn":"Write →",
- "process.secnum":"PROCESS","process.title":"How the work goes",
- "process.s1.h":"01. First message","process.s1.p":"You describe the department and task in a couple of sentences. I reply with whether it's worth pursuing and where to start.",
+ "process.secnum":"PROCESS","process.title":"How an implementation project goes","process.intro":"For consulting and training the path is shorter: a free call, then sessions.",
+ "process.s1.h":"01. First message","process.s1.p":"A description of the department and the task in two or three sentences. The reply says whether it is worth doing and where to start.",
  "process.s2.h":"02. Audit","process.s2.p":"The focus is on real processes: what people do day to day and how long it takes. Result: a task map with an estimate of what can be automated. <a href=\"audit.html\">Audit formats and prices →</a> · <a href=\"kalkulator.html\">Automation payback calculator →</a>",
  "process.s3.h":"03. Design and specification","process.s3.p":"Solution architecture and a precise spec for each task: input, output, rules, what must never happen.",
  "process.s4.h":"04. Implementation","process.s4.p":"Rolled out one task at a time, accepted by whoever used to do it by hand, until the result is stable.",
- "process.s5.h":"05. Handover","process.s5.p":"I hand over the solution with documentation. After that, it's up to you: occasional consulting or the next stage of automation.",
+ "process.s5.h":"05. Handover","process.s5.p":"The solution is handed over with documentation. After that, as needed: one-off consultations or the next stage of automation.",
  "faq.secnum":"FAQ","faq.title":"Frequently asked questions",
  "faq.q1.h":"What does an AI consultant do?","faq.q1.p":"Analyzes a company's actual processes, finds tasks that can be handed to AI or automation, designs and supports implementation through to a stable result.",
  "faq.q2.h":"How does a process audit work?","faq.q2.p":"Employees log their real tasks for a week. That data builds a <a href=\"/glossary/process-map.html\">process map</a> showing where automation pays off and where the risk outweighs the benefit.",

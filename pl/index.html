@@ -87,6 +87,24 @@
       }
     },
     {
+      "@type": "Service",
+      "@id": "https://kholomyanskiy.com/training.html#service",
+      "name": "Szkolenie AI na Twoich zadaniach",
+      "provider": {
+        "@id": "https://kholomyanskiy.com/#organization"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "minPrice": 250,
+          "priceCurrency": "PLN",
+          "unitCode": "HUR",
+          "valueAddedTaxIncluded": false
+        }
+      }
+    },
+    {
       "@type": "Person",
       "@id": "https://kholomyanskiy.com/#person",
       "name": "Artem Kholomyanskiy",
@@ -260,6 +278,7 @@ footer{max-width:820px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrai
 .hero-cta a.primary:hover{background:transparent;color:var(--ink)}
 .hero-cta a.secondary{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
 .hero-cta a.secondary:hover{background:var(--ink);color:#EDEFF2}
+.hero-cv{margin-top:12px;font-size:13px;color:var(--ink-soft)}
 .secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
 h2{font-family:'Spectral',serif;font-weight:600;font-size:27px;margin-bottom:16px}
 h3{font-family:'Spectral',serif;font-weight:600;font-size:18px;margin-bottom:6px}
@@ -398,9 +417,10 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <div class="hero-cta">
  <a class="primary" href="#contact" data-i18n="hero.cta_primary">Omów zadanie</a>
  <a class="secondary" href="/pl/portfolio.html" data-i18n="hero.cta_secondary">Zobacz projekty</a>
- <a class="secondary" href="/files/CV_Artem_Kholomianskyi.pdf" download data-i18n="hero.cta_cv">Pobierz CV</a>
+ <a class="secondary" href="/pl/training.html" data-i18n="hero.cta_train">Szkolenie AI</a>
  <a class="secondary" href="/pl/kalkulator.html" data-i18n="hero.cta_calc">Policz efekt</a>
  </div>
+ <p class="hero-cv"><a href="/files/CV_Artem_Kholomianskyi.pdf" download data-i18n="hero.cv_link">CV (PDF)</a></p>
  </div>
  <img class="hero-photo" src="/img/photo-hero-150.webp" srcset="/img/photo-hero-150.webp 1x, /img/photo-hero-300.webp 2x" width="150" height="150" alt="Artem Kholomyanskiy, AI consultant">
  </div>
@@ -414,14 +434,6 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <span class="cl-k" data-i18n="approach.philosophy_label">Filozofia</span>
  <span data-i18n="approach.philosophy">Większość problemów przy wdrażaniu AI zaczyna się od niedokładnie opisanego zadania i procesu.</span>
  </div>
- </section>
-
- <section>
- <span class="secnum">0.2 // <span data-i18n="why.secnum">DLACZEGO TO ROBIĘ</span></span>
- <h2 data-i18n="why.title">Skąd to zainteresowanie</h2>
- <p data-i18n="why.p1">Zawsze interesowało mnie szukanie sposobów, by procesy były prostsze i wygodniejsze. Jeszcze przed pojawieniem się nowoczesnych narzędzi AI zauważałem powtarzalne czynności, zbędne kroki i niewygodne procesy, które dało się zmienić. Od codziennych spraw po systemy pracy: jeśli czynność powtarza się regularnie, zwykle istnieje sposób, by zrobić ją prościej lub efektywniej.</p>
- <p data-i18n="why.p2">To samo dzieje się w biznesie. Pracownicy codziennie wykonują wiele powtarzalnych czynności: szukają informacji, przetwarzają maile, wypełniają dokumenty, przygotowują raporty, przenoszą dane między systemami. Interesuje mnie znajdowanie miejsc, gdzie proces można zrobić prostszym, szybszym i bardziej niezawodnym.</p>
- <p data-i18n="why.p3">Doświadczenie w enterprise IT nauczyło mnie podejścia systemowego: najpierw zrozumieć zadanie, potem opisać proces i dopiero wtedy wybrać technologię. Dziś sztuczna inteligencja stała się kolejnym etapem tego podejścia. Pozwala budować systemy, które przejmują rutynę i uwalniają czas na decyzje, w których naprawdę potrzebny jest człowiek.</p>
  </section>
 
  <section id="services">
@@ -464,11 +476,12 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 
  <section>
  <span class="secnum">2.5 // <span data-i18n="process.secnum">PROCES</span></span>
- <h2 data-i18n="process.title">Jak przebiega praca</h2>
+ <h2 data-i18n="process.title">Jak przebiega projekt wdrożenia</h2>
+ <p data-i18n="process.intro">W przypadku konsultacji i szkolenia ścieżka jest krótsza: bezpłatna rozmowa, potem sesje.</p>
  <div class="accordion" id="process-accordion">
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="process.s1.h">01. Pierwsza wiadomość</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s1.p">Opisujesz dział i zadanie w dwóch-trzech zdaniach. Odpowiadam, czy warto się tym zająć i od czego zacząć.</div></div>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s1.p">Opis działu i zadania w dwóch-trzech zdaniach. W odpowiedzi przychodzi ocena, czy warto się tym zająć i od czego zacząć.</div></div>
  </div>
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="process.s2.h">02. Audyt</span><span class="acc-plus">+</span></button>
@@ -484,9 +497,17 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  </div>
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="process.s5.h">05. Przekazanie</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s5.p">Przekazuję rozwiązanie wraz z dokumentacją. Dalej do wyboru: doraźne konsultacje albo kolejny etap automatyzacji.</div></div>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s5.p">Rozwiązanie jest przekazywane z dokumentacją. Dalej według potrzeb: pojedyncze konsultacje lub kolejny etap automatyzacji.</div></div>
  </div>
  </div>
+ </section>
+
+ <section>
+ <span class="secnum">2.7 // <span data-i18n="why.secnum">DLACZEGO TO ROBIĘ</span></span>
+ <h2 data-i18n="why.title">Skąd to zainteresowanie</h2>
+ <p data-i18n="why.p1">Zawsze interesowało mnie szukanie sposobów, by procesy były prostsze i wygodniejsze. Jeszcze przed pojawieniem się nowoczesnych narzędzi AI zauważałem powtarzalne czynności, zbędne kroki i niewygodne procesy, które dało się zmienić. Od codziennych spraw po systemy pracy: jeśli czynność powtarza się regularnie, zwykle istnieje sposób, by zrobić ją prościej lub efektywniej.</p>
+ <p data-i18n="why.p2">To samo dzieje się w biznesie. Pracownicy codziennie wykonują wiele powtarzalnych czynności: szukają informacji, przetwarzają maile, wypełniają dokumenty, przygotowują raporty, przenoszą dane między systemami. Interesuje mnie znajdowanie miejsc, gdzie proces można zrobić prostszym, szybszym i bardziej niezawodnym.</p>
+ <p data-i18n="why.p3">Doświadczenie w enterprise IT nauczyło mnie podejścia systemowego: najpierw zrozumieć zadanie, potem opisać proces i dopiero wtedy wybrać technologię. Dziś sztuczna inteligencja stała się kolejnym etapem tego podejścia. Pozwala budować systemy, które przejmują rutynę i uwalniają czas na decyzje, w których naprawdę potrzebny jest człowiek.</p>
  </section>
 
  <section id="products">

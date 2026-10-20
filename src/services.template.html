@@ -257,7 +257,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  </div>
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="faq.q2.h">How do I choose which service to start with?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q2.p">If you haven't implemented AI yet, start with the audit. If you're implementing a specific task, start with the specification. If you're not sure, write to me.</div></div>
+ <div class="acc-body"><div class="acc-body-inner" data-i18n-html="faq.q2.p">Where to start depends on the need. Advice on a task: <a href="consulting.html">consulting</a>. Building a solution yourself with guidance: <a href="training.html">AI training</a>. Finding out what to automate in a department: <a href="audit.html">audit</a>. The task is clear but the solution isn't: <a href="solution-design.html">solution design</a>. A requirements document for a contractor: <a href="spec.html">specification</a>. The first 30 minutes of the call are free, and that is where the format is chosen.</div></div>
  </div>
  <div class="acc-item">
  <button class="acc-head" type="button"><span data-i18n="faq.q3.h">Can I order just one service without the rest?</span><span class="acc-plus">+</span></button>
@@ -316,7 +316,7 @@ const T = {
  "s6.p2":"План встреч составляется под задачу участника. Число сессий оценивается на бесплатном звонке.","s6.price":"Сессия от 250 zł/час","s6.cta2":"Подробнее и цены →",
  "faq.title":"Частые вопросы",
  "faq.q1.h":"Чем занимается AI-консультант?","faq.q1.p":"Разбирает реальные процессы компании, находит задачи, которые можно передать ИИ или автоматизации, проектирует и сопровождает внедрение до стабильного результата.",
- "faq.q2.h":"Как выбрать, с какой услуги начать?","faq.q2.p":"Если ИИ ещё не внедряли, начните с аудита. Если внедряете конкретную задачу, начните со спецификации. Если не уверены, напишите, подскажу.",
+ "faq.q2.h":"Как выбрать, с какой услуги начать?","faq.q2.p":"Старт зависит от того, что нужно. Совет по задаче: <a href=\"consulting.html\">консультация</a>. Собрать решение самостоятельно под присмотром: <a href=\"training.html\">обучение на задачах</a>. Понять, что автоматизировать в отделе: <a href=\"audit.html\">аудит</a>. Задача понятна, решение нет: <a href=\"solution-design.html\">проектирование</a>. Нужно ТЗ для исполнителя: <a href=\"spec.html\">спецификация</a>. Первые 30 минут разговора бесплатно, на них и выбирается формат.",
  "faq.q3.h":"Можно ли заказать только одну услугу без остальных?","faq.q3.p":"Да, каждая услуга самостоятельна. Полный цикл аудит → проектирование → спецификация → внедрение не обязателен.",
  "faq.q4.h":"С какими инструментами вы работаете?","faq.q4.p":"Claude, Claude Code, n8n, прямые интеграции через API моделей. Набор инструментов подбирается под задачу.",
  "faq.q5.h":"Цены окончательные?","faq.q5.p":"Указаны нижние пороги. Точная стоимость зависит от масштаба и сложности задачи, обсуждается после первого письма.",
@@ -356,7 +356,7 @@ const T = {
  "s6.p2":"Plan spotkań układany jest pod zadanie uczestnika. Liczba sesji jest oceniana na bezpłatnej rozmowie.","s6.price":"Sesja od 250 zł/h","s6.cta2":"Szczegóły i ceny →",
  "faq.title":"Najczęstsze pytania",
  "faq.q1.h":"Czym zajmuje się konsultant AI?","faq.q1.p":"Analizuje rzeczywiste procesy firmy, znajduje zadania, które można przekazać AI lub automatyzacji, projektuje i wspiera wdrożenie aż do stabilnego rezultatu.",
- "faq.q2.h":"Jak wybrać, od której usługi zacząć?","faq.q2.p":"Jeśli AI nie jest jeszcze wdrożone, zacznij od audytu. Jeśli masz konkretne zadanie do wdrożenia, zacznij od specyfikacji. Jeśli nie masz pewności, napisz, a podpowiem.",
+ "faq.q2.h":"Jak wybrać, od której usługi zacząć?","faq.q2.p":"Początek zależy od potrzeby. Porada w sprawie zadania: <a href=\"consulting.html\">konsultacja</a>. Samodzielne zbudowanie rozwiązania pod okiem prowadzącego: <a href=\"training.html\">szkolenie na własnych zadaniach</a>. Ustalenie, co zautomatyzować w dziale: <a href=\"audit.html\">audyt</a>. Zadanie jasne, rozwiązanie nie: <a href=\"solution-design.html\">projektowanie</a>. Potrzebny opis wymagań dla wykonawcy: <a href=\"spec.html\">specyfikacja</a>. Pierwsze 30 minut rozmowy są bezpłatne, na nich wybiera się format.",
  "faq.q3.h":"Czy mogę zamówić tylko jedną usługę bez pozostałych?","faq.q3.p":"Tak, każda usługa jest samodzielna. Pełny cykl audyt → projektowanie → specyfikacja → wdrożenie nie jest obowiązkowy.",
  "faq.q4.h":"Z jakimi narzędziami pracujesz?","faq.q4.p":"Claude, Claude Code, n8n, bezpośrednie integracje API z modelami. Zestaw narzędzi dobiera się do zadania.",
  "faq.q5.h":"Czy ceny są ostateczne?","faq.q5.p":"To progi startowe. Dokładny koszt zależy od skali i złożoności zadania, ustalany po pierwszej wiadomości.",
@@ -396,7 +396,7 @@ const T = {
  "s6.p2":"The meeting plan is built around the participant's task. The number of sessions is estimated on the free call.","s6.price":"Session from 250 zł/hour","s6.cta2":"Details and pricing →",
  "faq.title":"Frequently asked questions",
  "faq.q1.h":"What does an AI consultant do?","faq.q1.p":"Analyzes a company's actual processes, finds tasks that can be handed to AI or automation, designs and supports implementation through to a stable result.",
- "faq.q2.h":"How do I choose which service to start with?","faq.q2.p":"If you haven't implemented AI yet, start with the audit. If you're implementing a specific task, start with the specification. If you're not sure, write to me.",
+ "faq.q2.h":"How do I choose which service to start with?","faq.q2.p":"Where to start depends on the need. Advice on a task: <a href=\"consulting.html\">consulting</a>. Building a solution yourself with guidance: <a href=\"training.html\">AI training</a>. Finding out what to automate in a department: <a href=\"audit.html\">audit</a>. The task is clear but the solution isn't: <a href=\"solution-design.html\">solution design</a>. A requirements document for a contractor: <a href=\"spec.html\">specification</a>. The first 30 minutes of the call are free, and that is where the format is chosen.",
  "faq.q3.h":"Can I order just one service without the rest?","faq.q3.p":"Yes, each service is standalone. The full cycle (audit → design → spec → implementation) isn't required.",
  "faq.q4.h":"What tools do you work with?","faq.q4.p":"Claude, Claude Code, n8n, direct API integrations with models. The toolset is chosen to fit the task.",
  "faq.q5.h":"Are the prices final?","faq.q5.p":"These are starting thresholds. The exact cost depends on scale and complexity, discussed after the first message.",
