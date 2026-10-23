@@ -256,6 +256,15 @@ body{
 .tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 32px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
 section{padding:40px 32px;border-bottom:1px solid var(--line);scroll-margin-top:70px}
 p{max-width:620px;margin-bottom:14px}
+section > p,.prose > p,.svc-block > p,.case-block > p,.prod-block > p,.tb-main .sub{max-width:none}
+@media (min-width:600px){section > p,.prose > p:not(hr ~ p),.svc-block > p,.case-block > p,.prod-block > p,.author > p{text-align:justify;hyphens:auto;-webkit-hyphens:auto}}
+section :is(p,li,dd):not(.section-more) a,section :is(p,li,dd):not(.section-more) a:visited{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
+section :is(p,li,dd):not(.section-more) a:hover{color:var(--blue);text-decoration-color:var(--blue)}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px;background:var(--line);border:1px solid var(--line);margin-top:16px}
+.tier{background:var(--panel);padding:16px 18px}
+.tier .tier-name{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:6px}
+.tier .tier-price{font-family:'Spectral',serif;font-weight:600;font-size:20px;margin-bottom:6px}
+.tier p{font-size:13.5px;color:var(--ink-soft);margin-bottom:0;max-width:none}
 .closing-cta{background:var(--ink);color:#EDEFF2;padding:44px 32px;text-align:center}
 .closing-cta h2{color:#fff;margin-bottom:10px}
 footer{max-width:820px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
@@ -270,7 +279,7 @@ footer{max-width:820px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrai
 .tb-main .tb-text{flex:1;min-width:0}
 .tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,4.5vw,40px);line-height:1.12;max-width:640px}
 .tb-main h1 em{font-style:normal;color:var(--blue)}
-.tb-main .sub{margin-top:16px;max-width:560px;color:var(--ink-soft);font-size:17.5px}
+.tb-main .sub{margin-top:16px;color:var(--ink-soft);font-size:17.5px}
 .hero-photo{width:150px;height:150px;object-fit:cover;flex-shrink:0;border:1.5px solid var(--ink)}
 .hero-cta{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
 .hero-cta a{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;padding:12px 22px;text-decoration:none;display:inline-block}
@@ -350,6 +359,8 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  section,.tb-main{padding-left:20px;padding-right:20px}
  .tb-main{flex-direction:column-reverse}
  .hero-photo{width:96px;height:96px}
+ .hero-cta{flex-direction:column}
+ .hero-cta a{text-align:center}
 }
 </style>
 <link rel="canonical" href="https://kholomyanskiy.com/pl/">
