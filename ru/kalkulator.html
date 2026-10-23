@@ -715,7 +715,7 @@ var MSG = {
       try { history.replaceState(null, '', location.pathname + search + location.hash); } catch (e) {}
     }, 400);
     // переключатель языка несёт текущие цифры (ТЗ 10: смена языка не сбрасывает ввод)
-    document.querySelectorAll('.spec-lang-btn').forEach(function(a) {
+    document.querySelectorAll('.lang-btn').forEach(function(a) {
       if (!a.dataset.base) a.dataset.base = (a.getAttribute('href') || '').split('?')[0];
       if (a.dataset.base) a.setAttribute('href', a.dataset.base + search);
     });
