@@ -292,7 +292,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <section>
  <span class="secnum" data-i18n="s2.num">2.0 // STAGE 1</span>
  <h2 data-i18n="s2.h">Audit: a work-week snapshot</h2>
- <p data-i18n="s2.p1">For one week, every employee logs their tasks: what they did, how often, how many minutes. Five minutes at the end of the day, a simple table. A week later you have a map of what the department actually does.</p>
+ <p data-i18n-html="s2.p1">For one week, every employee logs their tasks: what they did, how often, how many minutes. Five minutes at the end of the day, a simple table. A week later you have <a href="/glossary/process-map.html">a map</a> of what the department actually does.</p>
 
  <table class="daylog" aria-label="Example of a work-day log">
  <thead><tr><th data-i18n="s2.th1">Task</th><th data-i18n="s2.th2">Times/week</th><th data-i18n="s2.th3">Min per time</th><th data-i18n="s2.th4">Total h/week</th></tr></thead>
@@ -325,23 +325,23 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  </figure>
 
  <p data-i18n="s3.p2">Partial mode is better to start with than full automation: the employee sees where the machine gets it wrong and learns to manage it.</p>
- <p data-i18n="s3.p3">The output of this stage: a short list of tasks with an estimate of freed-up hours. Instead of &quot;we&#x27;re adopting AI in general,&quot; you get three specific places where it pays off.</p>
+ <p data-i18n-html="s3.p3">The output of this stage: a short list of tasks with <a href="/kalkulator.html">an estimate of freed-up hours</a>. Instead of "we're adopting AI in general," you get three specific places where it pays off.</p>
  </section>
 
  <section>
  <span class="secnum" data-i18n="s4.num">4.0 // STAGE 3</span>
  <h2 data-i18n="s4.h">Specification: why it doesn&#x27;t work without a spec</h2>
  <p data-i18n="s4.p1">The most underrated part. AI does what&#x27;s written. It doesn&#x27;t do what you meant. A vague brief produces a vague result, and the brief is what&#x27;s at fault: the machine did its job.</p>
- <p data-i18n="s4.p2">Every task you automate needs a short document: what&#x27;s the input, what&#x27;s the output, what are the rules, what must never happen. I call that last part invariants: boundaries the machine never crosses, no matter what. Never send an email without human review. Never change data in the accounting system. Never promise a client a deadline.</p>
+ <p data-i18n-html="s4.p2">Every task you automate needs <a href="/glossary/ai-specification.html">a short document</a>: what's the input, what's the output, what are the rules, what must never happen. I call that last part invariants: boundaries the machine never crosses, no matter what. Never send an email without human review. Never change data in the accounting system. Never promise a client a deadline.</p>
  <p data-i18n="s4.p3">Here&#x27;s what that looks like for &quot;drafting replies to client emails.&quot; Input: the client&#x27;s email and the thread history. Output: a draft reply in the &quot;For Review&quot; folder. Invariants: never send without human approval, never quote prices or deadlines, never answer complaints, which go straight to a human. Five lines, and the machine&#x27;s behavior is already predictable.</p>
- <p data-i18n-html="s4.p4">For complex systems, I develop an open standard for these specifications, <a href="https://github.com/Kholomyanskiy/anss-standard">ANSS</a>. For one office task, a page of text is enough. But that page has to exist.</p>
+ <p data-i18n-html="s4.p4">For complex systems, I develop an open standard for these specifications, <a href="/anss.html">ANSS</a>. For one office task, a page of text is enough. But that page has to exist.</p>
  </section>
 
  <section>
  <span class="secnum" data-i18n="s5.num">5.0 // STAGE 4</span>
  <h2 data-i18n="s5.h">Rollout and acceptance</h2>
- <p data-i18n="s5.p1">Roll out one task at a time. The temptation to launch everything at once is strong, and few resist it. The result is always the same: chaos and rollback.</p>
- <p data-i18n="s5.p2">Acceptance is done by whoever used to do the task by hand: they&#x27;re the best judge of where the machine is cutting corners. Agree on the criteria upfront: what counts as &quot;working.&quot; Two weeks of running in parallel: human and machine do the same thing, and the results are compared. Then the human shifts into a supervisory role.</p>
+ <p data-i18n-html="s5.p1"><a href="/implementation.html">Roll out one task at a time</a>. The temptation to launch everything at once is strong, and few resist it. The result is always the same: chaos and rollback.</p>
+ <p data-i18n-html="s5.p2">Acceptance is done by whoever used to do the task by hand: they're the best judge of where the machine is cutting corners. Agree on <a href="/glossary/acceptance-criteria.html">the criteria</a> upfront: what counts as "working." <a href="/glossary/pilot.html">Two weeks of running in parallel</a>: human and machine do the same thing, and the results are compared. Then the human shifts into a supervisory role.</p>
  <p data-i18n="s5.p3">Something good comes out of this too: the employee who went through this cycle starts finding the next tasks to automate on their own. You end up with more than one agent: you get a person who knows how to commission them.</p>
  </section>
 
@@ -365,7 +365,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  </figure>
 
  <p data-i18n="s7.p2">The hidden risk has a name: reserve criticality. People in a company do more than what shows up in a spreadsheet. They hold knowledge that&#x27;s nowhere in the documentation. They cover the fire drills. Cut support down to the bone because &quot;AI handles routine tickets now,&quot; and the first major outage will show you the price of that decision: there are no routine tickets during an outage, and the people who knew how to handle the non-routine ones are already gone.</p>
- <p data-i18n="s7.p3">That&#x27;s why an honest audit gives every role two estimates: how many hours it frees up in normal mode, and what happens in an abnormal one if those people aren&#x27;t there. Almost nobody makes the second estimate, and that&#x27;s a mistake: the losses from a single outage can wipe out a year of payroll savings.</p>
+ <p data-i18n-html="s7.p3">That's why <a href="/glossary/process-audit.html">an honest audit</a> gives every role two estimates: how many hours it frees up in normal mode, and what happens in an abnormal one if those people aren't there. Almost nobody makes the second estimate, and that's a mistake: the losses from a single outage can wipe out a year of payroll savings.</p>
  <p data-i18n="s7.p4">The reverse is also true. Caution is itself a risk: a competitor who cuts payroll hard wins on price here and now, and in a mature, non-growing market, scenario A performs worse than it would in a growing one. This section isn&#x27;t an argument for kindness. Every scenario has a gain and a price, and you need to count both before choosing. The ones who lose are usually the ones who only counted one.</p>
  </section>
 
@@ -380,7 +380,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <div class="cta">
  <span class="secnum" style="color:#7FA8CC" data-i18n="s9.num">9.0 // WHAT&#x27;S NEXT</span>
  <h2 data-i18n="s9.h">Do it yourself, with the book, or with a guide</h2>
- <p data-i18n="s9.p1">You can go through the five stages on your own, and this guide is enough for that. One warning: self-run audits often degrade into a formality, because employees fill out tables for the boss, and the boss has no time to check them. An outside person is there to make sure the data is real. Employees describe their week more honestly to someone who has no say over their bonus or position. And a fresh pair of eyes notices routine work that people inside stopped seeing long ago.</p>
+ <p data-i18n-html="s9.p1">You can go through the five stages on your own, and this guide is enough for that. If you'd rather go through the stages yourself but with support, there is <a href="/training.html">AI training on your own tasks</a>: you build the solution yourself, and a consultant guides the work. One warning: self-run audits often degrade into a formality, because employees fill out tables for the boss, and the boss has no time to check them. An outside person is there to make sure the data is real. Employees describe their week more honestly to someone who has no say over their bonus or position. And a fresh pair of eyes notices routine work that people inside stopped seeing long ago.</p>
  <p data-i18n="s9.p2">I run these audits: a work-week snapshot, a task map, an automation matrix, a capacity and risk calculation across three scenarios, a rollout plan, and a recommendation on which task to start with. From seven days for one role, three to four weeks for a department.</p>
  <p data-i18n="s9.p3">If you&#x27;d like to discuss an audit for your department, get in touch.</p>
  <a class="btn" href="https://aimethodology.gumroad.com/l/ai-v-otdele" style="margin-right:12px" data-i18n="s9.cta1">Full version →</a>

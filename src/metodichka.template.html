@@ -153,7 +153,7 @@ footer{max-width:820px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrai
  <section>
  <span class="secnum" data-i18n="s2.num">2.0 // STAGE 1</span>
  <h2 data-i18n="s2.h">Audit: a work-week snapshot</h2>
- <p data-i18n="s2.p1">For one week, every employee logs their tasks: what they did, how often, how many minutes. Five minutes at the end of the day, a simple table. A week later you have a map of what the department actually does.</p>
+ <p data-i18n-html="s2.p1">For one week, every employee logs their tasks: what they did, how often, how many minutes. Five minutes at the end of the day, a simple table. A week later you have <a href="/glossary/process-map.html">a map</a> of what the department actually does.</p>
 
  <table class="daylog" aria-label="Example of a work-day log">
  <thead><tr><th data-i18n="s2.th1">Task</th><th data-i18n="s2.th2">Times/week</th><th data-i18n="s2.th3">Min per time</th><th data-i18n="s2.th4">Total h/week</th></tr></thead>
@@ -186,23 +186,23 @@ footer{max-width:820px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrai
  </figure>
 
  <p data-i18n="s3.p2">Partial mode is better to start with than full automation: the employee sees where the machine gets it wrong and learns to manage it.</p>
- <p data-i18n="s3.p3">The output of this stage: a short list of tasks with an estimate of freed-up hours. Instead of "we're adopting AI in general," you get three specific places where it pays off.</p>
+ <p data-i18n-html="s3.p3">The output of this stage: a short list of tasks with <a href="/kalkulator.html">an estimate of freed-up hours</a>. Instead of "we're adopting AI in general," you get three specific places where it pays off.</p>
  </section>
 
  <section>
  <span class="secnum" data-i18n="s4.num">4.0 // STAGE 3</span>
  <h2 data-i18n="s4.h">Specification: why it doesn't work without a spec</h2>
  <p data-i18n="s4.p1">The most underrated part. AI does what's written. It doesn't do what you meant. A vague brief produces a vague result, and the brief is what's at fault: the machine did its job.</p>
- <p data-i18n="s4.p2">Every task you automate needs a short document: what's the input, what's the output, what are the rules, what must never happen. I call that last part invariants: boundaries the machine never crosses, no matter what. Never send an email without human review. Never change data in the accounting system. Never promise a client a deadline.</p>
+ <p data-i18n-html="s4.p2">Every task you automate needs <a href="/glossary/ai-specification.html">a short document</a>: what's the input, what's the output, what are the rules, what must never happen. I call that last part invariants: boundaries the machine never crosses, no matter what. Never send an email without human review. Never change data in the accounting system. Never promise a client a deadline.</p>
  <p data-i18n="s4.p3">Here's what that looks like for "drafting replies to client emails." Input: the client's email and the thread history. Output: a draft reply in the "For Review" folder. Invariants: never send without human approval, never quote prices or deadlines, never answer complaints, which go straight to a human. Five lines, and the machine's behavior is already predictable.</p>
- <p data-i18n-html="s4.p4">For complex systems, I develop an open standard for these specifications, <a href="https://github.com/Kholomyanskiy/anss-standard">ANSS</a>. For one office task, a page of text is enough. But that page has to exist.</p>
+ <p data-i18n-html="s4.p4">For complex systems, I develop an open standard for these specifications, <a href="/anss.html">ANSS</a>. For one office task, a page of text is enough. But that page has to exist.</p>
  </section>
 
  <section>
  <span class="secnum" data-i18n="s5.num">5.0 // STAGE 4</span>
  <h2 data-i18n="s5.h">Rollout and acceptance</h2>
- <p data-i18n="s5.p1">Roll out one task at a time. The temptation to launch everything at once is strong, and few resist it. The result is always the same: chaos and rollback.</p>
- <p data-i18n="s5.p2">Acceptance is done by whoever used to do the task by hand: they're the best judge of where the machine is cutting corners. Agree on the criteria upfront: what counts as "working." Two weeks of running in parallel: human and machine do the same thing, and the results are compared. Then the human shifts into a supervisory role.</p>
+ <p data-i18n-html="s5.p1"><a href="/implementation.html">Roll out one task at a time</a>. The temptation to launch everything at once is strong, and few resist it. The result is always the same: chaos and rollback.</p>
+ <p data-i18n-html="s5.p2">Acceptance is done by whoever used to do the task by hand: they're the best judge of where the machine is cutting corners. Agree on <a href="/glossary/acceptance-criteria.html">the criteria</a> upfront: what counts as "working." <a href="/glossary/pilot.html">Two weeks of running in parallel</a>: human and machine do the same thing, and the results are compared. Then the human shifts into a supervisory role.</p>
  <p data-i18n="s5.p3">Something good comes out of this too: the employee who went through this cycle starts finding the next tasks to automate on their own. You end up with more than one agent: you get a person who knows how to commission them.</p>
  </section>
 
@@ -226,7 +226,7 @@ footer{max-width:820px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrai
  </figure>
 
  <p data-i18n="s7.p2">The hidden risk has a name: reserve criticality. People in a company do more than what shows up in a spreadsheet. They hold knowledge that's nowhere in the documentation. They cover the fire drills. Cut support down to the bone because "AI handles routine tickets now," and the first major outage will show you the price of that decision: there are no routine tickets during an outage, and the people who knew how to handle the non-routine ones are already gone.</p>
- <p data-i18n="s7.p3">That's why an honest audit gives every role two estimates: how many hours it frees up in normal mode, and what happens in an abnormal one if those people aren't there. Almost nobody makes the second estimate, and that's a mistake: the losses from a single outage can wipe out a year of payroll savings.</p>
+ <p data-i18n-html="s7.p3">That's why <a href="/glossary/process-audit.html">an honest audit</a> gives every role two estimates: how many hours it frees up in normal mode, and what happens in an abnormal one if those people aren't there. Almost nobody makes the second estimate, and that's a mistake: the losses from a single outage can wipe out a year of payroll savings.</p>
  <p data-i18n="s7.p4">The reverse is also true. Caution is itself a risk: a competitor who cuts payroll hard wins on price here and now, and in a mature, non-growing market, scenario A performs worse than it would in a growing one. This section isn't an argument for kindness. Every scenario has a gain and a price, and you need to count both before choosing. The ones who lose are usually the ones who only counted one.</p>
  </section>
 
@@ -241,7 +241,7 @@ footer{max-width:820px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrai
  <div class="cta">
  <span class="secnum" style="color:#7FA8CC" data-i18n="s9.num">9.0 // WHAT'S NEXT</span>
  <h2 data-i18n="s9.h">Do it yourself, with the book, or with a guide</h2>
- <p data-i18n="s9.p1">You can go through the five stages on your own, and this guide is enough for that. One warning: self-run audits often degrade into a formality, because employees fill out tables for the boss, and the boss has no time to check them. An outside person is there to make sure the data is real. Employees describe their week more honestly to someone who has no say over their bonus or position. And a fresh pair of eyes notices routine work that people inside stopped seeing long ago.</p>
+ <p data-i18n-html="s9.p1">You can go through the five stages on your own, and this guide is enough for that. If you'd rather go through the stages yourself but with support, there is <a href="/training.html">AI training on your own tasks</a>: you build the solution yourself, and a consultant guides the work. One warning: self-run audits often degrade into a formality, because employees fill out tables for the boss, and the boss has no time to check them. An outside person is there to make sure the data is real. Employees describe their week more honestly to someone who has no say over their bonus or position. And a fresh pair of eyes notices routine work that people inside stopped seeing long ago.</p>
  <p data-i18n="s9.p2">I run these audits: a work-week snapshot, a task map, an automation matrix, a capacity and risk calculation across three scenarios, a rollout plan, and a recommendation on which task to start with. From seven days for one role, three to four weeks for a department.</p>
  <p data-i18n="s9.p3">If you'd like to discuss an audit for your department, get in touch.</p>
  <a class="btn" href="https://aimethodology.gumroad.com/l/ai-v-otdele" style="margin-right:12px" data-i18n="s9.cta1">Full version →</a>
@@ -285,7 +285,7 @@ var T = {
     's1.p4': 'Вывод простой: внедрение начинается с наблюдения, покупка идёт после.',
 
     's2.num': '2.0 // ЭТАП 1', 's2.h': 'Аудит: фотография рабочей недели',
-    's2.p1': 'Каждый сотрудник в течение недели записывает свои задачи. Что делал, как часто, сколько минут. Пять минут в конце дня, простая таблица. Через неделю у вас карта того, чем отдел занят на самом деле.',
+    's2.p1': 'Каждый сотрудник в течение недели записывает свои задачи. Что делал, как часто, сколько минут. Пять минут в конце дня, простая таблица. Через неделю у вас <a href="/ru/glossary/process-map.html">карта</a> того, чем отдел занят на самом деле.',
     's2.th1': 'Задача', 's2.th2': 'Раз/нед', 's2.th3': 'Мин за раз', 's2.th4': 'Итого ч/нед',
     's2.row1': 'Отчёт для руководства из CRM',
     's2.row2': 'Ответы на типовые письма клиентов',
@@ -302,17 +302,17 @@ var T = {
     's3.p1': 'Теперь по каждой задаче из карты три вопроса. Повторяется ли она регулярно и по одинаковой схеме? Сколько стоит час человека, который её делает? Что случится, если машина ошибётся?',
     's3.fig3_cap': 'РИС. 3 — Матрица отбора. Красная зона выглядит привлекательно по трудозатратам, трогать её первой не стоит.',
     's3.p2': 'Частичный режим для начала лучше полного: сотрудник видит, где машина ошибается, и учится ей управлять.',
-    's3.p3': 'Результат этапа: короткий список задач с оценкой высвобождаемых часов. Вместо «внедряем ИИ вообще» получаете три конкретных места, где он окупится.',
+    's3.p3': 'Результат этапа: короткий список задач с <a href="/ru/kalkulator.html">оценкой высвобождаемых часов</a>. Вместо «внедряем ИИ вообще» получаете три конкретных места, где он окупится.',
 
     's4.num': '4.0 // ЭТАП 3', 's4.h': 'Спецификация: почему без ТЗ не работает',
     's4.p1': 'Самая недооценённая часть. ИИ выполняет написанное. То, что имелось в виду, он не выполняет. Расплывчатая постановка даёт расплывчатый результат, и винить тут стоит постановку, машина своё отработала.',
-    's4.p2': 'Для каждой автоматизируемой задачи нужен короткий документ. Что на входе, что на выходе, по каким правилам, чего делать нельзя никогда. Последний пункт называю инвариантами: границы, которые машина не пересекает ни при каких условиях. Не отправлять письмо без проверки человеком. Не менять данные в бухгалтерской системе. Не обещать клиенту сроки.',
+    's4.p2': 'Для каждой автоматизируемой задачи нужен <a href="/ru/glossary/ai-specification.html">короткий документ</a>. Что на входе, что на выходе, по каким правилам, чего делать нельзя никогда. Последний пункт называю инвариантами: границы, которые машина не пересекает ни при каких условиях. Не отправлять письмо без проверки человеком. Не менять данные в бухгалтерской системе. Не обещать клиенту сроки.',
     's4.p3': 'Как это выглядит для задачи «черновики ответов на письма клиентов». Вход: письмо клиента и история переписки. Выход: черновик ответа в папке «На проверку». Инварианты: не отправлять без утверждения человеком, не называть цены и сроки, не отвечать на претензии, их сразу человеку. Пять строк, а поведение машины уже предсказуемо.',
-    's4.p4': 'Для сложных систем я развиваю открытый стандарт таких спецификаций, <a href="https://github.com/Kholomyanskiy/anss-standard">ANSS</a>. Для одной офисной задачи хватит страницы текста. Но страница должна быть.',
+    's4.p4': 'Для сложных систем я развиваю открытый стандарт таких спецификаций, <a href="/ru/anss.html">ANSS</a>. Для одной офисной задачи хватит страницы текста. Но страница должна быть.',
 
     's5.num': '5.0 // ЭТАП 4', 's5.h': 'Внедрение и приёмка',
-    's5.p1': 'Внедряйте по одной задаче. Соблазн запустить всё сразу велик, и мало кто ему противостоит. Результат всегда одинаковый: хаос и откат.',
-    's5.p2': 'Приёмку делает тот, кто задачу выполнял руками. Он лучше всех видит, где машина халтурит. Заранее договоритесь о критериях: что считается «работает». Две недели параллельного режима: человек и машина делают одно и то же, результаты сравниваются. Потом человек переходит в режим контроля.',
+    's5.p1': '<a href="/ru/implementation.html">Внедряйте по одной задаче</a>. Соблазн запустить всё сразу велик, и мало кто ему противостоит. Результат всегда одинаковый: хаос и откат.',
+    's5.p2': 'Приёмку делает тот, кто задачу выполнял руками. Он лучше всех видит, где машина халтурит. Заранее договоритесь <a href="/ru/glossary/acceptance-criteria.html">о критериях</a>: что считается «работает». <a href="/ru/glossary/pilot.html">Две недели параллельного режима</a>: человек и машина делают одно и то же, результаты сравниваются. Потом человек переходит в режим контроля.',
     's5.p3': 'Здесь же выясняется приятное: сотрудник, прошедший этот цикл, дальше сам находит следующие задачи для автоматизации. Вы получили больше, чем одного агента: у вас появился человек, который умеет их заказывать.',
 
     's6.num': '6.0 // ЭТАП 5', 's6.h': 'Масштабирование',
@@ -325,7 +325,7 @@ var T = {
     's7.p1': 'Аудит покажет, что отдел из десяти человек высвобождает, скажем, тридцать процентов мощности. Дальше у руководителя три пути, и выбирать стоит на цифрах.',
     's7.fig4_cap': 'РИС. 4 — Три сценария. Синее: выгода в штатном режиме. Красное: скрытый риск в нештатном.',
     's7.p2': 'Скрытый риск называется резервной критичностью. Люди в компании заняты не только тем, что видно в таблице. Они держат в голове знания, которых нет в документации. Они закрывают авралы. Сократите техподдержку до минимума, потому что «типовые заявки теперь разбирает ИИ», и первая же массовая авария покажет цену решения: типовых заявок в аварию не бывает, а людей, которые умели разбирать нетиповые, уже нет.',
-    's7.p3': 'Поэтому в честном аудите у каждой роли две оценки. Сколько часов освобождается в обычном режиме. И что произойдёт в нештатном, если этих людей не будет. Вторую оценку почти никто не делает, а зря: убытки от одного простоя могут съесть экономию на зарплатах за год.',
+    's7.p3': 'Поэтому в <a href="/ru/glossary/process-audit.html">честном аудите</a> у каждой роли две оценки. Сколько часов освобождается в обычном режиме. И что произойдёт в нештатном, если этих людей не будет. Вторую оценку почти никто не делает, а зря: убытки от одного простоя могут съесть экономию на зарплатах за год.',
     's7.p4': 'Обратное тоже верно. Осторожность сама по себе риск: конкурент, жёстко срезавший ФОТ, выигрывает по цене здесь и сейчас, а на зрелом рынке без роста сценарий А работает хуже, чем на растущем. Аргумент этого раздела не про доброту. У каждого сценария есть выгода и цена, и считать нужно обе, прежде чем выбирать. Проигрывают обычно те, кто посчитал только одну.',
 
     's8.num': '8.0 // КОМАНДА', 's8.h': 'Коммуникация: без неё всё остальное бесполезно',
@@ -335,7 +335,7 @@ var T = {
     's8.remember_p': 'Один показательный «оптимизированный» после аудита, и следующего честного аудита в этой компании не будет никогда.',
 
     's9.num': '9.0 // ЧТО ДАЛЬШЕ', 's9.h': 'Пройти самим, с книгой или с проводником',
-    's9.p1': 'Пять этапов можно пройти самостоятельно, методички для этого достаточно. Одно предупреждение: самостоятельные аудиты часто вырождаются в формальность, потому что сотрудники пишут таблицы для начальника, а начальнику некогда проверять. Внешний человек нужен, чтобы данные были настоящими. Постороннему, от которого не зависят премия и должность, сотрудники описывают свою неделю честнее. А свежий взгляд замечает рутину, которую внутри давно перестали видеть.',
+    's9.p1': 'Пять этапов можно пройти самостоятельно, методички для этого достаточно. Если хочется пройти этапы самому, но с поддержкой, есть <a href="/ru/training.html">обучение на ваших задачах</a>: вы собираете решение сами, консультант ведёт. Одно предупреждение: самостоятельные аудиты часто вырождаются в формальность, потому что сотрудники пишут таблицы для начальника, а начальнику некогда проверять. Внешний человек нужен, чтобы данные были настоящими. Постороннему, от которого не зависят премия и должность, сотрудники описывают свою неделю честнее. А свежий взгляд замечает рутину, которую внутри давно перестали видеть.',
     's9.p2': 'Я делаю такие аудиты: фотография рабочей недели, карта задач, матрица автоматизации, расчёт мощности и рисков по трём сценариям, план внедрения и рекомендация, с какой задачи начать. От семи дней на одну роль, три-четыре недели на отдел.',
     's9.p3': 'Если хочется обсудить аудит вашего отдела, напишите.',
     's9.cta1': 'Полная версия →', 's9.cta2': 'Написать письмо', 's9.alt_prefix': 'или',
@@ -374,7 +374,7 @@ var T = {
     's1.p4': 'Wniosek jest prosty: wdrożenie zaczyna się od obserwacji, zakup przychodzi potem.',
 
     's2.num': '2.0 // ETAP 1', 's2.h': 'Audyt: fotografia tygodnia pracy',
-    's2.p1': 'Przez tydzień każdy pracownik zapisuje swoje zadania: co robił, jak często, ile minut. Pięć minut na koniec dnia, prosta tabela. Po tygodniu masz mapę tego, czym dział naprawdę się zajmuje.',
+    's2.p1': 'Przez tydzień każdy pracownik zapisuje swoje zadania: co robił, jak często, ile minut. Pięć minut na koniec dnia, prosta tabela. Po tygodniu masz <a href="/pl/glossary/process-map.html">mapę</a> tego, czym dział naprawdę się zajmuje.',
     's2.th1': 'Zadanie', 's2.th2': 'Razy/tydz.', 's2.th3': 'Min za raz', 's2.th4': 'Razem godz./tydz.',
     's2.row1': 'Raport dla zarządu z CRM',
     's2.row2': 'Odpowiedzi na typowe maile klientów',
@@ -391,17 +391,17 @@ var T = {
     's3.p1': 'Teraz do każdego zadania z mapy zadaj trzy pytania. Czy powtarza się regularnie, za każdym razem tak samo? Ile kosztuje godzina osoby, która je wykonuje? Co się stanie, jeśli maszyna się pomyli?',
     's3.fig3_cap': 'RYS. 3 — Macierz doboru. Czerwona strefa wygląda atrakcyjnie pod względem oszczędzonego wysiłku, ale nie od niej warto zaczynać.',
     's3.p2': 'Tryb częściowy na start jest lepszy niż pełna automatyzacja: pracownik widzi, gdzie maszyna się myli, i uczy się nią zarządzać.',
-    's3.p3': 'Rezultat tego etapu: krótka lista zadań z oceną uwalnianych godzin. Zamiast „wdrażamy AI w ogóle” dostajesz trzy konkretne miejsca, gdzie się to opłaca.',
+    's3.p3': 'Rezultat tego etapu: krótka lista zadań z <a href="/pl/kalkulator.html">oceną uwalnianych godzin</a>. Zamiast „wdrażamy AI w ogóle” dostajesz trzy konkretne miejsca, gdzie się to opłaca.',
 
     's4.num': '4.0 // ETAP 3', 's4.h': 'Specyfikacja: dlaczego bez niej nic nie działa',
     's4.p1': 'Najbardziej niedoceniana część. AI robi to, co napisane. Nie robi tego, co miałeś na myśli. Niejasne polecenie daje niejasny rezultat, i to polecenie jest winne: maszyna zrobiła swoje.',
-    's4.p2': 'Każde automatyzowane zadanie potrzebuje krótkiego dokumentu: co na wejściu, co na wyjściu, według jakich reguł, czego nigdy nie wolno robić. Ten ostatni punkt nazywam niezmiennikami. To granice, których maszyna nie przekracza w żadnych okolicznościach. Nie wysyłać maila bez weryfikacji przez człowieka. Nie zmieniać danych w systemie księgowym. Nie obiecywać klientowi terminów.',
+    's4.p2': 'Każde automatyzowane zadanie potrzebuje <a href="/pl/glossary/ai-specification.html">krótkiego dokumentu</a>: co na wejściu, co na wyjściu, według jakich reguł, czego nigdy nie wolno robić. Ten ostatni punkt nazywam niezmiennikami. To granice, których maszyna nie przekracza w żadnych okolicznościach. Nie wysyłać maila bez weryfikacji przez człowieka. Nie zmieniać danych w systemie księgowym. Nie obiecywać klientowi terminów.',
     's4.p3': 'Tak to wygląda dla zadania „szkice odpowiedzi na maile klientów”. Wejście: mail klienta i historia korespondencji. Wyjście: szkic odpowiedzi w folderze „Do sprawdzenia”. Niezmienniki: nie wysyłać bez zatwierdzenia przez człowieka, nie podawać cen ani terminów, nie odpowiadać na reklamacje, bo te trafiają od razu do człowieka. Pięć linijek, a zachowanie maszyny jest już przewidywalne.',
-    's4.p4': 'Dla złożonych systemów rozwijam otwarty standard takich specyfikacji, <a href="https://github.com/Kholomyanskiy/anss-standard">ANSS</a>. Dla jednego biurowego zadania wystarczy strona tekstu. Ale ta strona musi istnieć.',
+    's4.p4': 'Dla złożonych systemów rozwijam otwarty standard takich specyfikacji, <a href="/pl/anss.html">ANSS</a>. Dla jednego biurowego zadania wystarczy strona tekstu. Ale ta strona musi istnieć.',
 
     's5.num': '5.0 // ETAP 4', 's5.h': 'Wdrożenie i odbiór',
-    's5.p1': 'Wdrażaj po jednym zadaniu. Pokusa uruchomienia wszystkiego naraz jest silna i mało kto się jej opiera. Rezultat zawsze jest ten sam: chaos i wycofanie.',
-    's5.p2': 'Odbioru dokonuje ten, kto wcześniej wykonywał zadanie ręcznie, bo najlepiej widzi, gdzie maszyna idzie na skróty. Ustalcie kryteria z góry: co znaczy „działa”. Dwa tygodnie trybu równoległego: człowiek i maszyna robią to samo, wyniki są porównywane. Potem człowiek przechodzi do roli kontrolnej.',
+    's5.p1': '<a href="/pl/implementation.html">Wdrażaj po jednym zadaniu</a>. Pokusa uruchomienia wszystkiego naraz jest silna i mało kto się jej opiera. Rezultat zawsze jest ten sam: chaos i wycofanie.',
+    's5.p2': 'Odbioru dokonuje ten, kto wcześniej wykonywał zadanie ręcznie, bo najlepiej widzi, gdzie maszyna idzie na skróty. Ustalcie <a href="/pl/glossary/acceptance-criteria.html">kryteria</a> z góry: co znaczy „działa”. <a href="/pl/glossary/pilot.html">Dwa tygodnie trybu równoległego</a>: człowiek i maszyna robią to samo, wyniki są porównywane. Potem człowiek przechodzi do roli kontrolnej.',
     's5.p3': 'Wychodzi z tego też coś dobrego: pracownik, który przeszedł ten cykl, sam zaczyna znajdować kolejne zadania do automatyzacji. Zyskujesz więcej niż jednego agenta: zyskujesz osobę, która umie ich zamawiać.',
 
     's6.num': '6.0 // ETAP 5', 's6.h': 'Skalowanie',
@@ -414,7 +414,7 @@ var T = {
     's7.p1': 'Audyt pokaże, że dziesięcioosobowy dział uwalnia, powiedzmy, trzydzieści procent mocy. Dalej menedżer ma trzy drogi, a wybór warto oprzeć na liczbach.',
     's7.fig4_cap': 'RYS. 4 — Trzy scenariusze. Niebieski: zysk w trybie normalnym. Czerwony: ukryte ryzyko, gdy coś pójdzie nie tak.',
     's7.p2': 'Ukryte ryzyko ma nazwę: krytyczność rezerwowa. Ludzie w firmie robią więcej, niż widać w arkuszu. Mają w głowie wiedzę, której nie ma w dokumentacji. Gaszą pożary. Ogranicz wsparcie do minimum, bo „typowe zgłoszenia obsługuje teraz AI”, a pierwsza poważna awaria pokaże cenę tej decyzji: podczas awarii nie ma typowych zgłoszeń, a ludzi, którzy umieli obsługiwać nietypowe, już nie ma.',
-    's7.p3': 'Dlatego uczciwy audyt daje każdej roli dwie oceny. Ile godzin uwalnia w trybie normalnym. I co się stanie w nietypowym, jeśli tych ludzi zabraknie. Drugiej oceny prawie nikt nie robi, a niesłusznie: straty z jednego przestoju mogą pochłonąć roczne oszczędności na pensjach.',
+    's7.p3': 'Dlatego <a href="/pl/glossary/process-audit.html">uczciwy audyt</a> daje każdej roli dwie oceny. Ile godzin uwalnia w trybie normalnym. I co się stanie w nietypowym, jeśli tych ludzi zabraknie. Drugiej oceny prawie nikt nie robi, a niesłusznie: straty z jednego przestoju mogą pochłonąć roczne oszczędności na pensjach.',
     's7.p4': 'Odwrotność też jest prawdziwa. Ostrożność sama w sobie jest ryzykiem: konkurent, który mocno ciął fundusz płac, wygrywa ceną tu i teraz, a na dojrzałym rynku bez wzrostu scenariusz A działa gorzej niż na rosnącym. Argument tej części nie jest o dobroci. Każdy scenariusz ma zyski i koszty, i trzeba policzyć jedno i drugie, zanim się wybierze. Przegrywają zwykle ci, którzy policzyli tylko jedno.',
 
     's8.num': '8.0 // ZESPÓŁ', 's8.h': 'Komunikacja: bez niej reszta jest bez znaczenia',
@@ -424,7 +424,7 @@ var T = {
     's8.remember_p': 'Jedno pokazowe „zoptymalizowanie” zaraz po audycie, i kolejnego uczciwego audytu w tej firmie już nie będzie.',
 
     's9.num': '9.0 // CO DALEJ', 's9.h': 'Zrób to sam, z książką albo z przewodnikiem',
-    's9.p1': 'Pięć etapów możesz przejść samodzielnie i ten poradnik do tego wystarczy. Jedno ostrzeżenie: samodzielne audyty często degenerują się w formalność, bo pracownicy wypełniają tabele dla szefa, a szef nie ma czasu ich sprawdzać. Osoba z zewnątrz jest potrzebna, żeby dane były prawdziwe. Komuś, kto nie decyduje o premii ani stanowisku, pracownicy opisują swój tydzień szczerzej. A świeże spojrzenie zauważa rutynę, której w środku dawno już nikt nie widzi.',
+    's9.p1': 'Pięć etapów możesz przejść samodzielnie i ten poradnik do tego wystarczy. Jeśli chcesz przejść etapy samodzielnie, ale ze wsparciem, jest <a href="/pl/training.html">szkolenie AI na zadaniach klienta</a>: klient sam buduje rozwiązanie, a konsultant prowadzi. Jedno ostrzeżenie: samodzielne audyty często degenerują się w formalność, bo pracownicy wypełniają tabele dla szefa, a szef nie ma czasu ich sprawdzać. Osoba z zewnątrz jest potrzebna, żeby dane były prawdziwe. Komuś, kto nie decyduje o premii ani stanowisku, pracownicy opisują swój tydzień szczerzej. A świeże spojrzenie zauważa rutynę, której w środku dawno już nikt nie widzi.',
     's9.p2': 'Prowadzę takie audyty: fotografia tygodnia pracy, mapa zadań, macierz automatyzacji, wyliczenie mocy i ryzyk w trzech scenariuszach, plan wdrożenia i rekomendacja, od którego zadania zacząć. Od siedmiu dni dla jednej roli, trzy-cztery tygodnie dla działu.',
     's9.p3': 'Jeśli chcesz omówić audyt w swoim dziale, napisz.',
     's9.cta1': 'Pełna wersja →', 's9.cta2': 'Napisz wiadomość', 's9.alt_prefix': 'lub',
@@ -463,7 +463,7 @@ var T = {
     's1.p4': "The conclusion is simple: rollout starts with observation, and the purchase comes after.",
 
     's2.num': '2.0 // STAGE 1', 's2.h': 'Audit: a work-week snapshot',
-    's2.p1': "For one week, every employee logs their tasks: what they did, how often, how many minutes. Five minutes at the end of the day, a simple table. A week later you have a map of what the department actually does.",
+    's2.p1': "For one week, every employee logs their tasks: what they did, how often, how many minutes. Five minutes at the end of the day, a simple table. A week later you have <a href=\"/glossary/process-map.html\">a map</a> of what the department actually does.",
     's2.th1': 'Task', 's2.th2': 'Times/week', 's2.th3': 'Min per time', 's2.th4': 'Total h/week',
     's2.row1': 'Management report from CRM',
     's2.row2': 'Replies to routine client emails',
@@ -480,17 +480,17 @@ var T = {
     's3.p1': 'Now ask three questions about each task on the map. Does it repeat regularly, the same way each time? What does an hour of the person doing it cost? What happens if the machine gets it wrong?',
     's3.fig3_cap': "FIG. 3 — The selection matrix. The red zone looks attractive by effort saved, but it's not the place to start.",
     's3.p2': 'Partial mode is better to start with than full automation: the employee sees where the machine gets it wrong and learns to manage it.',
-    's3.p3': 'The output of this stage: a short list of tasks with an estimate of freed-up hours. Instead of "we\'re adopting AI in general," you get three specific places where it pays off.',
+    's3.p3': 'The output of this stage: a short list of tasks with <a href="/kalkulator.html">an estimate of freed-up hours</a>. Instead of "we\'re adopting AI in general," you get three specific places where it pays off.',
 
     's4.num': '4.0 // STAGE 3', 's4.h': "Specification: why it doesn't work without a spec",
     's4.p1': "The most underrated part. AI does what's written. It doesn't do what you meant. A vague brief produces a vague result, and the brief is what's at fault: the machine did its job.",
-    's4.p2': "Every task you automate needs a short document: what's the input, what's the output, what are the rules, what must never happen. I call that last part invariants: boundaries the machine never crosses, no matter what. Never send an email without human review. Never change data in the accounting system. Never promise a client a deadline.",
+    's4.p2': "Every task you automate needs <a href=\"/glossary/ai-specification.html\">a short document</a>: what's the input, what's the output, what are the rules, what must never happen. I call that last part invariants: boundaries the machine never crosses, no matter what. Never send an email without human review. Never change data in the accounting system. Never promise a client a deadline.",
     's4.p3': 'Here\'s what that looks like for "drafting replies to client emails." Input: the client\'s email and the thread history. Output: a draft reply in the "For Review" folder. Invariants: never send without human approval, never quote prices or deadlines, never answer complaints, which go straight to a human. Five lines, and the machine\'s behavior is already predictable.',
-    's4.p4': 'For complex systems, I develop an open standard for these specifications, <a href="https://github.com/Kholomyanskiy/anss-standard">ANSS</a>. For one office task, a page of text is enough. But that page has to exist.',
+    's4.p4': 'For complex systems, I develop an open standard for these specifications, <a href="/anss.html">ANSS</a>. For one office task, a page of text is enough. But that page has to exist.',
 
     's5.num': '5.0 // STAGE 4', 's5.h': 'Rollout and acceptance',
-    's5.p1': 'Roll out one task at a time. The temptation to launch everything at once is strong, and few resist it. The result is always the same: chaos and rollback.',
-    's5.p2': 'Acceptance is done by whoever used to do the task by hand: they\'re the best judge of where the machine is cutting corners. Agree on the criteria upfront: what counts as "working." Two weeks of running in parallel: human and machine do the same thing, and the results are compared. Then the human shifts into a supervisory role.',
+    's5.p1': '<a href="/implementation.html">Roll out one task at a time</a>. The temptation to launch everything at once is strong, and few resist it. The result is always the same: chaos and rollback.',
+    's5.p2': 'Acceptance is done by whoever used to do the task by hand: they\'re the best judge of where the machine is cutting corners. Agree on <a href="/glossary/acceptance-criteria.html">the criteria</a> upfront: what counts as "working." <a href="/glossary/pilot.html">Two weeks of running in parallel</a>: human and machine do the same thing, and the results are compared. Then the human shifts into a supervisory role.',
     's5.p3': "Something good comes out of this too: the employee who went through this cycle starts finding the next tasks to automate on their own. You end up with more than one agent: you get a person who knows how to commission them.",
 
     's6.num': '6.0 // STAGE 5', 's6.h': 'Scaling',
@@ -503,7 +503,7 @@ var T = {
     's7.p1': 'The audit will show that a ten-person department frees up, say, thirty percent of its capacity. From there a manager has three paths, and the choice should be made on numbers.',
     's7.fig4_cap': 'FIG. 4 — Three scenarios. Blue: the gain in normal operation. Red: the hidden risk when something goes wrong.',
     's7.p2': 'The hidden risk has a name: reserve criticality. People in a company do more than what shows up in a spreadsheet. They hold knowledge that\'s nowhere in the documentation. They cover the fire drills. Cut support down to the bone because "AI handles routine tickets now," and the first major outage will show you the price of that decision: there are no routine tickets during an outage, and the people who knew how to handle the non-routine ones are already gone.',
-    's7.p3': "That's why an honest audit gives every role two estimates: how many hours it frees up in normal mode, and what happens in an abnormal one if those people aren't there. Almost nobody makes the second estimate, and that's a mistake: the losses from a single outage can wipe out a year of payroll savings.",
+    's7.p3': "That's why <a href=\"/glossary/process-audit.html\">an honest audit</a> gives every role two estimates: how many hours it frees up in normal mode, and what happens in an abnormal one if those people aren't there. Almost nobody makes the second estimate, and that's a mistake: the losses from a single outage can wipe out a year of payroll savings.",
     's7.p4': "The reverse is also true. Caution is itself a risk: a competitor who cuts payroll hard wins on price here and now, and in a mature, non-growing market, scenario A performs worse than it would in a growing one. This section isn't an argument for kindness. Every scenario has a gain and a price, and you need to count both before choosing. The ones who lose are usually the ones who only counted one.",
 
     's8.num': '8.0 // THE TEAM', 's8.h': "Communication: without it, nothing else matters",
@@ -513,7 +513,7 @@ var T = {
     's8.remember_p': 'One visible layoff "optimized" right after an audit, and there will never be another honest audit at that company.',
 
     's9.num': "9.0 // WHAT'S NEXT", 's9.h': 'Do it yourself, with the book, or with a guide',
-    's9.p1': "You can go through the five stages on your own, and this guide is enough for that. One warning: self-run audits often degrade into a formality, because employees fill out tables for the boss, and the boss has no time to check them. An outside person is there to make sure the data is real. Employees describe their week more honestly to someone who has no say over their bonus or position. And a fresh pair of eyes notices routine work that people inside stopped seeing long ago.",
+    's9.p1': "You can go through the five stages on your own, and this guide is enough for that. If you'd rather go through the stages yourself but with support, there is <a href=\"/training.html\">AI training on your own tasks</a>: you build the solution yourself, and a consultant guides the work. One warning: self-run audits often degrade into a formality, because employees fill out tables for the boss, and the boss has no time to check them. An outside person is there to make sure the data is real. Employees describe their week more honestly to someone who has no say over their bonus or position. And a fresh pair of eyes notices routine work that people inside stopped seeing long ago.",
     's9.p2': 'I run these audits: a work-week snapshot, a task map, an automation matrix, a capacity and risk calculation across three scenarios, a rollout plan, and a recommendation on which task to start with. From seven days for one role, three to four weeks for a department.',
     's9.p3': "If you'd like to discuss an audit for your department, get in touch.",
     's9.cta1': 'Full version →', 's9.cta2': 'Send a message', 's9.alt_prefix': 'or',
