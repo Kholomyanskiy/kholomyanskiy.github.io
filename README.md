@@ -32,7 +32,7 @@ Open specification standard for describing tasks and requirements for AI systems
 License: CC BY 4.0 · [github.com/Kholomyanskiy/anss-standard](https://github.com/Kholomyanskiy/anss-standard)
 
 **ИИ в отделе (AI in the Department)**
-Free guide covering five stages of AI implementation: audit, selection, specification, deployment, scaling. Full version is a 40–55 page book with detailed instructions, templates, and a case study.
+Free guide covering five stages of AI implementation: audit, selection, specification, deployment, scaling. Full version adds detailed instructions, templates, and a case study.
 [Read the free guide](https://kholomyanskiy.github.io/metodichka.html) · [Full version on Gumroad](https://aimethodology.gumroad.com/l/ai-v-otdele)
 
 **AI Automation Decision System**
@@ -126,7 +126,7 @@ Solo AI automation practice based in Elbląg, Poland — working remotely with R
 Лицензия: CC BY 4.0 · [github.com/Kholomyanskiy/anss-standard](https://github.com/Kholomyanskiy/anss-standard)
 
 **ИИ в отделе**
-Бесплатная методичка: пять этапов внедрения ИИ в отдел — аудит, отбор, спецификация, внедрение, масштабирование. Полная версия — рабочая книга на 40–55 страниц с инструкциями по каждому этапу, шаблонами и разбором кейса.
+Бесплатная методичка: пять этапов внедрения ИИ в отдел — аудит, отбор, спецификация, внедрение, масштабирование. В полной версии инструкции по каждому этапу, шаблоны и разбор кейса.
 [Читать методичку](https://kholomyanskiy.github.io/metodichka.html) · [Полная версия на Gumroad](https://aimethodology.gumroad.com/l/ai-v-otdele)
 
 **AI Automation Decision System**
