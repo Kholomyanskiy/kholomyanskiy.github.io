@@ -150,6 +150,40 @@ footer a:hover{color:var(--blue);text-decoration:underline}
   .stamp{position:static;display:inline-block;margin-top:18px}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://kholomyanskiy.com/spec.html#service",
+  "name": "$t:h1_title",
+  "description": "$t:meta_desc",
+  "url": "https://kholomyanskiy.com/spec.html",
+  "provider": {"@id": "https://kholomyanskiy.com/#organization"},
+  "areaServed": ["Poland", "Europe"],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "$t:s3_c1_h3",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": 2500,
+        "priceCurrency": "PLN",
+        "valueAddedTaxIncluded": false
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "$t:s3_c2_h3",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": 5000,
+        "priceCurrency": "PLN",
+        "valueAddedTaxIncluded": false
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
