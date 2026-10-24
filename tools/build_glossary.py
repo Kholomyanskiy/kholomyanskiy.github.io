@@ -380,7 +380,7 @@ def build() -> int:
                        for l in LANGS}
             ld = jsonld_script({
                 "@context": "https://schema.org", "@type": "DefinedTerm",
-                "name": t["name"], "description": t["definition"], "url": url, "inLanguage": lang,
+                "name": t["name"], "description": t["definition"], "url": url,
                 "inDefinedTermSet": hub_url,
             }) + jsonld_script({
                 "@context": "https://schema.org", "@type": "BreadcrumbList",
