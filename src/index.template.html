@@ -158,10 +158,10 @@ a.grid-item:hover h3{color:var(--blue)}
 .grid-services{grid-template-columns:repeat(6,1fr)}
 .grid-services .grid-item{grid-column:span 2;display:flex;flex-direction:column}
 .grid-services .grid-item p{flex:1}
-.grid-services .more{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--blue);transition:transform .15s}
-.grid-services a.grid-item{transition:background .15s,box-shadow .15s}
-.grid-services a.grid-item:hover{background:var(--paper);box-shadow:inset 3px 0 0 var(--blue)}
-.grid-services a.grid-item:hover .more{transform:translateX(4px)}
+.grid .more{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--blue);transition:transform .15s}
+.grid a.grid-item{transition:background .15s,box-shadow .15s}
+.grid a.grid-item:hover{background:var(--paper);box-shadow:inset 3px 0 0 var(--blue)}
+.grid a.grid-item:hover .more{transform:translateX(4px)}
 @media(max-width:680px){.grid-services{grid-template-columns:1fr}.grid-services .grid-item{grid-column:auto}}
 .section-more{margin-top:22px}
 .section-more a{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--ink);background:transparent;border:1.5px solid var(--ink);padding:11px 22px;text-decoration:none}
@@ -286,7 +286,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <h2 data-i18n="portfolio.title">Practical examples of AI solutions</h2>
  <div class="grid">
  <div class="grid-item"><span class="num">01</span><h3>eSowa KPI Bot</h3><p data-i18n="portfolio.p3.p">Telegram bot for KPIs</p></div>
- <a class="grid-item" href="case-recruitment.html"><span class="num">02</span><h3 data-i18n="portfolio.p6.h">Recruitment</h3><p data-i18n="portfolio.p6.p">First automations in Claude Code in training sessions.</p></a>
+ <a class="grid-item" href="case-recruitment.html"><span class="num">02</span><h3 data-i18n="portfolio.p6.h">Recruitment</h3><p data-i18n="portfolio.p6.p">First automations in Claude Code in training sessions.</p><span class="more" data-i18n="services.more_card">Details →</span></a>
  <div class="grid-item"><span class="num">03</span><h3>Decor Engine</h3><p data-i18n="portfolio.p5.p">Catalog for e-commerce</p></div>
  <div class="grid-item"><span class="num">04</span><h3>LombardPRO</h3><p data-i18n="portfolio.p2.p">Pawnshop automation</p></div>
  <div class="grid-item"><span class="num">05</span><h3>Solo Founder OS</h3><p data-i18n="portfolio.p1.p">Virtual team on top of Claude Code</p></div>
