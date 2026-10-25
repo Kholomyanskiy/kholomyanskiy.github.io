@@ -2,6 +2,8 @@
 slug: ai-specification
 title: "Specyfikacja AI: czym jest i czym różni się od promptu"
 description: "Specyfikacja AI opisuje zadanie tak, aby model wykonywał je przewidywalnie, a wynik można było sprawdzić. Co zawiera i dlaczego jest potrzebna."
+published: 2026-10-10
+updated: 2026-10-10
 ---
 
 # Specyfikacja AI

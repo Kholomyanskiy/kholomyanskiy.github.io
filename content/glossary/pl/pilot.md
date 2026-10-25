@@ -2,6 +2,8 @@
 slug: pilot
 title: "Pilotaż wdrożenia AI: czym jest i jak nie zmarnować budżetu"
 description: "Pilotaż sprawdza rozwiązanie AI na twoich danych i z udziałem twoich ludzi przed pełnym wdrożeniem. Po co go robić, jak uniknąć błędów i co ustalić."
+published: 2026-10-10
+updated: 2026-10-10
 ---
 
 # Pilotaż

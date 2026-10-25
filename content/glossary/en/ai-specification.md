@@ -2,6 +2,8 @@
 slug: ai-specification
 title: "AI specification: what it is and how it differs from a prompt"
 description: "An AI specification describes a task so a model can perform it predictably and its output can be checked. What it contains and why it matters."
+published: 2026-10-10
+updated: 2026-10-10
 ---
 
 # AI specification

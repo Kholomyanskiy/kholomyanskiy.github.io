@@ -2,6 +2,8 @@
 slug: acceptance-criteria
 title: "Kryteria odbioru rozwiązania AI: czym są i jak je ustalać"
 description: "Kryteria odbioru określają, po czym poznać, że praca jest ukończona. Jak wygląda dobre kryterium, dlaczego AI utrudnia ocenę i co ustalić przed pracą."
+published: 2026-10-10
+updated: 2026-10-10
 ---
 
 # Kryteria odbioru

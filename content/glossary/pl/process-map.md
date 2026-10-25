@@ -2,6 +2,8 @@
 slug: process-map
 title: "Mapa procesów: czym jest i po co ją tworzyć przed wdrożeniem AI"
 description: "Mapa procesów pokazuje, jak naprawdę przebiega praca w dziale. Czym różni się od schematu w procedurze, jak ją przygotować i co ustalić przed wdrożeniem AI."
+published: 2026-10-10
+updated: 2026-10-16
 ---
 
 # Mapa procesów

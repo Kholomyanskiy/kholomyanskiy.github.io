@@ -2,6 +2,8 @@
 slug: process-map
 title: "Process map: what it is and why you need one before AI implementation"
 description: "A process map shows how work actually moves through a department. How it differs from a procedure flowchart, how to build one, and what to decide before AI."
+published: 2026-10-10
+updated: 2026-10-16
 ---
 
 # Process map

@@ -2,6 +2,8 @@
 slug: process-audit
 title: "Process audit before AI implementation: what it is and why it matters"
 description: "A process audit shows how work is actually done before you buy an AI tool. What it covers, what it produces, and why you need it."
+published: 2026-10-10
+updated: 2026-10-10
 ---
 
 # Process audit

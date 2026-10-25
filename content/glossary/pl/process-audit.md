@@ -2,6 +2,8 @@
 slug: process-audit
 title: "Audyt procesów przed wdrożeniem AI: czym jest i po co go robić"
 description: "Audyt procesów pokazuje, jak naprawdę przebiega praca przed zakupem narzędzia AI. Co obejmuje, jaki daje wynik i dlaczego jest potrzebny."
+published: 2026-10-10
+updated: 2026-10-10
 ---
 
 # Audyt procesów

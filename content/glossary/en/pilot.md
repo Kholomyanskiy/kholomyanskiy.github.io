@@ -2,6 +2,8 @@
 slug: pilot
 title: "AI implementation pilot: what it is and how to avoid wasting the budget"
 description: "A pilot tests an AI solution with your data and people before full implementation. Why it matters, what can go wrong, and what to decide first."
+published: 2026-10-10
+updated: 2026-10-10
 ---
 
 # Pilot

@@ -223,7 +223,7 @@ def plain(html_text: str) -> str:
 def render_term(path: Path, ctx: Ctx) -> dict:
     rel = path.relative_to(ROOT).as_posix()
     meta, lines, first = parse_md_file(path)
-    for key in ("slug", "title", "description"):
+    for key in ("slug", "title", "description", "published", "updated"):
         if not meta.get(key):
             raise BuildError(f"{rel}: в служебном блоке нет {key}")
     if meta["slug"] != path.stem:
@@ -260,6 +260,7 @@ def render_term(path: Path, ctx: Ctx) -> dict:
             parts.append(f"<p>{html_p}</p>")
     return {
         "slug": meta["slug"], "title": meta["title"], "description": meta["description"],
+        "published": meta["published"], "updated": meta["updated"],
         "h1": h1_html, "name": plain(h1_html), "definition": plain(definition_html),
         "body": "\n".join(parts),
     }
@@ -389,6 +390,15 @@ def build() -> int:
                     {"@type": "ListItem", "position": 2, "name": index["name"], "item": hub_url},
                     {"@type": "ListItem", "position": 3, "name": t["name"], "item": url},
                 ],
+            }) + jsonld_script({
+                "@context": "https://schema.org", "@type": "Article",
+                "headline": t["title"], "description": t["description"],
+                "datePublished": t["published"], "dateModified": t["updated"],
+                "inLanguage": lang,
+                "author": {"@id": SITE_URL + "/#person"},
+                "publisher": {"@id": SITE_URL + "/#organization"},
+                "image": SITE_URL + "/og-image.png",
+                "mainEntityOfPage": url,
             })
             page = fill(term_tpl, {
                 "lang": lang, "title": html_lib.escape(t["title"]), "description": html_lib.escape(t["description"]),

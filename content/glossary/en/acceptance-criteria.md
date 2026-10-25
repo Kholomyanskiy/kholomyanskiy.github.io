@@ -2,6 +2,8 @@
 slug: acceptance-criteria
 title: "AI solution acceptance criteria: what they are and how to write them"
 description: "Acceptance criteria define how you decide that work is complete. What makes a good criterion, why AI makes this harder, and what to decide before work begins."
+published: 2026-10-10
+updated: 2026-10-10
 ---
 
 # Acceptance criteria
