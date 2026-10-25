@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recruitment: first automations in Claude Code — EVAI Consulting</title>
+<meta name="description" content="A client in recruitment built the first tools in Claude Code for their own tasks: meeting summaries from transcripts, search across collected materials, role criteria and checking CVs against them.">
+<link rel="canonical" href="https://kholomyanskiy.com/case-recruitment.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Recruitment: first automations in Claude Code — EVAI Consulting">
+<meta property="og:description" content="A client in recruitment built the first tools in Claude Code for their own tasks: meeting summaries from transcripts, search across collected materials, role criteria and checking CVs against them.">
+<meta property="og:url" content="https://kholomyanskiy.com/case-recruitment.html">
+<!-- @include head-common -->
+<meta name="twitter:title" content="Recruitment: first automations in Claude Code — EVAI Consulting">
+<meta name="twitter:description" content="A client in recruitment built the first tools in Claude Code for their own tasks: meeting summaries from transcripts, search across collected materials, role criteria and checking CVs against them.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* @include common.css */
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+@media(max-width:680px){.topnav-links{gap:14px;font-size:12px}}
+/* лист страниц услуг */
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+}
+.sheet{
+  max-width:880px;
+  margin:16px auto 40px;
+  background:var(--panel);
+  border:1.5px solid var(--ink);
+  box-shadow:8px 8px 0 rgba(27,32,39,.08);
+}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-main{padding:44px 28px 36px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;color:var(--ink-soft);font-size:17px}
+section{padding:40px 28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
+.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
+.cta h2{color:#fff}
+footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+@media(max-width:680px){
+  .sheet{margin:8px 12px 32px}
+}
+/* ---------- sections ---------- */
+.steps{counter-reset:st;max-width:620px;margin-top:8px}
+.steps li{list-style:none;counter-increment:st;padding:12px 0 12px 52px;position:relative;border-top:1px solid var(--line)}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);
+  position:absolute;left:0;top:12px;
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue);
+}
+figure{margin:26px 0;max-width:660px}
+.cta a.btn{
+  display:inline-block;margin-top:10px;
+  font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;
+  color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;
+  padding:13px 26px;text-decoration:none;
+}
+.cta a.btn:hover{background:transparent;color:#EDEFF2}
+.cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
+.footer-links a:hover{color:var(--blue)}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "$t:h1_title",
+  "description": "$t:meta_desc",
+  "datePublished": "2026-10-25",
+  "dateModified": "2026-10-25",
+  "inLanguage": "en",
+  "url": "https://kholomyanskiy.com/case-recruitment.html",
+  "author": {"@id": "https://kholomyanskiy.com/#person"},
+  "publisher": {"@id": "https://kholomyanskiy.com/#organization"},
+  "image": "https://kholomyanskiy.com/og-image.png"
+}
+</script>
+</head>
+<body>
+
+<!-- @include topnav current=portfolio -->
+
+<div class="sheet">
+
+  <header class="titleblock">
+    <div class="tb-top">
+      <span class="brand">EVAI CONSULTING</span>
+      <span>EVAI-CASE-2026-01 · v1.0</span>
+    </div>
+    <div class="tb-main">
+      <h1 data-i18n-html="h1_title">Recruitment: first automations in Claude Code</h1>
+      <p class="sub" data-i18n="tb_sub">The client built the tools for their own tasks, in training sessions.</p>
+    </div>
+  </header>
+
+  <section>
+    <span class="secnum">1.0</span>
+    <h2 data-i18n="s1_h2">Situation</h2>
+    <p data-i18n="s1_p">A recruitment specialist spent a lot of time on manual work around meetings and candidates. After every meeting the transcript had to be found, copied into a chat and turned into a summary. Requirements for candidates were kept in email threads, and CVs were checked against them by eye. The client came with a list of tasks to automate and wanted to learn to do it themselves.</p>
+  </section>
+
+  <section>
+    <span class="secnum">2.0</span>
+    <h2 data-i18n="s2_h2">Format</h2>
+    <p data-i18n="s2_p">Training on your tasks. The client built the solution themselves, on their own computer. The consultant prepared a plan for each session from the client's materials, explained and corrected.</p>
+  </section>
+
+  <section>
+    <span class="secnum">3.0</span>
+    <h2 data-i18n="s3_h2">What was done</h2>
+    <ol class="steps">
+      <li data-i18n="s3_li1">The tasks on the list were reviewed and put in order. Role criteria came first, since the other tasks rely on them.</li>
+      <li data-i18n="s3_li2">A project folder with a CLAUDE.md rules file and a register with fixed fields.</li>
+      <li data-i18n="s3_li3">Ready-made commands for a meeting summary from a transcript and for search across collected materials.</li>
+      <li><span data-i18n="s3_li4">A loop for refining criteria: role criteria, a check on a CV with personal data removed, a one-line refinement in the criteria file. The system improves by editing the file; the prompt wording stays the same.</span>
+        <figure>
+        <!-- @lang en -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 372" width="100%" role="img" aria-label="CV and criteria: refinement loop" font-family="JetBrains Mono, monospace" font-size="13">
+        <defs>
+        <marker id="s2-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+        <marker id="s2-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+        </defs>
+        <rect x="20" y="44" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="140" y="73" text-anchor="middle" fill="#1B2027">CV</text>
+        <line x1="140" y1="92" x2="140" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s2-k)"/>
+        <rect x="20" y="120" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="140" y="149" text-anchor="middle" fill="#1B2027">Remove personal data</text>
+        <line x1="140" y1="168" x2="140" y2="194" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s2-k)"/>
+        <rect x="20" y="196" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="140" y="217" text-anchor="middle" fill="#1B2027">Check against</text>
+        <text x="140" y="233" text-anchor="middle" fill="#1B2027">role criteria</text>
+        <line x1="140" y1="244" x2="140" y2="270" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s2-k)"/>
+        <rect x="20" y="272" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="140" y="301" text-anchor="middle" fill="#1B2027">Result</text>
+        <rect x="320" y="196" width="220" height="48" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+        <text x="430" y="217" text-anchor="middle" fill="#2B5B8A">Role criteria</text>
+        <text x="430" y="233" text-anchor="middle" fill="#2B5B8A">(file)</text>
+        <line x1="320" y1="220" x2="262" y2="220" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s2-k)"/>
+        <rect x="320" y="272" width="220" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="430" y="293" text-anchor="middle" fill="#1B2027">One-line</text>
+        <text x="430" y="309" text-anchor="middle" fill="#1B2027">refinement</text>
+        <line x1="260" y1="296" x2="318" y2="296" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#s2-b)"/>
+        <line x1="430" y1="272" x2="430" y2="246" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#s2-b)"/>
+        <text x="280" y="356" text-anchor="middle" fill="#2B5B8A">The system improves by editing the file</text>
+        </svg>
+        <!-- @endlang -->
+        <!-- @lang pl -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 372" width="100%" role="img" aria-label="CV i kryteria: cykl dopracowywania" font-family="JetBrains Mono, monospace" font-size="13">
+        <defs>
+        <marker id="s2-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+        <marker id="s2-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+        </defs>
+        <rect x="20" y="44" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="140" y="73" text-anchor="middle" fill="#1B2027">CV</text>
+        <line x1="140" y1="92" x2="140" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s2-k)"/>
+        <rect x="20" y="120" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="140" y="149" text-anchor="middle" fill="#1B2027">Usunąć dane osobowe</text>
+        <line x1="140" y1="168" x2="140" y2="194" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s2-k)"/>
+        <rect x="20" y="196" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="140" y="217" text-anchor="middle" fill="#1B2027">Sprawdzenie według</text>
+        <text x="140" y="233" text-anchor="middle" fill="#1B2027">kryteriów roli</text>
+        <line x1="140" y1="244" x2="140" y2="270" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s2-k)"/>
+        <rect x="20" y="272" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="140" y="301" text-anchor="middle" fill="#1B2027">Wynik</text>
+        <rect x="320" y="196" width="220" height="48" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+        <text x="430" y="217" text-anchor="middle" fill="#2B5B8A">Kryteria roli</text>
+        <text x="430" y="233" text-anchor="middle" fill="#2B5B8A">(plik)</text>
+        <line x1="320" y1="220" x2="262" y2="220" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s2-k)"/>
+        <rect x="320" y="272" width="220" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="430" y="293" text-anchor="middle" fill="#1B2027">Doprecyzowanie</text>
+        <text x="430" y="309" text-anchor="middle" fill="#1B2027">jedną linijką</text>
+        <line x1="260" y1="296" x2="318" y2="296" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#s2-b)"/>
+        <line x1="430" y1="272" x2="430" y2="246" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#s2-b)"/>
+        <text x="280" y="356" text-anchor="middle" fill="#2B5B8A">System poprawia się przez edycję pliku</text>
+        </svg>
+        <!-- @endlang -->
+        <!-- @lang ru -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 372" width="100%" role="img" aria-label="Резюме и критерии: цикл доработки" font-family="JetBrains Mono, monospace" font-size="13">
+        <defs>
+        <marker id="s2-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+        <marker id="s2-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+        </defs>
+        <rect x="20" y="44" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="140" y="73" text-anchor="middle" fill="#1B2027">Резюме</text>
+        <line x1="140" y1="92" x2="140" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s2-k)"/>
+        <rect x="20" y="120" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="140" y="149" text-anchor="middle" fill="#1B2027">Убрать персональные данные</text>
+        <line x1="140" y1="168" x2="140" y2="194" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s2-k)"/>
+        <rect x="20" y="196" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="140" y="217" text-anchor="middle" fill="#1B2027">Сверка с критериями</text>
+        <text x="140" y="233" text-anchor="middle" fill="#1B2027">роли</text>
+        <line x1="140" y1="244" x2="140" y2="270" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s2-k)"/>
+        <rect x="20" y="272" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="140" y="301" text-anchor="middle" fill="#1B2027">Вывод</text>
+        <rect x="320" y="196" width="220" height="48" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+        <text x="430" y="217" text-anchor="middle" fill="#2B5B8A">Критерии роли</text>
+        <text x="430" y="233" text-anchor="middle" fill="#2B5B8A">(файл)</text>
+        <line x1="320" y1="220" x2="262" y2="220" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s2-k)"/>
+        <rect x="320" y="272" width="220" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+        <text x="430" y="293" text-anchor="middle" fill="#1B2027">Уточнение</text>
+        <text x="430" y="309" text-anchor="middle" fill="#1B2027">одной строкой</text>
+        <line x1="260" y1="296" x2="318" y2="296" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#s2-b)"/>
+        <line x1="430" y1="272" x2="430" y2="246" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#s2-b)"/>
+        <text x="280" y="356" text-anchor="middle" fill="#2B5B8A">Система улучшается правкой файла</text>
+        </svg>
+        <!-- @endlang -->
+        </figure>
+      </li>
+      <li data-i18n="s3_li5">The question of candidates' personal data was worked through: CVs do not go to the cloud as they are. Options considered: anonymisation before sending, a plan with a data processing agreement, and a local model.</li>
+    </ol>
+  </section>
+
+  <section>
+    <span class="secnum">4.0</span>
+    <h2 data-i18n="s4_h2">What changed</h2>
+    <p data-i18n="s4_p">A meeting summary takes one command instead of a manual chain. Role criteria are written down in files and checked against real CVs. The client uses the ready-made commands on their own.</p>
+    <figure>
+      <!-- @lang en -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 336" width="100%" role="img" aria-label="Meeting summary: before and after" font-family="JetBrains Mono, monospace" font-size="13">
+      <defs>
+      <marker id="s1-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+      <marker id="s1-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+      </defs>
+      <text x="140" y="26" text-anchor="middle" fill="#4A5361" font-size="12" letter-spacing="1.5">BEFORE</text>
+      <text x="420" y="26" text-anchor="middle" fill="#2B5B8A" font-size="12" letter-spacing="1.5">AFTER</text>
+      <rect x="20" y="44" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="73" text-anchor="middle" fill="#4A5361">Meeting</text>
+      <line x1="140" y1="92" x2="140" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="20" y="120" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="149" text-anchor="middle" fill="#4A5361">Find the transcript</text>
+      <line x1="140" y1="168" x2="140" y2="194" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="20" y="196" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="225" text-anchor="middle" fill="#4A5361">Copy into a chat</text>
+      <line x1="140" y1="244" x2="140" y2="270" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="20" y="272" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="293" text-anchor="middle" fill="#4A5361">Write the summary</text>
+      <text x="140" y="309" text-anchor="middle" fill="#4A5361">by hand</text>
+      <rect x="300" y="44" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="73" text-anchor="middle" fill="#1B2027">Meeting</text>
+      <line x1="420" y1="92" x2="420" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="300" y="120" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="149" text-anchor="middle" fill="#1B2027">Transcript</text>
+      <line x1="420" y1="168" x2="420" y2="194" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="300" y="196" width="240" height="48" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="420" y="225" text-anchor="middle" fill="#2B5B8A">One command</text>
+      <line x1="420" y1="244" x2="420" y2="270" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="300" y="272" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="293" text-anchor="middle" fill="#1B2027">Summary in the</text>
+      <text x="420" y="309" text-anchor="middle" fill="#1B2027">project folder</text>
+      </svg>
+      <!-- @endlang -->
+      <!-- @lang pl -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 336" width="100%" role="img" aria-label="Podsumowanie spotkania: było i jest" font-family="JetBrains Mono, monospace" font-size="13">
+      <defs>
+      <marker id="s1-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+      <marker id="s1-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+      </defs>
+      <text x="140" y="26" text-anchor="middle" fill="#4A5361" font-size="12" letter-spacing="1.5">BYŁO</text>
+      <text x="420" y="26" text-anchor="middle" fill="#2B5B8A" font-size="12" letter-spacing="1.5">JEST</text>
+      <rect x="20" y="44" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="73" text-anchor="middle" fill="#4A5361">Spotkanie</text>
+      <line x1="140" y1="92" x2="140" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="20" y="120" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="149" text-anchor="middle" fill="#4A5361">Znaleźć transkrypcję</text>
+      <line x1="140" y1="168" x2="140" y2="194" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="20" y="196" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="225" text-anchor="middle" fill="#4A5361">Skopiować do czatu</text>
+      <line x1="140" y1="244" x2="140" y2="270" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="20" y="272" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="293" text-anchor="middle" fill="#4A5361">Przygotować</text>
+      <text x="140" y="309" text-anchor="middle" fill="#4A5361">podsumowanie ręcznie</text>
+      <rect x="300" y="44" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="73" text-anchor="middle" fill="#1B2027">Spotkanie</text>
+      <line x1="420" y1="92" x2="420" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="300" y="120" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="149" text-anchor="middle" fill="#1B2027">Transkrypcja</text>
+      <line x1="420" y1="168" x2="420" y2="194" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="300" y="196" width="240" height="48" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="420" y="225" text-anchor="middle" fill="#2B5B8A">Jedno polecenie</text>
+      <line x1="420" y1="244" x2="420" y2="270" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="300" y="272" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="293" text-anchor="middle" fill="#1B2027">Podsumowanie</text>
+      <text x="420" y="309" text-anchor="middle" fill="#1B2027">w folderze projektu</text>
+      </svg>
+      <!-- @endlang -->
+      <!-- @lang ru -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 336" width="100%" role="img" aria-label="Сводка встречи: было и стало" font-family="JetBrains Mono, monospace" font-size="13">
+      <defs>
+      <marker id="s1-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+      <marker id="s1-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+      </defs>
+      <text x="140" y="26" text-anchor="middle" fill="#4A5361" font-size="12" letter-spacing="1.5">БЫЛО</text>
+      <text x="420" y="26" text-anchor="middle" fill="#2B5B8A" font-size="12" letter-spacing="1.5">СТАЛО</text>
+      <rect x="20" y="44" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="73" text-anchor="middle" fill="#4A5361">Встреча</text>
+      <line x1="140" y1="92" x2="140" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="20" y="120" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="149" text-anchor="middle" fill="#4A5361">Найти транскрипцию</text>
+      <line x1="140" y1="168" x2="140" y2="194" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="20" y="196" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="225" text-anchor="middle" fill="#4A5361">Скопировать в чат</text>
+      <line x1="140" y1="244" x2="140" y2="270" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="20" y="272" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="293" text-anchor="middle" fill="#4A5361">Собрать сводку</text>
+      <text x="140" y="309" text-anchor="middle" fill="#4A5361">вручную</text>
+      <rect x="300" y="44" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="73" text-anchor="middle" fill="#1B2027">Встреча</text>
+      <line x1="420" y1="92" x2="420" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="300" y="120" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="149" text-anchor="middle" fill="#1B2027">Транскрипция</text>
+      <line x1="420" y1="168" x2="420" y2="194" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="300" y="196" width="240" height="48" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="420" y="225" text-anchor="middle" fill="#2B5B8A">Одна команда</text>
+      <line x1="420" y1="244" x2="420" y2="270" stroke="#1B2027" stroke-width="1.5" marker-end="url(#s1-k)"/>
+      <rect x="300" y="272" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="293" text-anchor="middle" fill="#1B2027">Сводка в папке</text>
+      <text x="420" y="309" text-anchor="middle" fill="#1B2027">проекта</text>
+      </svg>
+      <!-- @endlang -->
+    </figure>
+  </section>
+
+  <section>
+    <span class="secnum">5.0</span>
+    <h2 data-i18n="s5_h2">How it was measured</h2>
+    <p data-i18n="s5_p">Time savings were not measured. The client plans to measure them once the remaining tasks on the list are in place.</p>
+  </section>
+
+  <section>
+    <span class="secnum">6.0</span>
+    <h2 data-i18n="s6_h2">Status and next step</h2>
+    <p data-i18n="s6_p">The work continues. Next: refining the CV check, moving to a plan with a data processing agreement, then a solution with a local model on the client's own hardware.</p>
+  </section>
+
+  <div class="cta">
+    <h2 data-i18n="cta_h2">Matching format:</h2>
+    <a class="btn" href="training.html" data-i18n="cta_btn">training on your tasks →</a>
+  </div>
+
+</div>
+
+<!-- @include footer -->
+
+<script>
+var T = {
+  ru: {
+    page_title: "Подбор персонала: первые автоматизации в Claude Code — EVAI Consulting",
+    meta_desc: "Клиент из сферы подбора персонала собрал в Claude Code первые инструменты для своих задач: сводки встреч по транскрипции, поиск по накопленным материалам, критерии под роли и сверку резюме с ними.",
+    h1_title: "Подбор персонала: первые автоматизации в Claude Code",
+    tb_sub: "Клиент собрал инструменты для своих задач сам, на сессиях обучения.",
+    s1_h2: "Ситуация",
+    s1_p: "Специалист по подбору персонала много времени тратил на ручную работу вокруг встреч и кандидатов. После каждой встречи транскрипцию нужно было найти, скопировать в чат и собрать сводку. Требования к кандидатам на роли хранились в переписке, резюме сверялись с ними на глаз. Клиент пришёл со списком задач, которые хотел автоматизировать, и с желанием научиться делать это самому.",
+    s2_h2: "Формат работы",
+    s2_p: "Обучение на задачах. Клиент собирал решение сам, на своём компьютере. Консультант готовил план каждой сессии по материалам клиента, объяснял и поправлял.",
+    s3_h2: "Что сделано",
+    s3_li1: "Задачи из списка разобраны и расставлены по порядку. Первыми взяты критерии ролей: на них опираются остальные задачи.",
+    s3_li2: "Рабочая папка проекта с файлом правил CLAUDE.md и реестр с постоянными полями.",
+    s3_li3: "Готовые команды для сводки встречи по транскрипции и для поиска по накопленным материалам.",
+    s3_li4: "Цикл доработки критериев: критерии роли, проверка на резюме без персональных данных, уточнение одной строкой в файле критериев. Система улучшается правкой файла, формулировку запроса менять не приходится.",
+    s3_li5: "Разобран вопрос персональных данных кандидатов: резюме не уходят в облако как есть. Рассмотрены обезличивание до отправки, тариф с договором обработки данных и локальная модель.",
+    s4_h2: "Что изменилось",
+    s4_p: "Сводка встречи собирается одной командой вместо ручной цепочки. Критерии ролей записаны в файлах и проверяются на реальных резюме. Готовыми командами клиент пользуется сам.",
+    s5_h2: "Как измерено",
+    s5_p: "Экономия времени количественно не оценивалась. Клиент планирует посчитать её после того, как будут реализованы остальные задачи из списка.",
+    s6_h2: "Статус и следующий шаг",
+    s6_p: "Работа продолжается. Дальше: доработка проверки резюме, переход на тариф с договором обработки данных, затем решение с локальной моделью на собственном оборудовании.",
+    cta_h2: "Подходящий формат:",
+    cta_btn: "обучение на ваших задачах →"
+  },
+  pl: {
+    page_title: "Rekrutacja: pierwsze automatyzacje w Claude Code — EVAI Consulting",
+    meta_desc: "Klient z branży rekrutacyjnej zbudował w Claude Code pierwsze narzędzia do swoich zadań: podsumowania spotkań z transkrypcji, wyszukiwanie w zgromadzonych materiałach, kryteria dla ról i sprawdzanie CV według nich.",
+    h1_title: "Rekrutacja: pierwsze automatyzacje w Claude Code",
+    tb_sub: "Klient zbudował narzędzia do swoich zadań sam, na sesjach szkoleniowych.",
+    s1_h2: "Sytuacja",
+    s1_p: "Specjalista ds. rekrutacji poświęcał dużo czasu na ręczną pracę wokół spotkań i kandydatów. Po każdym spotkaniu trzeba było znaleźć transkrypcję, skopiować ją do czatu i przygotować podsumowanie. Wymagania wobec kandydatów na role były rozproszone w korespondencji, a CV porównywano z nimi na oko. Klient przyszedł z listą zadań do automatyzacji i chciał nauczyć się robić to samodzielnie.",
+    s2_h2: "Forma pracy",
+    s2_p: "Szkolenie na zadaniach klienta. Klient budował rozwiązanie sam, na swoim komputerze. Konsultant przygotowywał plan każdej sesji na podstawie materiałów klienta, tłumaczył i poprawiał.",
+    s3_h2: "Co zrobiono",
+    s3_li1: "Zadania z listy zostały omówione i uporządkowane. Na początek wybrano kryteria dla ról, bo opierają się na nich pozostałe zadania.",
+    s3_li2: "Folder projektu z plikiem reguł CLAUDE.md i rejestr ze stałymi polami.",
+    s3_li3: "Gotowe polecenia do podsumowania spotkania z transkrypcji i do wyszukiwania w zgromadzonych materiałach.",
+    s3_li4: "Cykl dopracowywania kryteriów: kryteria roli, sprawdzenie na CV bez danych osobowych, doprecyzowanie jedną linijką w pliku kryteriów. System poprawia się przez edycję pliku, treść polecenia pozostaje ta sama.",
+    s3_li5: "Omówiono kwestię danych osobowych kandydatów: CV nie trafiają do chmury w oryginalnej postaci. Rozważono anonimizację przed wysłaniem, plan z umową powierzenia przetwarzania danych i model lokalny.",
+    s4_h2: "Co się zmieniło",
+    s4_p: "Podsumowanie spotkania powstaje jednym poleceniem zamiast ręcznego łańcucha czynności. Kryteria dla ról są zapisane w plikach i sprawdzane na prawdziwych CV. Z gotowych poleceń klient korzysta samodzielnie.",
+    s5_h2: "Jak zmierzono",
+    s5_p: "Oszczędności czasu nie mierzono. Klient planuje je policzyć po wdrożeniu pozostałych zadań z listy.",
+    s6_h2: "Status i następny krok",
+    s6_p: "Praca trwa. Dalej: dopracowanie sprawdzania CV, przejście na plan z umową powierzenia przetwarzania danych, a potem rozwiązanie z modelem lokalnym na własnym sprzęcie.",
+    cta_h2: "Pasujący format:",
+    cta_btn: "szkolenie na zadaniach klienta →"
+  },
+  en: {
+    page_title: "Recruitment: first automations in Claude Code — EVAI Consulting",
+    meta_desc: "A client in recruitment built the first tools in Claude Code for their own tasks: meeting summaries from transcripts, search across collected materials, role criteria and checking CVs against them.",
+    h1_title: "Recruitment: first automations in Claude Code",
+    tb_sub: "The client built the tools for their own tasks, in training sessions.",
+    s1_h2: "Situation",
+    s1_p: "A recruitment specialist spent a lot of time on manual work around meetings and candidates. After every meeting the transcript had to be found, copied into a chat and turned into a summary. Requirements for candidates were kept in email threads, and CVs were checked against them by eye. The client came with a list of tasks to automate and wanted to learn to do it themselves.",
+    s2_h2: "Format",
+    s2_p: "Training on your tasks. The client built the solution themselves, on their own computer. The consultant prepared a plan for each session from the client's materials, explained and corrected.",
+    s3_h2: "What was done",
+    s3_li1: "The tasks on the list were reviewed and put in order. Role criteria came first, since the other tasks rely on them.",
+    s3_li2: "A project folder with a CLAUDE.md rules file and a register with fixed fields.",
+    s3_li3: "Ready-made commands for a meeting summary from a transcript and for search across collected materials.",
+    s3_li4: "A loop for refining criteria: role criteria, a check on a CV with personal data removed, a one-line refinement in the criteria file. The system improves by editing the file; the prompt wording stays the same.",
+    s3_li5: "The question of candidates' personal data was worked through: CVs do not go to the cloud as they are. Options considered: anonymisation before sending, a plan with a data processing agreement, and a local model.",
+    s4_h2: "What changed",
+    s4_p: "A meeting summary takes one command instead of a manual chain. Role criteria are written down in files and checked against real CVs. The client uses the ready-made commands on their own.",
+    s5_h2: "How it was measured",
+    s5_p: "Time savings were not measured. The client plans to measure them once the remaining tasks on the list are in place.",
+    s6_h2: "Status and next step",
+    s6_p: "The work continues. Next: refining the CV check, moving to a plan with a data processing agreement, then a solution with a local model on the client's own hardware.",
+    cta_h2: "Matching format:",
+    cta_btn: "training on your tasks →"
+  }
+};
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.documentElement.lang = lang;
+  if (T[lang].page_title) document.title = T[lang].page_title;
+  var md = document.querySelector('meta[name="description"]');
+  if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
+  localStorage.setItem('site-lang', lang);
+}
+
+(function() {
+  var p = new URLSearchParams(window.location.search);
+  var ul = p.get('lang');
+  if (ul && T[ul]) { setLang(ul); return; }
+  var saved = localStorage.getItem('site-lang');
+  if (saved && T[saved]) setLang(saved);
+})();
+</script>
+
+</body>
+</html>

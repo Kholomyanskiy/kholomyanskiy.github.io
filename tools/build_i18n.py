@@ -29,9 +29,10 @@ BREADCRUMB_PARENT = {
     "implementation": "services",
     "anss": "products",
     "contact": "index",
+    "case-recruitment": "portfolio",
 }
-PARENT_NAV_KEY = {"services": "nav.services", "products": "nav.products", "articles": "nav.articles"}
-PARENT_PAGE = {"services": "services", "products": "products", "articles": "articles"}
+PARENT_NAV_KEY = {"services": "nav.services", "products": "nav.products", "articles": "nav.articles", "portfolio": "nav.portfolio"}
+PARENT_PAGE = {"services": "services", "products": "products", "articles": "articles", "portfolio": "portfolio"}
 
 
 class StopCondition(Exception):
