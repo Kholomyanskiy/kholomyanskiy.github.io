@@ -60,6 +60,12 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "Punkt awarii",
+      "description": "Punkt awarii to element systemu, którego awaria zatrzymuje cały proces. Przy wdrażaniu AI takim punktem często staje się odcinek pracy, na którym nie została żadna rezerwa w ludziach: jeśli system zawiedzie, nie będzie komu go przywrócić ani wykonać pracy ręcznie. Droga do tego zwykle wygląda tak. AI zdejmuje z ludzi rutynę, ludzi się zwalnia, a razem z nimi znika umiejętność utrzymania, administrowania i pracy z pominięciem systemu.",
+      "url": "https://kholomyanskiy.com/pl/glossary/failure-point.html"
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "Specyfikacja AI",
       "description": "Specyfikacja AI to dokument opisujący zadanie tak, aby model lub agent wykonywał je przewidywalnie, a wynik dało się sprawdzić: co jest na wejściu i wyjściu, jakich zasad nie wolno łamać i po czym poznać, że praca jest gotowa. Istnieje poza czatem i pozostaje dostępna w kolejnych sesjach.",
       "url": "https://kholomyanskiy.com/pl/glossary/ai-specification.html"
@@ -69,6 +75,30 @@
       "name": "Kryteria odbioru",
       "description": "Kryteria odbioru to sprawdzalne warunki, które pozwalają stwierdzić, czy praca została ukończona. Zapisuje się je przed rozpoczęciem prac, tak aby klient i wykonawca rozumieli je tak samo i mogli ocenić wynik bez sporu.",
       "url": "https://kholomyanskiy.com/pl/glossary/acceptance-criteria.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Całkowity koszt posiadania",
+      "description": "Całkowity koszt posiadania rozwiązania AI (TCO) to wszystkie pieniądze i cały czas, które pochłania ono przez okres działania: wdrożenie i konfiguracja, abonamenty i opłaty za zapytania do modelu, godziny pracowników na sprawdzanie wyników, utrzymanie i poprawki, gdy zmieniają się dane albo sam model. W kosztorysie zwykle widać tylko pierwszą pozycję. Pozostałe pojawiają się po uruchomieniu i z czasem mogą kosztować więcej niż samo wdrożenie.",
+      "url": "https://kholomyanskiy.com/pl/glossary/total-cost-of-ownership.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Agent AI",
+      "description": "Agentem AI nazywa się dziś zwykle system oparty na modelu językowym, który sam kieruje przebiegiem pracy: dostaje cel, dobiera kroki i narzędzia, wykonuje działania i na podstawie ich wyniku decyduje, co dalej. Narzędziami mogą być poczta, arkusz, system księgowy, wyszukiwanie w dokumentach. Bot wykonuje z góry zapisany scenariusz. Agent buduje scenariusz w trakcie pracy, w granicach tego, na co mu pozwolono.",
+      "url": "https://kholomyanskiy.com/pl/glossary/agent.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Człowiek w pętli (human-in-the-loop)",
+      "description": "Człowiek w pętli (human-in-the-loop) to uczestnik procesu, który sprawdza, poprawia lub zatwierdza wynik AI, zanim trafi on dalej. AI przygotowuje szkic, zestawienie albo propozycję, a decyzja należy do człowieka. Jego miejsce ustala się z góry: na którym kroku się włącza, co sprawdza i co robi, jeśli wynik się nie nadaje.",
+      "url": "https://kholomyanskiy.com/pl/glossary/human-in-the-loop.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "RAG (wyszukiwanie we własnych dokumentach)",
+      "description": "RAG (retrieval-augmented generation, generowanie wspomagane wyszukiwaniem) to podejście, w którym model językowy najpierw wyszukuje pasujące fragmenty w określonym zbiorze dokumentów i dopiero na ich podstawie formułuje odpowiedź. Podejście opisali badacze Facebook AI w 2020 roku. Dziś tak nazywa się niemal każdy system w rodzaju „czat z naszymi dokumentami”. W małej firmie RAG służy zwykle jednemu: żeby pracownik albo klient zadał pytanie zwykłymi słowami i dostał odpowiedź z regulaminów, umów, cenników czy instrukcji firmy, z odnośnikiem do dokumentu.",
+      "url": "https://kholomyanskiy.com/pl/glossary/rag.html"
     }
   ]
 }
@@ -242,6 +272,11 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <p>Pilotaż to ograniczone czasowo i zakresem uruchomienie rozwiązania na prawdziwych danych i z udziałem prawdziwych użytkowników, z kryteriami sukcesu zapisanymi z góry. Na podstawie jego wyników podejmuje się decyzję o dalszym wdrożeniu, poprawkach albo zakończeniu.</p>
  <a class="article-cta" href="/pl/glossary/pilot.html">Więcej →</a>
  </div>
+ <div class="article-card">
+ <h3>Punkt awarii</h3>
+ <p>Punkt awarii to element systemu, którego awaria zatrzymuje cały proces. Przy wdrażaniu AI takim punktem często staje się odcinek pracy, na którym nie została żadna rezerwa w ludziach: jeśli system zawiedzie, nie będzie komu go przywrócić ani wykonać pracy ręcznie. Droga do tego zwykle wygląda tak. AI zdejmuje z ludzi rutynę, ludzi się zwalnia, a razem z nimi znika umiejętność utrzymania, administrowania i pracy z pominięciem systemu.</p>
+ <a class="article-cta" href="/pl/glossary/failure-point.html">Więcej →</a>
+ </div>
  </div>
  </section>
 
@@ -257,6 +292,32 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <h3>Kryteria odbioru</h3>
  <p>Kryteria odbioru to sprawdzalne warunki, które pozwalają stwierdzić, czy praca została ukończona. Zapisuje się je przed rozpoczęciem prac, tak aby klient i wykonawca rozumieli je tak samo i mogli ocenić wynik bez sporu.</p>
  <a class="article-cta" href="/pl/glossary/acceptance-criteria.html">Więcej →</a>
+ </div>
+ <div class="article-card">
+ <h3>Całkowity koszt posiadania</h3>
+ <p>Całkowity koszt posiadania rozwiązania AI (TCO) to wszystkie pieniądze i cały czas, które pochłania ono przez okres działania: wdrożenie i konfiguracja, abonamenty i opłaty za zapytania do modelu, godziny pracowników na sprawdzanie wyników, utrzymanie i poprawki, gdy zmieniają się dane albo sam model. W kosztorysie zwykle widać tylko pierwszą pozycję. Pozostałe pojawiają się po uruchomieniu i z czasem mogą kosztować więcej niż samo wdrożenie.</p>
+ <a class="article-cta" href="/pl/glossary/total-cost-of-ownership.html">Więcej →</a>
+ </div>
+ </div>
+ </section>
+
+ <section>
+ <h2>Praca z AI</h2>
+ <div class="article-grid">
+ <div class="article-card">
+ <h3>Agent AI</h3>
+ <p>Agentem AI nazywa się dziś zwykle system oparty na modelu językowym, który sam kieruje przebiegiem pracy: dostaje cel, dobiera kroki i narzędzia, wykonuje działania i na podstawie ich wyniku decyduje, co dalej. Narzędziami mogą być poczta, arkusz, system księgowy, wyszukiwanie w dokumentach. Bot wykonuje z góry zapisany scenariusz. Agent buduje scenariusz w trakcie pracy, w granicach tego, na co mu pozwolono.</p>
+ <a class="article-cta" href="/pl/glossary/agent.html">Więcej →</a>
+ </div>
+ <div class="article-card">
+ <h3>Człowiek w pętli (human-in-the-loop)</h3>
+ <p>Człowiek w pętli (human-in-the-loop) to uczestnik procesu, który sprawdza, poprawia lub zatwierdza wynik AI, zanim trafi on dalej. AI przygotowuje szkic, zestawienie albo propozycję, a decyzja należy do człowieka. Jego miejsce ustala się z góry: na którym kroku się włącza, co sprawdza i co robi, jeśli wynik się nie nadaje.</p>
+ <a class="article-cta" href="/pl/glossary/human-in-the-loop.html">Więcej →</a>
+ </div>
+ <div class="article-card">
+ <h3>RAG (wyszukiwanie we własnych dokumentach)</h3>
+ <p>RAG (retrieval-augmented generation, generowanie wspomagane wyszukiwaniem) to podejście, w którym model językowy najpierw wyszukuje pasujące fragmenty w określonym zbiorze dokumentów i dopiero na ich podstawie formułuje odpowiedź. Podejście opisali badacze Facebook AI w 2020 roku. Dziś tak nazywa się niemal każdy system w rodzaju „czat z naszymi dokumentami”. W małej firmie RAG służy zwykle jednemu: żeby pracownik albo klient zadał pytanie zwykłymi słowami i dostał odpowiedź z regulaminów, umów, cenników czy instrukcji firmy, z odnośnikiem do dokumentu.</p>
+ <a class="article-cta" href="/pl/glossary/rag.html">Więcej →</a>
  </div>
  </div>
  </section>

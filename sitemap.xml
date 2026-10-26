@@ -326,25 +326,31 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/glossary/</loc>
- <lastmod>2026-10-23</lastmod>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.7</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/glossary/process-audit.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/glossary/process-map.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/glossary/pilot.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/glossary/failure-point.html</loc>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
@@ -356,31 +362,61 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/glossary/acceptance-criteria.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/glossary/total-cost-of-ownership.html</loc>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/glossary/agent.html</loc>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/glossary/human-in-the-loop.html</loc>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/glossary/rag.html</loc>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/glossary/</loc>
- <lastmod>2026-10-23</lastmod>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.7</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/glossary/process-audit.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/glossary/process-map.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/glossary/pilot.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/glossary/failure-point.html</loc>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
@@ -392,31 +428,61 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/glossary/acceptance-criteria.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/glossary/total-cost-of-ownership.html</loc>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/glossary/agent.html</loc>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/glossary/human-in-the-loop.html</loc>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/glossary/rag.html</loc>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/glossary/</loc>
- <lastmod>2026-10-23</lastmod>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.7</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/glossary/process-audit.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/glossary/process-map.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/glossary/pilot.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/failure-point.html</loc>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
@@ -428,7 +494,31 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/glossary/acceptance-criteria.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/total-cost-of-ownership.html</loc>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/agent.html</loc>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/human-in-the-loop.html</loc>
+ <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/rag.html</loc>
+ <lastmod>2026-10-26</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>

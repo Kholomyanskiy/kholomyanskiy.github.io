@@ -34,24 +34,39 @@
 - [Process audit](https://kholomyanskiy.com/glossary/process-audit.html): A process audit before AI implementation examines how work is actually done in a company: what people do, how long it takes, which data and tools they use, and where delays and errors occur.
 - [Process map](https://kholomyanskiy.com/glossary/process-map.html): A process map shows how work actually moves through a department or company: who does what, in which order, what they pass on, where work waits, and where people bypass rules to get things done.
 - [Pilot](https://kholomyanskiy.com/glossary/pilot.html): A pilot is a time-limited, small-scale launch of a solution using real data and real people, with success criteria written down in advance.
+- [Failure point](https://kholomyanskiy.com/glossary/failure-point.html): A failure point is an element of a system whose failure stops the whole process.
 - [AI specification](https://kholomyanskiy.com/glossary/ai-specification.html): An AI specification is a document that describes a task so a model or agent can perform it predictably and its output can be checked: what goes in, what comes out, which rules must not be broken, and how to tell when the work is done.
 - [Acceptance criteria](https://kholomyanskiy.com/glossary/acceptance-criteria.html): Acceptance criteria are verifiable conditions used to decide whether work is complete.
+- [Total cost of ownership](https://kholomyanskiy.com/glossary/total-cost-of-ownership.html): The total cost of ownership (TCO) of an AI solution is all the money and time it consumes over its working life: the build and setup, subscriptions and per-request model fees, staff hours spent checking results, and the support and fixes needed when the data or the model itself changes.
+- [AI agent](https://kholomyanskiy.com/glossary/agent.html): An AI agent today usually means a system built on a language model that directs its own work: it receives a goal, chooses steps and tools, carries out actions and decides what to do next based on their results.
+- [Human in the loop](https://kholomyanskiy.com/glossary/human-in-the-loop.html): A human in the loop is a participant in a process who checks, corrects or approves AI output before it moves on.
+- [RAG (search over your own documents)](https://kholomyanskiy.com/glossary/rag.html): Retrieval-augmented generation (RAG) is an approach in which a language model first searches a defined set of documents for relevant passages and then writes its answer based on them.
 
 ### Polski
 
 - [Audyt procesów](https://kholomyanskiy.com/pl/glossary/process-audit.html): Audyt procesów przed wdrożeniem AI to analiza tego, jak naprawdę przebiega praca w firmie: jakie zadania wykonują ludzie, ile czasu im to zajmuje, z jakich danych i narzędzi korzystają oraz gdzie pojawiają się opóźnienia i błędy.
 - [Mapa procesów](https://kholomyanskiy.com/pl/glossary/process-map.html): Mapa procesów pokazuje, jak praca naprawdę przebiega w dziale lub firmie: kto co robi, w jakiej kolejności, co przekazuje dalej, gdzie czeka i gdzie omija zasady, żeby zdążyć.
 - [Pilotaż](https://kholomyanskiy.com/pl/glossary/pilot.html): Pilotaż to ograniczone czasowo i zakresem uruchomienie rozwiązania na prawdziwych danych i z udziałem prawdziwych użytkowników, z kryteriami sukcesu zapisanymi z góry.
+- [Punkt awarii](https://kholomyanskiy.com/pl/glossary/failure-point.html): Punkt awarii to element systemu, którego awaria zatrzymuje cały proces.
 - [Specyfikacja AI](https://kholomyanskiy.com/pl/glossary/ai-specification.html): Specyfikacja AI to dokument opisujący zadanie tak, aby model lub agent wykonywał je przewidywalnie, a wynik dało się sprawdzić: co jest na wejściu i wyjściu, jakich zasad nie wolno łamać i po czym poznać, że praca jest gotowa.
 - [Kryteria odbioru](https://kholomyanskiy.com/pl/glossary/acceptance-criteria.html): Kryteria odbioru to sprawdzalne warunki, które pozwalają stwierdzić, czy praca została ukończona.
+- [Całkowity koszt posiadania](https://kholomyanskiy.com/pl/glossary/total-cost-of-ownership.html): Całkowity koszt posiadania rozwiązania AI (TCO) to wszystkie pieniądze i cały czas, które pochłania ono przez okres działania: wdrożenie i konfiguracja, abonamenty i opłaty za zapytania do modelu, godziny pracowników na sprawdzanie wyników, utrzymanie i poprawki, gdy zmieniają się dane albo sam model.
+- [Agent AI](https://kholomyanskiy.com/pl/glossary/agent.html): Agentem AI nazywa się dziś zwykle system oparty na modelu językowym, który sam kieruje przebiegiem pracy: dostaje cel, dobiera kroki i narzędzia, wykonuje działania i na podstawie ich wyniku decyduje, co dalej.
+- [Człowiek w pętli (human-in-the-loop)](https://kholomyanskiy.com/pl/glossary/human-in-the-loop.html): Człowiek w pętli (human-in-the-loop) to uczestnik procesu, który sprawdza, poprawia lub zatwierdza wynik AI, zanim trafi on dalej.
+- [RAG (wyszukiwanie we własnych dokumentach)](https://kholomyanskiy.com/pl/glossary/rag.html): RAG (retrieval-augmented generation, generowanie wspomagane wyszukiwaniem) to podejście, w którym model językowy najpierw wyszukuje pasujące fragmenty w określonym zbiorze dokumentów i dopiero na ich podstawie formułuje odpowiedź.
 
 ### Русский
 
 - [Аудит процессов](https://kholomyanskiy.com/ru/glossary/process-audit.html): Аудитом процессов перед внедрением ИИ называют разбор того, как работа в компании выполняется на самом деле: какие задачи делают люди, сколько времени на них уходит, какие данные и инструменты используются, где возникают задержки и ошибки.
 - [Карта процессов](https://kholomyanskiy.com/ru/glossary/process-map.html): Картой процессов называют схему того, как работа на самом деле проходит через отдел или компанию: кто что делает, в каком порядке, что передаёт дальше, где ждёт и где обходит правила, чтобы успеть.
 - [Пилот](https://kholomyanskiy.com/ru/glossary/pilot.html): Пилотом называют ограниченный по времени и масштабу запуск решения на реальных данных и реальных людях, с заранее записанными критериями успеха.
+- [Точка отказа](https://kholomyanskiy.com/ru/glossary/failure-point.html): Точкой отказа называют элемент системы, при отказе которого останавливается весь процесс.
 - [Спецификация для ИИ](https://kholomyanskiy.com/ru/glossary/ai-specification.html): Спецификацией для ИИ называют документ, который описывает задачу так, чтобы модель или агент выполняли её предсказуемо, а результат можно было проверить: что на входе, что на выходе, какие правила нельзя нарушать и как понять, что готово.
 - [Критерии приёмки](https://kholomyanskiy.com/ru/glossary/acceptance-criteria.html): Критериями приёмки называют проверяемые условия, по которым работу считают сделанной.
+- [Стоимость владения](https://kholomyanskiy.com/ru/glossary/total-cost-of-ownership.html): Стоимостью владения ИИ-решением называют все деньги и время, которые уходят на него за весь срок работы: разработку и настройку, подписки и оплату запросов к модели, часы сотрудников на проверку результатов, поддержку и доработки, когда меняются данные или сама модель.
+- [ИИ-агент](https://kholomyanskiy.com/ru/glossary/agent.html): ИИ-агентом сегодня обычно называют систему на основе языковой модели, которая сама управляет ходом работы: получает цель, выбирает шаги и инструменты, выполняет действия и по их результату решает, что делать дальше.
+- [Человек в контуре (human-in-the-loop)](https://kholomyanskiy.com/ru/glossary/human-in-the-loop.html): Человеком в контуре (human-in-the-loop) называют участника процесса, который проверяет, правит или утверждает результат ИИ, прежде чем тот пойдёт дальше.
+- [RAG (поиск по своим документам)](https://kholomyanskiy.com/ru/glossary/rag.html): RAG (retrieval-augmented generation, генерация, дополненная поиском) называют подход, при котором языковая модель сначала ищет подходящие фрагменты в заданном наборе документов и уже по ним формулирует ответ.
 
 ## Контакты
 

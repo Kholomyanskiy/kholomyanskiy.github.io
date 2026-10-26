@@ -60,6 +60,12 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "Failure point",
+      "description": "A failure point is an element of a system whose failure stops the whole process. In AI implementation, it is often a part of the work that has no human backup left: if the system fails, no one can restore it or do the work by hand. The usual path there looks like this. AI takes routine work off people, people are let go, and with them goes the ability to maintain, administer and work around the system.",
+      "url": "https://kholomyanskiy.com/glossary/failure-point.html"
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "AI specification",
       "description": "An AI specification is a document that describes a task so a model or agent can perform it predictably and its output can be checked: what goes in, what comes out, which rules must not be broken, and how to tell when the work is done. It lives outside the chat and remains available across sessions.",
       "url": "https://kholomyanskiy.com/glossary/ai-specification.html"
@@ -69,6 +75,30 @@
       "name": "Acceptance criteria",
       "description": "Acceptance criteria are verifiable conditions used to decide whether work is complete. They are written before work begins so the client and contractor interpret them the same way and can check the result without a dispute.",
       "url": "https://kholomyanskiy.com/glossary/acceptance-criteria.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Total cost of ownership",
+      "description": "The total cost of ownership (TCO) of an AI solution is all the money and time it consumes over its working life: the build and setup, subscriptions and per-request model fees, staff hours spent checking results, and the support and fixes needed when the data or the model itself changes. A quote usually shows only the first item. The rest turn up after launch and, over time, can cost more than the build.",
+      "url": "https://kholomyanskiy.com/glossary/total-cost-of-ownership.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "AI agent",
+      "description": "An AI agent today usually means a system built on a language model that directs its own work: it receives a goal, chooses steps and tools, carries out actions and decides what to do next based on their results. Tools can include email, a spreadsheet, an accounting system, search across documents. A bot follows a script written in advance. An agent builds its script as it goes, within the limits of what it is allowed to do.",
+      "url": "https://kholomyanskiy.com/glossary/agent.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Human in the loop",
+      "description": "A human in the loop is a participant in a process who checks, corrects or approves AI output before it moves on. The AI prepares a draft, a shortlist or a proposal, and the decision stays with the person. Their place is set in advance: at which step they come in, what they check, and what they do if the output is not good enough.",
+      "url": "https://kholomyanskiy.com/glossary/human-in-the-loop.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "RAG (search over your own documents)",
+      "description": "Retrieval-augmented generation (RAG) is an approach in which a language model first searches a defined set of documents for relevant passages and then writes its answer based on them. The approach was described by researchers at Facebook AI in 2020. Today the term covers almost any \"chat with our documents\" system. In a small business, RAG usually serves one purpose: an employee or a customer asks a question in plain words and gets an answer drawn from the company's policies, contracts, price lists or manuals, with a link to the document.",
+      "url": "https://kholomyanskiy.com/glossary/rag.html"
     }
   ]
 }
@@ -242,6 +272,11 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <p>A pilot is a time-limited, small-scale launch of a solution using real data and real people, with success criteria written down in advance. Its results help decide whether to continue implementation, make changes, or stop.</p>
  <a class="article-cta" href="/glossary/pilot.html">Read more →</a>
  </div>
+ <div class="article-card">
+ <h3>Failure point</h3>
+ <p>A failure point is an element of a system whose failure stops the whole process. In AI implementation, it is often a part of the work that has no human backup left: if the system fails, no one can restore it or do the work by hand. The usual path there looks like this. AI takes routine work off people, people are let go, and with them goes the ability to maintain, administer and work around the system.</p>
+ <a class="article-cta" href="/glossary/failure-point.html">Read more →</a>
+ </div>
  </div>
  </section>
 
@@ -257,6 +292,32 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <h3>Acceptance criteria</h3>
  <p>Acceptance criteria are verifiable conditions used to decide whether work is complete. They are written before work begins so the client and contractor interpret them the same way and can check the result without a dispute.</p>
  <a class="article-cta" href="/glossary/acceptance-criteria.html">Read more →</a>
+ </div>
+ <div class="article-card">
+ <h3>Total cost of ownership</h3>
+ <p>The total cost of ownership (TCO) of an AI solution is all the money and time it consumes over its working life: the build and setup, subscriptions and per-request model fees, staff hours spent checking results, and the support and fixes needed when the data or the model itself changes. A quote usually shows only the first item. The rest turn up after launch and, over time, can cost more than the build.</p>
+ <a class="article-cta" href="/glossary/total-cost-of-ownership.html">Read more →</a>
+ </div>
+ </div>
+ </section>
+
+ <section>
+ <h2>Working with AI</h2>
+ <div class="article-grid">
+ <div class="article-card">
+ <h3>AI agent</h3>
+ <p>An AI agent today usually means a system built on a language model that directs its own work: it receives a goal, chooses steps and tools, carries out actions and decides what to do next based on their results. Tools can include email, a spreadsheet, an accounting system, search across documents. A bot follows a script written in advance. An agent builds its script as it goes, within the limits of what it is allowed to do.</p>
+ <a class="article-cta" href="/glossary/agent.html">Read more →</a>
+ </div>
+ <div class="article-card">
+ <h3>Human in the loop</h3>
+ <p>A human in the loop is a participant in a process who checks, corrects or approves AI output before it moves on. The AI prepares a draft, a shortlist or a proposal, and the decision stays with the person. Their place is set in advance: at which step they come in, what they check, and what they do if the output is not good enough.</p>
+ <a class="article-cta" href="/glossary/human-in-the-loop.html">Read more →</a>
+ </div>
+ <div class="article-card">
+ <h3>RAG (search over your own documents)</h3>
+ <p>Retrieval-augmented generation (RAG) is an approach in which a language model first searches a defined set of documents for relevant passages and then writes its answer based on them. The approach was described by researchers at Facebook AI in 2020. Today the term covers almost any "chat with our documents" system. In a small business, RAG usually serves one purpose: an employee or a customer asks a question in plain words and gets an answer drawn from the company's policies, contracts, price lists or manuals, with a link to the document.</p>
+ <a class="article-cta" href="/glossary/rag.html">Read more →</a>
  </div>
  </div>
  </section>

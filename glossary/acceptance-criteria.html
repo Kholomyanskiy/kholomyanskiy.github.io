@@ -245,7 +245,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 <p>A usable criterion has four features. It is verifiable: you can answer “yes” or “no,” or measure it. It is checked against your data, with all their quirks. It has a threshold below which the work is not accepted. And it is clear in advance who checks it and how. It is useful to write each criterion in one sentence: what is being checked, against which data, by what method, and what result is sufficient. For example: “The invoice amount and number are extracted correctly from every document in the test set, as checked by the accountant against the originals.”</p>
 <h2>Why AI makes this harder</h2>
 <p>Conventional software gives the same answer to the same data. A model may answer differently, and any demo looks great on three successful examples. That is why an AI criterion almost always describes a proportion: how many documents in the test set have a correct result, and how many errors are allowed.</p>
-<p>Errors are not all equal either. A typo in a comment and an incorrect invoice amount have different consequences, and that needs to be written down too. Sometimes the acceptable error rate for one field is zero, while another can tolerate some errors if those cases go to a human in the loop.</p>
+<p>Errors are not all equal either. A typo in a comment and an incorrect invoice amount have different consequences, and that needs to be written down too. Sometimes the acceptable error rate for one field is zero, while another can tolerate some errors if those cases go to a <a href="/glossary/human-in-the-loop.html">human in the loop</a>.</p>
 <p>One more thing: tie the criterion to the work outcome. Model quality alone is not enough. A model may recognize almost everything correctly, while the employee's time per task stays the same because they still check every document.</p>
 <h2>Common mistakes</h2>
 <p>The brief says “user-friendly interface” and “high recognition quality,” the contractor delivers whatever they have built, and there is nothing concrete to dispute. Criteria are written after delivery and adjusted to fit the result. The contractor writes the criteria and, naturally, lists only what they can certainly deliver. People check whether features exist without checking whether those features solve the problem.</p>
@@ -256,7 +256,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 <p>A set of test examples from your real data, including the awkward ones. What counts as an error and which errors are critical. A threshold for each criterion. How the work is done now, so you have a baseline to compare against; a <a href="/glossary/pilot.html">pilot</a> is a useful way to establish one. Who accepts the work and what happens if it fails.</p>
 <p>All of this belongs in the <a href="/glossary/ai-specification.html">AI specification</a>. Criteria without a specification check an undefined target. A specification without criteria gives you no way to check the result.</p>
 <hr>
-<p><strong>Related terms:</strong> <a href="/glossary/ai-specification.html">AI specification</a> · <a href="/glossary/pilot.html">Pilot</a> · Human in the loop · Hallucination</p>
+<p><strong>Related terms:</strong> <a href="/glossary/ai-specification.html">AI specification</a> · <a href="/glossary/pilot.html">Pilot</a> · <a href="/glossary/human-in-the-loop.html">Human in the loop</a> · Hallucination</p>
 <p>Can you check that the contractor delivered what you are paying for? <a href="/spec.html">AI specification →</a></p>
  </div>
  </section>

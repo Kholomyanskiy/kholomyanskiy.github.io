@@ -245,7 +245,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 <p>Dobre kryterium ma cztery cechy. Jest sprawdzalne: można odpowiedzieć „tak” lub „nie” albo coś zmierzyć. Sprawdza się je na twoich danych, ze wszystkimi ich osobliwościami. Ma próg, poniżej którego praca nie zostaje odebrana. Z góry wiadomo też, kto i jak je sprawdzi. Warto zapisywać każde kryterium w jednym zdaniu: co sprawdzamy, na jakich danych, jaką metodą i jaki wynik wystarczy. Na przykład: „Kwota i numer faktury są poprawnie odczytane ze wszystkich dokumentów zestawu testowego; księgowy sprawdza je z oryginałami”.</p>
 <h2>Dlaczego AI utrudnia ocenę</h2>
 <p>Zwykły program zwraca ten sam wynik dla tych samych danych. Model może odpowiadać różnie, a na trzech udanych przykładach każda demonstracja wygląda świetnie. Dlatego kryterium dla AI prawie zawsze określa odsetek: w ilu dokumentach z zestawu testowego wynik jest poprawny i ile błędów można zaakceptować.</p>
-<p>Błędy też nie mają jednakowej wagi. Literówka w komentarzu i błędna kwota na fakturze mają różne skutki, co również trzeba zapisać. Dla jednego pola dopuszczalny odsetek błędów może wynosić zero, a dla innego można zaakceptować pomyłki, jeśli takie przypadki trafiają do człowieka w pętli.</p>
+<p>Błędy też nie mają jednakowej wagi. Literówka w komentarzu i błędna kwota na fakturze mają różne skutki, co również trzeba zapisać. Dla jednego pola dopuszczalny odsetek błędów może wynosić zero, a dla innego można zaakceptować pomyłki, jeśli takie przypadki trafiają do <a href="/pl/glossary/human-in-the-loop.html">człowieka w pętli</a>.</p>
 <p>Jeszcze jedna sprawa: kryterium powinno dotyczyć efektu pracy. Sama jakość modelu nie wystarczy. Model może rozpoznawać prawie wszystko poprawnie, a czas pracownika na zadanie się nie zmieni, bo nadal sprawdza każdy dokument.</p>
 <h2>Typowe błędy</h2>
 <p>W opisie wymagań pojawia się „wygodny interfejs” i „wysoka jakość rozpoznawania”, wykonawca oddaje to, co udało mu się zrobić, i nie ma podstaw do sporu. Kryteria zapisuje się po zakończeniu prac i dopasowuje do wyniku. Kryteria ustala sam wykonawca, więc oczywiście zapisuje tylko to, co na pewno zrealizuje. Sprawdza się, czy funkcje istnieją, ale nie to, czy rozwiązują problem.</p>
@@ -256,7 +256,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 <p>Zestaw przykładów testowych z prawdziwych danych, także tych kłopotliwych. Co uznajemy za błąd i które błędy są krytyczne. Próg dla każdego kryterium. Jak praca przebiega obecnie, żeby było z czym porównać wynik; dobrym sposobem na ustalenie tego jest <a href="/pl/glossary/pilot.html">pilotaż</a>. Kto odbiera pracę i co się dzieje, jeśli nie przejdzie oceny.</p>
 <p>Wszystko to należy do <a href="/pl/glossary/ai-specification.html">specyfikacji AI</a>. Kryteria bez specyfikacji sprawdzają nieokreślony cel. Specyfikacja bez kryteriów nie daje sposobu na ocenę wyniku.</p>
 <hr>
-<p><strong>Powiązane terminy:</strong> <a href="/pl/glossary/ai-specification.html">Specyfikacja AI</a> · <a href="/pl/glossary/pilot.html">Pilotaż</a> · Człowiek w pętli · Halucynacja</p>
+<p><strong>Powiązane terminy:</strong> <a href="/pl/glossary/ai-specification.html">Specyfikacja AI</a> · <a href="/pl/glossary/pilot.html">Pilotaż</a> · <a href="/pl/glossary/human-in-the-loop.html">Człowiek w pętli</a> · Halucynacja</p>
 <p>Czy możesz sprawdzić, czy wykonawca zrobił to, za co płacisz? <a href="/pl/spec.html">Specyfikacja AI →</a></p>
  </div>
  </section>
