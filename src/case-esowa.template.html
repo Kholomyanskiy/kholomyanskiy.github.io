@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanics' output in Telegram: a bot for shops on eSowa — EVAI Consulting</title>
+<meta name="description" content="A Telegram bot for car repair shops on eSowa: each mechanic sees their output and what is left to the monthly plan, the manager sees the whole team.">
+<link rel="canonical" href="https://kholomyanskiy.com/case-esowa.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mechanics' output in Telegram: a bot for shops on eSowa — EVAI Consulting">
+<meta property="og:description" content="A Telegram bot for car repair shops on eSowa: each mechanic sees their output and what is left to the monthly plan, the manager sees the whole team.">
+<meta property="og:url" content="https://kholomyanskiy.com/case-esowa.html">
+<!-- @include head-common -->
+<meta name="twitter:title" content="Mechanics' output in Telegram: a bot for shops on eSowa — EVAI Consulting">
+<meta name="twitter:description" content="A Telegram bot for car repair shops on eSowa: each mechanic sees their output and what is left to the monthly plan, the manager sees the whole team.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* @include common.css */
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+@media(max-width:680px){.topnav-links{gap:14px;font-size:12px}}
+/* лист страниц услуг */
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+}
+.sheet{
+  max-width:880px;
+  margin:16px auto 40px;
+  background:var(--panel);
+  border:1.5px solid var(--ink);
+  box-shadow:8px 8px 0 rgba(27,32,39,.08);
+}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-main{padding:44px 28px 36px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;color:var(--ink-soft);font-size:17px}
+section{padding:40px 28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
+.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
+.cta h2{color:#fff}
+footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+@media(max-width:680px){
+  .sheet{margin:8px 12px 32px}
+}
+/* ---------- sections ---------- */
+.steps{counter-reset:st;max-width:620px;margin-top:8px}
+.steps li{list-style:none;counter-increment:st;padding:12px 0 12px 52px;position:relative;border-top:1px solid var(--line)}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);
+  position:absolute;left:0;top:12px;
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue);
+}
+figure{margin:26px 0;max-width:660px}
+.cta a.btn{
+  display:inline-block;margin-top:10px;
+  font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;
+  color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;
+  padding:13px 26px;text-decoration:none;
+}
+.cta a.btn:hover{background:transparent;color:#EDEFF2}
+.cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
+.footer-links a:hover{color:var(--blue)}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "$t:h1_title",
+  "description": "$t:meta_desc",
+  "datePublished": "2026-10-27",
+  "dateModified": "2026-10-27",
+  "inLanguage": "en",
+  "url": "https://kholomyanskiy.com/case-esowa.html",
+  "author": {"@id": "https://kholomyanskiy.com/#person"},
+  "publisher": {"@id": "https://kholomyanskiy.com/#organization"},
+  "image": "https://kholomyanskiy.com/og-image.png"
+}
+</script>
+</head>
+<body>
+
+<!-- @include topnav current=portfolio -->
+
+<div class="sheet">
+
+  <header class="titleblock">
+    <div class="tb-top">
+      <span class="brand">EVAI CONSULTING</span>
+      <span>EVAI-CASE-2026-02 · v1.0</span>
+    </div>
+    <div class="tb-main">
+      <h1 data-i18n-html="h1_title">Mechanics' output and the monthly plan in Telegram</h1>
+      <p class="sub" data-i18n="tb_sub">A bot for car repair shops on eSowa: each mechanic sees their billed hours and what is left to the plan; the manager sees the whole team.</p>
+    </div>
+  </header>
+
+  <section>
+    <span class="secnum">1.0</span>
+    <h2 data-i18n="s1_h2">The task</h2>
+    <p data-i18n="s1_p">A car repair shop in Gdańsk records its work in eSowa, the workshop software from Inter Cars. The owner wanted to raise the mechanics' motivation. For that, each mechanic needed to see their own jobs, billed hours and what is left to the monthly plan at any moment, and the manager needed to see the whole team without manual reports or phone calls.</p>
+    <figure>
+    <!-- @lang en -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 466" width="100%" role="img" aria-label="How the bot works: read-only data from eSowa, a report for the mechanic and a team summary for the manager in Telegram" font-family="Inter, sans-serif" font-size="13">
+<defs>
+<marker id="ef-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#1B2027" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="ef-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<!-- eSowa: монитор -->
+<rect x="40" y="34" width="140" height="92" rx="12" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<line x1="60" y1="60" x2="140" y2="60" stroke="#C9CEC2" stroke-width="6" stroke-linecap="round"/>
+<line x1="60" y1="80" x2="160" y2="80" stroke="#C9CEC2" stroke-width="6" stroke-linecap="round"/>
+<line x1="60" y1="100" x2="120" y2="100" stroke="#C9CEC2" stroke-width="6" stroke-linecap="round"/>
+<path d="M98 126 L92 142 H128 L122 126" fill="none" stroke="#1B2027" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="110" y="166" text-anchor="middle" fill="#1B2027" font-weight="600" font-size="14">eSowa</text>
+<text x="110" y="184" text-anchor="middle" fill="#4A5361" font-size="12">workshop job records</text>
+<!-- read-only -->
+<path d="M184 80 C230 80 250 80 296 80" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-dasharray="5 5" marker-end="url(#ef-b)"/>
+<text x="240" y="68" text-anchor="middle" fill="#2B5B8A" font-size="12">read-only</text>
+<!-- бот -->
+<circle cx="340" cy="80" r="40" fill="#2B5B8A" fill-opacity="0.10" stroke="#2B5B8A" stroke-width="1.5"/>
+<text x="340" y="85" text-anchor="middle" fill="#1E4266" font-weight="600" font-size="15">bot</text>
+<rect x="372" y="34" width="62" height="24" rx="12" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="403" y="50" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">18:00</text>
+<text x="400" y="104" fill="#4A5361" font-size="12">starts with</text>
+<text x="400" y="120" fill="#4A5361" font-size="12">the computer</text>
+<!-- ветки -->
+<path d="M318 118 C290 190 165 175 160 226" fill="none" stroke="#1B2027" stroke-width="1.5" marker-end="url(#ef-k)"/>
+<path d="M362 118 C390 190 405 175 405 226" fill="none" stroke="#1B2027" stroke-width="1.5" marker-end="url(#ef-k)"/>
+<!-- телефон механика -->
+<rect x="85" y="232" width="150" height="214" rx="24" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<line x1="143" y1="245" x2="177" y2="245" stroke="#1B2027" stroke-width="2" stroke-linecap="round"/>
+<text x="160" y="274" text-anchor="middle" fill="#1B2027" font-weight="600">Mechanic</text>
+<rect x="99" y="290" width="122" height="134" rx="14" fill="#2B5B8A" fill-opacity="0.08"/>
+<text x="111" y="314" fill="#1B2027" font-size="12">own jobs</text>
+<text x="111" y="330" fill="#1B2027" font-size="12">and billed hours</text>
+<rect x="111" y="344" width="98" height="8" rx="4" fill="#C9CEC2"/>
+<rect x="111" y="344" width="60" height="8" rx="4" fill="#2B5B8A"/>
+<text x="111" y="374" fill="#4A5361" font-size="12">left to</text>
+<text x="111" y="390" fill="#4A5361" font-size="12">the plan</text>
+<text x="111" y="410" fill="#4A5361" font-size="11">visible only to them</text>
+<!-- телефон руководителя -->
+<rect x="330" y="232" width="150" height="214" rx="24" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<line x1="388" y1="245" x2="422" y2="245" stroke="#1B2027" stroke-width="2" stroke-linecap="round"/>
+<text x="405" y="274" text-anchor="middle" fill="#1B2027" font-weight="600">Manager</text>
+<rect x="344" y="290" width="122" height="134" rx="14" fill="#2B5B8A" fill-opacity="0.08"/>
+<circle cx="360" cy="312" r="5" fill="#2B5B8A"/><rect x="372" y="308" width="78" height="8" rx="4" fill="#C9CEC2"/>
+<circle cx="360" cy="334" r="5" fill="none" stroke="#2B5B8A" stroke-width="1.5"/><rect x="372" y="330" width="52" height="8" rx="4" fill="#C9CEC2"/>
+<circle cx="360" cy="356" r="5" fill="#2B5B8A"/><rect x="372" y="352" width="86" height="8" rx="4" fill="#C9CEC2"/>
+<text x="356" y="390" fill="#4A5361" font-size="12">plan, actual</text>
+<text x="356" y="406" fill="#4A5361" font-size="12">and the gap</text>
+</svg>
+    <!-- @endlang -->
+    <!-- @lang pl -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 466" width="100%" role="img" aria-label="Jak działa bot: dane z eSowa tylko do odczytu, raport dla mechanika i podsumowanie zespołu dla kierownika w Telegramie" font-family="Inter, sans-serif" font-size="13">
+<defs>
+<marker id="ef-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#1B2027" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="ef-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<!-- eSowa: монитор -->
+<rect x="40" y="34" width="140" height="92" rx="12" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<line x1="60" y1="60" x2="140" y2="60" stroke="#C9CEC2" stroke-width="6" stroke-linecap="round"/>
+<line x1="60" y1="80" x2="160" y2="80" stroke="#C9CEC2" stroke-width="6" stroke-linecap="round"/>
+<line x1="60" y1="100" x2="120" y2="100" stroke="#C9CEC2" stroke-width="6" stroke-linecap="round"/>
+<path d="M98 126 L92 142 H128 L122 126" fill="none" stroke="#1B2027" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="110" y="166" text-anchor="middle" fill="#1B2027" font-weight="600" font-size="14">eSowa</text>
+<text x="110" y="184" text-anchor="middle" fill="#4A5361" font-size="12">ewidencja prac warsztatu</text>
+<!-- tylko odczyt -->
+<path d="M184 80 C230 80 250 80 296 80" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-dasharray="5 5" marker-end="url(#ef-b)"/>
+<text x="240" y="68" text-anchor="middle" fill="#2B5B8A" font-size="12">tylko odczyt</text>
+<!-- бот -->
+<circle cx="340" cy="80" r="40" fill="#2B5B8A" fill-opacity="0.10" stroke="#2B5B8A" stroke-width="1.5"/>
+<text x="340" y="85" text-anchor="middle" fill="#1E4266" font-weight="600" font-size="15">bot</text>
+<rect x="372" y="34" width="62" height="24" rx="12" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="403" y="50" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">18:00</text>
+<text x="400" y="104" fill="#4A5361" font-size="12">startuje razem</text>
+<text x="400" y="120" fill="#4A5361" font-size="12">z komputerem</text>
+<!-- ветки -->
+<path d="M318 118 C290 190 165 175 160 226" fill="none" stroke="#1B2027" stroke-width="1.5" marker-end="url(#ef-k)"/>
+<path d="M362 118 C390 190 405 175 405 226" fill="none" stroke="#1B2027" stroke-width="1.5" marker-end="url(#ef-k)"/>
+<!-- телефон механика -->
+<rect x="85" y="232" width="150" height="214" rx="24" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<line x1="143" y1="245" x2="177" y2="245" stroke="#1B2027" stroke-width="2" stroke-linecap="round"/>
+<text x="160" y="274" text-anchor="middle" fill="#1B2027" font-weight="600">Mechanik</text>
+<rect x="99" y="290" width="122" height="134" rx="14" fill="#2B5B8A" fill-opacity="0.08"/>
+<text x="111" y="314" fill="#1B2027" font-size="12">swoje zlecenia</text>
+<text x="111" y="330" fill="#1B2027" font-size="12">i godziny pracy</text>
+<rect x="111" y="344" width="98" height="8" rx="4" fill="#C9CEC2"/>
+<rect x="111" y="344" width="60" height="8" rx="4" fill="#2B5B8A"/>
+<text x="111" y="374" fill="#4A5361" font-size="12">zostało</text>
+<text x="111" y="390" fill="#4A5361" font-size="12">do planu</text>
+<text x="111" y="410" fill="#4A5361" font-size="11">widzi tylko on sam</text>
+<!-- телефон руководителя -->
+<rect x="330" y="232" width="150" height="214" rx="24" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<line x1="388" y1="245" x2="422" y2="245" stroke="#1B2027" stroke-width="2" stroke-linecap="round"/>
+<text x="405" y="274" text-anchor="middle" fill="#1B2027" font-weight="600">Kierownik</text>
+<rect x="344" y="290" width="122" height="134" rx="14" fill="#2B5B8A" fill-opacity="0.08"/>
+<circle cx="360" cy="312" r="5" fill="#2B5B8A"/><rect x="372" y="308" width="78" height="8" rx="4" fill="#C9CEC2"/>
+<circle cx="360" cy="334" r="5" fill="none" stroke="#2B5B8A" stroke-width="1.5"/><rect x="372" y="330" width="52" height="8" rx="4" fill="#C9CEC2"/>
+<circle cx="360" cy="356" r="5" fill="#2B5B8A"/><rect x="372" y="352" width="86" height="8" rx="4" fill="#C9CEC2"/>
+<text x="356" y="390" fill="#4A5361" font-size="12">plan, wykonanie</text>
+<text x="356" y="406" fill="#4A5361" font-size="12">i odchylenie</text>
+</svg>
+    <!-- @endlang -->
+    <!-- @lang ru -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 466" width="100%" role="img" aria-label="Как работает бот: данные из eSowa только на чтение, отчёт механику и сводка руководителю в Telegram" font-family="Inter, sans-serif" font-size="13">
+<defs>
+<marker id="ef-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#1B2027" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="ef-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<!-- eSowa: монитор -->
+<rect x="40" y="34" width="140" height="92" rx="12" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<line x1="60" y1="60" x2="140" y2="60" stroke="#C9CEC2" stroke-width="6" stroke-linecap="round"/>
+<line x1="60" y1="80" x2="160" y2="80" stroke="#C9CEC2" stroke-width="6" stroke-linecap="round"/>
+<line x1="60" y1="100" x2="120" y2="100" stroke="#C9CEC2" stroke-width="6" stroke-linecap="round"/>
+<path d="M98 126 L92 142 H128 L122 126" fill="none" stroke="#1B2027" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="110" y="166" text-anchor="middle" fill="#1B2027" font-weight="600" font-size="14">eSowa</text>
+<text x="110" y="184" text-anchor="middle" fill="#4A5361" font-size="12">учёт работ сервиса</text>
+<!-- только чтение -->
+<path d="M184 80 C230 80 250 80 296 80" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-dasharray="5 5" marker-end="url(#ef-b)"/>
+<text x="240" y="68" text-anchor="middle" fill="#2B5B8A" font-size="12">только чтение</text>
+<!-- бот -->
+<circle cx="340" cy="80" r="40" fill="#2B5B8A" fill-opacity="0.10" stroke="#2B5B8A" stroke-width="1.5"/>
+<text x="340" y="85" text-anchor="middle" fill="#1E4266" font-weight="600" font-size="15">бот</text>
+<rect x="372" y="34" width="62" height="24" rx="12" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="403" y="50" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">18:00</text>
+<text x="400" y="104" fill="#4A5361" font-size="12">стартует вместе</text>
+<text x="400" y="120" fill="#4A5361" font-size="12">с компьютером</text>
+<!-- ветки -->
+<path d="M318 118 C290 190 165 175 160 226" fill="none" stroke="#1B2027" stroke-width="1.5" marker-end="url(#ef-k)"/>
+<path d="M362 118 C390 190 405 175 405 226" fill="none" stroke="#1B2027" stroke-width="1.5" marker-end="url(#ef-k)"/>
+<!-- телефон механика -->
+<rect x="85" y="232" width="150" height="214" rx="24" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<line x1="143" y1="245" x2="177" y2="245" stroke="#1B2027" stroke-width="2" stroke-linecap="round"/>
+<text x="160" y="274" text-anchor="middle" fill="#1B2027" font-weight="600">Механик</text>
+<rect x="99" y="290" width="122" height="134" rx="14" fill="#2B5B8A" fill-opacity="0.08"/>
+<text x="111" y="314" fill="#1B2027" font-size="12">свои работы</text>
+<text x="111" y="330" fill="#1B2027" font-size="12">и нормо-часы</text>
+<rect x="111" y="344" width="98" height="8" rx="4" fill="#C9CEC2"/>
+<rect x="111" y="344" width="60" height="8" rx="4" fill="#2B5B8A"/>
+<text x="111" y="374" fill="#4A5361" font-size="12">остаток</text>
+<text x="111" y="390" fill="#4A5361" font-size="12">до плана</text>
+<text x="111" y="410" fill="#4A5361" font-size="11">видно только себе</text>
+<!-- телефон руководителя -->
+<rect x="330" y="232" width="150" height="214" rx="24" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<line x1="388" y1="245" x2="422" y2="245" stroke="#1B2027" stroke-width="2" stroke-linecap="round"/>
+<text x="405" y="274" text-anchor="middle" fill="#1B2027" font-weight="600">Руководитель</text>
+<rect x="344" y="290" width="122" height="134" rx="14" fill="#2B5B8A" fill-opacity="0.08"/>
+<circle cx="360" cy="312" r="5" fill="#2B5B8A"/><rect x="372" y="308" width="78" height="8" rx="4" fill="#C9CEC2"/>
+<circle cx="360" cy="334" r="5" fill="none" stroke="#2B5B8A" stroke-width="1.5"/><rect x="372" y="330" width="52" height="8" rx="4" fill="#C9CEC2"/>
+<circle cx="360" cy="356" r="5" fill="#2B5B8A"/><rect x="372" y="352" width="86" height="8" rx="4" fill="#C9CEC2"/>
+<text x="356" y="390" fill="#4A5361" font-size="12">план, факт</text>
+<text x="356" y="406" fill="#4A5361" font-size="12">и отклонение</text>
+</svg>
+    <!-- @endlang -->
+    </figure>
+  </section>
+
+  <section>
+    <span class="secnum">2.0</span>
+    <h2 data-i18n="s2_h2">How it works</h2>
+    <p data-i18n="s2_p1">A mechanic connects to the bot from their own phone with a PIN and sees only their own data. One message holds the report for the day and the month: how many jobs, how many billed hours, for what amount and how much is left to the monthly plan. The report arrives by itself every day at 18:00 and opens with a button at any time. Once a day the bot asks for a motivation rating from 1 to 5. The interface is in Polish, Russian or Ukrainian, and each mechanic chooses the language.</p>
+    <p data-i18n="s2_p2">The manager sees a summary for the whole team: the daily plan, the actual figure and the gap for each mechanic. In the same place the manager sets monthly plans, adds mechanics from the eSowa list and re-registers a mechanic who has changed phones.</p>
+    <figure>
+      <!-- @lang en -->
+      <img src="img/portfolio-esowa-kpi-bot.webp" srcset="img/portfolio-esowa-kpi-bot.webp 640w, img/portfolio-esowa-kpi-bot@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 660px" width="640" height="579" loading="lazy" style="width:100%;height:auto" alt="The manager's team summary in Telegram">
+      <!-- @endlang -->
+      <!-- @lang pl -->
+      <img src="img/portfolio-esowa-kpi-bot.webp" srcset="img/portfolio-esowa-kpi-bot.webp 640w, img/portfolio-esowa-kpi-bot@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 660px" width="640" height="579" loading="lazy" style="width:100%;height:auto" alt="Podsumowanie zespołu dla kierownika w Telegramie">
+      <!-- @endlang -->
+      <!-- @lang ru -->
+      <img src="img/portfolio-esowa-kpi-bot.webp" srcset="img/portfolio-esowa-kpi-bot.webp 640w, img/portfolio-esowa-kpi-bot@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 660px" width="640" height="579" loading="lazy" style="width:100%;height:auto" alt="Сводка руководителя по команде в Telegram">
+      <!-- @endlang -->
+      <figcaption data-i18n="shot_cap">The manager's team summary. Names are made up.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <span class="secnum">3.0</span>
+    <h2 data-i18n="s3_h2">Connection</h2>
+    <p data-i18n="s3_p">The bot reads eSowa data and changes nothing in it, with no load on the software. It is installed on the shop's computer in one visit, starts with the computer and restarts itself after a failure. Other workshop software is connected after its database has been examined. In this project, one week passed from examining the database to installation. The scope and acceptance criteria were written into the brief before work started: the bot's data match eSowa, each person sees only their own figures, reports arrive on request and on schedule, and after a reboot the bot starts by itself.</p>
+  </section>
+
+  <section>
+    <span class="secnum">4.0</span>
+    <h2 data-i18n="s4_h2">Result and next step</h2>
+    <p data-i18n="s4_p">The bot was installed and handed over to the shop. The effect on output was not measured. For now, the manager enters each mechanic's monthly plan by hand. The next step for a shop with such a bot: tie meeting the plan to a bonus and agree the rules with the mechanics before launch. Without a bonus, a daily output summary is read as control.</p>
+    <figure>
+    <!-- @lang en -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 60 560 270" width="100%" role="img" aria-label="A mechanic's plan gauge and the next step: a bonus for meeting the plan" font-family="Inter, sans-serif" font-size="13">
+<defs>
+<marker id="ep-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<!-- шкала -->
+<path d="M50 200 A120 120 0 0 1 290 200" fill="none" stroke="#C9CEC2" stroke-width="14" stroke-linecap="round"/>
+<path d="M50 200 A120 120 0 0 1 214.2 88.3" fill="none" stroke="#2B5B8A" stroke-width="14" stroke-linecap="round"/>
+<g stroke="#4A5361" stroke-width="1.2">
+<line x1="76" y1="200" x2="86" y2="200"/>
+<line x1="85.1" y1="135" x2="93.8" y2="140"/>
+<line x1="135" y1="85.1" x2="140" y2="93.8"/>
+<line x1="205" y1="85.1" x2="200" y2="93.8"/>
+<line x1="254.9" y1="135" x2="246.2" y2="140"/>
+<line x1="264" y1="200" x2="254" y2="200"/>
+</g>
+<line x1="170" y1="200" x2="203" y2="112" stroke="#1B2027" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="170" cy="200" r="7" fill="#1B2027"/>
+<text x="50" y="228" text-anchor="middle" fill="#4A5361" font-size="12">0</text>
+<text x="290" y="228" text-anchor="middle" fill="#1B2027" font-weight="600" font-size="12">plan</text>
+<text x="170" y="254" text-anchor="middle" fill="#1B2027" font-size="14">Done and remaining</text>
+<text x="170" y="274" text-anchor="middle" fill="#4A5361" font-size="12">visible every day</text>
+<!-- next step -->
+<path d="M300 186 C330 150 350 128 372 118" fill="none" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#ep-b)"/>
+<rect x="376" y="96" width="164" height="44" rx="22" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="458" y="123" text-anchor="middle" fill="#1B2027">Plan met</text>
+<path d="M458 142 C458 160 458 166 458 180" fill="none" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#ep-b)"/>
+<rect x="376" y="184" width="164" height="44" rx="22" fill="#2B5B8A" fill-opacity="0.10" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="458" y="211" text-anchor="middle" fill="#1E4266" font-weight="600">Bonus</text>
+<text x="458" y="250" text-anchor="middle" fill="#4A5361" font-size="12">next step</text>
+<text x="280" y="314" text-anchor="middle" fill="#2B5B8A" font-size="12">Bonus rules are agreed with the mechanics before launch</text>
+</svg>
+    <!-- @endlang -->
+    <!-- @lang pl -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 60 560 270" width="100%" role="img" aria-label="Wskaźnik planu mechanika i następny krok: premia za wykonanie planu" font-family="Inter, sans-serif" font-size="13">
+<defs>
+<marker id="ep-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<!-- шкала -->
+<path d="M50 200 A120 120 0 0 1 290 200" fill="none" stroke="#C9CEC2" stroke-width="14" stroke-linecap="round"/>
+<path d="M50 200 A120 120 0 0 1 214.2 88.3" fill="none" stroke="#2B5B8A" stroke-width="14" stroke-linecap="round"/>
+<g stroke="#4A5361" stroke-width="1.2">
+<line x1="76" y1="200" x2="86" y2="200"/>
+<line x1="85.1" y1="135" x2="93.8" y2="140"/>
+<line x1="135" y1="85.1" x2="140" y2="93.8"/>
+<line x1="205" y1="85.1" x2="200" y2="93.8"/>
+<line x1="254.9" y1="135" x2="246.2" y2="140"/>
+<line x1="264" y1="200" x2="254" y2="200"/>
+</g>
+<line x1="170" y1="200" x2="203" y2="112" stroke="#1B2027" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="170" cy="200" r="7" fill="#1B2027"/>
+<text x="50" y="228" text-anchor="middle" fill="#4A5361" font-size="12">0</text>
+<text x="290" y="228" text-anchor="middle" fill="#1B2027" font-weight="600" font-size="12">plan</text>
+<text x="170" y="254" text-anchor="middle" fill="#1B2027" font-size="14">Zrobione i pozostało</text>
+<text x="170" y="274" text-anchor="middle" fill="#4A5361" font-size="12">widać każdego dnia</text>
+<!-- następny krok -->
+<path d="M300 186 C330 150 350 128 372 118" fill="none" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#ep-b)"/>
+<rect x="376" y="96" width="164" height="44" rx="22" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="458" y="123" text-anchor="middle" fill="#1B2027">Plan wykonany</text>
+<path d="M458 142 C458 160 458 166 458 180" fill="none" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#ep-b)"/>
+<rect x="376" y="184" width="164" height="44" rx="22" fill="#2B5B8A" fill-opacity="0.10" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="458" y="211" text-anchor="middle" fill="#1E4266" font-weight="600">Premia</text>
+<text x="458" y="250" text-anchor="middle" fill="#4A5361" font-size="12">następny krok</text>
+<text x="280" y="314" text-anchor="middle" fill="#2B5B8A" font-size="12">Zasady premii uzgadnia się z mechanikami przed uruchomieniem</text>
+</svg>
+    <!-- @endlang -->
+    <!-- @lang ru -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 60 560 270" width="100%" role="img" aria-label="Шкала плана механика и следующий шаг: премия за выполнение плана" font-family="Inter, sans-serif" font-size="13">
+<defs>
+<marker id="ep-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<!-- шкала -->
+<path d="M50 200 A120 120 0 0 1 290 200" fill="none" stroke="#C9CEC2" stroke-width="14" stroke-linecap="round"/>
+<path d="M50 200 A120 120 0 0 1 214.2 88.3" fill="none" stroke="#2B5B8A" stroke-width="14" stroke-linecap="round"/>
+<g stroke="#4A5361" stroke-width="1.2">
+<line x1="76" y1="200" x2="86" y2="200"/>
+<line x1="85.1" y1="135" x2="93.8" y2="140"/>
+<line x1="135" y1="85.1" x2="140" y2="93.8"/>
+<line x1="205" y1="85.1" x2="200" y2="93.8"/>
+<line x1="254.9" y1="135" x2="246.2" y2="140"/>
+<line x1="264" y1="200" x2="254" y2="200"/>
+</g>
+<line x1="170" y1="200" x2="203" y2="112" stroke="#1B2027" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="170" cy="200" r="7" fill="#1B2027"/>
+<text x="50" y="228" text-anchor="middle" fill="#4A5361" font-size="12">0</text>
+<text x="290" y="228" text-anchor="middle" fill="#1B2027" font-weight="600" font-size="12">план</text>
+<text x="170" y="254" text-anchor="middle" fill="#1B2027" font-size="14">Сделано и остаток</text>
+<text x="170" y="274" text-anchor="middle" fill="#4A5361" font-size="12">видно каждый день</text>
+<!-- следующий шаг -->
+<path d="M300 186 C330 150 350 128 372 118" fill="none" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#ep-b)"/>
+<rect x="376" y="96" width="164" height="44" rx="22" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="458" y="123" text-anchor="middle" fill="#1B2027">План выполнен</text>
+<path d="M458 142 C458 160 458 166 458 180" fill="none" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#ep-b)"/>
+<rect x="376" y="184" width="164" height="44" rx="22" fill="#2B5B8A" fill-opacity="0.10" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="458" y="211" text-anchor="middle" fill="#1E4266" font-weight="600">Премия</text>
+<text x="458" y="250" text-anchor="middle" fill="#4A5361" font-size="12">следующий шаг</text>
+<text x="280" y="314" text-anchor="middle" fill="#2B5B8A" font-size="12">Правила премии согласуются с механиками до запуска</text>
+</svg>
+    <!-- @endlang -->
+    </figure>
+  </section>
+
+  <section>
+    <span class="secnum">5.0</span>
+    <h2 data-i18n="s5_h2">Questions</h2>
+    <p data-i18n-html="q1"><b>Does anything in eSowa need to change?</b> No. The bot only reads data.</p>
+    <p data-i18n-html="q2"><b>Do mechanics need a separate app?</b> Telegram on their own phone is enough.</p>
+    <p data-i18n-html="q3"><b>Can mechanics see each other's output?</b> No. Each sees only their own; the manager sees the summary for everyone.</p>
+    <p data-i18n-html="q4"><b>Does the bot work with other workshop software?</b> This becomes clear when the software's database is examined.</p>
+    <p data-i18n-html="q5"><b>How much does it cost?</b> The price is given after a free 30-minute call. Implementation tiers are listed on the <a href="implementation.html">service page</a>.</p>
+  </section>
+
+  <div class="cta">
+    <h2 data-i18n="cta_h2">Discuss a bot like this for your shop:</h2>
+    <a class="btn" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="cta_btn">free 30-minute call →</a>
+  </div>
+
+</div>
+
+<!-- @include footer -->
+<script>
+var T = {
+  ru: {
+    page_title: "Выработка механиков в Telegram: бот для автосервиса на eSowa — EVAI Consulting",
+    meta_desc: "Telegram-бот для автосервиса на eSowa: механик видит свою выработку и остаток до месячного плана, руководитель видит сводку по команде.",
+    h1_title: "Выработка механиков и месячный план в Telegram",
+    tb_sub: "Бот для автосервиса на eSowa: каждый механик видит свои нормо-часы и остаток до плана, руководитель видит всю команду.",
+    s1_h2: "Задача",
+    s1_p: "Автосервис в Гданьске ведёт учёт работ в программе eSowa от Inter Cars. Владелец хотел повысить мотивацию механиков. Для этого каждый механик должен в любой момент видеть свои работы, нормо-часы и остаток до месячного плана, а руководитель должен видеть всю команду без ручных отчётов и звонков.",
+    s2_h2: "Как это работает",
+    s2_p1: "Механик подключается к боту со своего телефона по PIN-коду и видит только свои данные. В одном сообщении приходит отчёт за день и за месяц: сколько работ, сколько нормо-часов, на какую сумму и сколько осталось до месячного плана. Отчёт приходит сам каждый день в 18:00 и открывается кнопкой в любой момент. Раз в день бот просит оценить мотивацию по шкале от 1 до 5. Интерфейс на польском, русском или украинском, язык механик выбирает сам.",
+    s2_p2: "Руководитель видит сводку по всей команде: дневной план, факт и отклонение по каждому механику. Там же он задаёт месячные планы, добавляет механиков из списка eSowa и перерегистрирует механика, если тот сменил телефон.",
+    shot_cap: "Сводка руководителя по команде. Имена выдуманные.",
+    s3_h2: "Подключение",
+    s3_p: "Бот читает данные eSowa и ничего в ней не меняет, нагрузки на программу нет. Ставится на компьютер сервиса за один визит, запускается вместе с компьютером и сам перезапускается после сбоя. Другие программы учёта автосервиса подключаются после обследования их базы данных. В этом проекте от обследования базы до установки прошла неделя. Объём работ и критерии приёмки записаны в задании до начала: данные бота совпадают с eSowa, каждый видит только своё, отчёты приходят по кнопке и по расписанию, после перезагрузки бот запускается сам.",
+    s4_h2: "Результат и следующий шаг",
+    s4_p: "Бот установлен и передан автосервису. Влияние на выработку не измерялось. Месячный план каждому механику руководитель пока вводит вручную. Следующий шаг для автосервиса с таким ботом: связать выполнение плана с премией и договориться о правилах с механиками до запуска. Без премии ежедневная сводка выработки воспринимается как контроль.",
+    s5_h2: "Вопросы",
+    q1: "<b>Нужно ли что-то менять в eSowa?</b> Нет. Бот только читает данные.",
+    q2: "<b>Нужно ли механикам отдельное приложение?</b> Достаточно Telegram на своём телефоне.",
+    q3: "<b>Видят ли механики выработку друг друга?</b> Нет. Каждый видит только свою, сводку по всем видит руководитель.",
+    q4: "<b>Работает ли бот с другой программой учёта?</b> Это выясняется при обследовании базы данных программы.",
+    q5: "<b>Сколько стоит?</b> Цена называется после бесплатного 30-минутного разговора. Ступени внедрения указаны на <a href=\"implementation.html\">странице услуги</a>.",
+    cta_h2: "Обсудить такой бот для своего сервиса:",
+    cta_btn: "бесплатные 30 минут →"
+  },
+  pl: {
+    page_title: "Wyniki mechaników w Telegramie: bot dla warsztatu z eSowa — EVAI Consulting",
+    meta_desc: "Bot w Telegramie dla warsztatu z eSowa: mechanik widzi swoje roboczogodziny i ile zostało do planu, kierownik widzi podsumowanie zespołu.",
+    h1_title: "Wyniki mechaników i plan miesięczny w Telegramie",
+    tb_sub: "Bot dla warsztatu samochodowego z eSowa: każdy mechanik widzi swoje roboczogodziny i ile zostało do planu, kierownik widzi cały zespół.",
+    s1_h2: "Zadanie",
+    s1_p: "Warsztat samochodowy w Gdańsku prowadzi ewidencję prac w programie eSowa od Inter Cars. Właściciel chciał zwiększyć motywację mechaników. Do tego każdy mechanik miał w każdej chwili widzieć swoje zlecenia, roboczogodziny i ile zostało do planu miesięcznego, a kierownik miał widzieć cały zespół bez ręcznych raportów i telefonów.",
+    s2_h2: "Jak to działa",
+    s2_p1: "Mechanik łączy się z botem z własnego telefonu kodem PIN i widzi tylko swoje dane. W jednej wiadomości przychodzi raport za dzień i za miesiąc: ile zleceń, ile roboczogodzin, na jaką kwotę i ile zostało do planu miesięcznego. Raport przychodzi sam codziennie o 18:00 i otwiera się przyciskiem w dowolnej chwili. Raz dziennie bot prosi o ocenę motywacji w skali od 1 do 5. Interfejs jest po polsku, rosyjsku lub ukraińsku, język wybiera sam mechanik.",
+    s2_p2: "Kierownik widzi podsumowanie całego zespołu: plan dzienny, wykonanie i odchylenie każdego mechanika. W tym samym miejscu ustala plany miesięczne, dodaje mechaników z listy eSowa i ponownie rejestruje mechanika, który zmienił telefon.",
+    shot_cap: "Podsumowanie zespołu dla kierownika. Imiona są zmyślone.",
+    s3_h2: "Podłączenie",
+    s3_p: "Bot odczytuje dane z eSowa i niczego w niej nie zmienia, bez obciążania programu. Instaluje się go na komputerze warsztatu podczas jednej wizyty, uruchamia się razem z komputerem i sam wznawia pracę po awarii. Inne programy warsztatowe podłącza się po analizie ich bazy danych. W tym projekcie od analizy bazy do instalacji minął tydzień. Zakres prac i kryteria odbioru zapisano w zadaniu przed rozpoczęciem: dane w bocie zgadzają się z eSowa, każdy widzi tylko swoje, raporty przychodzą na żądanie i według harmonogramu, a po restarcie bot uruchamia się sam.",
+    s4_h2: "Wynik i następny krok",
+    s4_p: "Bot został zainstalowany i przekazany warsztatowi. Wpływu na wyniki nie mierzono. Plan miesięczny każdego mechanika kierownik na razie wpisuje ręcznie. Następny krok dla warsztatu z takim botem: powiązać wykonanie planu z premią i uzgodnić zasady z mechanikami przed uruchomieniem. Bez premii codzienne podsumowanie wyników odbierane jest jako kontrola.",
+    s5_h2: "Pytania",
+    q1: "<b>Czy trzeba coś zmieniać w eSowa?</b> Nie. Bot tylko odczytuje dane.",
+    q2: "<b>Czy mechanicy potrzebują osobnej aplikacji?</b> Wystarczy Telegram na własnym telefonie.",
+    q3: "<b>Czy mechanicy widzą wyniki kolegów?</b> Nie. Każdy widzi tylko swoje, podsumowanie wszystkich widzi kierownik.",
+    q4: "<b>Czy bot działa z innym programem warsztatowym?</b> Wyjaśnia się to przy analizie bazy danych programu.",
+    q5: "<b>Ile to kosztuje?</b> Cenę podaje się po bezpłatnej 30-minutowej rozmowie. Progi wdrożenia są na <a href=\"implementation.html\">stronie usługi</a>.",
+    cta_h2: "Porozmawiaj o takim bocie dla swojego warsztatu:",
+    cta_btn: "bezpłatna rozmowa 30 minut →"
+  },
+  en: {
+    page_title: "Mechanics' output in Telegram: a bot for shops on eSowa — EVAI Consulting",
+    meta_desc: "A Telegram bot for car repair shops on eSowa: each mechanic sees their output and what is left to the monthly plan, the manager sees the whole team.",
+    h1_title: "Mechanics' output and the monthly plan in Telegram",
+    tb_sub: "A bot for car repair shops on eSowa: each mechanic sees their billed hours and what is left to the plan; the manager sees the whole team.",
+    s1_h2: "The task",
+    s1_p: "A car repair shop in Gdańsk records its work in eSowa, the workshop software from Inter Cars. The owner wanted to raise the mechanics' motivation. For that, each mechanic needed to see their own jobs, billed hours and what is left to the monthly plan at any moment, and the manager needed to see the whole team without manual reports or phone calls.",
+    s2_h2: "How it works",
+    s2_p1: "A mechanic connects to the bot from their own phone with a PIN and sees only their own data. One message holds the report for the day and the month: how many jobs, how many billed hours, for what amount and how much is left to the monthly plan. The report arrives by itself every day at 18:00 and opens with a button at any time. Once a day the bot asks for a motivation rating from 1 to 5. The interface is in Polish, Russian or Ukrainian, and each mechanic chooses the language.",
+    s2_p2: "The manager sees a summary for the whole team: the daily plan, the actual figure and the gap for each mechanic. In the same place the manager sets monthly plans, adds mechanics from the eSowa list and re-registers a mechanic who has changed phones.",
+    shot_cap: "The manager's team summary. Names are made up.",
+    s3_h2: "Connection",
+    s3_p: "The bot reads eSowa data and changes nothing in it, with no load on the software. It is installed on the shop's computer in one visit, starts with the computer and restarts itself after a failure. Other workshop software is connected after its database has been examined. In this project, one week passed from examining the database to installation. The scope and acceptance criteria were written into the brief before work started: the bot's data match eSowa, each person sees only their own figures, reports arrive on request and on schedule, and after a reboot the bot starts by itself.",
+    s4_h2: "Result and next step",
+    s4_p: "The bot was installed and handed over to the shop. The effect on output was not measured. For now, the manager enters each mechanic's monthly plan by hand. The next step for a shop with such a bot: tie meeting the plan to a bonus and agree the rules with the mechanics before launch. Without a bonus, a daily output summary is read as control.",
+    s5_h2: "Questions",
+    q1: "<b>Does anything in eSowa need to change?</b> No. The bot only reads data.",
+    q2: "<b>Do mechanics need a separate app?</b> Telegram on their own phone is enough.",
+    q3: "<b>Can mechanics see each other's output?</b> No. Each sees only their own; the manager sees the summary for everyone.",
+    q4: "<b>Does the bot work with other workshop software?</b> This becomes clear when the software's database is examined.",
+    q5: "<b>How much does it cost?</b> The price is given after a free 30-minute call. Implementation tiers are listed on the <a href=\"implementation.html\">service page</a>.",
+    cta_h2: "Discuss a bot like this for your shop:",
+    cta_btn: "free 30-minute call →"
+  }
+};
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.documentElement.lang = lang;
+  if (T[lang].page_title) document.title = T[lang].page_title;
+  var md = document.querySelector('meta[name="description"]');
+  if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
+  localStorage.setItem('site-lang', lang);
+}
+
+(function() {
+  var p = new URLSearchParams(window.location.search);
+  var ul = p.get('lang');
+  if (ul && T[ul]) { setLang(ul); return; }
+  var saved = localStorage.getItem('site-lang');
+  if (saved && T[saved]) setLang(saved);
+})();
+</script>
+
+</body>
+</html>

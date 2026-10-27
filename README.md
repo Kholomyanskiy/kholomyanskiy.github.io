@@ -50,7 +50,7 @@ Node.js web UI on top of Claude Code with a virtual team of 11 AI agents — CEO
 [github.com/Kholomyanskiy/solo-founder-os](https://github.com/Kholomyanskiy/solo-founder-os)
 
 **eSowa KPI Bot**
-Telegram bot for auto repair shops — sends mechanics their daily/monthly KPI reports. Python, python-telegram-bot, Firebird/MSSQL. Live.
+Telegram bot for auto repair shops — sends mechanics their daily/monthly KPI reports. Python, python-telegram-bot, Firebird/MSSQL. Ready to install.
 [github.com/Kholomyanskiy/esowa-bot](https://github.com/Kholomyanskiy/esowa-bot)
 
 **Decor Engine**
@@ -141,7 +141,7 @@ Solo AI automation practice based in Elbląg, Poland — working remotely with R
 **Solo Founder OS** — Node.js WebUI поверх Claude Code с виртуальной командой из 11 AI-агентов (CEO, backend, frontend, DevOps, интегратор, бизнес-аналитик, продажи, QA, SMM, юрист, HR). MVP, используется.
 [github.com/Kholomyanskiy/solo-founder-os](https://github.com/Kholomyanskiy/solo-founder-os)
 
-**eSowa KPI Bot** — телеграм-бот для автосервисов: сбор показателей, автоматические сводки по KPI механиков. Python, Firebird/MSSQL. Работает.
+**eSowa KPI Bot** — телеграм-бот для автосервисов: сбор показателей, автоматические сводки по KPI механиков. Python, Firebird/MSSQL. Готов к установке.
 [github.com/Kholomyanskiy/esowa-bot](https://github.com/Kholomyanskiy/esowa-bot)
 
 **Decor Engine** — автоматизация каталога товаров для украинского e-commerce (Prom.ua + WooCommerce): генерация и проверка описаний товаров. MVP готов, тестируется.

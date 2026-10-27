@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
  <url>
  <loc>https://kholomyanskiy.com/</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-27</lastmod>
  <changefreq>monthly</changefreq>
  <priority>1.0</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-27</lastmod>
  <changefreq>monthly</changefreq>
  <priority>1.0</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-27</lastmod>
  <changefreq>monthly</changefreq>
  <priority>1.0</priority>
  </url>
@@ -56,19 +56,19 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/portfolio.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-27</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.8</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/portfolio.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-27</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.8</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/portfolio.html</loc>
- <lastmod>2026-10-25</lastmod>
+ <lastmod>2026-10-27</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.8</priority>
  </url>
@@ -87,6 +87,24 @@
  <url>
  <loc>https://kholomyanskiy.com/ru/case-recruitment.html</loc>
  <lastmod>2026-10-26</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.7</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/case-esowa.html</loc>
+ <lastmod>2026-10-27</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.7</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/case-esowa.html</loc>
+ <lastmod>2026-10-27</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.7</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/case-esowa.html</loc>
+ <lastmod>2026-10-27</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.7</priority>
  </url>
@@ -200,19 +218,19 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/implementation.html</loc>
- <lastmod>2026-10-24</lastmod>
+ <lastmod>2026-10-27</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.8</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/implementation.html</loc>
- <lastmod>2026-10-24</lastmod>
+ <lastmod>2026-10-27</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.8</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/implementation.html</loc>
- <lastmod>2026-10-24</lastmod>
+ <lastmod>2026-10-27</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.8</priority>
  </url>
