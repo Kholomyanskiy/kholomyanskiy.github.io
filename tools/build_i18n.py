@@ -28,6 +28,7 @@ BREADCRUMB_PARENT = {
     "solution-design": "services",
     "implementation": "services",
     "anss": "products",
+    "decision-system": "products",
     "contact": "index",
     "case-recruitment": "portfolio",
     "case-esowa": "portfolio",

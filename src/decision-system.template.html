@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Automation Decision System: deciding what to automate</title>
+<meta name="description" content="A method for automation decisions: which process to automate, how to estimate payback and where to start. Free, Business, Professional in English, Polish and Russian.">
+<link rel="canonical" href="https://kholomyanskiy.com/decision-system.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Automation Decision System: deciding what to automate">
+<meta property="og:description" content="A method for automation decisions: which process to automate, how to estimate payback and where to start. Free, Business, Professional in English, Polish and Russian.">
+<meta property="og:url" content="https://kholomyanskiy.com/decision-system.html">
+<!-- @include head-common -->
+<meta name="twitter:title" content="AI Automation Decision System: deciding what to automate">
+<meta name="twitter:description" content="A method for automation decisions: which process to automate, how to estimate payback and where to start. Free, Business, Professional in English, Polish and Russian.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* @include common.css */
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+@media(max-width:680px){.topnav-links{gap:14px;font-size:12px}}
+/* лист страниц услуг */
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+}
+.sheet{
+  max-width:880px;
+  margin:16px auto 40px;
+  background:var(--panel);
+  border:1.5px solid var(--ink);
+  box-shadow:8px 8px 0 rgba(27,32,39,.08);
+}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-main{padding:44px 28px 36px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;color:var(--ink-soft);font-size:17px}
+section{padding:40px 28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
+.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
+.cta h2{color:#fff}
+footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+@media(max-width:680px){
+  .sheet{margin:8px 12px 32px}
+}
+/* ---------- sections ---------- */
+.cta p{color:#B9C1CC}
+.cta a.btn{
+  display:inline-block;margin-top:10px;
+  font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;
+  color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;
+  padding:13px 26px;text-decoration:none;
+}
+.cta a.btn:hover{background:transparent;color:#EDEFF2}
+.cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.cta .alt{margin-top:16px;font-size:14px}
+.cta .alt a{color:#EDEFF2}
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
+.footer-links a:hover{color:var(--blue)}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://kholomyanskiy.com/decision-system.html#webpage",
+      "name": "$t:h1_title",
+      "description": "$t:meta_desc",
+      "url": "https://kholomyanskiy.com/decision-system.html",
+      "inLanguage": "en",
+      "author": {
+        "@id": "https://kholomyanskiy.com/#person"
+      },
+      "publisher": {
+        "@id": "https://kholomyanskiy.com/#organization"
+      },
+      "image": "https://kholomyanskiy.com/og-image.png",
+      "datePublished": "2026-11-07",
+      "mainEntity": {
+        "@id": "https://kholomyanskiy.com/decision-system.html#product"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://kholomyanskiy.com/decision-system.html#product",
+      "name": "AI Automation Decision System",
+      "description": "$t:meta_desc",
+      "offers": [
+        { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "url": "$t:gr_free" },
+        { "@type": "Offer", "name": "Business", "price": "147", "priceCurrency": "USD", "url": "$t:gr_business" },
+        { "@type": "Offer", "name": "Professional", "price": "297", "priceCurrency": "USD", "url": "$t:gr_pro" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- @include topnav current=products,decision-system -->
+
+<div class="sheet">
+
+  <header class="titleblock">
+    <div class="tb-top">
+      <span class="brand">EVAI CONSULTING</span>
+    </div>
+    <div class="tb-main">
+      <h1 data-i18n-html="h1_title">AI Automation Decision System</h1>
+      <p class="sub" data-i18n="tb_sub">A method for automation decisions: which process is worth automating, how to estimate impact and risk before spending money, and where to start. Three editions, each in English, Polish and Russian.</p>
+    </div>
+  </header>
+
+  <section>
+    <span class="secnum" data-i18n="s1_num">1.0 // WHAT IT SOLVES</span>
+    <h2 data-i18n="s1_h2">What it solves</h2>
+    <p data-i18n="s1_p1">Automation often starts with choosing a tool. The process has not been analysed, the payback has not been calculated, and the subscription is already paid for.</p>
+    <p data-i18n="s1_p2">The system sets a different order. First the process and the goal, then the expected impact and risks, then the approach to implementation. There is no tool review in it: it is a decision procedure that can be used without a contractor.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s2_num">2.0 // EDITIONS</span>
+    <h2 data-i18n="s2_h2">Three editions</h2>
+    <div class="tiers">
+      <div class="tier">
+        <span class="tier-name">Free</span>
+        <div class="tier-price">$0</div>
+        <p data-i18n="t1_p">Part 1, quick start: the approach to automation, how to find candidate processes, where to start, a five-step method. 30–45 minutes of reading.</p>
+        <div class="prod-cta" data-i18n-html="t1_cta"><a class="primary" href="https://aimethodology.gumroad.com/l/freeen">Download on Gumroad →</a></div>
+      </div>
+      <div class="tier">
+        <span class="tier-name">Business</span>
+        <div class="tier-price">$147</div>
+        <p data-i18n="t2_p">Parts 1–5: quick start, an e-commerce module covering 18 processes, payback calculation and prioritisation, implementation architecture, what not to automate.</p>
+        <p data-i18n="t2_tools">Tools: a payback calculator and an "automate or not" decision sheet in Excel, 7 ready prompts for Claude and ChatGPT, 3 worked calculations, a checklist of five typical mistakes.</p>
+        <div class="prod-cta" data-i18n-html="t2_cta"><a class="primary" href="https://aimethodology.gumroad.com/l/businessen">Buy on Gumroad →</a></div>
+      </div>
+      <div class="tier">
+        <span class="tier-name">Professional</span>
+        <div class="tier-price">$297</div>
+        <p data-i18n-html="t3_p">Everything in Business plus Part 6: AI agents and multi-agent systems, self-hosting or a cloud service with a <a href="/glossary/total-cost-of-ownership.html">total cost of ownership</a> calculation, GDPR requirements.</p>
+        <p data-i18n="t3_tools">Tools: 5 more prompts, a 40-point GDPR checklist in Excel, a guide to deploying n8n on your own server.</p>
+        <div class="prod-cta" data-i18n-html="t3_cta"><a class="primary" href="https://aimethodology.gumroad.com/l/profen">Buy on Gumroad →</a></div>
+      </div>
+    </div>
+    <p data-i18n="s2_note">Purchase and download via Gumroad. Prices are in US dollars; the store also shows them in local currency. No refunds.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s3_num">3.0 // WHO IT IS FOR</span>
+    <h2 data-i18n="s3_h2">Who it is for</h2>
+    <p data-i18n="s3_p1">An owner or manager deciding what to automate first. A project or product manager. A business analyst or automation specialist who needs to back a decision with numbers.</p>
+    <p data-i18n="s3_p2">Professional is needed if the processes involve personal data, the industry is regulated (finance, healthcare, legal) or the solution has to run on your own server. If none of these apply, Business is enough.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s4_num">4.0 // HOW TO USE</span>
+    <h2 data-i18n="s4_h2">How to use it</h2>
+    <p data-i18n="s4_p1">The Business path takes about a week. Days 1–2: Part 1 and choosing one to three processes. Days 3–4: payback for one process, using the examples and the calculator. Day 5: the decision sheet gives an answer, automate or not.</p>
+    <p data-i18n="s4_p2">A "yes" leads to Parts 2 and 4 and an implementation plan. A "no" leads to Part 5, why this process is not worth automating, and on to the next candidate.</p>
+  </section>
+
+  <div class="cta">
+    <span class="secnum" data-i18n="s5_num">5.0 // YOUR OWN PROCESS</span>
+    <h2 data-i18n="s5_h2">When the process is complex</h2>
+    <p class="alt" data-i18n-html="s5_p">The system is built for deciding on your own. If a mistake would be expensive or there are many processes, the same analysis is done in a <a href="consulting.html">consultation</a> or a <a href="audit.html">department audit</a>.</p>
+    <a class="btn" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="cta1">Discuss the task on a call →</a>
+  </div>
+
+</div>
+
+<!-- @include footer -->
+
+<script>
+var T = {
+  ru: {
+    page_title: "AI Automation Decision System: решения об автоматизации процессов",
+    meta_desc: "Методология решений об автоматизации: какой процесс автоматизировать, как посчитать окупаемость и с чего начать. Free, Business, Professional на русском, английском и польском.",
+    h1_title: "AI Automation Decision System",
+    tb_sub: "Методология решений об автоматизации: какой процесс стоит автоматизировать, как оценить эффект и риски до затрат и с чего начать. Три версии, каждая на русском, английском и польском.",
+    s1_num: "1.0 // ЧТО РЕШАЕТ",
+    s1_h2: "Что решает",
+    s1_p1: "Автоматизацию часто начинают с выбора инструмента. Процесс ещё не разобран, окупаемость не посчитана, а подписка уже куплена.",
+    s1_p2: "Система задаёт другой порядок. Сначала процесс и цель, затем расчёт эффекта и рисков, затем подход к внедрению. Обзора инструментов в ней нет: это порядок принятия решения, которым можно пользоваться без подрядчика.",
+    s2_num: "2.0 // ВЕРСИИ",
+    s2_h2: "Три версии",
+    t1_p: "Часть 1, быстрый старт: подход к автоматизации, как найти процессы-кандидаты, с чего начать, методология из пяти шагов. Чтение на 30–45 минут.",
+    t1_cta: "<a class=\"primary\" href=\"https://aimethodology.gumroad.com/l/free\">Скачать на Gumroad →</a>",
+    t2_p: "Части 1–5: быстрый старт, модуль для интернет-торговли на 18 процессов, расчёт окупаемости и приоритеты, архитектура внедрения, что не стоит автоматизировать.",
+    t2_tools: "Инструменты: калькулятор окупаемости и таблица решения «автоматизировать или нет» в Excel, 7 готовых промптов для Claude и ChatGPT, 3 примера расчёта, чек-лист пяти типичных ошибок.",
+    t2_cta: "<a class=\"primary\" href=\"https://aimethodology.gumroad.com/l/business\">Купить на Gumroad →</a>",
+    t3_p: "Всё из Business и часть 6: ИИ-агенты и системы из нескольких агентов, своё размещение или облачный сервис с расчётом <a href=\"/ru/glossary/total-cost-of-ownership.html\">полной стоимости владения</a>, требования GDPR.",
+    t3_tools: "Инструменты: ещё 5 промптов, чек-лист GDPR на 40 пунктов в Excel, инструкция по развёртыванию n8n на своём сервере.",
+    t3_cta: "<a class=\"primary\" href=\"https://aimethodology.gumroad.com/l/professional\">Купить на Gumroad →</a>",
+    s2_note: "Покупка и скачивание через Gumroad, цена в долларах, магазин показывает её и в местной валюте. Возврат не предусмотрен.",
+    s3_num: "3.0 // ДЛЯ КОГО",
+    s3_h2: "Для кого",
+    s3_p1: "Владелец или руководитель, который решает, что автоматизировать первым. Менеджер проекта или продукта. Бизнес-аналитик или специалист по автоматизации, которому нужно обосновать решение цифрами.",
+    s3_p2: "Professional нужен, если в процессах есть персональные данные, отрасль регулируется (финансы, медицина, право) или решение должно работать на своём сервере. Если ничего из этого нет, хватает Business.",
+    s4_num: "4.0 // КАК ПОЛЬЗОВАТЬСЯ",
+    s4_h2: "Как пользоваться",
+    s4_p1: "Путь в Business рассчитан примерно на неделю. Первые два дня: часть 1 и выбор одного–трёх процессов. Дни 3–4: расчёт окупаемости по одному процессу на примерах и в калькуляторе. День 5: таблица решения даёт ответ «автоматизировать» или «нет».",
+    s4_p2: "Ответ «да» ведёт к частям 2 и 4 и плану внедрения. Ответ «нет» ведёт к части 5: почему этот процесс автоматизировать не стоит, и к следующему кандидату.",
+    s5_num: "5.0 // СВОЙ ПРОЦЕСС",
+    s5_h2: "Если процесс свой и сложный",
+    s5_p: "Система рассчитана на самостоятельное решение. Если ошибка обойдётся дорого или процессов много, тот же разбор делается на <a href=\"consulting.html\">консультации</a> или в <a href=\"audit.html\">аудите отдела</a>.",
+    cta1: "Обсудить задачу на звонке →",
+    gr_free: "https://aimethodology.gumroad.com/l/free",
+    gr_business: "https://aimethodology.gumroad.com/l/business",
+    gr_pro: "https://aimethodology.gumroad.com/l/professional"
+  },
+  pl: {
+    page_title: "AI Automation Decision System: decyzje o automatyzacji procesów",
+    meta_desc: "Metoda podejmowania decyzji o automatyzacji: który proces automatyzować, jak policzyć zwrot i od czego zacząć. Free, Business, Professional po polsku, angielsku i rosyjsku.",
+    h1_title: "AI Automation Decision System",
+    tb_sub: "Metoda podejmowania decyzji o automatyzacji: który proces warto zautomatyzować, jak ocenić efekt i ryzyko przed wydatkami i od czego zacząć. Trzy wersje, każda po polsku, angielsku i rosyjsku.",
+    s1_num: "1.0 // CO ROZWIĄZUJE",
+    s1_h2: "Co rozwiązuje",
+    s1_p1: "Automatyzację często zaczyna się od wyboru narzędzia. Proces nie jest przeanalizowany, zwrot nie jest policzony, a subskrypcja już kupiona.",
+    s1_p2: "System ustala inną kolejność. Najpierw proces i cel, potem efekt i ryzyka, potem sposób wdrożenia. Nie ma w nim przeglądu narzędzi: to procedura podejmowania decyzji, z której można korzystać bez wykonawcy.",
+    s2_num: "2.0 // WERSJE",
+    s2_h2: "Trzy wersje",
+    t1_p: "Część 1, szybki start: podejście do automatyzacji, jak znaleźć procesy-kandydatów, od czego zacząć, metoda w pięciu krokach. 30–45 minut czytania.",
+    t1_cta: "<a class=\"primary\" href=\"https://aimethodology.gumroad.com/l/freepl\">Pobierz na Gumroad →</a>",
+    t2_p: "Części 1–5: szybki start, moduł dla e-commerce obejmujący 18 procesów, obliczenie zwrotu i priorytety, architektura wdrożenia, czego nie warto automatyzować.",
+    t2_tools: "Narzędzia: kalkulator zwrotu i arkusz decyzji „automatyzować czy nie” w Excelu, 7 gotowych promptów dla Claude i ChatGPT, 3 przykłady obliczeń, lista kontrolna pięciu typowych błędów.",
+    t2_cta: "<a class=\"primary\" href=\"https://aimethodology.gumroad.com/l/businesspl\">Kup na Gumroad →</a>",
+    t3_p: "Wszystko z Business oraz część 6: agenci AI i systemy wieloagentowe, własny serwer lub usługa w chmurze z obliczeniem <a href=\"/pl/glossary/total-cost-of-ownership.html\">całkowitego kosztu posiadania</a>, wymagania RODO.",
+    t3_tools: "Narzędzia: 5 dodatkowych promptów, lista kontrolna RODO na 40 punktów w Excelu, instrukcja wdrożenia n8n na własnym serwerze.",
+    t3_cta: "<a class=\"primary\" href=\"https://aimethodology.gumroad.com/l/profpl\">Kup na Gumroad →</a>",
+    s2_note: "Zakup i pobranie przez Gumroad. Ceny w dolarach, sklep pokazuje je też w lokalnej walucie. Bez możliwości zwrotu.",
+    s3_num: "3.0 // DLA KOGO",
+    s3_h2: "Dla kogo",
+    s3_p1: "Właściciel lub kierownik, który decyduje, co zautomatyzować najpierw. Kierownik projektu lub produktu. Analityk biznesowy lub specjalista ds. automatyzacji, który musi uzasadnić decyzję liczbami.",
+    s3_p2: "Professional jest potrzebny, jeśli procesy obejmują dane osobowe, branża jest regulowana (finanse, medycyna, prawo) albo rozwiązanie ma działać na własnym serwerze. Jeśli nic z tego nie dotyczy, wystarczy Business.",
+    s4_num: "4.0 // JAK KORZYSTAĆ",
+    s4_h2: "Jak korzystać",
+    s4_p1: "Ścieżka w wersji Business zajmuje około tygodnia. Dni 1–2: część 1 i wybór jednego do trzech procesów. Dni 3–4: zwrot dla jednego procesu na przykładach i w kalkulatorze. Dzień 5: arkusz decyzji daje odpowiedź „automatyzować” albo „nie”.",
+    s4_p2: "Odpowiedź „tak” prowadzi do części 2 i 4 oraz planu wdrożenia. Odpowiedź „nie” prowadzi do części 5: dlaczego tego procesu nie warto automatyzować, i do kolejnego kandydata.",
+    s5_num: "5.0 // WŁASNY PROCES",
+    s5_h2: "Gdy proces jest złożony",
+    s5_p: "System służy do samodzielnej decyzji. Jeśli błąd byłby kosztowny albo procesów jest wiele, tę samą analizę przeprowadza się na <a href=\"consulting.html\">konsultacji</a> lub w <a href=\"audit.html\">audycie działu</a>.",
+    cta1: "Omów zadanie na rozmowie →",
+    gr_free: "https://aimethodology.gumroad.com/l/freepl",
+    gr_business: "https://aimethodology.gumroad.com/l/businesspl",
+    gr_pro: "https://aimethodology.gumroad.com/l/profpl"
+  },
+  en: {
+    page_title: "AI Automation Decision System: deciding what to automate",
+    meta_desc: "A method for automation decisions: which process to automate, how to estimate payback and where to start. Free, Business, Professional in English, Polish and Russian.",
+    h1_title: "AI Automation Decision System",
+    tb_sub: "A method for automation decisions: which process is worth automating, how to estimate impact and risk before spending money, and where to start. Three editions, each in English, Polish and Russian.",
+    s1_num: "1.0 // WHAT IT SOLVES",
+    s1_h2: "What it solves",
+    s1_p1: "Automation often starts with choosing a tool. The process has not been analysed, the payback has not been calculated, and the subscription is already paid for.",
+    s1_p2: "The system sets a different order. First the process and the goal, then the expected impact and risks, then the approach to implementation. There is no tool review in it: it is a decision procedure that can be used without a contractor.",
+    s2_num: "2.0 // EDITIONS",
+    s2_h2: "Three editions",
+    t1_p: "Part 1, quick start: the approach to automation, how to find candidate processes, where to start, a five-step method. 30–45 minutes of reading.",
+    t1_cta: "<a class=\"primary\" href=\"https://aimethodology.gumroad.com/l/freeen\">Download on Gumroad →</a>",
+    t2_p: "Parts 1–5: quick start, an e-commerce module covering 18 processes, payback calculation and prioritisation, implementation architecture, what not to automate.",
+    t2_tools: "Tools: a payback calculator and an \"automate or not\" decision sheet in Excel, 7 ready prompts for Claude and ChatGPT, 3 worked calculations, a checklist of five typical mistakes.",
+    t2_cta: "<a class=\"primary\" href=\"https://aimethodology.gumroad.com/l/businessen\">Buy on Gumroad →</a>",
+    t3_p: "Everything in Business plus Part 6: AI agents and multi-agent systems, self-hosting or a cloud service with a <a href=\"/glossary/total-cost-of-ownership.html\">total cost of ownership</a> calculation, GDPR requirements.",
+    t3_tools: "Tools: 5 more prompts, a 40-point GDPR checklist in Excel, a guide to deploying n8n on your own server.",
+    t3_cta: "<a class=\"primary\" href=\"https://aimethodology.gumroad.com/l/profen\">Buy on Gumroad →</a>",
+    s2_note: "Purchase and download via Gumroad. Prices are in US dollars; the store also shows them in local currency. No refunds.",
+    s3_num: "3.0 // WHO IT IS FOR",
+    s3_h2: "Who it is for",
+    s3_p1: "An owner or manager deciding what to automate first. A project or product manager. A business analyst or automation specialist who needs to back a decision with numbers.",
+    s3_p2: "Professional is needed if the processes involve personal data, the industry is regulated (finance, healthcare, legal) or the solution has to run on your own server. If none of these apply, Business is enough.",
+    s4_num: "4.0 // HOW TO USE",
+    s4_h2: "How to use it",
+    s4_p1: "The Business path takes about a week. Days 1–2: Part 1 and choosing one to three processes. Days 3–4: payback for one process, using the examples and the calculator. Day 5: the decision sheet gives an answer, automate or not.",
+    s4_p2: "A \"yes\" leads to Parts 2 and 4 and an implementation plan. A \"no\" leads to Part 5, why this process is not worth automating, and on to the next candidate.",
+    s5_num: "5.0 // YOUR OWN PROCESS",
+    s5_h2: "When the process is complex",
+    s5_p: "The system is built for deciding on your own. If a mistake would be expensive or there are many processes, the same analysis is done in a <a href=\"consulting.html\">consultation</a> or a <a href=\"audit.html\">department audit</a>.",
+    cta1: "Discuss the task on a call →",
+    gr_free: "https://aimethodology.gumroad.com/l/freeen",
+    gr_business: "https://aimethodology.gumroad.com/l/businessen",
+    gr_pro: "https://aimethodology.gumroad.com/l/profen"
+  }
+};
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.documentElement.lang = lang;
+  if (T[lang].page_title) document.title = T[lang].page_title;
+  var md = document.querySelector('meta[name="description"]');
+  if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
+  localStorage.setItem('site-lang', lang);
+}
+
+(function() {
+  var p = new URLSearchParams(window.location.search);
+  var ul = p.get('lang');
+  if (ul && T[ul]) { setLang(ul); return; }
+  var saved = localStorage.getItem('site-lang');
+  if (saved && T[saved]) setLang(saved);
+})();
+</script>
+
+</body>
+</html>

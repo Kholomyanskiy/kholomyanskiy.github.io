@@ -33,11 +33,11 @@ License: CC BY 4.0 · [github.com/Kholomyanskiy/anss-standard](https://github.co
 
 **ИИ в отделе (AI in the Department)**
 Free guide covering five stages of AI implementation: audit, selection, specification, deployment, scaling. Full version adds detailed instructions, templates, and a case study.
-[Read the free guide](https://kholomyanskiy.github.io/metodichka.html) · [Full version on Gumroad](https://aimethodology.gumroad.com/l/ai-v-otdele)
+[Read the free guide](https://kholomyanskiy.github.io/metodichka.html) · [Full version on Gumroad](https://aimethodology.gumroad.com/l/AI-Department)
 
 **AI Automation Decision System**
 A structured way to decide whether a task is worth automating, which approach to take, and where to start.
-Tiers: Free / Business $147 / Professional $297 · [Gumroad](https://aimethodology.gumroad.com/)
+Tiers: Free / Business $147 / Professional $297 · [Editions and details](https://kholomyanskiy.com/decision-system.html)
 
 ## Selected Projects
 
@@ -131,7 +131,7 @@ Solo AI automation practice based in Elbląg, Poland — working remotely with R
 
 **AI Automation Decision System**
 Помогает решить, стоит ли задача автоматизации, каким подходом её закрывать и с чего начинать.
-Тарифы: Free / Business $147 / Professional $297 · [Gumroad](https://aimethodology.gumroad.com/)
+Тарифы: Free / Business $147 / Professional $297 · [Подробнее о версиях](https://kholomyanskiy.com/decision-system.html)
 
 ### Портфолио
 

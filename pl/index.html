@@ -278,6 +278,12 @@ section :is(p,li,dd):not(.section-more) a:hover{color:var(--blue);text-decoratio
 .tier .tier-name{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:6px}
 .tier .tier-price{font-family:'Spectral',serif;font-weight:600;font-size:20px;margin-bottom:6px}
 .tier p{font-size:13.5px;color:var(--ink-soft);margin-bottom:0;max-width:none}
+.prod-cta{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+.prod-cta a{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;padding:10px 20px;text-decoration:none;border:1.5px solid var(--ink)}
+.prod-cta a.primary{background:var(--ink);color:#EDEFF2}
+.prod-cta a.primary:hover{background:transparent;color:var(--ink)}
+.prod-cta a.secondary{background:transparent;color:var(--ink)}
+.prod-cta a.secondary:hover{background:var(--ink);color:#EDEFF2}
 .closing-cta{background:var(--ink);color:#EDEFF2;padding:44px 32px;text-align:center}
 .closing-cta h2{color:#fff;margin-bottom:10px}
 footer{max-width:820px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
@@ -404,7 +410,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <span class="nav-drop-list">
  <a href="/pl/anss.html" data-i18n="nav.products_menu_anss">ANSS Standard</a>
  <a href="/pl/metodichka.html" data-i18n="nav.products_menu_dept">AI w dziale</a>
- <a href="/pl/products.html#decision-system" data-i18n="nav.products_menu_ads">AI Automation Decision System</a>
+ <a href="/pl/decision-system.html" data-i18n="nav.products_menu_ads">AI Automation Decision System</a>
  </span>
  </span>
  <a href="/pl/articles.html" data-i18n="nav.articles">Artykuły</a>
@@ -540,7 +546,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <div class="grid grid-services">
  <a class="grid-item" href="/pl/anss.html"><span class="num">01</span><h3>ANSS Standard</h3><p data-i18n="products.p1.p">Otwarty standard specyfikacji do pracy z agentami AI i skill dla Claude</p><span class="more" data-i18n="services.more_card">Szczegóły →</span></a>
  <a class="grid-item" href="/pl/metodichka.html"><span class="num">02</span><h3 data-i18n="products.p2.h">AI w dziale</h3><p data-i18n="products.p2.p">Pięć etapów wdrażania AI w dziale: darmowy poradnik i książka robocza z szablonami</p><span class="more" data-i18n="services.more_card">Szczegóły →</span></a>
- <a class="grid-item" href="/pl/products.html#decision-system"><span class="num">03</span><h3>AI Automation Decision System</h3><p data-i18n="products.p3.p">Czy warto automatyzować zadanie, jakim podejściem i od czego zacząć, przed zatrudnieniem wykonawcy</p><span class="more" data-i18n="services.more_card">Szczegóły →</span></a>
+ <a class="grid-item" href="/pl/decision-system.html"><span class="num">03</span><h3>AI Automation Decision System</h3><p data-i18n="products.p3.p">Czy warto automatyzować zadanie, jakim podejściem i od czego zacząć, przed zatrudnieniem wykonawcy</p><span class="more" data-i18n="services.more_card">Szczegóły →</span></a>
  </div>
  <p class="section-more"><a href="/pl/products.html" data-i18n="products.more">Wszystkie produkty →</a></p>
  </section>

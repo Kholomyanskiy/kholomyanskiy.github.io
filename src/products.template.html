@@ -39,12 +39,6 @@ a{color:var(--blue)}
 .prod-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.1em;display:block;margin-bottom:8px}
 .prod-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;margin-bottom:12px;border:1px solid var(--stamp);color:var(--stamp)}
 .prod-price{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.04em;color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:6px 14px;margin-top:8px;margin-right:10px}
-.prod-cta{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
-.prod-cta a{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;padding:10px 20px;text-decoration:none;border:1.5px solid var(--ink)}
-.prod-cta a.primary{background:var(--ink);color:#EDEFF2}
-.prod-cta a.primary:hover{background:transparent;color:var(--ink)}
-.prod-cta a.secondary{background:transparent;color:var(--ink)}
-.prod-cta a.secondary:hover{background:var(--ink);color:#EDEFF2}
 
 
 .closing-cta p{color:#B9C1CC;max-width:520px;margin:0 auto 20px}
@@ -82,7 +76,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       "@type": "ListItem",
       "position": 3,
       "name": "AI Automation Decision System",
-      "item": "https://kholomyanskiy.com/products.html#decision-system"
+      "item": "https://kholomyanskiy.com/decision-system.html"
     }
   ]
 }
@@ -110,7 +104,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       "@type": "ListItem",
       "position": 3,
       "name": "AI Automation Decision System",
-      "item": "https://kholomyanskiy.com/pl/products.html#decision-system"
+      "item": "https://kholomyanskiy.com/pl/decision-system.html"
     }
   ]
 }
@@ -138,7 +132,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       "@type": "ListItem",
       "position": 3,
       "name": "AI Automation Decision System",
-      "item": "https://kholomyanskiy.com/ru/products.html#decision-system"
+      "item": "https://kholomyanskiy.com/ru/decision-system.html"
     }
   ]
 }
@@ -188,7 +182,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <p data-i18n="p2.p2">Full version: instructions for each stage, table templates, and a case study.</p>
  <div class="prod-cta">
  <a class="primary" href="metodichka.html" data-i18n="p2.cta1">Read the guide →</a>
- <a class="secondary" href="https://aimethodology.gumroad.com/l/ai-v-otdele" data-i18n="p2.cta2">Full version →</a>
+ <span data-i18n-html="p2.cta2"><a class="secondary" href="https://aimethodology.gumroad.com/l/AI-Department">Full version →</a></span>
  <a class="secondary" href="audit.html" data-i18n="p2.cta3">Next step: department audit →</a>
  </div>
  </div>
@@ -204,22 +198,22 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <div class="tiers">
  <div class="tier">
  <span class="tier-name" data-i18n="p3.t1.name">Free</span>
- <div class="tier-price" data-i18n="p3.t1.price">0 zł</div>
- <p data-i18n="p3.t1.p">Basic version</p>
+ <div class="tier-price" data-i18n="p3.t1.price">$0</div>
+ <p data-i18n="p3.t1.p">Part 1, quick start</p>
  </div>
  <div class="tier">
  <span class="tier-name" data-i18n="p3.t2.name">Business</span>
  <div class="tier-price" data-i18n="p3.t2.price">$147</div>
- <p data-i18n="p3.t2.p">Extended version for teams</p>
+ <p data-i18n="p3.t2.p">Method and Excel tools</p>
  </div>
  <div class="tier">
  <span class="tier-name" data-i18n="p3.t3.name">Professional</span>
  <div class="tier-price" data-i18n="p3.t3.price">$297</div>
- <p data-i18n="p3.t3.p">Full set with support</p>
+ <p data-i18n="p3.t3.p">Business, agents, GDPR, self-hosting</p>
  </div>
  </div>
  <div class="prod-cta">
- <a class="primary" href="https://aimethodology.gumroad.com" data-i18n="p3.cta1">View on Gumroad →</a>
+ <a class="primary" href="decision-system.html" data-i18n="p3.cta1">Editions and details →</a>
  </div>
  </div>
  </section>
@@ -246,13 +240,13 @@ const T = {
  "p2.num":"ПРОДУКТ 02","p2.badge":"Методичка + книга","p2.h":"ИИ в отделе",
  "p2.p1":"Бесплатная методичка: пять этапов внедрения ИИ в отдел: аудит, отбор, спецификация, внедрение, масштабирование, на уровне принципов.",
  "p2.p2":"Полная версия: инструкции по каждому этапу, шаблоны таблиц и разбор кейса.",
- "p2.cta1":"Читать методичку →","p2.cta2":"Полная версия →","p2.cta3":"Следующий шаг: аудит отдела →",
+ "p2.cta1":"Читать методичку →","p2.cta2":"<a class=\"secondary\" href=\"https://aimethodology.gumroad.com/l/ai-v-otdele\">Полная версия →</a>","p2.cta3":"Следующий шаг: аудит отдела →",
  "p3.num":"ПРОДУКТ 03","p3.badge":"Система принятия решений",
  "p3.p1":"Помогает решить, стоит ли задача автоматизации, каким подходом её закрывать и с чего начинать, до найма подрядчика или покупки инструментов.",
- "p3.t1.name":"Free","p3.t1.price":"0 zł","p3.t1.p":"Базовая версия",
- "p3.t2.name":"Business","p3.t2.price":"$147","p3.t2.p":"Расширенная версия для команд",
- "p3.t3.name":"Professional","p3.t3.price":"$297","p3.t3.p":"Полный набор с поддержкой",
- "p3.cta1":"Смотреть на Gumroad →",
+ "p3.t1.name":"Free","p3.t1.price":"$0","p3.t1.p":"Часть 1, быстрый старт",
+ "p3.t2.name":"Business","p3.t2.price":"$147","p3.t2.p":"Методология и инструменты в Excel",
+ "p3.t3.name":"Professional","p3.t3.price":"$297","p3.t3.p":"Business, агенты, GDPR, свой сервер",
+ "p3.cta1":"Подробнее о версиях →",
  "closing.title":"Не уверены, что вам нужно?",
  "closing.p":"Опишите в паре предложений, что происходит в отделе. Ответ будет честным: стоит ли этим заниматься и с чего начать.",
  "closing.btn":"Написать →",
@@ -269,13 +263,13 @@ const T = {
  "p2.num":"PRODUKT 02","p2.badge":"Poradnik + książka","p2.h":"AI w dziale",
  "p2.p1":"Darmowy poradnik: pięć etapów wdrażania AI w dziale: audyt, dobór, specyfikacja, wdrożenie, skalowanie, na poziomie zasad.",
  "p2.p2":"Pełna wersja: instrukcje dla każdego etapu, szablony tabel i analiza case study.",
- "p2.cta1":"Czytaj poradnik →","p2.cta2":"Pełna wersja →","p2.cta3":"Następny krok: audyt działu →",
+ "p2.cta1":"Czytaj poradnik →","p2.cta2":"<a class=\"secondary\" href=\"https://aimethodology.gumroad.com/l/AIwdziale\">Pełna wersja →</a>","p2.cta3":"Następny krok: audyt działu →",
  "p3.num":"PRODUKT 03","p3.badge":"System decyzyjny",
  "p3.p1":"Pomaga zdecydować, czy zadanie warto zautomatyzować, jakie podejście wybrać i od czego zacząć, zanim zatrudnisz wykonawcę lub kupisz narzędzia.",
- "p3.t1.name":"Free","p3.t1.price":"0 zł","p3.t1.p":"Wersja podstawowa",
- "p3.t2.name":"Business","p3.t2.price":"$147","p3.t2.p":"Wersja rozszerzona dla zespołów",
- "p3.t3.name":"Professional","p3.t3.price":"$297","p3.t3.p":"Pełny zestaw ze wsparciem",
- "p3.cta1":"Zobacz na Gumroad →",
+ "p3.t1.name":"Free","p3.t1.price":"$0","p3.t1.p":"Część 1, szybki start",
+ "p3.t2.name":"Business","p3.t2.price":"$147","p3.t2.p":"Metoda i narzędzia w Excelu",
+ "p3.t3.name":"Professional","p3.t3.price":"$297","p3.t3.p":"Business, agenci, RODO, własny serwer",
+ "p3.cta1":"Wersje i szczegóły →",
  "closing.title":"Nie jesteś pewien, czego potrzebujesz?",
  "closing.p":"Opisz w kilku zdaniach, co dzieje się w Twoim dziale. Odpowiedź będzie szczera: czy warto się tym zająć i od czego zacząć.",
  "closing.btn":"Napisz →",
@@ -292,13 +286,13 @@ const T = {
  "p2.num":"PRODUCT 02","p2.badge":"Guide + book","p2.h":"AI in the Department",
  "p2.p1":"Free guide: five stages of implementing AI in a department: audit, selection, specification, implementation, scaling, at the level of principles.",
  "p2.p2":"Full version: instructions for each stage, table templates, and a case study.",
- "p2.cta1":"Read the guide →","p2.cta2":"Full version →","p2.cta3":"Next step: department audit →",
+ "p2.cta1":"Read the guide →","p2.cta2":"<a class=\"secondary\" href=\"https://aimethodology.gumroad.com/l/AI-Department\">Full version →</a>","p2.cta3":"Next step: department audit →",
  "p3.num":"PRODUCT 03","p3.badge":"Decision system",
  "p3.p1":"Helps decide whether a task is worth automating, which approach to take, and where to start, before hiring a contractor or buying tools.",
- "p3.t1.name":"Free","p3.t1.price":"0 zł","p3.t1.p":"Basic version",
- "p3.t2.name":"Business","p3.t2.price":"$147","p3.t2.p":"Extended version for teams",
- "p3.t3.name":"Professional","p3.t3.price":"$297","p3.t3.p":"Full set with support",
- "p3.cta1":"View on Gumroad →",
+ "p3.t1.name":"Free","p3.t1.price":"$0","p3.t1.p":"Part 1, quick start",
+ "p3.t2.name":"Business","p3.t2.price":"$147","p3.t2.p":"Method and Excel tools",
+ "p3.t3.name":"Professional","p3.t3.price":"$297","p3.t3.p":"Business, agents, GDPR, self-hosting",
+ "p3.cta1":"Editions and details →",
  "closing.title":"Not sure what you need?",
  "closing.p":"Describe what's happening in your department in a couple of sentences. You'll get an honest answer on whether it's worth doing and where to start.",
  "closing.btn":"Write →",
