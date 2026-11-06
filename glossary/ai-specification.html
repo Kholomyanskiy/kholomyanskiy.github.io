@@ -247,7 +247,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <div class="prose">
 <p>An AI specification is a document that describes a task so a model or agent can perform it predictably and its output can be checked: what goes in, what comes out, which rules must not be broken, and how to tell when the work is done. It lives outside the chat and remains available across sessions.</p>
 <h2>How a specification differs from a prompt</h2>
-<p>A prompt is an instruction or request in a conversation. It usually handles a specific task and remains part of that session. The model reads the specification at the start of each session; it is updated when the rules change and is also used later to check the work. A good prompt produces one good answer. A specification makes the whole body of work predictable.</p>
+<p>A <a href="/glossary/prompt.html">prompt</a> is an instruction or request in a conversation. It usually handles a specific task and remains part of that session. The model reads the specification at the start of each session; it is updated when the rules change and is also used later to check the work. A good prompt produces one good answer. A specification makes the whole body of work predictable.</p>
 <p>For developers, this discipline is kept by the engineering environment: tasks in a tracker, code reviews, and tests. A manager or small company without an engineering department has no such environment, so a specification page fills that role.</p>
 <h2>What it contains</h2>
 <ul>
@@ -260,7 +260,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 <p>For one task, all of this often fits on a page.</p>
 <h2>When a regular task brief is not enough</h2>
 <p>People usually brief a model as if it were a colleague who knows everything. The model knows less than a colleague and does not ask follow-up questions; it fills in the gaps. The result looks plausible but does the wrong thing. Revisions then go round in circles: fix one thing, break the next. There are so many joke videos about this online that they have become a genre. Funny because it is true.</p>
-<p>The second reason lies in how models work. They have a limited context window: the more documents, messages, and new instructions a session contains, the harder it is for the model to retain earlier agreements. A conversational task brief usually stays in one specific chat. A specification lives separately and can be given to the model again.</p>
+<p>The second reason lies in how models work. They have a limited <a href="/glossary/context-window.html">context window</a>: the more documents, messages, and new instructions a session contains, the harder it is for the model to retain earlier agreements. A conversational task brief usually stays in one specific chat. A specification lives separately and can be given to the model again.</p>
 <h2>From experience</h2>
 <p>Before I started writing specifications, I briefed models the way everyone does: conversationally, as we went. By about the fifth to tenth answer, things became muddled. The model forgot decisions, rewrote things that were off limits, and got confused by long documents. This happened in almost every project, with every agent.</p>
 <p>That experience led to <a href="/anss.html">ANSS</a>, an open specification standard for working with AI. In my projects, the quality of results improved noticeably after I adopted it. It is not perfect, just as models are not perfect, but the approach works and I use it in my work.</p>
@@ -268,7 +268,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 <h2>What to decide before work begins</h2>
 <p>Who writes the specification: the client, the contractor, or both, and who approves it. Where it lives and who updates it when the rules change. How detailed it needs to be: one page is enough for a single task, while a chain of agents handing work to one another needs a standard such as ANSS.</p>
 <hr>
-<p><strong>Related terms:</strong> <a href="/glossary/acceptance-criteria.html">Acceptance criteria</a> · Invariant · Prompt · Context window</p>
+<p><strong>Related terms:</strong> <a href="/glossary/acceptance-criteria.html">Acceptance criteria</a> · Invariant · <a href="/glossary/prompt.html">Prompt</a> · <a href="/glossary/context-window.html">Context window</a></p>
 <p>Need to describe a task for AI or a contractor on one page? <a href="/spec.html">Specification →</a></p>
  </div>
  </section>

@@ -254,7 +254,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 <p>Odnośnik do źródła zmniejsza ryzyko: można otworzyć dokument i sprawdzić. Tam, gdzie odpowiedź wpływa na pieniądze albo zobowiązania wobec klienta, zwykle obowiązuje zasada <a href="/pl/glossary/human-in-the-loop.html">człowieka w pętli</a>.</p>
 <h2>RAG, baza danych czy rejestr</h2>
 <p>Nazwa RAG opisuje schemat „najpierw znajdź, potem odpowiedz”, a szukać można na różne sposoby. Wyszukiwanie wektorowe w pociętych fragmentach to tylko jeden z nich, po prostu najbardziej znany.</p>
-<p>Jeśli dokumentów jest niewiele i mieszczą się w oknie kontekstowym modelu, przekazuje się je w całości i wyszukiwanie w ogóle nie jest potrzebne. Dane strukturalne (kwoty, daty, klienci, statusy) najlepiej trzymać w zwykłej bazie danych, do której model wysyła zapytanie. Wyszukiwanie wektorowe nie policzy umów, które wygasają w grudniu: szuka podobnego tekstu i liczyć nie umie.</p>
+<p>Jeśli dokumentów jest niewiele i mieszczą się w <a href="/pl/glossary/context-window.html">oknie kontekstowym</a> modelu, przekazuje się je w całości i wyszukiwanie w ogóle nie jest potrzebne. Dane strukturalne (kwoty, daty, klienci, statusy) najlepiej trzymać w zwykłej bazie danych, do której model wysyła zapytanie. Wyszukiwanie wektorowe nie policzy umów, które wygasają w grudniu: szuka podobnego tekstu i liczyć nie umie.</p>
 <p>Gdy dokumentów są setki, a pytanie zwykle wskazuje konkretny dokument, często wystarcza rejestr z krótkim opisem każdego z nich. Model wybiera dokument z rejestru i czyta go w całości. Klasyczny RAG z wyszukiwaniem wektorowym sprawdza się tam, gdzie jest dużo ciągłego tekstu, pytania dotyczą sensu i nie wiadomo z góry, gdzie leży odpowiedź.</p>
 <p>W praktyce te sposoby się łączy. Dokumentom nadaje się metadane (klient, typ, data), według nich najpierw zawęża się zakres i dopiero w nim szuka się po sensie. Rozsądnie zacząć od najprostszego wariantu, który obsłuży typowe pytania: rejestr łatwiej utrzymać i widać w nim, skąd wzięła się odpowiedź.</p>
 <h2>Jak sprawdzić przed uruchomieniem</h2>
@@ -265,7 +265,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 <h2>Co ustalić z wyprzedzeniem</h2>
 <p>Jakie dokumenty wgrywamy i kto odpowiada za to, żeby w systemie leżały wersje obowiązujące. Kto będzie zadawał pytania i jakie. Co system odpowiada, gdy w dokumentach nie ma odpowiedzi. Kto i jak często sprawdza odpowiedzi. I jak ludziom wytłumaczyć, co jest w środku i jak z tego korzystać: bez tego nawet sprawny system wygląda na zepsuty.</p>
 <hr>
-<p><strong>Powiązane terminy:</strong> Baza wiedzy · Halucynacja · Rozpoznawanie dokumentów · <a href="/pl/glossary/ai-specification.html">Specyfikacja AI</a></p>
+<p><strong>Powiązane terminy:</strong> Baza wiedzy · <a href="/pl/glossary/hallucination.html">Halucynacja</a> · Rozpoznawanie dokumentów · <a href="/pl/glossary/ai-specification.html">Specyfikacja AI</a></p>
 <p>Chcesz, żeby AI odpowiadało na podstawie dokumentów twojej firmy? <a href="/pl/solution-design.html">Projektowanie rozwiązania AI →</a></p>
  </div>
  </section>

@@ -90,15 +90,33 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "AI hallucination",
+      "description": "An AI hallucination is an answer from a language model that sounds confident and plausible but does not match reality: an invented fact, a non-existent source, a wrong figure. The term is a metaphor, since a model has no perception that could deceive it. Some researchers prefer \"confabulation\", but \"hallucination\" is the word that stuck.",
+      "url": "https://kholomyanskiy.com/glossary/hallucination.html"
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "Human in the loop",
       "description": "A human in the loop is a participant in a process who checks, corrects or approves AI output before it moves on. The AI prepares a draft, a shortlist or a proposal, and the decision stays with the person. Their place is set in advance: at which step they come in, what they check, and what they do if the output is not good enough.",
       "url": "https://kholomyanskiy.com/glossary/human-in-the-loop.html"
     },
     {
       "@type": "DefinedTerm",
+      "name": "Prompt",
+      "description": "A prompt is the text a person gives a language model: a question, a task, an instruction, an example or data to process. Apart from general knowledge from training, the model knows about the task only what is written in the prompt and in earlier messages of the conversation. So the prompt decides whether the answer is useful the first time or needs several rounds of clarification.",
+      "url": "https://kholomyanskiy.com/glossary/prompt.html"
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "RAG (search over your own documents)",
       "description": "Retrieval-augmented generation (RAG) is an approach in which a language model first searches a defined set of documents for relevant passages and then writes its answer based on them. The approach was described by researchers at Facebook AI in 2020. Today the term covers almost any \"chat with our documents\" system. In a small business, RAG usually serves one purpose: an employee or a customer asks a question in plain words and gets an answer drawn from the company's policies, contracts, price lists or manuals, with a link to the document.",
       "url": "https://kholomyanskiy.com/glossary/rag.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Context window",
+      "description": "The context window is the amount of text a language model sees at once while it prepares an answer. Everything goes into it together: system instructions, uploaded files, the conversation history and the answer the model is writing right now. Whatever does not fit in the window does not exist for the model. It has no memory between conversations: every new chat starts with an empty window unless the service itself inserts saved notes.",
+      "url": "https://kholomyanskiy.com/glossary/context-window.html"
     }
   ]
 }
@@ -316,14 +334,29 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <a class="article-cta" href="/glossary/agent.html">Read more →</a>
  </div>
  <div class="article-card">
+ <h3>AI hallucination</h3>
+ <p>An AI hallucination is an answer from a language model that sounds confident and plausible but does not match reality: an invented fact, a non-existent source, a wrong figure. The term is a metaphor, since a model has no perception that could deceive it. Some researchers prefer "confabulation", but "hallucination" is the word that stuck.</p>
+ <a class="article-cta" href="/glossary/hallucination.html">Read more →</a>
+ </div>
+ <div class="article-card">
  <h3>Human in the loop</h3>
  <p>A human in the loop is a participant in a process who checks, corrects or approves AI output before it moves on. The AI prepares a draft, a shortlist or a proposal, and the decision stays with the person. Their place is set in advance: at which step they come in, what they check, and what they do if the output is not good enough.</p>
  <a class="article-cta" href="/glossary/human-in-the-loop.html">Read more →</a>
  </div>
  <div class="article-card">
+ <h3>Prompt</h3>
+ <p>A prompt is the text a person gives a language model: a question, a task, an instruction, an example or data to process. Apart from general knowledge from training, the model knows about the task only what is written in the prompt and in earlier messages of the conversation. So the prompt decides whether the answer is useful the first time or needs several rounds of clarification.</p>
+ <a class="article-cta" href="/glossary/prompt.html">Read more →</a>
+ </div>
+ <div class="article-card">
  <h3>RAG (search over your own documents)</h3>
  <p>Retrieval-augmented generation (RAG) is an approach in which a language model first searches a defined set of documents for relevant passages and then writes its answer based on them. The approach was described by researchers at Facebook AI in 2020. Today the term covers almost any "chat with our documents" system. In a small business, RAG usually serves one purpose: an employee or a customer asks a question in plain words and gets an answer drawn from the company's policies, contracts, price lists or manuals, with a link to the document.</p>
  <a class="article-cta" href="/glossary/rag.html">Read more →</a>
+ </div>
+ <div class="article-card">
+ <h3>Context window</h3>
+ <p>The context window is the amount of text a language model sees at once while it prepares an answer. Everything goes into it together: system instructions, uploaded files, the conversation history and the answer the model is writing right now. Whatever does not fit in the window does not exist for the model. It has no memory between conversations: every new chat starts with an empty window unless the service itself inserts saved notes.</p>
+ <a class="article-cta" href="/glossary/context-window.html">Read more →</a>
  </div>
  </div>
  </section>

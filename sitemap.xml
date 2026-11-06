@@ -415,13 +415,31 @@
  <priority>0.6</priority>
  </url>
  <url>
+ <loc>https://kholomyanskiy.com/glossary/hallucination.html</loc>
+ <lastmod>2026-11-07</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
  <loc>https://kholomyanskiy.com/glossary/human-in-the-loop.html</loc>
  <lastmod>2026-11-07</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
+ <loc>https://kholomyanskiy.com/glossary/prompt.html</loc>
+ <lastmod>2026-11-07</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
  <loc>https://kholomyanskiy.com/glossary/rag.html</loc>
+ <lastmod>2026-11-07</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/glossary/context-window.html</loc>
  <lastmod>2026-11-07</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
@@ -481,13 +499,31 @@
  <priority>0.6</priority>
  </url>
  <url>
+ <loc>https://kholomyanskiy.com/pl/glossary/hallucination.html</loc>
+ <lastmod>2026-11-07</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
  <loc>https://kholomyanskiy.com/pl/glossary/human-in-the-loop.html</loc>
  <lastmod>2026-11-07</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
+ <loc>https://kholomyanskiy.com/pl/glossary/prompt.html</loc>
+ <lastmod>2026-11-07</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
  <loc>https://kholomyanskiy.com/pl/glossary/rag.html</loc>
+ <lastmod>2026-11-07</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/glossary/context-window.html</loc>
  <lastmod>2026-11-07</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
@@ -547,13 +583,31 @@
  <priority>0.6</priority>
  </url>
  <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/hallucination.html</loc>
+ <lastmod>2026-11-07</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
  <loc>https://kholomyanskiy.com/ru/glossary/human-in-the-loop.html</loc>
  <lastmod>2026-11-07</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/prompt.html</loc>
+ <lastmod>2026-11-07</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
  <loc>https://kholomyanskiy.com/ru/glossary/rag.html</loc>
+ <lastmod>2026-11-07</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/context-window.html</loc>
  <lastmod>2026-11-07</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>

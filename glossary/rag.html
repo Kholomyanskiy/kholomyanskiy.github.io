@@ -254,7 +254,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 <p>A source link reduces the risk: a person can open the document and check. Where an answer affects money or commitments to a customer, the check usually stays with a <a href="/glossary/human-in-the-loop.html">human in the loop</a>.</p>
 <h2>RAG, database or registry</h2>
 <p>The name RAG describes a pattern, "find first, then answer", and there are many ways to do the finding. Vector search over chopped-up passages is only one of them, just the best known.</p>
-<p>If there are only a few documents and they fit into the model's context window, they are passed in whole and no search is needed at all. Structured data (amounts, dates, customers, statuses) belongs in an ordinary database that the model queries. Vector search will not count the contracts expiring in December: it looks for similar text, and counting is beyond it.</p>
+<p>If there are only a few documents and they fit into the model's <a href="/glossary/context-window.html">context window</a>, they are passed in whole and no search is needed at all. Structured data (amounts, dates, customers, statuses) belongs in an ordinary database that the model queries. Vector search will not count the contracts expiring in December: it looks for similar text, and counting is beyond it.</p>
 <p>When there are hundreds of documents and a question usually points to a specific one, a registry with a short description of each is often enough. The model picks a document from the registry and reads it in full. Classic RAG with vector search fits where there is a lot of continuous text, questions are about meaning, and nobody knows in advance where the answer lives.</p>
 <p>In practice these approaches are combined. Documents get metadata (customer, type, date), which narrows the scope first, and search by meaning then runs inside that scope. It makes sense to start with the simplest option that handles the typical questions: a registry is easier to maintain, and it shows where an answer came from.</p>
 <h2>How to test before launch</h2>
@@ -265,7 +265,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
 <h2>What to decide in advance</h2>
 <p>Which documents go in, and who makes sure the system holds the current versions. Who will ask questions, and what kind. What the system says when the documents have no answer. Who checks the answers, and how often. And how people will be told what is inside and how to use it: without that explanation, even a system that works looks broken.</p>
 <hr>
-<p><strong>Related terms:</strong> Knowledge base · Hallucination · Document recognition · <a href="/glossary/ai-specification.html">AI specification</a></p>
+<p><strong>Related terms:</strong> Knowledge base · <a href="/glossary/hallucination.html">Hallucination</a> · Document recognition · <a href="/glossary/ai-specification.html">AI specification</a></p>
 <p>Want AI to answer from your company's documents? <a href="/solution-design.html">AI Solution Design →</a></p>
  </div>
  </section>

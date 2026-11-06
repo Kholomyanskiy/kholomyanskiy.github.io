@@ -90,15 +90,33 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "Halucynacje AI",
+      "description": "Halucynacja AI to odpowiedź modelu językowego, która brzmi pewnie i wiarygodnie, ale nie zgadza się z rzeczywistością: zmyślony fakt, nieistniejące źródło, błędna liczba. Termin jest umowny, bo model nie ma percepcji, która mogłaby go zwieść. Część badaczy woli słowo „konfabulacja”, ale w użyciu przyjęła się „halucynacja”.",
+      "url": "https://kholomyanskiy.com/pl/glossary/hallucination.html"
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "Człowiek w pętli (human-in-the-loop)",
       "description": "Człowiek w pętli (human-in-the-loop) to uczestnik procesu, który sprawdza, poprawia lub zatwierdza wynik AI, zanim trafi on dalej. AI przygotowuje szkic, zestawienie albo propozycję, a decyzja należy do człowieka. Jego miejsce ustala się z góry: na którym kroku się włącza, co sprawdza i co robi, jeśli wynik się nie nadaje.",
       "url": "https://kholomyanskiy.com/pl/glossary/human-in-the-loop.html"
     },
     {
       "@type": "DefinedTerm",
+      "name": "Prompt",
+      "description": "Prompt (z angielskiego: podpowiedź) to tekst, który człowiek przekazuje modelowi językowemu: pytanie, zadanie, instrukcja, przykład albo dane do przetworzenia. Poza ogólną wiedzą z treningu model wie o zadaniu tylko tyle, ile zapisano w prompcie i we wcześniejszych wiadomościach rozmowy. Dlatego od promptu zależy, czy odpowiedź będzie przydatna od razu, czy trzeba będzie ją kilka razy doprecyzowywać.",
+      "url": "https://kholomyanskiy.com/pl/glossary/prompt.html"
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "RAG (wyszukiwanie we własnych dokumentach)",
       "description": "RAG (retrieval-augmented generation, generowanie wspomagane wyszukiwaniem) to podejście, w którym model językowy najpierw wyszukuje pasujące fragmenty w określonym zbiorze dokumentów i dopiero na ich podstawie formułuje odpowiedź. Podejście opisali badacze Facebook AI w 2020 roku. Dziś tak nazywa się niemal każdy system w rodzaju „czat z naszymi dokumentami”. W małej firmie RAG służy zwykle jednemu: żeby pracownik albo klient zadał pytanie zwykłymi słowami i dostał odpowiedź z regulaminów, umów, cenników czy instrukcji firmy, z odnośnikiem do dokumentu.",
       "url": "https://kholomyanskiy.com/pl/glossary/rag.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Okno kontekstowe",
+      "description": "Okno kontekstowe to ilość tekstu, którą model językowy widzi jednocześnie, gdy przygotowuje odpowiedź. Trafia do niego wszystko naraz: instrukcje systemowe, wgrane pliki, historia rozmowy i sama odpowiedź, którą model właśnie pisze. Czego nie ma w oknie, tego dla modelu nie ma. Model nie ma pamięci między rozmowami: każdy nowy czat zaczyna się od pustego okna, chyba że usługa sama wstawi do niego zapisane notatki.",
+      "url": "https://kholomyanskiy.com/pl/glossary/context-window.html"
     }
   ]
 }
@@ -316,14 +334,29 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <a class="article-cta" href="/pl/glossary/agent.html">Więcej →</a>
  </div>
  <div class="article-card">
+ <h3>Halucynacje AI</h3>
+ <p>Halucynacja AI to odpowiedź modelu językowego, która brzmi pewnie i wiarygodnie, ale nie zgadza się z rzeczywistością: zmyślony fakt, nieistniejące źródło, błędna liczba. Termin jest umowny, bo model nie ma percepcji, która mogłaby go zwieść. Część badaczy woli słowo „konfabulacja”, ale w użyciu przyjęła się „halucynacja”.</p>
+ <a class="article-cta" href="/pl/glossary/hallucination.html">Więcej →</a>
+ </div>
+ <div class="article-card">
  <h3>Człowiek w pętli (human-in-the-loop)</h3>
  <p>Człowiek w pętli (human-in-the-loop) to uczestnik procesu, który sprawdza, poprawia lub zatwierdza wynik AI, zanim trafi on dalej. AI przygotowuje szkic, zestawienie albo propozycję, a decyzja należy do człowieka. Jego miejsce ustala się z góry: na którym kroku się włącza, co sprawdza i co robi, jeśli wynik się nie nadaje.</p>
  <a class="article-cta" href="/pl/glossary/human-in-the-loop.html">Więcej →</a>
  </div>
  <div class="article-card">
+ <h3>Prompt</h3>
+ <p>Prompt (z angielskiego: podpowiedź) to tekst, który człowiek przekazuje modelowi językowemu: pytanie, zadanie, instrukcja, przykład albo dane do przetworzenia. Poza ogólną wiedzą z treningu model wie o zadaniu tylko tyle, ile zapisano w prompcie i we wcześniejszych wiadomościach rozmowy. Dlatego od promptu zależy, czy odpowiedź będzie przydatna od razu, czy trzeba będzie ją kilka razy doprecyzowywać.</p>
+ <a class="article-cta" href="/pl/glossary/prompt.html">Więcej →</a>
+ </div>
+ <div class="article-card">
  <h3>RAG (wyszukiwanie we własnych dokumentach)</h3>
  <p>RAG (retrieval-augmented generation, generowanie wspomagane wyszukiwaniem) to podejście, w którym model językowy najpierw wyszukuje pasujące fragmenty w określonym zbiorze dokumentów i dopiero na ich podstawie formułuje odpowiedź. Podejście opisali badacze Facebook AI w 2020 roku. Dziś tak nazywa się niemal każdy system w rodzaju „czat z naszymi dokumentami”. W małej firmie RAG służy zwykle jednemu: żeby pracownik albo klient zadał pytanie zwykłymi słowami i dostał odpowiedź z regulaminów, umów, cenników czy instrukcji firmy, z odnośnikiem do dokumentu.</p>
  <a class="article-cta" href="/pl/glossary/rag.html">Więcej →</a>
+ </div>
+ <div class="article-card">
+ <h3>Okno kontekstowe</h3>
+ <p>Okno kontekstowe to ilość tekstu, którą model językowy widzi jednocześnie, gdy przygotowuje odpowiedź. Trafia do niego wszystko naraz: instrukcje systemowe, wgrane pliki, historia rozmowy i sama odpowiedź, którą model właśnie pisze. Czego nie ma w oknie, tego dla modelu nie ma. Model nie ma pamięci między rozmowami: każdy nowy czat zaczyna się od pustego okna, chyba że usługa sama wstawi do niego zapisane notatki.</p>
+ <a class="article-cta" href="/pl/glossary/context-window.html">Więcej →</a>
  </div>
  </div>
  </section>
