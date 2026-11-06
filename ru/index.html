@@ -504,24 +504,24 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <p data-i18n="process.intro">Для консультации и обучения путь короче: бесплатный разговор, затем сессии.</p>
  <div class="accordion" id="process-accordion">
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="process.s1.h">01. Первое письмо</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s1.p">Коротко опишите отдел и задачу. В ответ придёт приглашение на бесплатный 30-минутный разговор: на нём станет понятно, с чего начать.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-1"><span data-i18n="process.s1.h">01. Первое письмо</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-1"><div class="acc-body-inner" data-i18n="process.s1.p">Коротко опишите отдел и задачу. В ответ придёт приглашение на бесплатный 30-минутный разговор: на нём станет понятно, с чего начать.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="process.s2.h">02. Аудит</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n-html="process.s2.p">Изучаются реальные процессы: что люди делают каждый день и сколько это занимает. Результат: карта задач с оценкой, что можно автоматизировать. <a href="/ru/audit.html">Форматы и цены аудита →</a> · <a href="/ru/kalkulator.html">Калькулятор окупаемости автоматизации →</a></div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-2"><span data-i18n="process.s2.h">02. Аудит</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-2"><div class="acc-body-inner" data-i18n-html="process.s2.p">Изучаются реальные процессы: что люди делают каждый день и сколько это занимает. Результат: карта задач с оценкой, что можно автоматизировать. <a href="/ru/audit.html">Форматы и цены аудита →</a> · <a href="/ru/kalkulator.html">Калькулятор окупаемости автоматизации →</a></div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="process.s3.h">03. Проектирование и спецификация</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s3.p">Архитектура решения и точное ТЗ для каждой задачи: вход, выход, правила, что нельзя делать никогда.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-3"><span data-i18n="process.s3.h">03. Проектирование и спецификация</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-3"><div class="acc-body-inner" data-i18n="process.s3.p">Архитектура решения и точное ТЗ для каждой задачи: вход, выход, правила, что нельзя делать никогда.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="process.s4.h">04. Внедрение</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s4.p">Запуск по одной задаче за раз, приёмка тем, кто раньше делал её руками, до стабильного результата.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-4"><span data-i18n="process.s4.h">04. Внедрение</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-4"><div class="acc-body-inner" data-i18n="process.s4.p">Запуск по одной задаче за раз, приёмка тем, кто раньше делал её руками, до стабильного результата.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="process.s5.h">05. Сопровождение</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="process.s5.p">Решение передаётся с документацией. Дальше по желанию: разовые консультации или следующий этап автоматизации.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-5"><span data-i18n="process.s5.h">05. Сопровождение</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-5"><div class="acc-body-inner" data-i18n="process.s5.p">Решение передаётся с документацией. Дальше по желанию: разовые консультации или следующий этап автоматизации.</div></div>
  </div>
  </div>
  </section>
@@ -550,28 +550,28 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <h2 data-i18n="faq.title">Частые вопросы</h2>
  <div class="accordion" id="faq-accordion">
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q1.h">Чем занимается AI-консультант?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q1.p">Разбирает реальные процессы компании, находит задачи, которые можно передать ИИ или автоматизации, проектирует и сопровождает внедрение до стабильного результата.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-6"><span data-i18n="faq.q1.h">Чем занимается AI-консультант?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-6"><div class="acc-body-inner" data-i18n="faq.q1.p">Разбирает реальные процессы компании, находит задачи, которые можно передать ИИ или автоматизации, проектирует и сопровождает внедрение до стабильного результата.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q2.h">Как проходит аудит процессов?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n-html="faq.q2.p">Сотрудники фиксируют реальные задачи за неделю. По этим данным строится <a href="/ru/glossary/process-map.html">карта процессов</a> с оценкой, где автоматизация даст эффект, а где риск выше пользы.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-7"><span data-i18n="faq.q2.h">Как проходит аудит процессов?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-7"><div class="acc-body-inner" data-i18n-html="faq.q2.p">Сотрудники фиксируют реальные задачи за неделю. По этим данным строится <a href="/ru/glossary/process-map.html">карта процессов</a> с оценкой, где автоматизация даст эффект, а где риск выше пользы.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q3.h">Что такое ANSS?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q3.p">Открытый стандарт описания задач и требований для AI-систем, чтобы поведение ИИ было предсказуемым и понятным как человеку, так и разработке.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-8"><span data-i18n="faq.q3.h">Что такое ANSS?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-8"><div class="acc-body-inner" data-i18n="faq.q3.p">Открытый стандарт описания задач и требований для AI-систем, чтобы поведение ИИ было предсказуемым и понятным как человеку, так и разработке.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q4.h">С какими инструментами вы работаете?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q4.p">Claude, Claude Code, n8n, прямые интеграции через API моделей. Набор инструментов подбирается под задачу.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-9"><span data-i18n="faq.q4.h">С какими инструментами вы работаете?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-9"><div class="acc-body-inner" data-i18n="faq.q4.p">Claude, Claude Code, n8n, прямые интеграции через API моделей. Набор инструментов подбирается под задачу.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q5.h">Сколько стоит аудит?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n-html="faq.q5.p">Экспресс-аудит (одна роль): от 3 500 zł, 7–10 дней. Аудит отдела (до 10 человек): от 9 000 zł, 3–4 недели. Итоговая цена зависит от числа сотрудников и процессов и фиксируется после бесплатного 30-минутного разговора. Цены указаны без НДС (нетто). <a href="/ru/audit.html">Подробнее →</a></div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-10"><span data-i18n="faq.q5.h">Сколько стоит аудит?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-10"><div class="acc-body-inner" data-i18n-html="faq.q5.p">Экспресс-аудит (одна роль): от 3 500 zł, 7–10 дней. Аудит отдела (до 10 человек): от 9 000 zł, 3–4 недели. Итоговая цена зависит от числа сотрудников и процессов и фиксируется после бесплатного 30-минутного разговора. Цены указаны без НДС (нетто). <a href="/ru/audit.html">Подробнее →</a></div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q6.h">Чем обучение отличается от консультации?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n-html="faq.q6.p">Консультация отвечает на вопрос: стоит ли автоматизировать, что проверить первым, как оценить предложение подрядчика. На выходе рекомендация и следующие шаги. Обучение нужно, чтобы собрать решение самому: участник работает над своей задачей на своём компьютере, консультант ведёт. На выходе работающий инструмент и умение сделать следующий. <a href="/ru/training.html">Подробнее об обучении →</a></div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-11"><span data-i18n="faq.q6.h">Чем обучение отличается от консультации?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-11"><div class="acc-body-inner" data-i18n-html="faq.q6.p">Консультация отвечает на вопрос: стоит ли автоматизировать, что проверить первым, как оценить предложение подрядчика. На выходе рекомендация и следующие шаги. Обучение нужно, чтобы собрать решение самому: участник работает над своей задачей на своём компьютере, консультант ведёт. На выходе работающий инструмент и умение сделать следующий. <a href="/ru/training.html">Подробнее об обучении →</a></div></div>
  </div>
  </div>
  </section>
@@ -671,10 +671,10 @@ document.querySelectorAll('.acc-head').forEach(head=>{
  const body = item.querySelector('.acc-body');
  const isOpen = item.classList.contains('open');
  item.parentElement.querySelectorAll('.acc-item.open').forEach(other=>{
- if(other!==item){ other.classList.remove('open'); other.querySelector('.acc-body').style.maxHeight=null; }
+ if(other!==item){ other.classList.remove('open'); other.querySelector('.acc-body').style.maxHeight=null; other.querySelector('.acc-head').setAttribute('aria-expanded','false'); }
  });
- if(isOpen){ item.classList.remove('open'); body.style.maxHeight=null; }
- else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight+'px'; }
+ if(isOpen){ item.classList.remove('open'); body.style.maxHeight=null; head.setAttribute('aria-expanded','false'); }
+ else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight+'px'; head.setAttribute('aria-expanded','true'); }
  });
 });
 </script>

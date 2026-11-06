@@ -462,6 +462,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
       <p data-i18n="s3_inv4">The run is repeated until the expert is satisfied. The client describes the next role on their own.</p>
     </div>
     <figure style="margin-top:0"><figcaption data-i18n="s3_fig3_cap">FIG. 3. The refinement loop from the second session with the agency.</figcaption></figure>
+    <p data-i18n-html="s3_case">The full example: <a href="/case-recruitment.html">a case of a client in recruitment</a>.</p>
   </section>
 
   <section>
@@ -485,28 +486,28 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
     <h2 data-i18n="s6_h2">Before the first meeting</h2>
     <div class="accordion" id="faq-accordion">
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="s6_q1_h">Do I need to know how to code?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q1_p">No. ChatGPT or Claude writes the code from the task description. The participant learns to describe the task and check the result, and the consultant helps run it, test it and work through errors.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-1"><span data-i18n="s6_q1_h">Do I need to know how to code?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-1"><div class="acc-body-inner" data-i18n="s6_q1_p">No. ChatGPT or Claude writes the code from the task description. The participant learns to describe the task and check the result, and the consultant helps run it, test it and work through errors.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="s6_q2_h">Which subscriptions will I need?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q2_p">A paid subscription to the tool chosen for the task: ChatGPT, Claude or Claude Code. Which one fits is decided on the free call, before you buy.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-2"><span data-i18n="s6_q2_h">Which subscriptions will I need?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-2"><div class="acc-body-inner" data-i18n="s6_q2_p">A paid subscription to the tool chosen for the task: ChatGPT, Claude or Claude Code. Which one fits is decided on the free call, before you buy.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="s6_q3_h">Is preparation included in the price?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q3_p">Yes. The plan before the meeting and the summary after it are included.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-3"><span data-i18n="s6_q3_h">Is preparation included in the price?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-3"><div class="acc-body-inner" data-i18n="s6_q3_p">Yes. The plan before the meeting and the summary after it are included.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="s6_q4_h">What does it cost for two or more participants?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q4_p">The team price is set after the free call, once the task and the number of participants are clear.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-4"><span data-i18n="s6_q4_h">What does it cost for two or more participants?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-4"><div class="acc-body-inner" data-i18n="s6_q4_p">The team price is set after the free call, once the task and the number of participants are clear.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="s6_q5_h">What about confidential materials?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q5_p">You can start with anonymised examples. If the task involves personal data, such as candidates&#x27; CVs, the first step is to anonymise it before it goes to a cloud service.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-5"><span data-i18n="s6_q5_h">What about confidential materials?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-5"><div class="acc-body-inner" data-i18n="s6_q5_p">You can start with anonymised examples. If the task involves personal data, such as candidates&#x27; CVs, the first step is to anonymise it before it goes to a cloud service.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="s6_q6_h">What can realistically be done in one meeting?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="s6_q6_p">One working part of the task: for example, a task description for Claude Code and a first checked run. What exactly is agreed before the meeting.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-6"><span data-i18n="s6_q6_h">What can realistically be done in one meeting?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-6"><div class="acc-body-inner" data-i18n="s6_q6_p">One working part of the task: for example, a task description for Claude Code and a first checked run. What exactly is agreed before the meeting.</div></div>
  </div>
     </div>
   </section>
@@ -544,10 +545,10 @@ document.querySelectorAll('.acc-head').forEach(head=>{
  const body = item.querySelector('.acc-body');
  const isOpen = item.classList.contains('open');
  item.parentElement.querySelectorAll('.acc-item.open').forEach(other=>{
- if(other!==item){ other.classList.remove('open'); other.querySelector('.acc-body').style.maxHeight=null; }
+ if(other!==item){ other.classList.remove('open'); other.querySelector('.acc-body').style.maxHeight=null; other.querySelector('.acc-head').setAttribute('aria-expanded','false'); }
  });
- if(isOpen){ item.classList.remove('open'); body.style.maxHeight=null; }
- else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight+'px'; }
+ if(isOpen){ item.classList.remove('open'); body.style.maxHeight=null; head.setAttribute('aria-expanded','false'); }
+ else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight+'px'; head.setAttribute('aria-expanded','true'); }
  });
 });
 </script>

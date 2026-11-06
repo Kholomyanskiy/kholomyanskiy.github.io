@@ -373,24 +373,24 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <h2 data-i18n="faq.title">Frequently asked questions</h2>
  <div class="accordion" id="faq-accordion">
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q1.h">What does an AI consultant do?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q1.p">Analyzes a company&#x27;s actual processes, finds tasks that can be handed to AI or automation, designs and supports implementation through to a stable result.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-1"><span data-i18n="faq.q1.h">What does an AI consultant do?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-1"><div class="acc-body-inner" data-i18n="faq.q1.p">Analyzes a company&#x27;s actual processes, finds tasks that can be handed to AI or automation, designs and supports implementation through to a stable result.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q2.h">How do I choose which service to start with?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n-html="faq.q2.p">Where to start depends on the need. Advice on a task: <a href="/consulting.html">consulting</a>. Building a solution yourself with guidance: <a href="/training.html">AI training</a>. Finding out what to automate in a department: <a href="/audit.html">audit</a>. The task is clear but the solution isn't: <a href="/solution-design.html">solution design</a>. A requirements document for a contractor: <a href="/spec.html">specification</a>. The first 30 minutes of the call are free, and that is where the format is chosen.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-2"><span data-i18n="faq.q2.h">How do I choose which service to start with?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-2"><div class="acc-body-inner" data-i18n-html="faq.q2.p">Where to start depends on the need. Advice on a task: <a href="/consulting.html">consulting</a>. Building a solution yourself with guidance: <a href="/training.html">AI training</a>. Finding out what to automate in a department: <a href="/audit.html">audit</a>. The task is clear but the solution isn't: <a href="/solution-design.html">solution design</a>. A requirements document for a contractor: <a href="/spec.html">specification</a>. The first 30 minutes of the call are free, and that is where the format is chosen.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q3.h">Can I order just one service without the rest?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q3.p">Yes, each service is standalone. The full cycle (audit → design → spec → implementation) isn&#x27;t required.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-3"><span data-i18n="faq.q3.h">Can I order just one service without the rest?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-3"><div class="acc-body-inner" data-i18n="faq.q3.p">Yes, each service is standalone. The full cycle (audit → design → spec → implementation) isn&#x27;t required.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q4.h">What tools do you work with?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q4.p">Claude, Claude Code, n8n, direct API integrations with models. The toolset is chosen to fit the task.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-4"><span data-i18n="faq.q4.h">What tools do you work with?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-4"><div class="acc-body-inner" data-i18n="faq.q4.p">Claude, Claude Code, n8n, direct API integrations with models. The toolset is chosen to fit the task.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q5.h">Are the prices final?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q5.p">These are starting thresholds. The exact cost depends on scale and complexity, discussed after the first message.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-5"><span data-i18n="faq.q5.h">Are the prices final?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-5"><div class="acc-body-inner" data-i18n="faq.q5.p">These are starting thresholds. The exact cost depends on scale and complexity, discussed after the first message.</div></div>
  </div>
  </div>
  </section>
@@ -429,10 +429,10 @@ document.querySelectorAll('.acc-head').forEach(head=>{
  const body = item.querySelector('.acc-body');
  const isOpen = item.classList.contains('open');
  item.parentElement.querySelectorAll('.acc-item.open').forEach(other=>{
- if(other!==item){ other.classList.remove('open'); other.querySelector('.acc-body').style.maxHeight=null; }
+ if(other!==item){ other.classList.remove('open'); other.querySelector('.acc-body').style.maxHeight=null; other.querySelector('.acc-head').setAttribute('aria-expanded','false'); }
  });
- if(isOpen){ item.classList.remove('open'); body.style.maxHeight=null; }
- else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight+'px'; }
+ if(isOpen){ item.classList.remove('open'); body.style.maxHeight=null; head.setAttribute('aria-expanded','false'); }
+ else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight+'px'; head.setAttribute('aria-expanded','true'); }
  });
 });
 </script>

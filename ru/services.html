@@ -373,24 +373,24 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <h2 data-i18n="faq.title">Частые вопросы</h2>
  <div class="accordion" id="faq-accordion">
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q1.h">Чем занимается AI-консультант?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q1.p">Разбирает реальные процессы компании, находит задачи, которые можно передать ИИ или автоматизации, проектирует и сопровождает внедрение до стабильного результата.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-1"><span data-i18n="faq.q1.h">Чем занимается AI-консультант?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-1"><div class="acc-body-inner" data-i18n="faq.q1.p">Разбирает реальные процессы компании, находит задачи, которые можно передать ИИ или автоматизации, проектирует и сопровождает внедрение до стабильного результата.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q2.h">Как выбрать, с какой услуги начать?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n-html="faq.q2.p">Старт зависит от того, что нужно. Совет по задаче: <a href="/ru/consulting.html">консультация</a>. Собрать решение самостоятельно под присмотром: <a href="/ru/training.html">обучение на задачах</a>. Понять, что автоматизировать в отделе: <a href="/ru/audit.html">аудит</a>. Задача понятна, решение нет: <a href="/ru/solution-design.html">проектирование</a>. Нужно ТЗ для исполнителя: <a href="/ru/spec.html">спецификация</a>. Первые 30 минут разговора бесплатно, на них и выбирается формат.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-2"><span data-i18n="faq.q2.h">Как выбрать, с какой услуги начать?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-2"><div class="acc-body-inner" data-i18n-html="faq.q2.p">Старт зависит от того, что нужно. Совет по задаче: <a href="/ru/consulting.html">консультация</a>. Собрать решение самостоятельно под присмотром: <a href="/ru/training.html">обучение на задачах</a>. Понять, что автоматизировать в отделе: <a href="/ru/audit.html">аудит</a>. Задача понятна, решение нет: <a href="/ru/solution-design.html">проектирование</a>. Нужно ТЗ для исполнителя: <a href="/ru/spec.html">спецификация</a>. Первые 30 минут разговора бесплатно, на них и выбирается формат.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q3.h">Можно ли заказать только одну услугу без остальных?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q3.p">Да, каждая услуга самостоятельна. Полный цикл аудит → проектирование → спецификация → внедрение не обязателен.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-3"><span data-i18n="faq.q3.h">Можно ли заказать только одну услугу без остальных?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-3"><div class="acc-body-inner" data-i18n="faq.q3.p">Да, каждая услуга самостоятельна. Полный цикл аудит → проектирование → спецификация → внедрение не обязателен.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q4.h">С какими инструментами вы работаете?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q4.p">Claude, Claude Code, n8n, прямые интеграции через API моделей. Набор инструментов подбирается под задачу.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-4"><span data-i18n="faq.q4.h">С какими инструментами вы работаете?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-4"><div class="acc-body-inner" data-i18n="faq.q4.p">Claude, Claude Code, n8n, прямые интеграции через API моделей. Набор инструментов подбирается под задачу.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q5.h">Цены окончательные?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q5.p">Указаны нижние пороги. Точная стоимость зависит от масштаба и сложности задачи, обсуждается после первого письма.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-5"><span data-i18n="faq.q5.h">Цены окончательные?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-5"><div class="acc-body-inner" data-i18n="faq.q5.p">Указаны нижние пороги. Точная стоимость зависит от масштаба и сложности задачи, обсуждается после первого письма.</div></div>
  </div>
  </div>
  </section>
@@ -429,10 +429,10 @@ document.querySelectorAll('.acc-head').forEach(head=>{
  const body = item.querySelector('.acc-body');
  const isOpen = item.classList.contains('open');
  item.parentElement.querySelectorAll('.acc-item.open').forEach(other=>{
- if(other!==item){ other.classList.remove('open'); other.querySelector('.acc-body').style.maxHeight=null; }
+ if(other!==item){ other.classList.remove('open'); other.querySelector('.acc-body').style.maxHeight=null; other.querySelector('.acc-head').setAttribute('aria-expanded','false'); }
  });
- if(isOpen){ item.classList.remove('open'); body.style.maxHeight=null; }
- else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight+'px'; }
+ if(isOpen){ item.classList.remove('open'); body.style.maxHeight=null; head.setAttribute('aria-expanded','false'); }
+ else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight+'px'; head.setAttribute('aria-expanded','true'); }
  });
 });
 </script>

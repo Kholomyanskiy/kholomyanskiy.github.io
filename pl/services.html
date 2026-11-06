@@ -373,24 +373,24 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <h2 data-i18n="faq.title">Najczęstsze pytania</h2>
  <div class="accordion" id="faq-accordion">
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q1.h">Czym zajmuje się konsultant AI?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q1.p">Analizuje rzeczywiste procesy firmy, znajduje zadania, które można przekazać AI lub automatyzacji, projektuje i wspiera wdrożenie aż do stabilnego rezultatu.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-1"><span data-i18n="faq.q1.h">Czym zajmuje się konsultant AI?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-1"><div class="acc-body-inner" data-i18n="faq.q1.p">Analizuje rzeczywiste procesy firmy, znajduje zadania, które można przekazać AI lub automatyzacji, projektuje i wspiera wdrożenie aż do stabilnego rezultatu.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q2.h">Jak wybrać, od której usługi zacząć?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n-html="faq.q2.p">Początek zależy od potrzeby. Porada w sprawie zadania: <a href="/pl/consulting.html">konsultacja</a>. Samodzielne zbudowanie rozwiązania pod okiem prowadzącego: <a href="/pl/training.html">szkolenie na własnych zadaniach</a>. Ustalenie, co zautomatyzować w dziale: <a href="/pl/audit.html">audyt</a>. Zadanie jasne, rozwiązanie nie: <a href="/pl/solution-design.html">projektowanie</a>. Potrzebny opis wymagań dla wykonawcy: <a href="/pl/spec.html">specyfikacja</a>. Pierwsze 30 minut rozmowy są bezpłatne, na nich wybiera się format.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-2"><span data-i18n="faq.q2.h">Jak wybrać, od której usługi zacząć?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-2"><div class="acc-body-inner" data-i18n-html="faq.q2.p">Początek zależy od potrzeby. Porada w sprawie zadania: <a href="/pl/consulting.html">konsultacja</a>. Samodzielne zbudowanie rozwiązania pod okiem prowadzącego: <a href="/pl/training.html">szkolenie na własnych zadaniach</a>. Ustalenie, co zautomatyzować w dziale: <a href="/pl/audit.html">audyt</a>. Zadanie jasne, rozwiązanie nie: <a href="/pl/solution-design.html">projektowanie</a>. Potrzebny opis wymagań dla wykonawcy: <a href="/pl/spec.html">specyfikacja</a>. Pierwsze 30 minut rozmowy są bezpłatne, na nich wybiera się format.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q3.h">Czy mogę zamówić tylko jedną usługę bez pozostałych?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q3.p">Tak, każda usługa jest samodzielna. Pełny cykl audyt → projektowanie → specyfikacja → wdrożenie nie jest obowiązkowy.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-3"><span data-i18n="faq.q3.h">Czy mogę zamówić tylko jedną usługę bez pozostałych?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-3"><div class="acc-body-inner" data-i18n="faq.q3.p">Tak, każda usługa jest samodzielna. Pełny cykl audyt → projektowanie → specyfikacja → wdrożenie nie jest obowiązkowy.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q4.h">Z jakimi narzędziami pracujesz?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q4.p">Claude, Claude Code, n8n, bezpośrednie integracje API z modelami. Zestaw narzędzi dobiera się do zadania.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-4"><span data-i18n="faq.q4.h">Z jakimi narzędziami pracujesz?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-4"><div class="acc-body-inner" data-i18n="faq.q4.p">Claude, Claude Code, n8n, bezpośrednie integracje API z modelami. Zestaw narzędzi dobiera się do zadania.</div></div>
  </div>
  <div class="acc-item">
- <button class="acc-head" type="button"><span data-i18n="faq.q5.h">Czy ceny są ostateczne?</span><span class="acc-plus">+</span></button>
- <div class="acc-body"><div class="acc-body-inner" data-i18n="faq.q5.p">To progi startowe. Dokładny koszt zależy od skali i złożoności zadania, ustalany po pierwszej wiadomości.</div></div>
+ <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-5"><span data-i18n="faq.q5.h">Czy ceny są ostateczne?</span><span class="acc-plus">+</span></button>
+ <div class="acc-body" id="acc-5"><div class="acc-body-inner" data-i18n="faq.q5.p">To progi startowe. Dokładny koszt zależy od skali i złożoności zadania, ustalany po pierwszej wiadomości.</div></div>
  </div>
  </div>
  </section>
@@ -429,10 +429,10 @@ document.querySelectorAll('.acc-head').forEach(head=>{
  const body = item.querySelector('.acc-body');
  const isOpen = item.classList.contains('open');
  item.parentElement.querySelectorAll('.acc-item.open').forEach(other=>{
- if(other!==item){ other.classList.remove('open'); other.querySelector('.acc-body').style.maxHeight=null; }
+ if(other!==item){ other.classList.remove('open'); other.querySelector('.acc-body').style.maxHeight=null; other.querySelector('.acc-head').setAttribute('aria-expanded','false'); }
  });
- if(isOpen){ item.classList.remove('open'); body.style.maxHeight=null; }
- else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight+'px'; }
+ if(isOpen){ item.classList.remove('open'); body.style.maxHeight=null; head.setAttribute('aria-expanded','false'); }
+ else { item.classList.add('open'); body.style.maxHeight = body.scrollHeight+'px'; head.setAttribute('aria-expanded','true'); }
  });
 });
 </script>
