@@ -166,7 +166,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       <span class="stamp" data-i18n="stamp">Active · v1.0</span>
       <h1 data-i18n-html="h1_title">AI <em>Implementation</em> Consulting</h1>
       <p class="sub" data-i18n="tb_sub">A review of a specific task with a consultant working on the client's side: whether it is worth automating, where to start, where the risks are. If there isn't enough data to decide, the outcome is a list of what needs to be checked. There is no obligation to order further stages.</p>
-      <p class="sub" data-i18n="tb_free">The first 30 minutes are free: getting to know the task and choosing the format. The review itself, preparation and the summary are part of the paid meeting.</p>
+      <p class="sub" data-i18n="tb_free">The first 30 minutes are free: getting to know the task and choosing the format. The question itself is worked through in the paid meeting.</p>
       <div class="card-action"><a class="btn2" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="tb_cta">Book a free 30-min call →</a></div>
     </div>
     <div class="tb-meta">
@@ -195,7 +195,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
         </div>
         <div class="card-body">
           <p data-i18n="s2_c1_p">Discussing a question, assessing an idea or a contractor's proposal. Usually about an hour.</p>
-          <p data-i18n="s2_c1_res">Outcome: a decision or recommendation and next steps in a written summary.</p>
+          <p data-i18n="s2_c1_res">Outcome: a decision or recommendation and next steps, agreed during the meeting.</p>
         </div>
         <div class="card-action">
           <a class="btn2" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="fmt_cta">Discuss on a call →</a>
@@ -218,13 +218,12 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 
   <section>
     <span class="secnum" data-i18n="s3_num">3.0 // HOW IT WORKS</span>
-    <h2 data-i18n="s3_h2">From a free call to a written summary</h2>
+    <h2 data-i18n="s3_h2">From a free call to a decision</h2>
     <ol class="steps">
       <li data-i18n="s3_li1">A free 30-minute call: what the task is and which format fits.</li>
       <li data-i18n="s3_li2">After the call, the date, length, expected outcome and price of the meeting are agreed individually, followed by payment.</li>
-      <li data-i18n="s3_li3">Before the meeting the client sends materials and questions, and a plan is prepared from them.</li>
+      <li data-i18n="s3_li3">Before the meeting the client sends a list of questions, and the meeting follows it.</li>
       <li data-i18n="s3_li4">Online meeting in Google Meet or Microsoft Teams.</li>
-      <li data-i18n="s3_li5">After the meeting, a written summary: what was decided, what needs to be checked, what the next steps are.</li>
     </ol>
   </section>
 
@@ -232,7 +231,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     <span class="secnum" data-i18n="s4_num">4.0 // PRICE AND TERMS</span>
     <h2 data-i18n="s4_h2">Payment for agreed time</h2>
     <p data-i18n-html="s4_price1">One-off consultation: <span class="price">from 150 zł/hour</span>, net.</p>
-    <p data-i18n="s4_p1">Preparation and the summary are included. A one-off consultation covers the question and a small amount of material. Reviewing a large contractor proposal, a repository or a set of documents is agreed separately.</p>
+    <p data-i18n="s4_p1">A one-off consultation is a conversation about the client's questions, without preparation on materials and without a written summary. Reviewing a contractor's proposal, a repository or a set of documents before the meeting is agreed separately. Preparation and a summary are part of AI training on your own tasks (from 250 zł per hour).</p>
     <p data-i18n="s4_p2">Meeting length, from one hour in 30-minute steps, is agreed in advance. A meeting can be extended by mutual agreement, with each extra 30 minutes paid separately.</p>
     <p data-i18n="s4_p3">Payment in advance for the agreed time. For regular work, a monthly invoice is possible.</p>
     <p data-i18n="s4_p4">A meeting can be rescheduled or cancelled free of charge up to 24 hours in advance. A later cancellation or a no-show counts as a held meeting. If the client is late, the meeting still ends at the agreed time. If the consultant reschedules, the client chooses a new date or a refund.</p>
@@ -278,7 +277,7 @@ var T = {
     tb_format_k: "Формат", tb_format_v: "Онлайн · 1:1 или команда",
     tb_lang_k: "Языки", tb_lang_v: "PL · RU · UA",
     tb_sub: "Разбор конкретной задачи с консультантом на стороне заказчика: стоит ли её автоматизировать, с чего начать, где риски. Если для решения не хватает данных, итогом станет список того, что нужно проверить. Следующие этапы заказывать не обязательно.",
-    tb_free: "Первые 30 минут бесплатно: знакомство с задачей и выбор формата. Разбор, подготовка и резюме входят в платную встречу.",
+    tb_free: "Первые 30 минут бесплатно: знакомство с задачей и выбор формата. Разбор вопроса идёт на платной встрече.",
     tb_cta: "Записаться на бесплатный звонок, 30 минут →",
     s1_num: "1.0 // ДЛЯ КОГО", s1_h2: "Когда нужен взгляд со стороны",
     s1_p1: "Руководитель или владелец, которому нужна вторая точка зрения на идею, на предложение подрядчика или на уже купленный инструмент.",
@@ -287,21 +286,20 @@ var T = {
     s2_num: "2.0 // ДВА ФОРМАТА", s2_h2: "Консультация или обучение",
     s2_c1_h3: "Разовая консультация",
     s2_c1_p: "Обсуждение вопроса, оценка идеи или предложения подрядчика. Обычно около часа.",
-    s2_c1_res: "Результат: решение или рекомендация и следующие шаги в письменном резюме.",
+    s2_c1_res: "Результат: решение или рекомендация и следующие шаги, сформулированные на встрече.",
     s2_c2_h3: "Обучение на задачах",
     s2_c2_p: "Если решение хочется собрать самому: участник работает над своей задачей в ChatGPT, Claude или Claude Code, консультант ведёт. От 250 zł за час.",
     s2_c2_res: "Результат: инструмент под свою задачу и умение собрать следующий.",
     s2_c2_cta: "Подробнее об обучении →",
     fmt_cta: "Обсудить на звонке →",
-    s3_num: "3.0 // КАК ПРОХОДИТ", s3_h2: "От бесплатного звонка до письменного резюме",
+    s3_num: "3.0 // КАК ПРОХОДИТ", s3_h2: "От бесплатного звонка до решения",
     s3_li1: "Бесплатный звонок на 30 минут: в чём задача и какой формат подойдёт.",
     s3_li2: "После звонка индивидуально согласуются дата, длительность, ожидаемый результат и стоимость встречи, затем оплата.",
-    s3_li3: "До встречи клиент присылает материалы и вопросы, по ним готовится план.",
+    s3_li3: "До встречи клиент присылает список вопросов, встреча идёт по нему.",
     s3_li4: "Встреча онлайн в Google Meet или Microsoft Teams.",
-    s3_li5: "После встречи письменное резюме: что решено, что нужно проверить, какие следующие шаги.",
     s4_num: "4.0 // СТОИМОСТЬ И УСЛОВИЯ", s4_h2: "Оплата за согласованное время",
     s4_price1: "Разовая консультация: <span class=\"price\">от 150 zł за час</span>, нетто.",
-    s4_p1: "Подготовка и резюме входят в стоимость. В разовую консультацию входит знакомство с вопросом и материалами небольшого объёма. Изучение большого предложения подрядчика, репозитория или комплекта документов согласуется отдельно.",
+    s4_p1: "Разовая консультация: разговор по вопросам клиента, без подготовки по материалам и письменного резюме. Изучение предложения подрядчика, репозитория или комплекта документов до встречи согласуется отдельно. Подготовка и резюме входят в формат обучения на задачах (от 250 zł за час).",
     s4_p2: "Длительность встречи от одного часа, с шагом 30 минут, согласуется заранее. Продление на встрече возможно по взаимному согласию, дополнительные 30 минут оплачиваются отдельно.",
     s4_p3: "Оплата вперёд за согласованное время. Для регулярной работы возможен счёт в конце месяца.",
     s4_p4: "Перенести или отменить встречу можно бесплатно не позже чем за 24 часа. При более поздней отмене или неявке встреча считается проведённой. При опоздании встреча заканчивается в согласованное время. Если встречу переносит консультант, клиент выбирает новую дату или возврат оплаты.",
@@ -322,7 +320,7 @@ var T = {
     tb_format_k: "Format", tb_format_v: "Online · 1:1 lub zespół",
     tb_lang_k: "Języki", tb_lang_v: "PL · RU · UA",
     tb_sub: "Analiza konkretnego zadania z konsultantem działającym po stronie zamawiającego: czy warto je automatyzować, od czego zacząć, gdzie są ryzyka. Jeśli do decyzji brakuje danych, wynikiem będzie lista tego, co trzeba sprawdzić. Zamawianie kolejnych etapów nie jest obowiązkowe.",
-    tb_free: "Pierwsze 30 minut bezpłatnie: poznanie zadania i wybór formatu. Analiza, przygotowanie i podsumowanie wchodzą w zakres płatnego spotkania.",
+    tb_free: "Pierwsze 30 minut bezpłatnie: poznanie zadania i wybór formatu. Analiza pytania odbywa się na płatnym spotkaniu.",
     tb_cta: "Umów bezpłatną rozmowę, 30 minut →",
     s1_num: "1.0 // DLA KOGO", s1_h2: "Kiedy potrzebne jest spojrzenie z boku",
     s1_p1: "Menedżer lub właściciel, który potrzebuje drugiej opinii o pomyśle, ofercie wykonawcy albo już kupionym narzędziu.",
@@ -331,21 +329,20 @@ var T = {
     s2_num: "2.0 // DWA FORMATY", s2_h2: "Konsultacja czy szkolenie",
     s2_c1_h3: "Konsultacja jednorazowa",
     s2_c1_p: "Omówienie pytania, ocena pomysłu lub oferty wykonawcy. Zwykle około godziny.",
-    s2_c1_res: "Wynik: decyzja lub rekomendacja i kolejne kroki w pisemnym podsumowaniu.",
+    s2_c1_res: "Wynik: decyzja lub rekomendacja i kolejne kroki ustalone na spotkaniu.",
     s2_c2_h3: "Szkolenie AI na Twoich zadaniach",
     s2_c2_p: "Jeśli chcesz zbudować rozwiązanie samodzielnie: pracujesz nad własnym zadaniem w ChatGPT, Claude lub Claude Code, konsultant prowadzi. Od 250 zł za godzinę.",
     s2_c2_res: "Rezultat: narzędzie pod własne zadanie i umiejętność zbudowania kolejnego.",
     s2_c2_cta: "Więcej o szkoleniu →",
     fmt_cta: "Omów na rozmowie →",
-    s3_num: "3.0 // JAK TO WYGLĄDA", s3_h2: "Od bezpłatnej rozmowy do pisemnego podsumowania",
+    s3_num: "3.0 // JAK TO WYGLĄDA", s3_h2: "Od bezpłatnej rozmowy do decyzji",
     s3_li1: "Bezpłatna rozmowa, 30 minut: na czym polega zadanie i jaki format pasuje.",
     s3_li2: "Po rozmowie indywidualnie uzgadnia się termin, czas trwania, oczekiwany wynik i koszt spotkania, a następnie płatność.",
-    s3_li3: "Przed spotkaniem klient przesyła materiały i pytania, na ich podstawie przygotowuje się plan.",
+    s3_li3: "Przed spotkaniem klient przesyła listę pytań, spotkanie przebiega według niej.",
     s3_li4: "Spotkanie online w Google Meet lub Microsoft Teams.",
-    s3_li5: "Po spotkaniu pisemne podsumowanie: co ustalono, co trzeba sprawdzić, jakie są kolejne kroki.",
     s4_num: "4.0 // KOSZT I WARUNKI", s4_h2: "Płatność za uzgodniony czas",
     s4_price1: "Konsultacja jednorazowa: <span class=\"price\">od 150 zł/godz.</span> netto.",
-    s4_p1: "Przygotowanie i podsumowanie są wliczone w cenę. Konsultacja jednorazowa obejmuje zapoznanie się z pytaniem i materiałami niewielkiej objętości. Analiza obszernej oferty wykonawcy, repozytorium lub pakietu dokumentów jest uzgadniana osobno.",
+    s4_p1: "Konsultacja jednorazowa to rozmowa o pytaniach klienta, bez przygotowania na podstawie materiałów i bez pisemnego podsumowania. Analiza oferty wykonawcy, repozytorium lub pakietu dokumentów przed spotkaniem jest uzgadniana osobno. Przygotowanie i podsumowanie wchodzą w format szkolenia AI na Twoich zadaniach (od 250 zł za godzinę).",
     s4_p2: "Czas trwania spotkania, od jednej godziny z krokiem 30 minut, uzgadnia się z wyprzedzeniem. Przedłużenie w trakcie spotkania jest możliwe za obopólną zgodą, dodatkowe 30 minut płatne osobno.",
     s4_p3: "Płatność z góry za uzgodniony czas. Przy stałej współpracy możliwa faktura na koniec miesiąca.",
     s4_p4: "Spotkanie można bezpłatnie przełożyć lub odwołać najpóźniej 24 godziny wcześniej. Przy późniejszym odwołaniu lub nieobecności spotkanie uznaje się za odbyte. W razie spóźnienia spotkanie kończy się o uzgodnionej godzinie. Jeśli spotkanie przekłada konsultant, klient wybiera nowy termin albo zwrot płatności.",
@@ -366,7 +363,7 @@ var T = {
     tb_format_k: "Format", tb_format_v: "Online · 1:1 or team",
     tb_lang_k: "Languages", tb_lang_v: "PL · RU · UA",
     tb_sub: "A review of a specific task with a consultant working on the client's side: whether it is worth automating, where to start, where the risks are. If there isn't enough data to decide, the outcome is a list of what needs to be checked. There is no obligation to order further stages.",
-    tb_free: "The first 30 minutes are free: getting to know the task and choosing the format. The review itself, preparation and the summary are part of the paid meeting.",
+    tb_free: "The first 30 minutes are free: getting to know the task and choosing the format. The question itself is worked through in the paid meeting.",
     tb_cta: "Book a free 30-min call →",
     s1_num: "1.0 // WHO IT'S FOR", s1_h2: "When an outside view helps",
     s1_p1: "A manager or owner who needs a second opinion on an idea, a contractor's proposal or a tool already bought.",
@@ -375,21 +372,20 @@ var T = {
     s2_num: "2.0 // TWO FORMATS", s2_h2: "Consultation or training",
     s2_c1_h3: "One-off consultation",
     s2_c1_p: "Discussing a question, assessing an idea or a contractor's proposal. Usually about an hour.",
-    s2_c1_res: "Outcome: a decision or recommendation and next steps in a written summary.",
+    s2_c1_res: "Outcome: a decision or recommendation and next steps, agreed during the meeting.",
     s2_c2_h3: "AI training on your own tasks",
     s2_c2_p: "To build the solution yourself: you work on your own task in ChatGPT, Claude or Claude Code, the consultant guides. From 250 zł per hour.",
     s2_c2_res: "Outcome: a tool for your own task and the skill to build the next one.",
     s2_c2_cta: "More about training →",
     fmt_cta: "Discuss on a call →",
-    s3_num: "3.0 // HOW IT WORKS", s3_h2: "From a free call to a written summary",
+    s3_num: "3.0 // HOW IT WORKS", s3_h2: "From a free call to a decision",
     s3_li1: "A free 30-minute call: what the task is and which format fits.",
     s3_li2: "After the call, the date, length, expected outcome and price of the meeting are agreed individually, followed by payment.",
-    s3_li3: "Before the meeting the client sends materials and questions, and a plan is prepared from them.",
+    s3_li3: "Before the meeting the client sends a list of questions, and the meeting follows it.",
     s3_li4: "Online meeting in Google Meet or Microsoft Teams.",
-    s3_li5: "After the meeting, a written summary: what was decided, what needs to be checked, what the next steps are.",
     s4_num: "4.0 // PRICE AND TERMS", s4_h2: "Payment for agreed time",
     s4_price1: "One-off consultation: <span class=\"price\">from 150 zł/hour</span>, net.",
-    s4_p1: "Preparation and the summary are included. A one-off consultation covers the question and a small amount of material. Reviewing a large contractor proposal, a repository or a set of documents is agreed separately.",
+    s4_p1: "A one-off consultation is a conversation about the client's questions, without preparation on materials and without a written summary. Reviewing a contractor's proposal, a repository or a set of documents before the meeting is agreed separately. Preparation and a summary are part of AI training on your own tasks (from 250 zł per hour).",
     s4_p2: "Meeting length, from one hour in 30-minute steps, is agreed in advance. A meeting can be extended by mutual agreement, with each extra 30 minutes paid separately.",
     s4_p3: "Payment in advance for the agreed time. For regular work, a monthly invoice is possible.",
     s4_p4: "A meeting can be rescheduled or cancelled free of charge up to 24 hours in advance. A later cancellation or a no-show counts as a held meeting. If the client is late, the meeting still ends at the agreed time. If the consultant reschedules, the client chooses a new date or a refund.",

@@ -226,7 +226,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
   <section>
     <span class="secnum" data-i18n="s2_num">2.0 // SCOPE OF WORK</span>
     <h2 data-i18n="s2_h2">What the audit includes</h2>
-    <p data-i18n="s2_p">The work is built on documenting the department's processes, and observations are turned into a calculation. Stages:</p>
+    <p data-i18n-html="s2_p">The work is built on <a href="/glossary/process-audit.html">documenting the department's processes</a>, and observations are turned into a calculation. Stages:</p>
     <div class="spec-list">
       <div class="spec-row">
         <span class="spec-code">COMM</span>
@@ -238,11 +238,11 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       </div>
       <div class="spec-row">
         <span class="spec-code">MAP</span>
-        <div><h3 data-i18n="s2_map_h">Department task map</h3><p data-i18n="s2_map_p">All tasks consolidated and broken into sub-processes. You see what people actually do and where the duplication is.</p></div>
+        <div><h3 data-i18n="s2_map_h">Department task map</h3><p data-i18n-html="s2_map_p">All tasks are consolidated into a <a href="/glossary/process-map.html">process map</a> and broken into sub-processes. You see what people actually do and where the duplication is.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">MATRX</span>
-        <div><h3 data-i18n="s2_matrx_h">Automation matrix</h3><p data-i18n="s2_matrx_p">Each sub-process: automatable / partially / no. With reasoning: cost, risk, error criticality.</p></div>
+        <div><h3 data-i18n="s2_matrx_h">Automation matrix</h3><p data-i18n-html="s2_matrx_p">Each sub-process: automatable / partially / no. With reasoning: cost, risk, error criticality, <a href="/glossary/failure-point.html">failure points</a>.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">CALC</span>
@@ -408,11 +408,11 @@ var T = {
     s1_log3: "$ задача: ответы на типовые письма клиентов", s1_log4: "> 40% рабочего дня, шаблон один и тот же",
     s1_p: "Внедрение «сверху», без аудита, заканчивается одинаково: купили инструмент, сотрудники им не пользуются, эффект нулевой. Причина в том, что никто не посмотрел, из чего на самом деле состоит рабочий день людей. Аудит начинается именно с этого.",
     s2_num: "2.0 // СОСТАВ РАБОТ", s2_h2: "Что входит в аудит",
-    s2_p: "Работа идёт через документирование процессов отдела, наблюдения превращаются в расчёт. Этапы:",
+    s2_p: "Работа идёт через <a href=\"/ru/glossary/process-audit.html\">документирование процессов отдела</a>, наблюдения превращаются в расчёт. Этапы:",
     s2_comm_h: "Коммуникация с командой", s2_comm_p: "До старта: как руководство подаёт аудит сотрудникам. Без этого шага люди «рисуют» данные, и весь расчёт теряет смысл.",
     s2_photo_h: "Фотография рабочей недели", s2_photo_p: "Каждый сотрудник фиксирует задачи в течение недели: что, как часто, сколько минут. Формат простой, 5 минут в день.",
-    s2_map_h: "Карта задач отдела", s2_map_p: "Все задачи сведены и разложены на подпроцессы. Видно, кто чем на самом деле занят и где дублирование.",
-    s2_matrx_h: "Матрица автоматизации", s2_matrx_p: "Каждый подпроцесс: автоматизируемо / частично / нет. С обоснованием: стоимость, риск, критичность ошибки.",
+    s2_map_h: "Карта задач отдела", s2_map_p: "Все задачи сведены в <a href=\"/ru/glossary/process-map.html\">карту процессов</a> и разложены на подпроцессы. Видно, кто чем на самом деле занят и где дублирование.",
+    s2_matrx_h: "Матрица автоматизации", s2_matrx_p: "Каждый подпроцесс: автоматизируемо / частично / нет. С обоснованием: стоимость, риск, критичность ошибки, <a href=\"/ru/glossary/failure-point.html\">точки отказа</a>.",
     s2_calc_h: "Расчёт высвобождаемой мощности", s2_calc_p: "Часы в месяц по каждой роли, стоимость внедрения, срок окупаемости. Цифры, с которыми можно идти к директору.",
     s2_plan_h: "Итоговый отчёт и план", s2_plan_p: "Что внедрять первым, что вторым, что не трогать. Разбор отчёта с руководителем включён.",
     s2_next: "Следующий шаг после аудита: <a href=\"spec.html\">спецификация на автоматизацию</a>: техническое задание на конкретных агентов по стандарту <a href=\"https://github.com/Kholomyanskiy/anss-standard\">ANSS</a>. Аудит самодостаточен: с отчётом можно идти к любому исполнителю.",
@@ -466,11 +466,11 @@ var T = {
     s1_log3: "$ zadanie: odpowiedzi na typowe maile klientów", s1_log4: "> 40% dnia pracy, szablon wciąż ten sam",
     s1_p: "Wdrożenie „z góry”, bez audytu, kończy się zawsze tak samo: kupiono narzędzie, pracownicy z niego nie korzystają, efekt zerowy. Przyczyna: nikt nie sprawdził, z czego naprawdę składa się dzień pracy ludzi. Audyt zaczyna się właśnie od tego.",
     s2_num: "2.0 // ZAKRES PRAC", s2_h2: "Co wchodzi w skład audytu",
-    s2_p: "Praca opiera się na dokumentowaniu procesów działu, a obserwacje zamieniają się w kalkulację. Etapy:",
+    s2_p: "Praca opiera się na <a href=\"/pl/glossary/process-audit.html\">dokumentowaniu procesów działu</a>, a obserwacje zamieniają się w kalkulację. Etapy:",
     s2_comm_h: "Komunikacja z zespołem", s2_comm_p: "Przed startem: jak kierownictwo przedstawia audyt pracownikom. Bez tego kroku ludzie „rysują” dane i cała kalkulacja traci sens.",
     s2_photo_h: "Fotografia tygodnia pracy", s2_photo_p: "Każdy pracownik notuje zadania przez tydzień: co, jak często, ile minut. Prosty format, 5 minut dziennie.",
-    s2_map_h: "Mapa zadań działu", s2_map_p: "Wszystkie zadania zebrane i rozłożone na podprocesy. Widać, kto czym naprawdę się zajmuje i gdzie jest dublowanie.",
-    s2_matrx_h: "Macierz automatyzacji", s2_matrx_p: "Każdy podproces: automatyzowalny / częściowo / nie. Z uzasadnieniem: koszt, ryzyko, krytyczność błędu.",
+    s2_map_h: "Mapa zadań działu", s2_map_p: "Wszystkie zadania zebrane w <a href=\"/pl/glossary/process-map.html\">mapę procesów</a> i rozłożone na podprocesy. Widać, kto czym naprawdę się zajmuje i gdzie jest dublowanie.",
+    s2_matrx_h: "Macierz automatyzacji", s2_matrx_p: "Każdy podproces: automatyzowalny / częściowo / nie. Z uzasadnieniem: koszt, ryzyko, krytyczność błędu, <a href=\"/pl/glossary/failure-point.html\">punkty awarii</a>.",
     s2_calc_h: "Kalkulacja uwalnianej mocy", s2_calc_p: "Godziny miesięcznie dla każdej roli, koszt wdrożenia, okres zwrotu. Liczby, z którymi można iść do dyrektora.",
     s2_plan_h: "Raport końcowy i plan", s2_plan_p: "Co wdrażać najpierw, co potem, czego nie ruszać. Omówienie raportu z menedżerem jest w cenie.",
     s2_next: "Następny krok po audycie: <a href=\"spec.html\">specyfikacja automatyzacji</a>: dokumentacja techniczna konkretnych agentów według standardu <a href=\"https://github.com/Kholomyanskiy/anss-standard\">ANSS</a>. Audyt jest samodzielny: z raportem można iść do dowolnego wykonawcy.",
@@ -524,11 +524,11 @@ var T = {
     s1_log3: "$ task: replies to routine client emails", s1_log4: "> 40% of the workday, same template every time",
     s1_p: "Top-down adoption without an audit always ends the same way: a tool gets bought, employees don't use it, zero effect. The cause: nobody looked at what people's workday actually consists of. The audit starts exactly there.",
     s2_num: "2.0 // SCOPE OF WORK", s2_h2: "What the audit includes",
-    s2_p: "The work is built on documenting the department's processes, and observations are turned into a calculation. Stages:",
+    s2_p: "The work is built on <a href=\"/glossary/process-audit.html\">documenting the department's processes</a>, and observations are turned into a calculation. Stages:",
     s2_comm_h: "Team communication", s2_comm_p: "Before the start: how management presents the audit to staff. Skip this step and people game the data, making the whole calculation worthless.",
     s2_photo_h: "Work-week snapshot", s2_photo_p: "Each employee logs their tasks for a week: what, how often, how many minutes. Simple format, 5 minutes a day.",
-    s2_map_h: "Department task map", s2_map_p: "All tasks consolidated and broken into sub-processes. You see what people actually do and where the duplication is.",
-    s2_matrx_h: "Automation matrix", s2_matrx_p: "Each sub-process: automatable / partially / no. With reasoning: cost, risk, error criticality.",
+    s2_map_h: "Department task map", s2_map_p: "All tasks are consolidated into a <a href=\"/glossary/process-map.html\">process map</a> and broken into sub-processes. You see what people actually do and where the duplication is.",
+    s2_matrx_h: "Automation matrix", s2_matrx_p: "Each sub-process: automatable / partially / no. With reasoning: cost, risk, error criticality, <a href=\"/glossary/failure-point.html\">failure points</a>.",
     s2_calc_h: "Freed-capacity calculation", s2_calc_p: "Hours per month per role, implementation cost, payback period. Numbers you can take to the director.",
     s2_plan_h: "Final report and plan", s2_plan_p: "What to implement first, second, and what to leave alone. A report walkthrough with the manager is included.",
     s2_next: "The next step after the audit is an <a href=\"spec.html\">automation specification</a>: technical requirements for specific agents under the <a href=\"https://github.com/Kholomyanskiy/anss-standard\">ANSS</a> standard. The audit stands on its own: you can take the report to any contractor.",
