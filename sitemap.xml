@@ -416,7 +416,7 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/glossary/</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.7</priority>
  </url>
@@ -446,13 +446,19 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/glossary/ai-specification.html</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/glossary/acceptance-criteria.html</loc>
  <lastmod>2026-11-07</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/glossary/invariant.html</loc>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
@@ -488,19 +494,31 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/glossary/rag.html</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/glossary/knowledge-base.html</loc>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/glossary/document-recognition.html</loc>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/glossary/context-window.html</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/glossary/</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.7</priority>
  </url>
@@ -530,13 +548,19 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/glossary/ai-specification.html</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/glossary/acceptance-criteria.html</loc>
  <lastmod>2026-11-07</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/glossary/invariant.html</loc>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
@@ -572,19 +596,31 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/glossary/rag.html</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/glossary/knowledge-base.html</loc>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/glossary/document-recognition.html</loc>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/glossary/context-window.html</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/glossary/</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.7</priority>
  </url>
@@ -614,13 +650,19 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/glossary/ai-specification.html</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/glossary/acceptance-criteria.html</loc>
  <lastmod>2026-11-07</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/invariant.html</loc>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
@@ -656,13 +698,25 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/glossary/rag.html</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/knowledge-base.html</loc>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.6</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/glossary/document-recognition.html</loc>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/glossary/context-window.html</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.6</priority>
  </url>

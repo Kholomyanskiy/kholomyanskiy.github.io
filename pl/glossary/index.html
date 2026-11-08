@@ -78,6 +78,12 @@
     },
     {
       "@type": "DefinedTerm",
+      "name": "Niezmiennik w specyfikacji",
+      "description": "Niezmiennik (inwariant) w specyfikacji to zasada, która musi obowiązywać zawsze: przy każdym zadaniu, każdej zmianie i niezależnie od tego, kto wykonuje pracę. Operacji w ewidencji się nie usuwa. Saldo nie zmienia się poza transakcją. Pola w odpowiedzi API, z którego korzystają już klienci, nie zmienia się nazwy. Wymagania opisują, co zbudować, a niezmienniki to, czego przy budowie nie wolno zepsuć.",
+      "url": "https://kholomyanskiy.com/pl/glossary/invariant.html"
+    },
+    {
+      "@type": "DefinedTerm",
       "name": "Całkowity koszt posiadania",
       "description": "Całkowity koszt posiadania rozwiązania AI (TCO) to wszystkie pieniądze i cały czas, które pochłania ono przez okres działania: wdrożenie i konfiguracja, abonamenty i opłaty za zapytania do modelu, godziny pracowników na sprawdzanie wyników, utrzymanie i poprawki, gdy zmieniają się dane albo sam model. W kosztorysie zwykle widać tylko pierwszą pozycję. Pozostałe pojawiają się po uruchomieniu i z czasem mogą kosztować więcej niż samo wdrożenie.",
       "url": "https://kholomyanskiy.com/pl/glossary/total-cost-of-ownership.html"
@@ -111,6 +117,18 @@
       "name": "RAG (wyszukiwanie we własnych dokumentach)",
       "description": "RAG (retrieval-augmented generation, generowanie wspomagane wyszukiwaniem) to podejście, w którym model językowy najpierw wyszukuje pasujące fragmenty w określonym zbiorze dokumentów i dopiero na ich podstawie formułuje odpowiedź. Podejście opisali badacze Facebook AI w 2020 roku. Dziś tak nazywa się niemal każdy system w rodzaju „czat z naszymi dokumentami”. W małej firmie RAG służy zwykle jednemu: żeby pracownik albo klient zadał pytanie zwykłymi słowami i dostał odpowiedź z regulaminów, umów, cenników czy instrukcji firmy, z odnośnikiem do dokumentu.",
       "url": "https://kholomyanskiy.com/pl/glossary/rag.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Baza wiedzy dla AI",
+      "description": "Baza wiedzy to zebrany i sprawdzony zbiór tego, co firma wie o swojej pracy: procedury, instrukcje, odpowiedzi na częste pytania, opisy produktów, warunki dla klientów. Dla AI baza wiedzy jest źródłem, z którego model odpowiada zamiast z ogólnej wiedzy z treningu. To, co jest w bazie, model może znaleźć i zacytować. Czego w niej nie ma, tego dla modelu nie ma, a lukę wypełni wiarygodnie brzmiącym domysłem.",
+      "url": "https://kholomyanskiy.com/pl/glossary/knowledge-base.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Rozpoznawanie dokumentów (OCR)",
+      "description": "Rozpoznawanie dokumentów to zamiana skanu, zdjęcia albo PDF-a w postaci obrazu na tekst i dane, z którymi program może pracować: wyszukać, zsumować, wprowadzić do ewidencji. Potocznie całość nazywa się OCR (optical character recognition, optyczne rozpoznawanie znaków), choć pod jedną nazwą kryją się różne technologie o różnych mocnych stronach. Wybór między nimi decyduje o tym, ile ręcznej pracy zostanie po automatyzacji.",
+      "url": "https://kholomyanskiy.com/pl/glossary/document-recognition.html"
     },
     {
       "@type": "DefinedTerm",
@@ -318,6 +336,11 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <a class="article-cta" href="/pl/glossary/acceptance-criteria.html">Więcej →</a>
  </div>
  <div class="article-card">
+ <h3>Niezmiennik w specyfikacji</h3>
+ <p>Niezmiennik (inwariant) w specyfikacji to zasada, która musi obowiązywać zawsze: przy każdym zadaniu, każdej zmianie i niezależnie od tego, kto wykonuje pracę. Operacji w ewidencji się nie usuwa. Saldo nie zmienia się poza transakcją. Pola w odpowiedzi API, z którego korzystają już klienci, nie zmienia się nazwy. Wymagania opisują, co zbudować, a niezmienniki to, czego przy budowie nie wolno zepsuć.</p>
+ <a class="article-cta" href="/pl/glossary/invariant.html">Więcej →</a>
+ </div>
+ <div class="article-card">
  <h3>Całkowity koszt posiadania</h3>
  <p>Całkowity koszt posiadania rozwiązania AI (TCO) to wszystkie pieniądze i cały czas, które pochłania ono przez okres działania: wdrożenie i konfiguracja, abonamenty i opłaty za zapytania do modelu, godziny pracowników na sprawdzanie wyników, utrzymanie i poprawki, gdy zmieniają się dane albo sam model. W kosztorysie zwykle widać tylko pierwszą pozycję. Pozostałe pojawiają się po uruchomieniu i z czasem mogą kosztować więcej niż samo wdrożenie.</p>
  <a class="article-cta" href="/pl/glossary/total-cost-of-ownership.html">Więcej →</a>
@@ -352,6 +375,16 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <h3>RAG (wyszukiwanie we własnych dokumentach)</h3>
  <p>RAG (retrieval-augmented generation, generowanie wspomagane wyszukiwaniem) to podejście, w którym model językowy najpierw wyszukuje pasujące fragmenty w określonym zbiorze dokumentów i dopiero na ich podstawie formułuje odpowiedź. Podejście opisali badacze Facebook AI w 2020 roku. Dziś tak nazywa się niemal każdy system w rodzaju „czat z naszymi dokumentami”. W małej firmie RAG służy zwykle jednemu: żeby pracownik albo klient zadał pytanie zwykłymi słowami i dostał odpowiedź z regulaminów, umów, cenników czy instrukcji firmy, z odnośnikiem do dokumentu.</p>
  <a class="article-cta" href="/pl/glossary/rag.html">Więcej →</a>
+ </div>
+ <div class="article-card">
+ <h3>Baza wiedzy dla AI</h3>
+ <p>Baza wiedzy to zebrany i sprawdzony zbiór tego, co firma wie o swojej pracy: procedury, instrukcje, odpowiedzi na częste pytania, opisy produktów, warunki dla klientów. Dla AI baza wiedzy jest źródłem, z którego model odpowiada zamiast z ogólnej wiedzy z treningu. To, co jest w bazie, model może znaleźć i zacytować. Czego w niej nie ma, tego dla modelu nie ma, a lukę wypełni wiarygodnie brzmiącym domysłem.</p>
+ <a class="article-cta" href="/pl/glossary/knowledge-base.html">Więcej →</a>
+ </div>
+ <div class="article-card">
+ <h3>Rozpoznawanie dokumentów (OCR)</h3>
+ <p>Rozpoznawanie dokumentów to zamiana skanu, zdjęcia albo PDF-a w postaci obrazu na tekst i dane, z którymi program może pracować: wyszukać, zsumować, wprowadzić do ewidencji. Potocznie całość nazywa się OCR (optical character recognition, optyczne rozpoznawanie znaków), choć pod jedną nazwą kryją się różne technologie o różnych mocnych stronach. Wybór między nimi decyduje o tym, ile ręcznej pracy zostanie po automatyzacji.</p>
+ <a class="article-cta" href="/pl/glossary/document-recognition.html">Więcej →</a>
  </div>
  <div class="article-card">
  <h3>Okno kontekstowe</h3>
