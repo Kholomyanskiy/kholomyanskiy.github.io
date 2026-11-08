@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metering system and SAP IS-U integration — EVAI Consulting</title>
+<meta name="description" content="Household electricity metering and a module that sends metering data to SAP IS-U instead of manual exports. Client-side role.">
+<link rel="canonical" href="https://kholomyanskiy.com/case-metering-sap.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Metering system and SAP IS-U integration — EVAI Consulting">
+<meta property="og:description" content="Household electricity metering and a module that sends metering data to SAP IS-U instead of manual exports. Client-side role.">
+<meta property="og:url" content="https://kholomyanskiy.com/case-metering-sap.html">
+<!-- @include head-common -->
+<meta name="twitter:title" content="Metering system and SAP IS-U integration — EVAI Consulting">
+<meta name="twitter:description" content="Household electricity metering and a module that sends metering data to SAP IS-U instead of manual exports. Client-side role.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* @include common.css */
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+@media(max-width:680px){.topnav-links{gap:14px;font-size:12px}}
+/* лист страниц услуг */
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+}
+.sheet{
+  max-width:880px;
+  margin:16px auto 40px;
+  background:var(--panel);
+  border:1.5px solid var(--ink);
+  box-shadow:8px 8px 0 rgba(27,32,39,.08);
+}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-main{padding:44px 28px 36px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;color:var(--ink-soft);font-size:17px}
+section{padding:40px 28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
+.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
+.cta h2{color:#fff}
+footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+@media(max-width:680px){
+  .sheet{margin:8px 12px 32px}
+}
+/* ---------- sections ---------- */
+.steps{counter-reset:st;max-width:620px;margin-top:8px}
+.steps li{list-style:none;counter-increment:st;padding:12px 0 12px 52px;position:relative;border-top:1px solid var(--line)}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);
+  position:absolute;left:0;top:12px;
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue);
+}
+figure{margin:26px 0;max-width:660px}
+.cta a.btn{
+  display:inline-block;margin-top:10px;
+  font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;
+  color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;
+  padding:13px 26px;text-decoration:none;
+}
+.cta a.btn:hover{background:transparent;color:#EDEFF2}
+.cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
+.footer-links a:hover{color:var(--blue)}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "$t:h1_title",
+  "description": "$t:meta_desc",
+  "datePublished": "2026-11-08",
+  "dateModified": "2026-11-08",
+  "inLanguage": "en",
+  "url": "https://kholomyanskiy.com/case-metering-sap.html",
+  "author": {"@id": "https://kholomyanskiy.com/#person"},
+  "publisher": {"@id": "https://kholomyanskiy.com/#organization"},
+  "image": "https://kholomyanskiy.com/og-image.png"
+}
+</script>
+</head>
+<body>
+
+<!-- @include topnav current=portfolio -->
+
+<div class="sheet">
+
+  <header class="titleblock">
+    <div class="tb-top">
+      <span class="brand">EVAI CONSULTING</span>
+      <span>ENERGY-01 · v1.0</span>
+    </div>
+    <div class="tb-main">
+      <h1 data-i18n-html="h1_title">Metering system and SAP IS-U integration</h1>
+      <p class="sub" data-i18n="tb_sub">Distribution grid operator, 2009–2011. Business analyst, client side.</p>
+    </div>
+  </header>
+
+  <section>
+    <span class="secnum">1.0</span>
+    <h2 data-i18n="s1_h2">The task</h2>
+    <p data-i18n="s1_p1">The branch of a distribution grid operator served as a pilot: new systems were tested there before rollout across the company. Around 2009 an automated metering system for household and small business consumers went live. The first version needed long rework.</p>
+    <p data-i18n="s1_p2">Once the system ran steadily, it turned out that the metering and billing department was not connected to it. The department worked in SAP R/3 IS-U, where billing was calculated. Readings and the links between meters and consumers had to be moved from the metering system by hand.</p>
+  </section>
+
+  <section>
+    <span class="secnum">2.0</span>
+    <h2 data-i18n="s2_h2">What was done</h2>
+    <p data-i18n="s2_p">The metering systems team was responsible for keeping the system running; metering and billing stayed with the billing department. To stop entering the same data twice, the SciMeter integration module was developed together with SAP SE: it connected SAP IS-U with the retail and wholesale market metering systems. On the client side: requirements analysis, process and algorithm descriptions, BPMN diagrams for the data exchange, documentation, participation in acceptance testing.</p>
+    <figure>
+      <!-- @lang en -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 348" width="100%" role="img" aria-label="Metering data and SAP IS-U: before and after" font-family="JetBrains Mono, monospace" font-size="13">
+      <defs>
+      <marker id="e1-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+      <marker id="e1-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+      </defs>
+      <text x="140" y="26" text-anchor="middle" fill="#4A5361" font-size="12" letter-spacing="1.5">BEFORE</text>
+      <text x="420" y="26" text-anchor="middle" fill="#2B5B8A" font-size="12" letter-spacing="1.5">AFTER</text>
+      <rect x="20" y="44" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="73" text-anchor="middle" fill="#4A5361">Metering system</text>
+      <line x1="140" y1="92" x2="140" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e1-k)"/>
+      <rect x="20" y="120" width="240" height="56" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="145" text-anchor="middle" fill="#4A5361">A person exports</text>
+      <text x="140" y="161" text-anchor="middle" fill="#4A5361">readings and links</text>
+      <line x1="140" y1="176" x2="140" y2="202" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e1-k)"/>
+      <rect x="20" y="204" width="240" height="56" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="229" text-anchor="middle" fill="#4A5361">SAP IS-U</text>
+      <text x="140" y="245" text-anchor="middle" fill="#4A5361">billing department</text>
+      <rect x="300" y="44" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="73" text-anchor="middle" fill="#1B2027">Metering system</text>
+      <line x1="420" y1="92" x2="420" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e1-k)"/>
+      <rect x="300" y="120" width="240" height="56" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="420" y="153" text-anchor="middle" fill="#2B5B8A">Integration module</text>
+      <line x1="420" y1="176" x2="420" y2="202" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e1-b)"/>
+      <rect x="300" y="204" width="240" height="56" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="229" text-anchor="middle" fill="#1B2027">SAP IS-U</text>
+      <text x="420" y="245" text-anchor="middle" fill="#1B2027">billing department</text>
+      <text x="420" y="290" text-anchor="middle" fill="#4A5361">manual export</text>
+      <line x1="365" y1="286" x2="475" y2="286" stroke="#4A5361" stroke-width="1.5"/>
+      <text x="280" y="330" text-anchor="middle" fill="#2B5B8A">readings · meter ↔ consumer → billing</text>
+      </svg>
+      <!-- @endlang -->
+      <!-- @lang pl -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 348" width="100%" role="img" aria-label="Dane pomiarowe i SAP IS-U: było i jest" font-family="JetBrains Mono, monospace" font-size="13">
+      <defs>
+      <marker id="e1-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+      <marker id="e1-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+      </defs>
+      <text x="140" y="26" text-anchor="middle" fill="#4A5361" font-size="12" letter-spacing="1.5">BYŁO</text>
+      <text x="420" y="26" text-anchor="middle" fill="#2B5B8A" font-size="12" letter-spacing="1.5">JEST</text>
+      <rect x="20" y="44" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="73" text-anchor="middle" fill="#4A5361">System pomiarowy</text>
+      <line x1="140" y1="92" x2="140" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e1-k)"/>
+      <rect x="20" y="120" width="240" height="56" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="145" text-anchor="middle" fill="#4A5361">Człowiek eksportuje</text>
+      <text x="140" y="161" text-anchor="middle" fill="#4A5361">odczyty i powiązania</text>
+      <line x1="140" y1="176" x2="140" y2="202" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e1-k)"/>
+      <rect x="20" y="204" width="240" height="56" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="229" text-anchor="middle" fill="#4A5361">SAP IS-U</text>
+      <text x="140" y="245" text-anchor="middle" fill="#4A5361">dział rozliczeń</text>
+      <rect x="300" y="44" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="73" text-anchor="middle" fill="#1B2027">System pomiarowy</text>
+      <line x1="420" y1="92" x2="420" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e1-k)"/>
+      <rect x="300" y="120" width="240" height="56" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="420" y="153" text-anchor="middle" fill="#2B5B8A">Moduł integracyjny</text>
+      <line x1="420" y1="176" x2="420" y2="202" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e1-b)"/>
+      <rect x="300" y="204" width="240" height="56" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="229" text-anchor="middle" fill="#1B2027">SAP IS-U</text>
+      <text x="420" y="245" text-anchor="middle" fill="#1B2027">dział rozliczeń</text>
+      <text x="420" y="290" text-anchor="middle" fill="#4A5361">ręczny eksport</text>
+      <line x1="361" y1="286" x2="479" y2="286" stroke="#4A5361" stroke-width="1.5"/>
+      <text x="280" y="330" text-anchor="middle" fill="#2B5B8A">odczyty · licznik ↔ odbiorca → rozliczenia</text>
+      </svg>
+      <!-- @endlang -->
+      <!-- @lang ru -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 348" width="100%" role="img" aria-label="Данные АСКУЭ и SAP IS-U: было и стало" font-family="JetBrains Mono, monospace" font-size="13">
+      <defs>
+      <marker id="e1-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+      <marker id="e1-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+      </defs>
+      <text x="140" y="26" text-anchor="middle" fill="#4A5361" font-size="12" letter-spacing="1.5">БЫЛО</text>
+      <text x="420" y="26" text-anchor="middle" fill="#2B5B8A" font-size="12" letter-spacing="1.5">СТАЛО</text>
+      <rect x="20" y="44" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="73" text-anchor="middle" fill="#4A5361">АСКУЭ</text>
+      <line x1="140" y1="92" x2="140" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e1-k)"/>
+      <rect x="20" y="120" width="240" height="56" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="145" text-anchor="middle" fill="#4A5361">Человек выгружает</text>
+      <text x="140" y="161" text-anchor="middle" fill="#4A5361">показания и привязки</text>
+      <line x1="140" y1="176" x2="140" y2="202" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e1-k)"/>
+      <rect x="20" y="204" width="240" height="56" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="140" y="229" text-anchor="middle" fill="#4A5361">SAP IS-U</text>
+      <text x="140" y="245" text-anchor="middle" fill="#4A5361">служба учёта</text>
+      <rect x="300" y="44" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="73" text-anchor="middle" fill="#1B2027">АСКУЭ</text>
+      <line x1="420" y1="92" x2="420" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e1-k)"/>
+      <rect x="300" y="120" width="240" height="56" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="420" y="153" text-anchor="middle" fill="#2B5B8A">Модуль интеграции</text>
+      <line x1="420" y1="176" x2="420" y2="202" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e1-b)"/>
+      <rect x="300" y="204" width="240" height="56" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="420" y="229" text-anchor="middle" fill="#1B2027">SAP IS-U</text>
+      <text x="420" y="245" text-anchor="middle" fill="#1B2027">служба учёта</text>
+      <text x="420" y="290" text-anchor="middle" fill="#4A5361">ручная выгрузка</text>
+      <line x1="358" y1="286" x2="482" y2="286" stroke="#4A5361" stroke-width="1.5"/>
+      <text x="280" y="330" text-anchor="middle" fill="#2B5B8A">показания · счётчик ↔ потребитель → расчёты</text>
+      </svg>
+      <!-- @endlang -->
+    </figure>
+  </section>
+
+  <section>
+    <span class="secnum">3.0</span>
+    <h2 data-i18n="s3_h2">Result</h2>
+    <p data-i18n="s3_p">Metering data reaches SAP IS-U without manual exports, and the billing department works in its own system. The reduction in manual work was not measured.</p>
+  </section>
+
+  <section>
+    <span class="secnum">4.0</span>
+    <h2 data-i18n="s4_h2">What carries over today</h2>
+    <p data-i18n-html="s4_p">Two systems holding the same data with a person in between exist in every industry. A <a href="/glossary/process-audit.html">process audit</a> first looks for places where data is entered twice: such a transfer can often be automated without AI.</p>
+  </section>
+
+  <div class="cta">
+    <h2 data-i18n="cta_h2">Discuss a task or joining a project:</h2>
+    <a class="btn" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="cta_btn">Book a free call (cal.com)</a>
+  </div>
+
+</div>
+
+<!-- @include footer -->
+
+<script>
+var T = {
+  ru: {
+    page_title: "АСКУЭ и интеграция с SAP IS-U — EVAI Consulting",
+    meta_desc: "Учёт электроэнергии у бытовых потребителей и модуль, который передаёт данные АСКУЭ в SAP IS-U вместо ручной выгрузки. Роль на стороне заказчика.",
+    h1_title: "АСКУЭ и интеграция с SAP IS-U",
+    tb_sub: "Оператор распределительных сетей, 2009–2011. Бизнес-аналитик со стороны заказчика.",
+    s1_h2: "Задача",
+    s1_p1: "Филиал оператора распределительных сетей был пилотным: на нём отрабатывали новые системы перед тем, как тиражировать их по компании. Около 2009 года там запустили автоматизированную систему учёта электроэнергии у бытовых и мелкомоторных потребителей. Первая версия требовала долгих доработок.",
+    s1_p2: "Когда система заработала устойчиво, выяснилось, что служба учёта электроэнергии с ней не связана. Служба работала в SAP R/3 IS-U, там же шли расчёты. Показания и привязки счётчиков к потребителям приходилось переносить из системы учёта вручную.",
+    s2_h2: "Что делалось",
+    s2_p: "Ответственность за работоспособность системы учёта лежала на отделе АСКУЭ, учёт и расчёты оставались за службой учёта. Чтобы данные не вводились дважды, вместе с SAP SE разрабатывался модуль интеграции SciMeter: он связал SAP IS-U с системами учёта розничного и оптового рынка. Со стороны заказчика: анализ требований, описание процессов и алгоритмов, BPMN-схемы для обмена данными, документация, участие в приёмочном тестировании.",
+    s3_h2: "Результат",
+    s3_p: "Данные учёта стали поступать в SAP IS-U без ручной выгрузки, служба учёта работает в своей системе. Сокращение трудозатрат в цифрах не фиксировалось.",
+    s4_h2: "Что из этого применяется сейчас",
+    s4_p: "Две системы с одними и теми же данными и человек между ними встречаются в любой отрасли. На <a href=\"/ru/glossary/process-audit.html\">аудите процессов</a> первым ищется место, где данные вводятся дважды: такую передачу часто можно автоматизировать без ИИ.",
+    cta_h2: "Обсудить задачу или подключение к проекту:",
+    cta_btn: "Записаться на бесплатный разговор (cal.com)"
+  },
+  pl: {
+    page_title: "System pomiaru energii i integracja z SAP IS-U — EVAI Consulting",
+    meta_desc: "Zdalny odczyt liczników u odbiorców domowych i moduł przekazujący dane do SAP IS-U zamiast ręcznego eksportu. Rola po stronie zamawiającego.",
+    h1_title: "System pomiaru energii i integracja z SAP IS-U",
+    tb_sub: "Operator sieci dystrybucyjnej, 2009–2011. Analityk biznesowy po stronie zamawiającego.",
+    s1_h2: "Zadanie",
+    s1_p1: "Oddział operatora sieci dystrybucyjnej był pilotażowy: testowano w nim nowe systemy przed wdrożeniem w całej firmie. Około 2009 roku uruchomiono tam system automatycznego pomiaru energii u odbiorców domowych i małych firm. Pierwsza wersja wymagała długich poprawek.",
+    s1_p2: "Gdy system zaczął działać stabilnie, okazało się, że dział rozliczeń energii nie jest z nim połączony. Dział pracował w SAP R/3 IS-U i tam liczył rozliczenia. Odczyty i powiązania liczników z odbiorcami trzeba było przenosić z systemu pomiarowego ręcznie.",
+    s2_h2: "Co zostało zrobione",
+    s2_p: "Za działanie systemu pomiarowego odpowiadał zespół systemów pomiarowych, pomiar i rozliczenia zostały w dziale rozliczeń. Żeby nie wprowadzać tych samych danych dwa razy, razem z SAP SE powstał moduł integracyjny SciMeter: połączył SAP IS-U z systemami pomiaru rynku detalicznego i hurtowego. Po stronie zamawiającego: analiza wymagań, opis procesów i algorytmów, diagramy BPMN wymiany danych, dokumentacja, udział w testach odbiorczych.",
+    s3_h2: "Wynik",
+    s3_p: "Dane pomiarowe trafiają do SAP IS-U bez ręcznego eksportu, dział rozliczeń pracuje we własnym systemie. Oszczędności pracy nie mierzono.",
+    s4_h2: "Co z tego przydaje się dziś",
+    s4_p: "Dwa systemy z tymi samymi danymi i człowiek pomiędzy nimi zdarzają się w każdej branży. <a href=\"/pl/glossary/process-audit.html\">Audyt procesów</a> zaczyna od miejsc, gdzie dane wprowadza się dwa razy: taki transfer często da się zautomatyzować bez AI.",
+    cta_h2: "Porozmawiać o zadaniu lub dołączeniu do projektu:",
+    cta_btn: "Umów bezpłatną rozmowę (cal.com)"
+  },
+  en: {
+    page_title: "Metering system and SAP IS-U integration — EVAI Consulting",
+    meta_desc: "Household electricity metering and a module that sends metering data to SAP IS-U instead of manual exports. Client-side role.",
+    h1_title: "Metering system and SAP IS-U integration",
+    tb_sub: "Distribution grid operator, 2009–2011. Business analyst, client side.",
+    s1_h2: "The task",
+    s1_p1: "The branch of a distribution grid operator served as a pilot: new systems were tested there before rollout across the company. Around 2009 an automated metering system for household and small business consumers went live. The first version needed long rework.",
+    s1_p2: "Once the system ran steadily, it turned out that the metering and billing department was not connected to it. The department worked in SAP R/3 IS-U, where billing was calculated. Readings and the links between meters and consumers had to be moved from the metering system by hand.",
+    s2_h2: "What was done",
+    s2_p: "The metering systems team was responsible for keeping the system running; metering and billing stayed with the billing department. To stop entering the same data twice, the SciMeter integration module was developed together with SAP SE: it connected SAP IS-U with the retail and wholesale market metering systems. On the client side: requirements analysis, process and algorithm descriptions, BPMN diagrams for the data exchange, documentation, participation in acceptance testing.",
+    s3_h2: "Result",
+    s3_p: "Metering data reaches SAP IS-U without manual exports, and the billing department works in its own system. The reduction in manual work was not measured.",
+    s4_h2: "What carries over today",
+    s4_p: "Two systems holding the same data with a person in between exist in every industry. A <a href=\"/glossary/process-audit.html\">process audit</a> first looks for places where data is entered twice: such a transfer can often be automated without AI.",
+    cta_h2: "Discuss a task or joining a project:",
+    cta_btn: "Book a free call (cal.com)"
+  }
+};
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.documentElement.lang = lang;
+  if (T[lang].page_title) document.title = T[lang].page_title;
+  var md = document.querySelector('meta[name="description"]');
+  if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
+  localStorage.setItem('site-lang', lang);
+}
+
+(function() {
+  var p = new URLSearchParams(window.location.search);
+  var ul = p.get('lang');
+  if (ul && T[ul]) { setLang(ul); return; }
+  var saved = localStorage.getItem('site-lang');
+  if (saved && T[saved]) setLang(saved);
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMS/DMS distribution management system — EVAI Consulting</title>
+<meta name="description" content="A distribution grid management system on Telvent OMS/DMS: procurement, contracts, commissioning and technical support on the client side.">
+<link rel="canonical" href="https://kholomyanskiy.com/case-oms-dms.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OMS/DMS distribution management system — EVAI Consulting">
+<meta property="og:description" content="A distribution grid management system on Telvent OMS/DMS: procurement, contracts, commissioning and technical support on the client side.">
+<meta property="og:url" content="https://kholomyanskiy.com/case-oms-dms.html">
+<!-- @include head-common -->
+<meta name="twitter:title" content="OMS/DMS distribution management system — EVAI Consulting">
+<meta name="twitter:description" content="A distribution grid management system on Telvent OMS/DMS: procurement, contracts, commissioning and technical support on the client side.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* @include common.css */
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+@media(max-width:680px){.topnav-links{gap:14px;font-size:12px}}
+/* лист страниц услуг */
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+}
+.sheet{
+  max-width:880px;
+  margin:16px auto 40px;
+  background:var(--panel);
+  border:1.5px solid var(--ink);
+  box-shadow:8px 8px 0 rgba(27,32,39,.08);
+}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-main{padding:44px 28px 36px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;color:var(--ink-soft);font-size:17px}
+section{padding:40px 28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
+.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
+.cta h2{color:#fff}
+footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+@media(max-width:680px){
+  .sheet{margin:8px 12px 32px}
+}
+/* ---------- sections ---------- */
+.steps{counter-reset:st;max-width:620px;margin-top:8px}
+.steps li{list-style:none;counter-increment:st;padding:12px 0 12px 52px;position:relative;border-top:1px solid var(--line)}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);
+  position:absolute;left:0;top:12px;
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue);
+}
+figure{margin:26px 0;max-width:660px}
+.cta a.btn{
+  display:inline-block;margin-top:10px;
+  font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;
+  color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;
+  padding:13px 26px;text-decoration:none;
+}
+.cta a.btn:hover{background:transparent;color:#EDEFF2}
+.cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
+.footer-links a:hover{color:var(--blue)}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "$t:h1_title",
+  "description": "$t:meta_desc",
+  "datePublished": "2026-11-08",
+  "dateModified": "2026-11-08",
+  "inLanguage": "en",
+  "url": "https://kholomyanskiy.com/case-oms-dms.html",
+  "author": {"@id": "https://kholomyanskiy.com/#person"},
+  "publisher": {"@id": "https://kholomyanskiy.com/#organization"},
+  "image": "https://kholomyanskiy.com/og-image.png"
+}
+</script>
+</head>
+<body>
+
+<!-- @include topnav current=portfolio -->
+
+<div class="sheet">
+
+  <header class="titleblock">
+    <div class="tb-top">
+      <span class="brand">EVAI CONSULTING</span>
+      <span>ENERGY-02 · v1.0</span>
+    </div>
+    <div class="tb-main">
+      <h1 data-i18n-html="h1_title">OMS/DMS distribution management system</h1>
+      <p class="sub" data-i18n="tb_sub">Distribution grid operator, 2011–2019. Project manager, client side.</p>
+    </div>
+  </header>
+
+  <section>
+    <span class="secnum">1.0</span>
+    <h2 data-i18n="s1_h2">The task</h2>
+    <p data-i18n="s1_p">The grid management system was built on Telvent OMS/DMS (now Schneider Electric), developed in Novi Sad. Systems of this class help dispatchers run a distribution grid: see its state, locate faults and restore supply. The rollout started at the same pilot branch where the metering system had been tested earlier.</p>
+  </section>
+
+  <section>
+    <span class="secnum">2.0</span>
+    <h2 data-i18n="s2_h2">What was done</h2>
+    <p data-i18n="s2_p">The project was run from the client's IT department, later from the department operating dispatch and process control systems and IT. On the client side: tender documentation and public procurement, contracts with the vendor and contractors, control of their execution, support up to commissioning. After commissioning: technical support contracts, reports and justifications for management prepared together with the head of the unit. The same department handled support contracts for high-voltage data collection devices and meters.</p>
+    <figure>
+      <!-- @lang en -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="100%" role="img" aria-label="System life after commissioning" font-family="JetBrains Mono, monospace" font-size="13">
+      <defs>
+      <marker id="e2-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+      <marker id="e2-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+      </defs>
+      <rect x="20" y="20" width="330" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="185" y="49" text-anchor="middle" fill="#4A5361">Procurement</text>
+      <line x1="185" y1="68" x2="185" y2="86" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e2-k)"/>
+      <rect x="20" y="88" width="330" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="185" y="117" text-anchor="middle" fill="#4A5361">Contract</text>
+      <line x1="185" y1="136" x2="185" y2="154" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e2-k)"/>
+      <rect x="20" y="156" width="330" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="185" y="185" text-anchor="middle" fill="#1B2027">Commissioning</text>
+      <line x1="185" y1="204" x2="185" y2="222" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e2-b)"/>
+      <rect x="20" y="224" width="330" height="48" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="185" y="253" text-anchor="middle" fill="#2B5B8A">Technical support and contracts</text>
+      <line x1="185" y1="272" x2="185" y2="290" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e2-b)"/>
+      <rect x="20" y="292" width="330" height="48" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="185" y="321" text-anchor="middle" fill="#2B5B8A">Reports and justifications</text>
+      <path d="M366 224H376V340H366" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="390" y="263" fill="#2B5B8A">Most of the</text>
+      <text x="390" y="279" fill="#2B5B8A">client's work</text>
+      <text x="390" y="295" fill="#2B5B8A">starts after</text>
+      <text x="390" y="311" fill="#2B5B8A">commissioning</text>
+      </svg>
+      <!-- @endlang -->
+      <!-- @lang pl -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="100%" role="img" aria-label="Życie systemu po uruchomieniu" font-family="JetBrains Mono, monospace" font-size="13">
+      <defs>
+      <marker id="e2-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+      <marker id="e2-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+      </defs>
+      <rect x="20" y="20" width="330" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="185" y="49" text-anchor="middle" fill="#4A5361">Zakupy</text>
+      <line x1="185" y1="68" x2="185" y2="86" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e2-k)"/>
+      <rect x="20" y="88" width="330" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="185" y="117" text-anchor="middle" fill="#4A5361">Umowa</text>
+      <line x1="185" y1="136" x2="185" y2="154" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e2-k)"/>
+      <rect x="20" y="156" width="330" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="185" y="185" text-anchor="middle" fill="#1B2027">Uruchomienie</text>
+      <line x1="185" y1="204" x2="185" y2="222" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e2-b)"/>
+      <rect x="20" y="224" width="330" height="48" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="185" y="253" text-anchor="middle" fill="#2B5B8A">Wsparcie techniczne i umowy</text>
+      <line x1="185" y1="272" x2="185" y2="290" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e2-b)"/>
+      <rect x="20" y="292" width="330" height="48" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="185" y="321" text-anchor="middle" fill="#2B5B8A">Raporty i uzasadnienia</text>
+      <path d="M366 224H376V340H366" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="390" y="263" fill="#2B5B8A">Główna praca</text>
+      <text x="390" y="279" fill="#2B5B8A">zamawiającego</text>
+      <text x="390" y="295" fill="#2B5B8A">zaczyna się</text>
+      <text x="390" y="311" fill="#2B5B8A">po uruchomieniu</text>
+      </svg>
+      <!-- @endlang -->
+      <!-- @lang ru -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="100%" role="img" aria-label="Жизнь системы после ввода" font-family="JetBrains Mono, monospace" font-size="13">
+      <defs>
+      <marker id="e2-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+      <marker id="e2-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+      </defs>
+      <rect x="20" y="20" width="330" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="185" y="49" text-anchor="middle" fill="#4A5361">Закупка</text>
+      <line x1="185" y1="68" x2="185" y2="86" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e2-k)"/>
+      <rect x="20" y="88" width="330" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+      <text x="185" y="117" text-anchor="middle" fill="#4A5361">Договор</text>
+      <line x1="185" y1="136" x2="185" y2="154" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e2-k)"/>
+      <rect x="20" y="156" width="330" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="185" y="185" text-anchor="middle" fill="#1B2027">Ввод в эксплуатацию</text>
+      <line x1="185" y1="204" x2="185" y2="222" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e2-b)"/>
+      <rect x="20" y="224" width="330" height="48" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="185" y="253" text-anchor="middle" fill="#2B5B8A">Техподдержка и договоры</text>
+      <line x1="185" y1="272" x2="185" y2="290" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e2-b)"/>
+      <rect x="20" y="292" width="330" height="48" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="185" y="321" text-anchor="middle" fill="#2B5B8A">Отчёты и обоснования</text>
+      <path d="M366 224H376V340H366" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="390" y="263" fill="#2B5B8A">Основная работа</text>
+      <text x="390" y="279" fill="#2B5B8A">заказчика</text>
+      <text x="390" y="295" fill="#2B5B8A">начинается</text>
+      <text x="390" y="311" fill="#2B5B8A">после ввода</text>
+      </svg>
+      <!-- @endlang -->
+    </figure>
+  </section>
+
+  <section>
+    <span class="secnum">3.0</span>
+    <h2 data-i18n="s3_h2">Result</h2>
+    <p data-i18n="s3_p">The system was commissioned in 2014 and then maintained under technical support contracts.</p>
+  </section>
+
+  <section>
+    <span class="secnum">4.0</span>
+    <h2 data-i18n="s4_h2">What carries over today</h2>
+    <p data-i18n-html="s4_p">The cost of a system does not end at commissioning: support, updates, hardware replacement and contracts follow. That is why choosing a solution includes the <a href="/glossary/total-cost-of-ownership.html">total cost of ownership</a> over several years, and <a href="/implementation.html">support is part of implementation</a> from the start.</p>
+  </section>
+
+  <div class="cta">
+    <h2 data-i18n="cta_h2">Discuss a task or joining a project:</h2>
+    <a class="btn" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="cta_btn">Book a free call (cal.com)</a>
+  </div>
+
+</div>
+
+<!-- @include footer -->
+
+<script>
+var T = {
+  ru: {
+    page_title: "КАСУТС на OMS/DMS Schneider Electric — EVAI Consulting",
+    meta_desc: "Система управления распределительной сетью на OMS/DMS Telvent: закупка, договоры, ввод и техподдержка со стороны заказчика.",
+    h1_title: "КАСУТС на OMS/DMS",
+    tb_sub: "Оператор распределительных сетей, 2011–2019. Менеджер проекта со стороны заказчика.",
+    s1_h2: "Задача",
+    s1_p: "КАСУТС, комплекс автоматизированных систем управления технологическими сетями, строился на OMS/DMS Telvent (сейчас Schneider Electric), разработчик из Нови-Сада. Системы этого класса помогают диспетчеру управлять распределительной сетью: видеть её состояние, находить повреждения и восстанавливать электроснабжение. Внедрение шло на том же пилотном филиале, где до этого отрабатывали систему учёта.",
+    s2_h2: "Что делалось",
+    s2_p: "Проект вёлся из службы заказчика по ИТ, затем из службы эксплуатации средств диспетчерского и технологического управления и ИТ. Со стороны заказчика: конкурсная документация и закупки по госзакупочным правилам, договоры с вендором и подрядчиками, контроль их исполнения, сопровождение до ввода в эксплуатацию. После ввода: договоры техподдержки, отчёты и обоснования для руководства вместе с руководителем направления. В той же службе велись договоры техподдержки высоковольтных устройств сбора данных и счётчиков.",
+    s3_h2: "Результат",
+    s3_p: "Система введена в эксплуатацию в 2014 году и дальше сопровождалась по договорам техподдержки.",
+    s4_h2: "Что из этого применяется сейчас",
+    s4_p: "Затраты на систему не заканчиваются при вводе: дальше идут поддержка, обновления, замена оборудования, договоры. Поэтому при выборе решения считается <a href=\"/ru/glossary/total-cost-of-ownership.html\">полная стоимость владения</a> на несколько лет, и <a href=\"/ru/implementation.html\">сопровождение входит во внедрение</a> с самого начала.",
+    cta_h2: "Обсудить задачу или подключение к проекту:",
+    cta_btn: "Записаться на бесплатный разговор (cal.com)"
+  },
+  pl: {
+    page_title: "System OMS/DMS do zarządzania siecią — EVAI Consulting",
+    meta_desc: "System zarządzania siecią dystrybucyjną na OMS/DMS Telvent: zakupy, umowy, uruchomienie i wsparcie techniczne po stronie zamawiającego.",
+    h1_title: "System OMS/DMS do zarządzania siecią",
+    tb_sub: "Operator sieci dystrybucyjnej, 2011–2019. Project manager po stronie zamawiającego.",
+    s1_h2: "Zadanie",
+    s1_p: "System zarządzania siecią powstał na OMS/DMS Telvent (obecnie Schneider Electric), producent z Nowego Sadu. Systemy tej klasy pomagają dyspozytorowi zarządzać siecią dystrybucyjną: widzieć jej stan, lokalizować awarie i przywracać zasilanie. Wdrożenie zaczęło się w tym samym oddziale pilotażowym, w którym wcześniej testowano system pomiarowy.",
+    s2_h2: "Co zostało zrobione",
+    s2_p: "Projekt prowadzono z działu zamawiającego ds. IT, a później z działu eksploatacji systemów dyspozytorskich i IT. Po stronie zamawiającego: dokumentacja przetargowa i zamówienia publiczne, umowy z dostawcą i wykonawcami, kontrola ich realizacji, prowadzenie do uruchomienia. Po uruchomieniu: umowy wsparcia technicznego, raporty i uzasadnienia dla zarządu przygotowywane razem z kierownikiem działu. Ten sam dział prowadził umowy wsparcia dla urządzeń zbierania danych i liczników wysokiego napięcia.",
+    s3_h2: "Wynik",
+    s3_p: "System uruchomiono w 2014 roku, potem był utrzymywany w ramach umów wsparcia technicznego.",
+    s4_h2: "Co z tego przydaje się dziś",
+    s4_p: "Koszt systemu nie kończy się na uruchomieniu: dalej są wsparcie, aktualizacje, wymiana sprzętu, umowy. Dlatego przy wyborze rozwiązania liczy się <a href=\"/pl/glossary/total-cost-of-ownership.html\">całkowity koszt posiadania</a> na kilka lat, a <a href=\"/pl/implementation.html\">utrzymanie wchodzi we wdrożenie</a> od początku.",
+    cta_h2: "Porozmawiać o zadaniu lub dołączeniu do projektu:",
+    cta_btn: "Umów bezpłatną rozmowę (cal.com)"
+  },
+  en: {
+    page_title: "OMS/DMS distribution management system — EVAI Consulting",
+    meta_desc: "A distribution grid management system on Telvent OMS/DMS: procurement, contracts, commissioning and technical support on the client side.",
+    h1_title: "OMS/DMS distribution management system",
+    tb_sub: "Distribution grid operator, 2011–2019. Project manager, client side.",
+    s1_h2: "The task",
+    s1_p: "The grid management system was built on Telvent OMS/DMS (now Schneider Electric), developed in Novi Sad. Systems of this class help dispatchers run a distribution grid: see its state, locate faults and restore supply. The rollout started at the same pilot branch where the metering system had been tested earlier.",
+    s2_h2: "What was done",
+    s2_p: "The project was run from the client's IT department, later from the department operating dispatch and process control systems and IT. On the client side: tender documentation and public procurement, contracts with the vendor and contractors, control of their execution, support up to commissioning. After commissioning: technical support contracts, reports and justifications for management prepared together with the head of the unit. The same department handled support contracts for high-voltage data collection devices and meters.",
+    s3_h2: "Result",
+    s3_p: "The system was commissioned in 2014 and then maintained under technical support contracts.",
+    s4_h2: "What carries over today",
+    s4_p: "The cost of a system does not end at commissioning: support, updates, hardware replacement and contracts follow. That is why choosing a solution includes the <a href=\"/glossary/total-cost-of-ownership.html\">total cost of ownership</a> over several years, and <a href=\"/implementation.html\">support is part of implementation</a> from the start.",
+    cta_h2: "Discuss a task or joining a project:",
+    cta_btn: "Book a free call (cal.com)"
+  }
+};
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.documentElement.lang = lang;
+  if (T[lang].page_title) document.title = T[lang].page_title;
+  var md = document.querySelector('meta[name="description"]');
+  if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
+  localStorage.setItem('site-lang', lang);
+}
+
+(function() {
+  var p = new URLSearchParams(window.location.search);
+  var ul = p.get('lang');
+  if (ul && T[ul]) { setLang(ul); return; }
+  var saved = localStorage.getItem('site-lang');
+  if (saved && T[saved]) setLang(saved);
+})();
+</script>
+
+</body>
+</html>

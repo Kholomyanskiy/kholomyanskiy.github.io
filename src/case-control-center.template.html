@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unified network control center on SK-11 — EVAI Consulting</title>
+<meta name="description" content="Moving dispatch control into one center on SK-11: requirements from departments, design documentation, equipment, construction, acceptance of work.">
+<link rel="canonical" href="https://kholomyanskiy.com/case-control-center.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unified network control center on SK-11 — EVAI Consulting">
+<meta property="og:description" content="Moving dispatch control into one center on SK-11: requirements from departments, design documentation, equipment, construction, acceptance of work.">
+<meta property="og:url" content="https://kholomyanskiy.com/case-control-center.html">
+<!-- @include head-common -->
+<meta name="twitter:title" content="Unified network control center on SK-11 — EVAI Consulting">
+<meta name="twitter:description" content="Moving dispatch control into one center on SK-11: requirements from departments, design documentation, equipment, construction, acceptance of work.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* @include common.css */
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+@media(max-width:680px){.topnav-links{gap:14px;font-size:12px}}
+/* лист страниц услуг */
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+}
+.sheet{
+  max-width:880px;
+  margin:16px auto 40px;
+  background:var(--panel);
+  border:1.5px solid var(--ink);
+  box-shadow:8px 8px 0 rgba(27,32,39,.08);
+}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-main{padding:44px 28px 36px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;color:var(--ink-soft);font-size:17px}
+section{padding:40px 28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
+.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
+.cta h2{color:#fff}
+footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+@media(max-width:680px){
+  .sheet{margin:8px 12px 32px}
+}
+/* ---------- sections ---------- */
+.steps{counter-reset:st;max-width:620px;margin-top:8px}
+.steps li{list-style:none;counter-increment:st;padding:12px 0 12px 52px;position:relative;border-top:1px solid var(--line)}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);
+  position:absolute;left:0;top:12px;
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue);
+}
+figure{margin:26px 0;max-width:660px}
+.cta a.btn{
+  display:inline-block;margin-top:10px;
+  font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;
+  color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;
+  padding:13px 26px;text-decoration:none;
+}
+.cta a.btn:hover{background:transparent;color:#EDEFF2}
+.cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
+.footer-links a:hover{color:var(--blue)}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "$t:h1_title",
+  "description": "$t:meta_desc",
+  "datePublished": "2026-11-08",
+  "dateModified": "2026-11-08",
+  "inLanguage": "en",
+  "url": "https://kholomyanskiy.com/case-control-center.html",
+  "author": {"@id": "https://kholomyanskiy.com/#person"},
+  "publisher": {"@id": "https://kholomyanskiy.com/#organization"},
+  "image": "https://kholomyanskiy.com/og-image.png"
+}
+</script>
+</head>
+<body>
+
+<!-- @include topnav current=portfolio -->
+
+<div class="sheet">
+
+  <header class="titleblock">
+    <div class="tb-top">
+      <span class="brand">EVAI CONSULTING</span>
+      <span>ENERGY-03 · v1.0</span>
+    </div>
+    <div class="tb-main">
+      <h1 data-i18n-html="h1_title">Unified network control center on SK-11</h1>
+      <p class="sub" data-i18n="tb_sub">Distribution grid operator, 2019–2020. Project manager, client side.</p>
+    </div>
+  </header>
+
+  <section>
+    <span class="secnum">1.0</span>
+    <h2 data-i18n="s1_h2">The task</h2>
+    <p data-i18n="s1_p">Dispatch control of the regional grid was moving from district control points into one network control center. The platform was SK-11 by Monitor Electric, which combines SCADA, outage management and grid state calculation. A separate building was prepared for the center.</p>
+  </section>
+
+  <section>
+    <span class="secnum">2.0</span>
+    <h2 data-i18n="s2_h2">What was done</h2>
+    <p data-i18n="s2_p">On the client side: working groups on requirements from each department, checking design and detailed documentation against the requirements, sizing equipment for workstations and the server room (computers, monitors, servers, UPS). When equipment from the requirements could not be bought, became outdated or grew too expensive, the requirements and design documentation were changed, with contract amendments and new tenders. Coordination of construction and IT contractors: why work had stopped, what was missing for the next stage. Checking acts of completed work against what was actually built.</p>
+    <figure>
+      <!-- @lang en -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 384" width="100%" role="img" aria-label="From requirements to the workstation" font-family="JetBrains Mono, monospace" font-size="13">
+      <defs>
+      <marker id="e3-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+      <marker id="e3-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+      </defs>
+      <rect x="20" y="20" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="47" text-anchor="middle" fill="#1B2027">Department requirements</text>
+      <line x1="155" y1="64" x2="155" y2="78" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="80" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="107" text-anchor="middle" fill="#1B2027">Design documentation</text>
+      <line x1="155" y1="124" x2="155" y2="138" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="140" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="167" text-anchor="middle" fill="#1B2027">Equipment purchase</text>
+      <line x1="155" y1="184" x2="155" y2="198" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="200" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="227" text-anchor="middle" fill="#1B2027">Construction</text>
+      <line x1="155" y1="244" x2="155" y2="258" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="260" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="287" text-anchor="middle" fill="#1B2027">Acts of completed work</text>
+      <line x1="155" y1="304" x2="155" y2="318" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="320" width="270" height="44" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="155" y="347" text-anchor="middle" fill="#2B5B8A">Dispatcher workstation</text>
+      <rect x="320" y="140" width="220" height="44" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="430" y="159" text-anchor="middle" fill="#2B5B8A">Equipment cannot</text>
+      <text x="430" y="175" text-anchor="middle" fill="#2B5B8A">be bought</text>
+      <rect x="320" y="80" width="220" height="44" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="430" y="99" text-anchor="middle" fill="#2B5B8A">Change requirements</text>
+      <text x="430" y="115" text-anchor="middle" fill="#2B5B8A">and design documents</text>
+      <rect x="320" y="20" width="220" height="44" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="430" y="47" text-anchor="middle" fill="#2B5B8A">Contract amendment</text>
+      <line x1="290" y1="162" x2="318" y2="162" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e3-b)"/>
+      <line x1="430" y1="140" x2="430" y2="126" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e3-b)"/>
+      <line x1="430" y1="80" x2="430" y2="66" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e3-b)"/>
+      <line x1="320" y1="42" x2="292" y2="42" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e3-b)"/>
+      </svg>
+      <!-- @endlang -->
+      <!-- @lang pl -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 384" width="100%" role="img" aria-label="Od wymagań do stanowiska pracy" font-family="JetBrains Mono, monospace" font-size="13">
+      <defs>
+      <marker id="e3-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+      <marker id="e3-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+      </defs>
+      <rect x="20" y="20" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="47" text-anchor="middle" fill="#1B2027">Wymagania działów</text>
+      <line x1="155" y1="64" x2="155" y2="78" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="80" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="107" text-anchor="middle" fill="#1B2027">Dokumentacja projektowa</text>
+      <line x1="155" y1="124" x2="155" y2="138" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="140" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="167" text-anchor="middle" fill="#1B2027">Zakup sprzętu</text>
+      <line x1="155" y1="184" x2="155" y2="198" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="200" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="227" text-anchor="middle" fill="#1B2027">Budowa</text>
+      <line x1="155" y1="244" x2="155" y2="258" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="260" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="287" text-anchor="middle" fill="#1B2027">Protokoły wykonanych prac</text>
+      <line x1="155" y1="304" x2="155" y2="318" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="320" width="270" height="44" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="155" y="347" text-anchor="middle" fill="#2B5B8A">Stanowisko dyspozytora</text>
+      <rect x="320" y="140" width="220" height="44" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="430" y="159" text-anchor="middle" fill="#2B5B8A">Sprzętu nie da się</text>
+      <text x="430" y="175" text-anchor="middle" fill="#2B5B8A">kupić</text>
+      <rect x="320" y="80" width="220" height="44" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="430" y="99" text-anchor="middle" fill="#2B5B8A">Zmiana wymagań</text>
+      <text x="430" y="115" text-anchor="middle" fill="#2B5B8A">i dokumentacji</text>
+      <rect x="320" y="20" width="220" height="44" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="430" y="47" text-anchor="middle" fill="#2B5B8A">Aneks do umowy</text>
+      <line x1="290" y1="162" x2="318" y2="162" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e3-b)"/>
+      <line x1="430" y1="140" x2="430" y2="126" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e3-b)"/>
+      <line x1="430" y1="80" x2="430" y2="66" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e3-b)"/>
+      <line x1="320" y1="42" x2="292" y2="42" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e3-b)"/>
+      </svg>
+      <!-- @endlang -->
+      <!-- @lang ru -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 384" width="100%" role="img" aria-label="От ТЗ до рабочего места" font-family="JetBrains Mono, monospace" font-size="13">
+      <defs>
+      <marker id="e3-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+      <marker id="e3-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+      </defs>
+      <rect x="20" y="20" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="47" text-anchor="middle" fill="#1B2027">ТЗ подразделений</text>
+      <line x1="155" y1="64" x2="155" y2="78" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="80" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="107" text-anchor="middle" fill="#1B2027">Проектная документация</text>
+      <line x1="155" y1="124" x2="155" y2="138" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="140" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="167" text-anchor="middle" fill="#1B2027">Закупка оборудования</text>
+      <line x1="155" y1="184" x2="155" y2="198" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="200" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="227" text-anchor="middle" fill="#1B2027">Стройка</text>
+      <line x1="155" y1="244" x2="155" y2="258" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="260" width="270" height="44" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+      <text x="155" y="287" text-anchor="middle" fill="#1B2027">Акты выполненных работ</text>
+      <line x1="155" y1="304" x2="155" y2="318" stroke="#1B2027" stroke-width="1.5" marker-end="url(#e3-k)"/>
+      <rect x="20" y="320" width="270" height="44" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="155" y="347" text-anchor="middle" fill="#2B5B8A">Рабочее место диспетчера</text>
+      <rect x="320" y="140" width="220" height="44" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="430" y="159" text-anchor="middle" fill="#2B5B8A">Оборудование</text>
+      <text x="430" y="175" text-anchor="middle" fill="#2B5B8A">нельзя купить</text>
+      <rect x="320" y="80" width="220" height="44" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="430" y="99" text-anchor="middle" fill="#2B5B8A">Изменение ТЗ и</text>
+      <text x="430" y="115" text-anchor="middle" fill="#2B5B8A">проектной документации</text>
+      <rect x="320" y="20" width="220" height="44" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+      <text x="430" y="47" text-anchor="middle" fill="#2B5B8A">Допсоглашение</text>
+      <line x1="290" y1="162" x2="318" y2="162" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e3-b)"/>
+      <line x1="430" y1="140" x2="430" y2="126" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e3-b)"/>
+      <line x1="430" y1="80" x2="430" y2="66" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e3-b)"/>
+      <line x1="320" y1="42" x2="292" y2="42" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#e3-b)"/>
+      </svg>
+      <!-- @endlang -->
+    </figure>
+  </section>
+
+  <section>
+    <span class="secnum">3.0</span>
+    <h2 data-i18n="s3_h2">Result</h2>
+    <p data-i18n="s3_p">By the end of 2020 the workstations and the video wall were running, dispatchers were moving grid diagrams onto the network map, and commissioning was still under way.</p>
+  </section>
+
+  <section>
+    <span class="secnum">4.0</span>
+    <h2 data-i18n="s4_h2">What carries over today</h2>
+    <p data-i18n-html="s4_p">A large project rarely breaks on technology. It stalls when the requirements never reach the contractor, when the planned equipment disappears from the market, or when there is no way to accept the work. That is why <a href="/glossary/acceptance-criteria.html">acceptance criteria</a> and a change procedure go into the <a href="/spec.html">specification</a> upfront.</p>
+  </section>
+
+  <div class="cta">
+    <h2 data-i18n="cta_h2">Discuss a task or joining a project:</h2>
+    <a class="btn" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="cta_btn">Book a free call (cal.com)</a>
+  </div>
+
+</div>
+
+<!-- @include footer -->
+
+<script>
+var T = {
+  ru: {
+    page_title: "Единый центр управления сетями на СК-11 — EVAI Consulting",
+    meta_desc: "Перевод диспетчерского управления в единый центр на СК-11: ТЗ подразделений, проектная документация, оборудование, стройка, приёмка работ.",
+    h1_title: "Единый центр управления сетями на СК-11",
+    tb_sub: "Оператор распределительных сетей, 2019–2020. Менеджер проекта со стороны заказчика.",
+    s1_h2: "Задача",
+    s1_p: "Диспетчерское управление сетью региона переводилось из районных пунктов в единый центр управления сетями. Платформа: СК-11 разработки Монитор Электрик, которая объединяет SCADA, управление отключениями и расчёт режимов сети. Под центр готовилось отдельное здание.",
+    s2_h2: "Что делалось",
+    s2_p: "Со стороны заказчика: рабочие группы по ТЗ от каждого подразделения, проверка проектной и рабочей документации на соответствие ТЗ, расчёт оборудования для рабочих мест и серверной (компьютеры, мониторы, серверы, ИБП). Если оборудование из ТЗ нельзя было купить, оно устарело или подорожало, менялись ТЗ и проектная документация, оформлялись допсоглашения и новые конкурсы. Координация строителей и ИТ-подрядчиков: почему стоят работы, чего не хватает для следующего этапа. Проверка актов выполненных работ и того, что построено фактически.",
+    s3_h2: "Результат",
+    s3_p: "К концу 2020 года рабочие места и видеостена работали, диспетчеры переносили схемы сети на технологическую карту, пусконаладка продолжалась.",
+    s4_h2: "Что из этого применяется сейчас",
+    s4_p: "Большой проект редко ломается на технологии. Он стоит, когда ТЗ не дошло до подрядчика, когда нужное оборудование исчезло с рынка или когда работу нечем принять. Поэтому в <a href=\"/ru/spec.html\">спецификацию</a> заранее закладываются <a href=\"/ru/glossary/acceptance-criteria.html\">критерии приёмки</a> и порядок изменений.",
+    cta_h2: "Обсудить задачу или подключение к проекту:",
+    cta_btn: "Записаться на бесплатный разговор (cal.com)"
+  },
+  pl: {
+    page_title: "Jednolite centrum zarządzania siecią na SK-11 — EVAI Consulting",
+    meta_desc: "Przeniesienie zarządzania siecią do jednego centrum na SK-11: wymagania działów, dokumentacja projektowa, sprzęt, budowa, odbiór prac.",
+    h1_title: "Jednolite centrum zarządzania siecią na SK-11",
+    tb_sub: "Operator sieci dystrybucyjnej, 2019–2020. Project manager po stronie zamawiającego.",
+    s1_h2: "Zadanie",
+    s1_p: "Dyspozytorskie zarządzanie siecią regionu przenoszono z punktów rejonowych do jednego centrum zarządzania siecią. Platforma: SK-11 firmy Monitor Electric, łącząca SCADA, zarządzanie wyłączeniami i obliczenia stanu sieci. Dla centrum przygotowywano osobny budynek.",
+    s2_h2: "Co zostało zrobione",
+    s2_p: "Po stronie zamawiającego: grupy robocze nad wymaganiami każdego działu, sprawdzanie dokumentacji projektowej i wykonawczej pod kątem zgodności z wymaganiami, dobór sprzętu do stanowisk i serwerowni (komputery, monitory, serwery, UPS). Gdy sprzętu z wymagań nie dało się kupić, był przestarzały albo zbyt drogi, zmieniano wymagania i dokumentację projektową, z aneksami do umów i nowymi przetargami. Koordynacja wykonawców budowlanych i IT: dlaczego prace stoją, czego brakuje do następnego etapu. Sprawdzanie protokołów wykonanych prac i tego, co faktycznie zbudowano.",
+    s3_h2: "Wynik",
+    s3_p: "Pod koniec 2020 roku stanowiska i ściana wideo działały, dyspozytorzy przenosili schematy sieci na mapę technologiczną, rozruch trwał dalej.",
+    s4_h2: "Co z tego przydaje się dziś",
+    s4_p: "Duży projekt rzadko psuje się na technologii. Staje, gdy wymagania nie dotarły do wykonawcy, gdy zaplanowany sprzęt zniknął z rynku albo gdy nie ma jak odebrać pracy. Dlatego <a href=\"/pl/glossary/acceptance-criteria.html\">kryteria odbioru</a> i tryb zmian trafiają do <a href=\"/pl/spec.html\">specyfikacji</a> z góry.",
+    cta_h2: "Porozmawiać o zadaniu lub dołączeniu do projektu:",
+    cta_btn: "Umów bezpłatną rozmowę (cal.com)"
+  },
+  en: {
+    page_title: "Unified network control center on SK-11 — EVAI Consulting",
+    meta_desc: "Moving dispatch control into one center on SK-11: requirements from departments, design documentation, equipment, construction, acceptance of work.",
+    h1_title: "Unified network control center on SK-11",
+    tb_sub: "Distribution grid operator, 2019–2020. Project manager, client side.",
+    s1_h2: "The task",
+    s1_p: "Dispatch control of the regional grid was moving from district control points into one network control center. The platform was SK-11 by Monitor Electric, which combines SCADA, outage management and grid state calculation. A separate building was prepared for the center.",
+    s2_h2: "What was done",
+    s2_p: "On the client side: working groups on requirements from each department, checking design and detailed documentation against the requirements, sizing equipment for workstations and the server room (computers, monitors, servers, UPS). When equipment from the requirements could not be bought, became outdated or grew too expensive, the requirements and design documentation were changed, with contract amendments and new tenders. Coordination of construction and IT contractors: why work had stopped, what was missing for the next stage. Checking acts of completed work against what was actually built.",
+    s3_h2: "Result",
+    s3_p: "By the end of 2020 the workstations and the video wall were running, dispatchers were moving grid diagrams onto the network map, and commissioning was still under way.",
+    s4_h2: "What carries over today",
+    s4_p: "A large project rarely breaks on technology. It stalls when the requirements never reach the contractor, when the planned equipment disappears from the market, or when there is no way to accept the work. That is why <a href=\"/glossary/acceptance-criteria.html\">acceptance criteria</a> and a change procedure go into the <a href=\"/spec.html\">specification</a> upfront.",
+    cta_h2: "Discuss a task or joining a project:",
+    cta_btn: "Book a free call (cal.com)"
+  }
+};
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.documentElement.lang = lang;
+  if (T[lang].page_title) document.title = T[lang].page_title;
+  var md = document.querySelector('meta[name="description"]');
+  if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
+  localStorage.setItem('site-lang', lang);
+}
+
+(function() {
+  var p = new URLSearchParams(window.location.search);
+  var ul = p.get('lang');
+  if (ul && T[ul]) { setLang(ul); return; }
+  var saved = localStorage.getItem('site-lang');
+  if (saved && T[saved]) setLang(saved);
+})();
+</script>
+
+</body>
+</html>

@@ -32,6 +32,9 @@ BREADCRUMB_PARENT = {
     "contact": "index",
     "case-recruitment": "portfolio",
     "case-esowa": "portfolio",
+    "case-metering-sap": "portfolio",
+    "case-oms-dms": "portfolio",
+    "case-control-center": "portfolio",
 }
 PARENT_NAV_KEY = {"services": "nav.services", "products": "nav.products", "articles": "nav.articles", "portfolio": "nav.portfolio"}
 PARENT_PAGE = {"services": "services", "products": "products", "articles": "articles", "portfolio": "portfolio"}

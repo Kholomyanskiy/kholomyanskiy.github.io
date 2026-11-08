@@ -68,14 +68,13 @@ Analytical brief covering 40+ companies across 5 sectors: chips, energy, water/g
 - [ai-agent-checklist](https://github.com/Kholomyanskiy/ai-agent-checklist) — 10-section acceptance checklist for AI agents before production deployment
 - [ai-requirements-template](https://github.com/Kholomyanskiy/ai-requirements-template) — structured 15-section TZ template for AI projects
 
-## Before AI: Enterprise Projects (2009–2021)
+## Before AI: IT projects in the energy sector (2009–2020)
 
-11+ years managing and analyzing large IT projects in the energy sector, before moving into AI consulting:
+Over 11 years in IT projects of a distribution grid operator, always on the client side: requirements, procurement, contracts, vendor management, commissioning and support of systems.
 
-- **АСК ПЭЭ «Neuron»** (Systel), 2009–2011 — automated energy metering for households and small business
-- **MDUS SciMeter integration module**, SAP R/3 IS-U (SAP SE), 2011–2014 — integration module between SAP R/3 and wholesale/retail electricity systems
-- **КАСУТС OMS/DMS** (Schneider Electric / Telvent, Novi Sad), 2014–2019 — automated technology network control system across 22 regional centers
-- **Unified Network Control Center** (SK-11 / Monitor Electric), 2019–2021 — major infrastructure project including construction of a dedicated control center building
+- **Metering system and SAP IS-U integration**, 2009–2011 — Metering of household electricity consumption and a module that sends its data to SAP IS-U instead of manual exports. Role: business analyst, client side. [Read more →](https://kholomyanskiy.com/case-metering-sap.html)
+- **OMS/DMS distribution management system** (Schneider Electric / Telvent), 2011–2019 — A system for managing the distribution grid: procurement, contracts, commissioning and technical support. Role: project manager, client side. [Read more →](https://kholomyanskiy.com/case-oms-dms.html)
+- **Unified network control center on SK-11** (Monitor Electric), 2019–2020 — Moving dispatch control into one center: documentation, equipment, construction, acceptance of contractors' work. Role: project manager, client side. [Read more →](https://kholomyanskiy.com/case-control-center.html)
 
 Full details: [kholomyanskiy.github.io/portfolio.html](https://kholomyanskiy.github.io/portfolio.html)
 
@@ -150,14 +149,13 @@ Solo AI automation practice based in Elbląg, Poland — working remotely with R
 
 Полное портфолио: [kholomyanskiy.github.io/portfolio.html](https://kholomyanskiy.github.io/portfolio.html)
 
-### До AI: enterprise-проекты в энергетике (2009–2021)
+### До ИИ: ИТ-проекты в энергетике (2009–2020)
 
-11+ лет управления и анализа крупных IT-проектов в регулируемой среде — до перехода в AI-консалтинг:
+Более 11 лет в ИТ-проектах оператора распределительных сетей, всё время на стороне заказчика: требования, закупки, договоры, работа с вендорами, ввод систем в эксплуатацию и их сопровождение.
 
-- **АСК ПЭЭ «Neuron»** (Systel), 2009–2011 — автоматизированная система учёта электроэнергии для домохозяйств и малого бизнеса
-- **Интеграционный модуль MDUS SciMeter**, SAP R/3 IS-U (SAP SE), 2011–2014 — интеграция SAP R/3 с системами оптовой/розничной продажи электроэнергии
-- **КАСУТС OMS/DMS** (Schneider Electric / Telvent, Novi Sad), 2014–2019 — комплекс автоматизированных систем управления технологическими сетями в 22 региональных центрах
-- **Единый центр управления сетями** (SK-11 / Monitor Electric), 2019–2021 — крупный инфраструктурный проект, включавший строительство отдельного здания
+- **АСКУЭ и интеграция с SAP IS-U**, 2009–2011 — Система учёта электроэнергии у бытовых потребителей и модуль, который передаёт её данные в SAP IS-U вместо ручной выгрузки. Роль: бизнес-аналитик со стороны заказчика. [Подробнее →](https://kholomyanskiy.com/ru/case-metering-sap.html)
+- **КАСУТС на OMS/DMS** (Schneider Electric / Telvent), 2011–2019 — Система управления распределительной сетью: закупка, договоры, ввод в эксплуатацию и техподдержка. Роль: менеджер проекта со стороны заказчика. [Подробнее →](https://kholomyanskiy.com/ru/case-oms-dms.html)
+- **Единый центр управления сетями на СК-11** (Монитор Электрик), 2019–2020 — Перевод диспетчерского управления в один центр: документация, оборудование, стройка, приёмка работ подрядчиков. Роль: менеджер проекта со стороны заказчика. [Подробнее →](https://kholomyanskiy.com/ru/case-control-center.html)
 
 ### Стек
 

@@ -56,19 +56,19 @@
  </url>
  <url>
  <loc>https://kholomyanskiy.com/portfolio.html</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.8</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/pl/portfolio.html</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.8</priority>
  </url>
  <url>
  <loc>https://kholomyanskiy.com/ru/portfolio.html</loc>
- <lastmod>2026-11-07</lastmod>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.8</priority>
  </url>
@@ -105,6 +105,60 @@
  <url>
  <loc>https://kholomyanskiy.com/ru/case-esowa.html</loc>
  <lastmod>2026-11-07</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.7</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/case-metering-sap.html</loc>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.7</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/case-metering-sap.html</loc>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.7</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/case-metering-sap.html</loc>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.7</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/case-oms-dms.html</loc>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.7</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/case-oms-dms.html</loc>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.7</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/case-oms-dms.html</loc>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.7</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/case-control-center.html</loc>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.7</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/pl/case-control-center.html</loc>
+ <lastmod>2026-11-08</lastmod>
+ <changefreq>monthly</changefreq>
+ <priority>0.7</priority>
+ </url>
+ <url>
+ <loc>https://kholomyanskiy.com/ru/case-control-center.html</loc>
+ <lastmod>2026-11-08</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.7</priority>
  </url>
