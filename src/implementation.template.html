@@ -197,7 +197,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
   <section>
     <span class="secnum" data-i18n="s1_num">1.0 // WHO IT'S FOR</span>
     <h2 data-i18n="s1_h2">Who it is for</h2>
-    <p data-i18n="s1_p">For a company that knows what it wants to automate: there is a specification, a requirements document or a clear task. Integrations of CRM, email, messengers and internal systems, workflows, chains with AI. AI isn't required here: sometimes it's enough to connect existing tools correctly.</p>
+    <p data-i18n-html="s1_p">For a company that knows what it wants to automate: there is a specification, a requirements document or a clear task. Integrations of CRM, email, messengers and internal systems, <a href="/glossary/document-recognition.html">document recognition</a>, workflows, chains with AI. AI isn't required here: sometimes it's enough to connect existing tools correctly.</p>
   </section>
 
   <section>
@@ -207,7 +207,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       <li data-i18n-html="s2_1"><b>Free call.</b> The task, the systems, the scope.</li>
       <li data-i18n-html="s2_2"><b>Specification.</b> If there isn't one, it is written to the ANSS standard. A client's existing requirements document is checked by the same rules: acceptance criteria, boundaries, rollback. Small gaps are closed within the project, large ones with a separate <a href="spec.html">specification</a>.</li>
       <li data-i18n-html="s2_3"><b>Build and configuration.</b> Strictly to the specification. A change of scope is agreed separately before work on it starts.</li>
-      <li data-i18n-html="s2_4"><b>Acceptance.</b> The solution is checked against the criteria from the specification on the client's data.</li>
+      <li data-i18n-html="s2_4"><b>Acceptance.</b> The solution is checked against the criteria from the specification on the client's data. A model can be <a href="/glossary/hallucination.html">confidently wrong</a>, so in AI solutions its output is also verified by automated checks.</li>
       <li data-i18n-html="s2_5"><b>Launch and handover.</b> The solution runs in the client's processes, documentation is handed over.</li>
       <li data-i18n-html="s2_6"><b>Support.</b> At the client's choice, monthly.</li>
     </ol>
@@ -280,13 +280,13 @@ var T = {
     tb_cta: "Записаться на бесплатный звонок, 30 минут →",
     s1_num: "1.0 // ДЛЯ КОГО",
     s1_h2: "Для кого",
-    s1_p: "Для фирмы, которая знает, что хочет автоматизировать: есть спецификация, ТЗ или понятная задача. Интеграции CRM, почты, мессенджеров и внутренних систем, рабочие сценарии, цепочки с ИИ. ИИ здесь не обязателен: иногда достаточно правильно связать существующие инструменты.",
+    s1_p: "Для фирмы, которая знает, что хочет автоматизировать: есть спецификация, ТЗ или понятная задача. Интеграции CRM, почты, мессенджеров и внутренних систем, <a href=\"/ru/glossary/document-recognition.html\">распознавание документов</a>, рабочие сценарии, цепочки с ИИ. ИИ здесь не обязателен: иногда достаточно правильно связать существующие инструменты.",
     s2_num: "2.0 // ПОРЯДОК РАБОТЫ",
     s2_h2: "Порядок работы",
     s2_1: "<b>Бесплатный звонок.</b> Задача, системы, объём.",
     s2_2: "<b>Спецификация.</b> Если её нет, она пишется по стандарту ANSS. Готовое ТЗ клиента проверяется по тем же правилам: критерии приёмки, границы, откат. Мелкие пробелы закрываются в проекте, крупные отдельной <a href=\"spec.html\">спецификацией</a>.",
     s2_3: "<b>Разработка и настройка.</b> Строго по спецификации. Изменение объёма согласуется отдельно до начала работ по нему.",
-    s2_4: "<b>Приёмка.</b> Решение проверяется по критериям из спецификации на данных клиента.",
+    s2_4: "<b>Приёмка.</b> Решение проверяется по критериям из спецификации на данных клиента. Модель может <a href=\"/ru/glossary/hallucination.html\">уверенно ошибаться</a>, поэтому в решениях с ИИ её результат дополнительно сверяют автоматические проверки.",
     s2_5: "<b>Запуск и передача.</b> Решение работает в процессах клиента, документация передана.",
     s2_6: "<b>Сопровождение.</b> По желанию клиента, ежемесячно.",
     s3_num: "3.0 // ЧТО ОСТАЁТСЯ",
@@ -330,13 +330,13 @@ var T = {
     tb_cta: "Umów bezpłatną rozmowę, 30 minut →",
     s1_num: "1.0 // DLA KOGO",
     s1_h2: "Dla kogo",
-    s1_p: "Dla firmy, która wie, co chce zautomatyzować: jest specyfikacja, opis wymagań lub jasne zadanie. Integracje CRM, poczty, komunikatorów i systemów wewnętrznych, scenariusze pracy, łańcuchy z AI. AI nie jest tu obowiązkowe: czasem wystarczy poprawnie połączyć istniejące narzędzia.",
+    s1_p: "Dla firmy, która wie, co chce zautomatyzować: jest specyfikacja, opis wymagań lub jasne zadanie. Integracje CRM, poczty, komunikatorów i systemów wewnętrznych, <a href=\"/pl/glossary/document-recognition.html\">rozpoznawanie dokumentów</a>, scenariusze pracy, łańcuchy z AI. AI nie jest tu obowiązkowe: czasem wystarczy poprawnie połączyć istniejące narzędzia.",
     s2_num: "2.0 // PRZEBIEG PRACY",
     s2_h2: "Przebieg pracy",
     s2_1: "<b>Bezpłatna rozmowa.</b> Zadanie, systemy, zakres.",
     s2_2: "<b>Specyfikacja.</b> Jeśli jej nie ma, powstaje według standardu ANSS. Gotowy opis wymagań klienta jest sprawdzany według tych samych zasad: kryteria odbioru, granice, wycofanie zmian. Drobne luki są uzupełniane w projekcie, duże osobną <a href=\"spec.html\">specyfikacją</a>.",
     s2_3: "<b>Budowa i konfiguracja.</b> Ściśle według specyfikacji. Zmiana zakresu jest uzgadniana osobno przed rozpoczęciem prac nad nią.",
-    s2_4: "<b>Odbiór.</b> Rozwiązanie jest sprawdzane według kryteriów ze specyfikacji na danych klienta.",
+    s2_4: "<b>Odbiór.</b> Rozwiązanie jest sprawdzane według kryteriów ze specyfikacji na danych klienta. Model potrafi <a href=\"/pl/glossary/hallucination.html\">mylić się z pewnością</a>, dlatego w rozwiązaniach z AI jego wynik dodatkowo weryfikują automatyczne kontrole.",
     s2_5: "<b>Uruchomienie i przekazanie.</b> Rozwiązanie działa w procesach klienta, dokumentacja jest przekazana.",
     s2_6: "<b>Wsparcie.</b> Na życzenie klienta, co miesiąc.",
     s3_num: "3.0 // CO ZOSTAJE",
@@ -380,13 +380,13 @@ var T = {
     tb_cta: "Book a free 30-min call →",
     s1_num: "1.0 // WHO IT'S FOR",
     s1_h2: "Who it is for",
-    s1_p: "For a company that knows what it wants to automate: there is a specification, a requirements document or a clear task. Integrations of CRM, email, messengers and internal systems, workflows, chains with AI. AI isn't required here: sometimes it's enough to connect existing tools correctly.",
+    s1_p: "For a company that knows what it wants to automate: there is a specification, a requirements document or a clear task. Integrations of CRM, email, messengers and internal systems, <a href=\"/glossary/document-recognition.html\">document recognition</a>, workflows, chains with AI. AI isn't required here: sometimes it's enough to connect existing tools correctly.",
     s2_num: "2.0 // HOW IT WORKS",
     s2_h2: "How the work goes",
     s2_1: "<b>Free call.</b> The task, the systems, the scope.",
     s2_2: "<b>Specification.</b> If there isn't one, it is written to the ANSS standard. A client's existing requirements document is checked by the same rules: acceptance criteria, boundaries, rollback. Small gaps are closed within the project, large ones with a separate <a href=\"spec.html\">specification</a>.",
     s2_3: "<b>Build and configuration.</b> Strictly to the specification. A change of scope is agreed separately before work on it starts.",
-    s2_4: "<b>Acceptance.</b> The solution is checked against the criteria from the specification on the client's data.",
+    s2_4: "<b>Acceptance.</b> The solution is checked against the criteria from the specification on the client's data. A model can be <a href=\"/glossary/hallucination.html\">confidently wrong</a>, so in AI solutions its output is also verified by automated checks.",
     s2_5: "<b>Launch and handover.</b> The solution runs in the client's processes, documentation is handed over.",
     s2_6: "<b>Support.</b> At the client's choice, monthly.",
     s3_num: "3.0 // WHAT STAYS",

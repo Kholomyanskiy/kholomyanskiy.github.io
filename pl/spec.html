@@ -370,7 +370,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
       <span data-i18n="s1_log3">$ fix: eksport raportów</span><br>
       <span class="err" data-i18n="s1_log4">&gt; zepsuł się przycisk płatności</span>
     </div>
-    <p data-i18n-html="s1_p">Przyczyna jest prawie zawsze ta sama. Projekt nie ma <a href="/pl/glossary/ai-specification.html">specyfikacji</a>. Agent przy każdym zadaniu od nowa zgaduje, co miałeś na myśli. Czasem trafi. Częściej nie, a błędy się kumulują, aż projekt przestaje poddawać się zmianom.</p>
+    <p data-i18n-html="s1_p">Przyczyna jest prawie zawsze ta sama. Projekt nie ma <a href="/pl/glossary/ai-specification.html">specyfikacji</a>. Agent przy każdym zadaniu od nowa zgaduje, co miałeś na myśli: wcześniejsze rozmowy nie trafiają do jego <a href="/pl/glossary/context-window.html">okna kontekstowego</a>. Czasem trafi. Częściej nie, a błędy się kumulują, aż projekt przestaje poddawać się zmianom.</p>
   </section>
 
   <section>
@@ -384,7 +384,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
       </div>
       <div class="spec-row">
         <span class="spec-code">INV</span>
-        <div><h3 data-i18n="s2_inv_h">Inwarianty</h3><p data-i18n="s2_inv_p">Zasady, których system nie może naruszać. Weryfikowalne, z kryteriami.</p></div>
+        <div><h3 data-i18n="s2_inv_h">Inwarianty</h3><p data-i18n-html="s2_inv_p">Zasady, których system nie może naruszać. Każdy <a href="/pl/glossary/invariant.html">niezmiennik</a> jest weryfikowalny i ma kryteria.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">GLOS</span>

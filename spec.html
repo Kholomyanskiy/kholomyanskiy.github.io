@@ -370,7 +370,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
       <span data-i18n="s1_log3">$ fix: report export</span><br>
       <span class="err" data-i18n="s1_log4">&gt; payment button broke</span>
     </div>
-    <p data-i18n-html="s1_p">The cause is almost always the same. The project has no <a href="/glossary/ai-specification.html">specification</a>. For every task, the agent re-guesses what you meant. Sometimes it guesses right. More often it misses, and the misses accumulate until the project stops responding to changes.</p>
+    <p data-i18n-html="s1_p">The cause is almost always the same. The project has no <a href="/glossary/ai-specification.html">specification</a>. For every task, the agent re-guesses what you meant: earlier conversations do not reach its <a href="/glossary/context-window.html">context window</a>. Sometimes it guesses right. More often it misses, and the misses accumulate until the project stops responding to changes.</p>
   </section>
 
   <section>
@@ -384,7 +384,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
       </div>
       <div class="spec-row">
         <span class="spec-code">INV</span>
-        <div><h3 data-i18n="s2_inv_h">Invariants</h3><p data-i18n="s2_inv_p">Rules the system is not allowed to break. Verifiable, with conditions.</p></div>
+        <div><h3 data-i18n="s2_inv_h">Invariants</h3><p data-i18n-html="s2_inv_p">Rules the system is not allowed to break. Each <a href="/glossary/invariant.html">invariant</a> is verifiable, with conditions.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">GLOS</span>

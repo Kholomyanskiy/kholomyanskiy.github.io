@@ -370,7 +370,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
       <span data-i18n="s1_log3">$ fix: экспорт отчётов</span><br>
       <span class="err" data-i18n="s1_log4">&gt; сломалась кнопка оплаты</span>
     </div>
-    <p data-i18n-html="s1_p">Причина почти всегда одна. У проекта нет <a href="/ru/glossary/ai-specification.html">спецификации</a>. Агент на каждой задаче заново угадывает, что вы имели в виду. Иногда угадывает. Чаще промахивается, и промахи накапливаются, пока проект перестаёт поддаваться правкам.</p>
+    <p data-i18n-html="s1_p">Причина почти всегда одна. У проекта нет <a href="/ru/glossary/ai-specification.html">спецификации</a>. Агент на каждой задаче заново угадывает, что вы имели в виду: прошлые разговоры в его <a href="/ru/glossary/context-window.html">контекстное окно</a> не попадают. Иногда угадывает. Чаще промахивается, и промахи накапливаются, пока проект перестаёт поддаваться правкам.</p>
   </section>
 
   <section>
@@ -384,7 +384,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
       </div>
       <div class="spec-row">
         <span class="spec-code">INV</span>
-        <div><h3 data-i18n="s2_inv_h">Инварианты</h3><p data-i18n="s2_inv_p">Правила, которые система не имеет права нарушать. Проверяемые, с критериями.</p></div>
+        <div><h3 data-i18n="s2_inv_h">Инварианты</h3><p data-i18n-html="s2_inv_p">Правила, которые система не имеет права нарушать. Каждый <a href="/ru/glossary/invariant.html">инвариант</a> проверяемый, с критериями.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">GLOS</span>

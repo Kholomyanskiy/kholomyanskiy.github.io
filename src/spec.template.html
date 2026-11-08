@@ -220,7 +220,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       <span data-i18n="s1_log3">$ fix: report export</span><br>
       <span class="err" data-i18n="s1_log4">&gt; payment button broke</span>
     </div>
-    <p data-i18n-html="s1_p">The cause is almost always the same. The project has no <a href="/glossary/ai-specification.html">specification</a>. For every task, the agent re-guesses what you meant. Sometimes it guesses right. More often it misses, and the misses accumulate until the project stops responding to changes.</p>
+    <p data-i18n-html="s1_p">The cause is almost always the same. The project has no <a href="/glossary/ai-specification.html">specification</a>. For every task, the agent re-guesses what you meant: earlier conversations do not reach its <a href="/glossary/context-window.html">context window</a>. Sometimes it guesses right. More often it misses, and the misses accumulate until the project stops responding to changes.</p>
   </section>
 
   <section>
@@ -234,7 +234,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       </div>
       <div class="spec-row">
         <span class="spec-code">INV</span>
-        <div><h3 data-i18n="s2_inv_h">Invariants</h3><p data-i18n="s2_inv_p">Rules the system is not allowed to break. Verifiable, with conditions.</p></div>
+        <div><h3 data-i18n="s2_inv_h">Invariants</h3><p data-i18n-html="s2_inv_p">Rules the system is not allowed to break. Each <a href="/glossary/invariant.html">invariant</a> is verifiable, with conditions.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">GLOS</span>
@@ -398,11 +398,11 @@ var T = {
     s1_lead: "Знакомая история: вы описали идею Claude Code или Cursor, за вечер получили работающий прототип, обрадовались. Через две недели вы тратите по 4 часа в день на починку того, что вчера работало. Каждое исправление ломает что-то ещё.",
     s1_log1: "$ fix: кнопка оплаты", s1_log2: "> сломался экспорт отчётов",
     s1_log3: "$ fix: экспорт отчётов", s1_log4: "> сломалась кнопка оплаты",
-    s1_p: "Причина почти всегда одна. У проекта нет <a href=\"/ru/glossary/ai-specification.html\">спецификации</a>. Агент на каждой задаче заново угадывает, что вы имели в виду. Иногда угадывает. Чаще промахивается, и промахи накапливаются, пока проект перестаёт поддаваться правкам.",
+    s1_p: "Причина почти всегда одна. У проекта нет <a href=\"/ru/glossary/ai-specification.html\">спецификации</a>. Агент на каждой задаче заново угадывает, что вы имели в виду: прошлые разговоры в его <a href=\"/ru/glossary/context-window.html\">контекстное окно</a> не попадают. Иногда угадывает. Чаще промахивается, и промахи накапливаются, пока проект перестаёт поддаваться правкам.",
     s2_num: "2.0 // СОСТАВ РАБОТ", s2_h2: "Что входит в спецификацию",
     s2_p: "Пишется полное техническое задание, с которым AI-разработка перестаёт быть угадыванием. Пакет документов:",
     s2_arch_h: "Архитектура и данные", s2_arch_p: "Структура системы, модели данных, границы модулей.",
-    s2_inv_h: "Инварианты", s2_inv_p: "Правила, которые система не имеет права нарушать. Проверяемые, с критериями.",
+    s2_inv_h: "Инварианты", s2_inv_p: "Правила, которые система не имеет права нарушать. Каждый <a href=\"/ru/glossary/invariant.html\">инвариант</a> проверяемый, с критериями.",
     s2_glos_h: "Глоссарий", s2_glos_p: "Единые термины, чтобы агент не путал сущности между сессиями.",
     s2_agnt_h: "Правила для AI-агентов", s2_agnt_p: "Что агенту можно менять, что запрещено, как проверять свою работу.",
     s2_plan_h: "План этапов", s2_plan_p: "Последовательность работ с <a href=\"/ru/glossary/acceptance-criteria.html\">критериями приёмки</a> каждого этапа.",
@@ -454,11 +454,11 @@ var T = {
     s1_lead: "Znana historia: opisałeś pomysł Claude Code lub Cursor, wieczorem dostałeś działający prototyp, ucieszyłeś się. Dwa tygodnie później spędzasz 4 godziny dziennie na naprawianiu tego, co działało wczoraj. Każda poprawka psuje coś innego.",
     s1_log1: "$ fix: przycisk płatności", s1_log2: "> zepsuł się eksport raportów",
     s1_log3: "$ fix: eksport raportów", s1_log4: "> zepsuł się przycisk płatności",
-    s1_p: "Przyczyna jest prawie zawsze ta sama. Projekt nie ma <a href=\"/pl/glossary/ai-specification.html\">specyfikacji</a>. Agent przy każdym zadaniu od nowa zgaduje, co miałeś na myśli. Czasem trafi. Częściej nie, a błędy się kumulują, aż projekt przestaje poddawać się zmianom.",
+    s1_p: "Przyczyna jest prawie zawsze ta sama. Projekt nie ma <a href=\"/pl/glossary/ai-specification.html\">specyfikacji</a>. Agent przy każdym zadaniu od nowa zgaduje, co miałeś na myśli: wcześniejsze rozmowy nie trafiają do jego <a href=\"/pl/glossary/context-window.html\">okna kontekstowego</a>. Czasem trafi. Częściej nie, a błędy się kumulują, aż projekt przestaje poddawać się zmianom.",
     s2_num: "2.0 // ZAKRES PRAC", s2_h2: "Co wchodzi w skład specyfikacji",
     s2_p: "Powstaje pełna dokumentacja techniczna, dzięki której rozwój AI przestaje być zgadywaniem. Pakiet dokumentów:",
     s2_arch_h: "Architektura i dane", s2_arch_p: "Struktura systemu, modele danych, granice modułów.",
-    s2_inv_h: "Inwarianty", s2_inv_p: "Zasady, których system nie może naruszać. Weryfikowalne, z kryteriami.",
+    s2_inv_h: "Inwarianty", s2_inv_p: "Zasady, których system nie może naruszać. Każdy <a href=\"/pl/glossary/invariant.html\">niezmiennik</a> jest weryfikowalny i ma kryteria.",
     s2_glos_h: "Słownik", s2_glos_p: "Ujednolicone terminy, żeby agent nie mylił encji między sesjami.",
     s2_agnt_h: "Reguły dla agentów AI", s2_agnt_p: "Co agent może zmieniać, co jest zabronione, jak weryfikować swoją pracę.",
     s2_plan_h: "Plan etapów", s2_plan_p: "Kolejność prac z <a href=\"/pl/glossary/acceptance-criteria.html\">kryteriami odbioru</a> każdego etapu.",
@@ -510,11 +510,11 @@ var T = {
     s1_lead: "Familiar story: you described your idea to Claude Code or Cursor, got a working prototype in an evening, felt great. Two weeks later you're spending 4 hours a day fixing what worked yesterday. Every fix breaks something else.",
     s1_log1: "$ fix: payment button", s1_log2: "> report export broke",
     s1_log3: "$ fix: report export", s1_log4: "> payment button broke",
-    s1_p: "The cause is almost always the same. The project has no <a href=\"/glossary/ai-specification.html\">specification</a>. For every task, the agent re-guesses what you meant. Sometimes it guesses right. More often it misses, and the misses accumulate until the project stops responding to changes.",
+    s1_p: "The cause is almost always the same. The project has no <a href=\"/glossary/ai-specification.html\">specification</a>. For every task, the agent re-guesses what you meant: earlier conversations do not reach its <a href=\"/glossary/context-window.html\">context window</a>. Sometimes it guesses right. More often it misses, and the misses accumulate until the project stops responding to changes.",
     s2_num: "2.0 // SCOPE OF WORK", s2_h2: "What's included in the specification",
     s2_p: "A complete technical specification is written, so that AI development stops being guesswork. Document package:",
     s2_arch_h: "Architecture & Data", s2_arch_p: "System structure, data models, module boundaries.",
-    s2_inv_h: "Invariants", s2_inv_p: "Rules the system is not allowed to break. Verifiable, with conditions.",
+    s2_inv_h: "Invariants", s2_inv_p: "Rules the system is not allowed to break. Each <a href=\"/glossary/invariant.html\">invariant</a> is verifiable, with conditions.",
     s2_glos_h: "Glossary", s2_glos_p: "Unified terms so the agent doesn't confuse entities between sessions.",
     s2_agnt_h: "AI Agent Rules", s2_agnt_p: "What the agent may change, what is prohibited, how to verify its own work.",
     s2_plan_h: "Phase Plan", s2_plan_p: "Sequence of work with <a href=\"/glossary/acceptance-criteria.html\">acceptance criteria</a> for each phase.",

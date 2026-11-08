@@ -304,7 +304,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
     <span class="secnum" data-i18n="s2_num">2.0 // STRUCTURE</span>
     <h2 data-i18n="s2_h2">How it works</h2>
     <p data-i18n="s2_p1">Every section of a specification is tagged with a layer: what to build (for the client), how to build (for the developer), rules for the agent (the agent reads these first).</p>
-    <p data-i18n="s2_p2">An invariant is written in four fields: what is forbidden, why, and how to check it. The check field is specific, and the agent tests its own output against it.</p>
+    <p data-i18n-html="s2_p2">An <a href="/glossary/invariant.html">invariant</a> is written in four fields: what is forbidden, why, and how to check it. The check field is specific, and the agent tests its own output against it.</p>
 <pre><code>INV-001: No external npm packages
 Cannot:  add require() of npm modules
 Reason:  app must run without npm install
