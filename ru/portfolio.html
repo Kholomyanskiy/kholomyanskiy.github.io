@@ -38,6 +38,13 @@ html{scroll-behavior:smooth}
 .muted{color:var(--ink-soft)}
 .footer-links{display:flex;flex-wrap:wrap;gap:18px}
 .footer-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.grid-item,.pf-card,.nav-drop-list{border-radius:10px}
+.accordion,.mid-cta,.callout{border-radius:10px;overflow:hidden}
+.pf-card{overflow:hidden}
+.hero-cta a,.section-more a,.prod-cta a,.mid-cta a.btn2,.closing-cta a.btn3,.contact-form button,.contact-form input,.contact-form textarea,.lang-switch,.lang-btn{border-radius:8px}
+.hero-photo{border-radius:12px}
+.sheet,footer{border-radius:14px}
+.case-tag,.case-status,.pf-badge{border-radius:999px}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
 }
@@ -208,6 +215,13 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <p class="sub" data-i18n="page.sub">Проекты и примеры работы: от обследования процессов и спецификации до работающих решений. У каждого указан статус, чтобы было видно, что уже работает, а что на стадии MVP, тестирования или концепта.</p>
  </div>
  </header>
+
+ <section>
+ <h2 data-i18n="why.title">Откуда этот интерес</h2>
+ <p data-i18n="why.p1">Мне всегда было интересно искать способы сделать процессы проще и удобнее. Ещё до появления современных AI-инструментов я постоянно замечал повторяющиеся действия, лишние шаги и неудобные процессы, которые можно было изменить. От бытовых мелочей до рабочих систем: если действие повторяется регулярно, обычно есть возможность сделать его проще или эффективнее.</p>
+ <p data-i18n="why.p2">В бизнесе происходит то же самое. Сотрудники каждый день выполняют множество повторяющихся операций: ищут информацию, обрабатывают письма, заполняют документы, готовят отчёты, переносят данные между системами. Мне интересно находить такие места, где процесс можно сделать проще, быстрее и надёжнее.</p>
+ <p data-i18n="why.p3">Опыт в enterprise IT научил меня подходить к этому системно: сначала понять задачу, затем описать процесс и только после этого выбирать технологию. Сегодня искусственный интеллект стал следующим этапом развития этого подхода. Он позволяет создавать системы, которые берут на себя рутину и освобождают время для решений, где действительно нужен человек.</p>
+ </section>
 
  <section>
  <span class="secnum">01</span>

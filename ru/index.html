@@ -202,7 +202,7 @@
           "name": "С какими инструментами вы работаете?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Claude, Claude Code, n8n, прямые интеграции через API моделей. Набор инструментов подбирается под задачу."
+            "text": "Claude, Claude Code, прямые интеграции через API моделей. Набор инструментов подбирается под задачу."
           }
         },
         {
@@ -238,6 +238,13 @@ html{scroll-behavior:smooth}
 .muted{color:var(--ink-soft)}
 .footer-links{display:flex;flex-wrap:wrap;gap:18px}
 .footer-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.grid-item,.pf-card,.nav-drop-list{border-radius:10px}
+.accordion,.mid-cta,.callout{border-radius:10px;overflow:hidden}
+.pf-card{overflow:hidden}
+.hero-cta a,.section-more a,.prod-cta a,.mid-cta a.btn2,.closing-cta a.btn3,.contact-form button,.contact-form input,.contact-form textarea,.lang-switch,.lang-btn{border-radius:8px}
+.hero-photo{border-radius:12px}
+.sheet,footer{border-radius:14px}
+.case-tag,.case-status,.pf-badge{border-radius:999px}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
 }
@@ -312,8 +319,8 @@ h3{font-family:'Spectral',serif;font-weight:600;font-size:18px;margin-bottom:6px
 p.lead{font-size:17.5px}
 .callout{border-left:4px solid var(--stamp);background:var(--paper);padding:16px 20px;margin:22px 0;max-width:620px;font-size:16px;font-family:'Spectral',serif;font-style:italic}
 .callout .cl-k{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--stamp);display:block;margin-bottom:6px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2px;background:var(--line);border:1px solid var(--line);margin-top:20px}
-.grid-item{background:var(--panel);padding:18px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:20px}
+.grid-item{background:var(--panel);padding:18px 20px;border:1px solid var(--line)}
 .grid-item .num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.08em;display:block;margin-bottom:6px}
 .grid-item h3{margin-bottom:4px}
 .grid-item p{font-size:14px;margin-bottom:0;color:var(--ink-soft);max-width:none}
@@ -323,8 +330,8 @@ a.grid-item:hover h3{color:var(--blue)}
 .grid-services .grid-item{grid-column:span 2;display:flex;flex-direction:column}
 .grid-services .grid-item p{flex:1}
 .grid .more{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--blue);transition:transform .15s}
-.grid a.grid-item{transition:background .15s,box-shadow .15s}
-.grid a.grid-item:hover{background:var(--paper);box-shadow:inset 3px 0 0 var(--blue)}
+.grid a.grid-item{transition:border-color .15s,transform .15s,box-shadow .15s}
+.grid a.grid-item:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 6px 18px rgba(27,32,39,.08)}
 .grid a.grid-item:hover .more{transform:translateX(4px)}
 @media(max-width:680px){.grid-services{grid-template-columns:1fr}.grid-services .grid-item{grid-column:auto}}
 .section-more{margin-top:22px}
@@ -370,6 +377,35 @@ footer a:hover{color:var(--blue);text-decoration:underline}
 .form-status.error{color:#E08585}
 .form-divider{margin:28px 0 6px;color:#8A93A0;font-size:13px}
 .closing-cta .alt{margin:16px 0 0;font-size:14px}
+.hero-trust{margin:16px 0 0;font-size:14px}
+.sit4{grid-template-columns:repeat(2,1fr)}
+.clients{padding:22px 32px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.clients-label{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.clients-logos{display:flex;align-items:center;gap:36px;flex-wrap:wrap}
+.clients-logos img{height:32px;width:auto;max-width:220px;object-fit:contain}
+.clients-logos > img,.clients-fd{filter:grayscale(1);opacity:.7;transition:filter .2s,opacity .2s}
+.clients-logos > img:hover,.clients-fd:hover{filter:none;opacity:1}
+.clients-fd{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:var(--ink)}
+.case-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);padding:4px 10px}
+.case-status{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;margin-top:12px;border:1px solid var(--line)}
+.case-status.st-ok{background:#E6F1EA;color:#2F6B45;border-color:#9CC5AB}
+.case-status.st-spec{background:#E7EEF6;color:var(--blue-deep);border-color:#9DB6D2}
+.case-status.st-wip{background:#FBF3DF;color:#7A5A12;border-color:#E2C97F}
+.case-status.st-con{background:#EEEFEA;color:var(--ink-soft);border-color:var(--line)}
+.pf{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:20px}
+.pf-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--blue);color:inherit;text-decoration:none;transition:border-color .15s,transform .15s,box-shadow .15s}
+.pf-card:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 6px 18px rgba(27,32,39,.08)}
+.pf-card.learn{border-top-color:#3E7A55}.pf-card.spec{border-top-color:var(--stamp)}.pf-card.own{border-top-color:var(--ink-soft)}
+.pf-shot{position:relative;aspect-ratio:16/9;background:var(--paper);border-bottom:1px solid var(--line-soft);overflow:hidden}
+.pf-shot img,.pf-shot svg{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.pf-badge{position:absolute;top:8px;right:8px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;background:var(--panel);border:1px solid var(--line);padding:3px 8px}
+.pf-body{display:flex;flex-direction:column;flex:1;padding:14px 16px 16px}
+.pf-body h3{margin-bottom:4px}
+.pf-body p{font-size:14px;color:var(--ink-soft);margin:0 0 10px;flex:1}
+.pf-foot{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.pf-foot .case-tag,.pf-foot .case-status{margin:0;font-size:10.5px;padding:3px 8px}
+.pf-foot .case-status{font-weight:600;border-width:1px;border-style:solid}
+.pf-more{margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue)}
 .closing-cta .alt a{color:#EDEFF2}
 @media(max-width:680px){
  .topnav-links{gap:14px;font-size:12px}
@@ -380,6 +416,9 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  .hero-photo{width:96px;height:96px}
  .hero-cta{flex-direction:column}
  .hero-cta a{text-align:center}
+ .sit4{grid-template-columns:1fr}
+ .clients{padding:18px 20px;gap:14px}
+ .clients-logos{gap:24px}
 }
 </style>
 <link rel="canonical" href="https://kholomyanskiy.com/ru/">
@@ -444,29 +483,132 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <h1 data-i18n="hero.name">Артём Холомянский</h1>
  <p class="sub" data-i18n="hero.sub">Бизнес-аналитик на стороне заказчика: аудит процессов, спецификация, надзор за реализацией. Искусственный интеллект становится полезным только тогда, когда задача описана достаточно точно.</p>
  <div class="hero-cta">
- <a class="primary" href="#contact" data-i18n="hero.cta_primary">Обсудить задачу</a>
- <a class="secondary" href="/ru/portfolio.html" data-i18n="hero.cta_secondary">Смотреть проекты</a>
+ <a class="primary" href="#contact" data-i18n="hero.cta_primary">Обсудить задачу · 30 минут бесплатно</a>
+ <a class="secondary" href="#experience" data-i18n="hero.cta_secondary">Опыт и проекты</a>
  <a class="secondary" href="/ru/training.html" data-i18n="hero.cta_train">Обучение на задачах</a>
- <a class="secondary" href="/ru/kalkulator.html" data-i18n="hero.cta_calc">Посчитать эффект</a>
- <a class="secondary" href="/files/CV_Artem_Kholomianskyi.pdf" download data-i18n="hero.cta_cv">Скачать CV</a>
  </div>
+ <p class="muted hero-trust" data-i18n="hero.trust">11+ лет в enterprise IT · Эльблонг и удалённо · польский, русский, украинский</p>
  </div>
  <img class="hero-photo" src="/img/photo-hero-150.webp" srcset="/img/photo-hero-150.webp 1x, /img/photo-hero-300.webp 2x" width="150" height="150" alt="Artem Kholomyanskiy, AI consultant">
  </div>
  </header>
 
- <section>
- <span class="secnum">1.0 // <span data-i18n="approach.secnum">ПОДХОД</span></span>
- <p class="lead" data-i18n="approach.lead">Начинаю с анализа процессов, затем проектирую решение и сопровождаю внедрение до получения стабильного результата.</p>
- <p class="muted" data-i18n="approach.exp">11+ лет в enterprise IT энергетического сектора на стороне заказчика, в роли бизнес-аналитика и проектного менеджера. SAP IS-U, SCADA, АСКУЭ, проекты с высокой стоимостью ошибки и жёсткими требованиями к качеству. Работал с проектами компании суммарным бюджетом более $10 млн. Использую современные AI-инструменты и платформы автоматизации: Claude, Claude Code, n8n, API-интеграции и другие технологии, подходящие под конкретную задачу.</p>
- <div class="callout">
- <span class="cl-k" data-i18n="approach.philosophy_label">Философия</span>
- <span data-i18n="approach.philosophy">Большинство проблем при внедрении ИИ начинаются с недостаточно чётко описанной задачи и процесса.</span>
+ <div class="clients">
+ <span class="clients-label" data-i18n="clients.label">Нам доверяют</span>
+ <div class="clients-logos">
+ <img src="/img/clients/gcg-partners.svg" width="238" height="32" loading="lazy" alt="GCG Partners">
+ <img src="/img/clients/lumo.svg" width="50" height="32" loading="lazy" alt="LuMo">
+ <span class="clients-fd"><img src="/img/clients/fresh-decor.png" width="32" height="32" loading="lazy" alt="Fresh Decor"><span>Fresh Decor</span></span>
+ </div>
+ </div>
+
+ <section id="situations">
+ <span class="secnum">1.0 // <span data-i18n="sit.secnum">С ЧЕМ ПРИХОДЯТ</span></span>
+ <h2 data-i18n="sit.title">С какой задачей можно обратиться</h2>
+ <p data-i18n="sit.intro">Задача описывается так, чтобы результат можно было проверить: что отдать ИИ, сколько это стоит и по каким критериям принимать работу. Это касается и нового внедрения, и инструментов, которые уже куплены, но пока не дают результата.</p>
+ <div class="grid sit4">
+ <a class="grid-item" href="/ru/audit.html"><span class="num">01</span><h3 data-i18n="sit.c1.h">«Много ручной работы, и непонятно, что из неё отдать ИИ»</h3><p data-i18n="sit.c1.p">Аудит процессов: разбор рабочего времени отдела и повторяющихся операций. На выходе карта задач, расчёт высвобождаемых часов и приоритеты внедрения.</p><span class="more" data-i18n="sit.c1.more">Аудит процессов →</span></a>
+ <a class="grid-item" href="/ru/metodichka.html"><span class="num">02</span><h3 data-i18n="sit.c2.h">«ИИ уже внедрили, а сотрудники не получают от него пользы»</h3><p data-i18n="sit.c2.p">В компании есть ChatGPT, корпоративный помощник или поиск по документам, но им пользуются от случая к случаю: нет рабочих сценариев и правил. По методике «ИИ в отделе»: разбор задач отдела, сценарии по ролям, инструкции, обучение сотрудников и критерии оценки эффекта.</p><span class="more" data-i18n="sit.c2.more">Методика «ИИ в отделе» →</span></a>
+ <a class="grid-item" href="/ru/consulting.html"><span class="num">03</span><h3 data-i18n="sit.c3.h">«Подрядчик предлагает внедрить ИИ, а проверить предложение некому»</h3><p data-i18n="sit.c3.p">Независимая оценка предложения: требования, стоимость, риски, критерии приёмки. Если работу заказывать, спецификация и приёмка по ней.</p><span class="more" data-i18n="sit.c3.more">Консультации →</span></a>
+ <a class="grid-item" href="/ru/training.html"><span class="num">04</span><h3 data-i18n="sit.c4.h">«Хочется самому применять ChatGPT или Claude в своей работе»</h3><p data-i18n="sit.c4.p">Обучение на задачах: решение вы строите сами на своих материалах, консультант ведёт.</p><span class="more" data-i18n="sit.c4.more">Обучение →</span></a>
+ </div>
+ <p class="section-more"><a href="/ru/services.html" data-i18n="sit.more">Все шесть услуг →</a></p>
+ </section>
+
+ <section id="experience">
+ <span class="secnum">2.0 // <span data-i18n="exp.secnum">ОПЫТ</span></span>
+ <h2 data-i18n="exp.title">Опыт на стороне заказчика</h2>
+ <p data-i18n="exp.p">Бизнес-анализ и управление проектами на стороне заказчика: более 11 лет в корпоративных IT-проектах энергетики (SAP IS-U, SCADA, АСКУЭ). Требования, согласование процессов, работа с подрядчиками и приёмка решений; участие в проектах с совокупными бюджетами более $10 млн. Этот опыт применяется при проектировании решений с ИИ: от постановки задачи до проверяемых требований и критериев приёмки.</p>
+ <p class="muted" data-i18n="exp.teams">Командам и software house: подключение к проекту бизнес-аналитиком со стороны бизнеса.</p>
+ <div class="hero-cta">
+ <a class="secondary" href="/ru/portfolio.html#enterprise-experience" data-i18n="exp.cta_pf">Опыт в портфолио</a>
+ <a class="secondary" href="/files/CV_Artem_Kholomianskyi.pdf" download data-i18n="exp.cta_cv">Скачать CV</a>
  </div>
  </section>
 
+ <section id="portfolio">
+ <span class="secnum">3.0 // <span data-i18n="portfolio.secnum">ПОРТФОЛИО</span></span>
+ <h2 data-i18n="portfolio.title">Проекты, спецификации и практические решения</h2>
+ <div class="pf">
+ <a class="pf-card learn" href="/ru/case-recruitment.html">
+ <div class="pf-shot">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 336" width="100%" height="100%" role="img" aria-label="Сводка встречи: было и стало" font-family="JetBrains Mono, monospace" font-size="13">
+ <defs>
+ <marker id="pc-k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2027"/></marker>
+ <marker id="pc-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2B5B8A"/></marker>
+ </defs>
+ <text x="140" y="26" text-anchor="middle" fill="#4A5361" font-size="12" letter-spacing="1.5">БЫЛО</text>
+ <text x="420" y="26" text-anchor="middle" fill="#2B5B8A" font-size="12" letter-spacing="1.5">СТАЛО</text>
+ <rect x="20" y="44" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+ <text x="140" y="73" text-anchor="middle" fill="#4A5361">Встреча</text>
+ <line x1="140" y1="92" x2="140" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#pc-k)"/>
+ <rect x="20" y="120" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+ <text x="140" y="149" text-anchor="middle" fill="#4A5361">Найти транскрипцию</text>
+ <line x1="140" y1="168" x2="140" y2="194" stroke="#1B2027" stroke-width="1.5" marker-end="url(#pc-k)"/>
+ <rect x="20" y="196" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+ <text x="140" y="225" text-anchor="middle" fill="#4A5361">Скопировать в чат</text>
+ <line x1="140" y1="244" x2="140" y2="270" stroke="#1B2027" stroke-width="1.5" marker-end="url(#pc-k)"/>
+ <rect x="20" y="272" width="240" height="48" fill="none" stroke="#C9CEC2" stroke-width="1.5"/>
+ <text x="140" y="293" text-anchor="middle" fill="#4A5361">Собрать сводку</text>
+ <text x="140" y="309" text-anchor="middle" fill="#4A5361">вручную</text>
+ <rect x="300" y="44" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+ <text x="420" y="73" text-anchor="middle" fill="#1B2027">Встреча</text>
+ <line x1="420" y1="92" x2="420" y2="118" stroke="#1B2027" stroke-width="1.5" marker-end="url(#pc-k)"/>
+ <rect x="300" y="120" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+ <text x="420" y="149" text-anchor="middle" fill="#1B2027">Транскрипция</text>
+ <line x1="420" y1="168" x2="420" y2="194" stroke="#1B2027" stroke-width="1.5" marker-end="url(#pc-k)"/>
+ <rect x="300" y="196" width="240" height="48" fill="none" stroke="#2B5B8A" stroke-width="1.5"/>
+ <text x="420" y="225" text-anchor="middle" fill="#2B5B8A">Одна команда</text>
+ <line x1="420" y1="244" x2="420" y2="270" stroke="#1B2027" stroke-width="1.5" marker-end="url(#pc-k)"/>
+ <rect x="300" y="272" width="240" height="48" fill="none" stroke="#1B2027" stroke-width="1.5"/>
+ <text x="420" y="293" text-anchor="middle" fill="#1B2027">Сводка в папке</text>
+ <text x="420" y="309" text-anchor="middle" fill="#1B2027">проекта</text>
+ </svg>
+ <span class="pf-badge" data-i18n="pf.f_learn">Обучение</span>
+ </div>
+ <div class="pf-body"><h3 data-i18n="portfolio.p6.h">Подбор персонала</h3><p data-i18n="portfolio.p6.p">Первые автоматизации в Claude Code на сессиях обучения.</p><div class="pf-foot"><span class="case-tag">Claude Code</span><span class="case-status st-wip" data-i18n="pf.st6">В работе</span></div><span class="pf-more" data-i18n="pf.more_case">Читать кейс →</span></div>
+ </a>
+ <a class="pf-card" href="/ru/case-esowa.html">
+ <div class="pf-shot">
+ <img src="/img/portfolio-esowa-kpi-bot.webp" srcset="/img/portfolio-esowa-kpi-bot.webp 640w, /img/portfolio-esowa-kpi-bot@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 280px" width="640" height="579" loading="lazy" alt="">
+ <span class="pf-badge" data-i18n="pf.f_impl">Внедрение</span>
+ </div>
+ <div class="pf-body"><h3>eSowa KPI Bot</h3><p data-i18n="portfolio.p3.p">Телеграм-бот: ежедневная сводка выработки механиков из eSowa.</p><div class="pf-foot"><span class="case-tag">Telegram Bot</span><span class="case-status st-ok" data-i18n="pf.st3">Готов к установке</span></div><span class="pf-more" data-i18n="pf.more_case">Читать кейс →</span></div>
+ </a>
+ <a class="pf-card" href="/ru/case-decor-engine.html">
+ <div class="pf-shot">
+ <img src="/img/portfolio-decor-engine.webp" srcset="/img/portfolio-decor-engine.webp 640w, /img/portfolio-decor-engine@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 280px" width="640" height="313" loading="lazy" alt="">
+ <span class="pf-badge" data-i18n="pf.f_impl">Внедрение</span>
+ </div>
+ <div class="pf-body"><h3>Decor Engine</h3><p data-i18n="portfolio.p5.p">Генерация и проверка карточек товаров для Prom.ua и WooCommerce.</p><div class="pf-foot"><span class="case-tag">Prom.ua</span><span class="case-tag">WooCommerce</span><span class="case-status st-ok" data-i18n="pf.st5">Этап 1 передан</span></div><span class="pf-more" data-i18n="pf.more_case">Читать кейс →</span></div>
+ </a>
+ <a class="pf-card spec" href="/ru/case-lombardpro.html">
+ <div class="pf-shot">
+ <img src="/img/portfolio-lombardpro.webp" srcset="/img/portfolio-lombardpro.webp 640w, /img/portfolio-lombardpro@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 280px" width="640" height="1186" loading="lazy" alt="">
+ <span class="pf-badge" data-i18n="pf.f_spec">Спецификация</span>
+ </div>
+ <div class="pf-body"><h3>LombardPRO</h3><p data-i18n="portfolio.p2.p">Обследование сети ломбардов, концепция и спецификация.</p><div class="pf-foot"><span class="case-tag">PawnExpert</span><span class="case-tag">Telegram Bot</span><span class="case-status st-spec" data-i18n="pf.st2">Спецификация готова</span></div><span class="pf-more" data-i18n="pf.more_case">Читать кейс →</span></div>
+ </a>
+ <a class="pf-card own" href="/ru/portfolio.html">
+ <div class="pf-shot">
+ <img src="/img/portfolio-solo-founder-os.webp" srcset="/img/portfolio-solo-founder-os.webp 640w, /img/portfolio-solo-founder-os@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 280px" width="640" height="450" loading="lazy" alt="">
+ <span class="pf-badge" data-i18n="pf.f_own">Свой продукт</span>
+ </div>
+ <div class="pf-body"><h3>Solo Founder OS</h3><p data-i18n="portfolio.p1.p">Виртуальная команда агентов над Claude Code.</p><div class="pf-foot"><span class="case-tag">Claude Code</span><span class="case-tag">Node.js</span><span class="case-status st-wip" data-i18n="pf.st1">MVP, используется</span></div><span class="pf-more" data-i18n="pf.more_pf">В портфолио →</span></div>
+ </a>
+ <a class="pf-card own" href="/ru/portfolio.html">
+ <div class="pf-shot">
+ <img src="/img/portfolio-ela-city-bot.webp" srcset="/img/portfolio-ela-city-bot.webp 640w, /img/portfolio-ela-city-bot@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 280px" width="640" height="973" loading="lazy" alt="">
+ <span class="pf-badge" data-i18n="pf.f_concept">Концепт</span>
+ </div>
+ <div class="pf-body"><h3>ELA City Bot</h3><p data-i18n="portfolio.p4.p">Городской ассистент Эльблонга в Telegram.</p><div class="pf-foot"><span class="case-tag">Telegram Bot</span><span class="case-status st-con" data-i18n="pf.st4">Концепт</span></div><span class="pf-more" data-i18n="pf.more_pf">В портфолио →</span></div>
+ </a>
+ </div>
+ <p class="section-more"><a href="/ru/portfolio.html" data-i18n="portfolio.more">Всё портфолио →</a></p>
+ </section>
+
  <section id="services">
- <span class="secnum">2.0 // <span data-i18n="services.secnum">УСЛУГИ</span></span>
+ <span class="secnum">4.0 // <span data-i18n="services.secnum">УСЛУГИ</span></span>
  <h2 data-i18n="services.title">Услуги: от первого разговора до работающего решения</h2>
  <div class="grid grid-services">
  <a class="grid-item" href="/ru/consulting.html"><span class="num">01</span><h3 data-i18n="services.s5.h">Консультации</h3><p data-i18n="services.s5.p">Ответ на вопрос об ИИ: стоит ли автоматизировать, с чего начать, как оценить предложение подрядчика.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
@@ -474,34 +616,16 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <a class="grid-item" href="/ru/audit.html"><span class="num">03</span><h3 data-i18n="services.s1.h">Аудит процессов перед внедрением AI</h3><p data-i18n="services.s1.p">Фотография рабочей недели и карта задач: что автоматизировать, что оставить людям, сколько часов высвобождается.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
  <a class="grid-item" href="/ru/solution-design.html"><span class="num">04</span><h3 data-i18n="services.s2.h">Проектирование AI-решений</h3><p data-i18n="services.s2.p">Какое решение выбрать под задачу фирмы: сравнение вариантов от готового сервиса до своей разработки и рекомендация.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
  <a class="grid-item" href="/ru/spec.html"><span class="num">05</span><h3 data-i18n="services.s3.h">AI-спецификация (ТЗ для ИИ)</h3><p data-i18n="services.s3.p">Документ, по которому подрядчик или ИИ-агент строит решение предсказуемо, с проверяемым результатом.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
- <a class="grid-item" href="/ru/implementation.html"><span class="num">06</span><h3 data-i18n="services.s4.h">Внедрение AI-решения</h3><p data-i18n="services.s4.p">Автоматизация по спецификации, от простых связок до цепочек агентов, с приёмкой по критериям и сопровождением.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
+ <a class="grid-item" href="/ru/implementation.html"><span class="num">06</span><h3 data-i18n="services.s4.h">Внедрение AI-решения</h3><p data-i18n="services.s4.p">Автоматизация по спецификации: небольшие решения делаются самостоятельно, для крупных привлекаются профильные исполнители. Приёмка по критериям, сопровождение в согласованном объёме.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
  </div>
  <p class="section-more"><a href="/ru/services.html" data-i18n="services.more">Все услуги →</a></p>
  </section>
 
  <section>
- <span class="secnum">3.0 // <span data-i18n="audience.secnum">ДЛЯ КОГО</span></span>
- <h2 data-i18n="audience.title">Для кого</h2>
- <p data-i18n="audience.p1">Компании и команды, которые хотят внедрить ИИ в реальные рабочие процессы.</p>
- <p class="muted" data-i18n="audience.p2">Подходит: владельцам малого и среднего бизнеса, руководителям отделов, компаниям, которые готовятся к внедрению ИИ, командам с большим объёмом ручной работы с информацией.</p>
  <div class="mid-cta">
  <p data-i18n="midcta.text">Готовы посмотреть, где в вашем отделе можно сэкономить время? Коротко опишите задачу, в ответ придёт приглашение на бесплатный 30-минутный разговор.</p>
  <a class="btn2" href="#contact" data-i18n="midcta.btn">Написать →</a>
  </div>
- </section>
-
- <section id="portfolio">
- <span class="secnum">4.0 // <span data-i18n="portfolio.secnum">ПОРТФОЛИО</span></span>
- <h2 data-i18n="portfolio.title">Практические примеры AI-решений</h2>
- <div class="grid">
- <a class="grid-item" href="/ru/case-recruitment.html"><span class="num">01</span><h3 data-i18n="portfolio.p6.h">Подбор персонала</h3><p data-i18n="portfolio.p6.p">Первые автоматизации в Claude Code на сессиях обучения.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
- <a class="grid-item" href="/ru/case-esowa.html"><span class="num">02</span><h3>eSowa KPI Bot</h3><p data-i18n="portfolio.p3.p">Телеграм-бот для KPI</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
- <a class="grid-item" href="/ru/case-decor-engine.html"><span class="num">03</span><h3>Decor Engine</h3><p data-i18n="portfolio.p5.p">Карточки товаров для Prom.ua</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
- <a class="grid-item" href="/ru/case-lombardpro.html"><span class="num">04</span><h3>LombardPRO</h3><p data-i18n="portfolio.p2.p">Спецификация для сети ломбардов</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
- <div class="grid-item"><span class="num">05</span><h3>Solo Founder OS</h3><p data-i18n="portfolio.p1.p">Виртуальная команда над Claude Code</p></div>
- <div class="grid-item"><span class="num">06</span><h3>ELA City Bot</h3><p data-i18n="portfolio.p4.p">Городской ассистент</p></div>
- </div>
- <p class="section-more"><a href="/ru/portfolio.html" data-i18n="portfolio.more">Всё портфолио →</a></p>
  </section>
 
  <section>
@@ -532,16 +656,8 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  </div>
  </section>
 
- <section>
- <span class="secnum">6.0 // <span data-i18n="why.secnum">ПОЧЕМУ Я ЭТИМ ЗАНИМАЮСЬ</span></span>
- <h2 data-i18n="why.title">Откуда этот интерес</h2>
- <p data-i18n="why.p1">Мне всегда было интересно искать способы сделать процессы проще и удобнее. Ещё до появления современных AI-инструментов я постоянно замечал повторяющиеся действия, лишние шаги и неудобные процессы, которые можно было изменить. От бытовых мелочей до рабочих систем: если действие повторяется регулярно, обычно есть возможность сделать его проще или эффективнее.</p>
- <p data-i18n="why.p2">В бизнесе происходит то же самое. Сотрудники каждый день выполняют множество повторяющихся операций: ищут информацию, обрабатывают письма, заполняют документы, готовят отчёты, переносят данные между системами. Мне интересно находить такие места, где процесс можно сделать проще, быстрее и надёжнее.</p>
- <p data-i18n="why.p3">Опыт в enterprise IT научил меня подходить к этому системно: сначала понять задачу, затем описать процесс и только после этого выбирать технологию. Сегодня искусственный интеллект стал следующим этапом развития этого подхода. Он позволяет создавать системы, которые берут на себя рутину и освобождают время для решений, где действительно нужен человек.</p>
- </section>
-
  <section id="products">
- <span class="secnum">7.0 // <span data-i18n="products.secnum">ПРОДУКТЫ</span></span>
+ <span class="secnum">6.0 // <span data-i18n="products.secnum">ПРОДУКТЫ</span></span>
  <h2 data-i18n="products.title">Что можно получить сразу</h2>
  <div class="grid grid-services">
  <a class="grid-item" href="/ru/anss.html"><span class="num">01</span><h3>ANSS Standard</h3><p data-i18n="products.p1.p">Открытый стандарт ТЗ для разработки с ИИ-агентами и навык для Claude</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
@@ -552,7 +668,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  </section>
 
  <section>
- <span class="secnum">8.0 // <span data-i18n="faq.secnum">FAQ</span></span>
+ <span class="secnum">7.0 // <span data-i18n="faq.secnum">FAQ</span></span>
  <h2 data-i18n="faq.title">Частые вопросы</h2>
  <div class="accordion" id="faq-accordion">
  <div class="acc-item">
@@ -569,7 +685,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  </div>
  <div class="acc-item">
  <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-9"><span data-i18n="faq.q4.h">С какими инструментами вы работаете?</span><span class="acc-plus">+</span></button>
- <div class="acc-body" id="acc-9"><div class="acc-body-inner" data-i18n="faq.q4.p">Claude, Claude Code, n8n, прямые интеграции через API моделей. Набор инструментов подбирается под задачу.</div></div>
+ <div class="acc-body" id="acc-9"><div class="acc-body-inner" data-i18n="faq.q4.p">Claude, Claude Code, прямые интеграции через API моделей. Набор инструментов подбирается под задачу.</div></div>
  </div>
  <div class="acc-item">
  <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-10"><span data-i18n="faq.q5.h">Сколько стоит аудит?</span><span class="acc-plus">+</span></button>
@@ -583,7 +699,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  </section>
 
  <section id="articles">
- <span class="secnum">9.0 // <span data-i18n="articles.secnum">СТАТЬИ</span></span>
+ <span class="secnum">8.0 // <span data-i18n="articles.secnum">СТАТЬИ</span></span>
  <h2 data-i18n="articles.title">Заметки и статьи</h2>
  <p class="muted" data-i18n="articles.p1">Заметки о спецификациях, автоматизации и работе с ИИ.</p>
  <p class="section-more"><a href="/ru/articles.html" data-i18n="articles.more">Все статьи →</a></p>

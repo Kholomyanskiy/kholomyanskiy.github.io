@@ -38,6 +38,13 @@ html{scroll-behavior:smooth}
 .muted{color:var(--ink-soft)}
 .footer-links{display:flex;flex-wrap:wrap;gap:18px}
 .footer-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.grid-item,.pf-card,.nav-drop-list{border-radius:10px}
+.accordion,.mid-cta,.callout{border-radius:10px;overflow:hidden}
+.pf-card{overflow:hidden}
+.hero-cta a,.section-more a,.prod-cta a,.mid-cta a.btn2,.closing-cta a.btn3,.contact-form button,.contact-form input,.contact-form textarea,.lang-switch,.lang-btn{border-radius:8px}
+.hero-photo{border-radius:12px}
+.sheet,footer{border-radius:14px}
+.case-tag,.case-status,.pf-badge{border-radius:999px}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
 }
@@ -208,6 +215,13 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <p class="sub" data-i18n="page.sub">Projekty i przykłady pracy: od analizy procesów i specyfikacji po działające rozwiązania. Każdy ma podany status, żeby było widać, co już działa, a co jest na etapie MVP, testów lub koncepcji.</p>
  </div>
  </header>
+
+ <section>
+ <h2 data-i18n="why.title">Skąd to zainteresowanie</h2>
+ <p data-i18n="why.p1">Zawsze interesowało mnie szukanie sposobów, by procesy były prostsze i wygodniejsze. Jeszcze przed pojawieniem się nowoczesnych narzędzi AI zauważałem powtarzalne czynności, zbędne kroki i niewygodne procesy, które dało się zmienić. Od codziennych spraw po systemy pracy: jeśli czynność powtarza się regularnie, zwykle istnieje sposób, by zrobić ją prościej lub efektywniej.</p>
+ <p data-i18n="why.p2">To samo dzieje się w biznesie. Pracownicy codziennie wykonują wiele powtarzalnych czynności: szukają informacji, przetwarzają maile, wypełniają dokumenty, przygotowują raporty, przenoszą dane między systemami. Interesuje mnie znajdowanie miejsc, gdzie proces można zrobić prostszym, szybszym i bardziej niezawodnym.</p>
+ <p data-i18n="why.p3">Doświadczenie w enterprise IT nauczyło mnie podejścia systemowego: najpierw zrozumieć zadanie, potem opisać proces i dopiero wtedy wybrać technologię. Dziś sztuczna inteligencja stała się kolejnym etapem tego podejścia. Pozwala budować systemy, które przejmują rutynę i uwalniają czas na decyzje, w których naprawdę potrzebny jest człowiek.</p>
+ </section>
 
  <section>
  <span class="secnum">01</span>

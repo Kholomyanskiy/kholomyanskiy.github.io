@@ -38,6 +38,13 @@ html{scroll-behavior:smooth}
 .muted{color:var(--ink-soft)}
 .footer-links{display:flex;flex-wrap:wrap;gap:18px}
 .footer-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.grid-item,.pf-card,.nav-drop-list{border-radius:10px}
+.accordion,.mid-cta,.callout{border-radius:10px;overflow:hidden}
+.pf-card{overflow:hidden}
+.hero-cta a,.section-more a,.prod-cta a,.mid-cta a.btn2,.closing-cta a.btn3,.contact-form button,.contact-form input,.contact-form textarea,.lang-switch,.lang-btn{border-radius:8px}
+.hero-photo{border-radius:12px}
+.sheet,footer{border-radius:14px}
+.case-tag,.case-status,.pf-badge{border-radius:999px}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
 }
@@ -208,6 +215,13 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <p class="sub" data-i18n="page.sub">Projects and work samples: from process analysis and specification to working solutions. Each one shows its status, so you can see what already runs and what is still an MVP, in testing or a concept.</p>
  </div>
  </header>
+
+ <section>
+ <h2 data-i18n="why.title">Where this interest comes from</h2>
+ <p data-i18n="why.p1">I&#x27;ve always been interested in finding ways to make processes simpler and more convenient. Even before modern AI tools, I kept noticing repetitive actions, unnecessary steps, and awkward processes that could be changed. From everyday things to work systems: if an action repeats regularly, there&#x27;s usually a way to make it simpler or more efficient.</p>
+ <p data-i18n="why.p2">The same happens in business. Employees perform many repetitive operations every day: searching for information, processing emails, filling out documents, preparing reports, transferring data between systems. I&#x27;m interested in finding the places where a process can be made simpler, faster, and more reliable.</p>
+ <p data-i18n="why.p3">My enterprise IT experience taught me to approach this systematically: first understand the task, then describe the process, and only then choose the technology. Today AI has become the next stage of this approach. It lets you build systems that take over routine work and free up time for decisions where a human is genuinely needed.</p>
+ </section>
 
  <section>
  <span class="secnum">01</span>
