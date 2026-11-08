@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specification for a pawnshop network — EVAI Consulting</title>
+<meta name="description" content="An accounting system specification for three pawnshops on top of PawnExpert: data assessment, five invariants, agent review before any code.">
+<link rel="canonical" href="https://kholomyanskiy.com/case-lombardpro.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Specification for a pawnshop network — EVAI Consulting">
+<meta property="og:description" content="An accounting system specification for three pawnshops on top of PawnExpert: data assessment, five invariants, agent review before any code.">
+<meta property="og:url" content="https://kholomyanskiy.com/case-lombardpro.html">
+<!-- @include head-common -->
+<meta name="twitter:title" content="Specification for a pawnshop network — EVAI Consulting">
+<meta name="twitter:description" content="An accounting system specification for three pawnshops on top of PawnExpert: data assessment, five invariants, agent review before any code.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* @include common.css */
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+@media(max-width:680px){.topnav-links{gap:14px;font-size:12px}}
+/* лист страниц услуг */
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+}
+.sheet{
+  max-width:880px;
+  margin:16px auto 40px;
+  background:var(--panel);
+  border:1.5px solid var(--ink);
+  box-shadow:8px 8px 0 rgba(27,32,39,.08);
+}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-main{padding:44px 28px 36px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;color:var(--ink-soft);font-size:17px}
+section{padding:40px 28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
+.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
+.cta h2{color:#fff}
+footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+@media(max-width:680px){
+  .sheet{margin:8px 12px 32px}
+}
+/* ---------- sections ---------- */
+.steps{counter-reset:st;max-width:620px;margin-top:8px}
+.steps li{list-style:none;counter-increment:st;padding:12px 0 12px 52px;position:relative;border-top:1px solid var(--line)}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);
+  position:absolute;left:0;top:12px;
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue);
+}
+figure{margin:26px 0;max-width:660px}
+figure img{width:100%;height:auto}
+.cta a.btn{
+  display:inline-block;margin-top:10px;
+  font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;
+  color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;
+  padding:13px 26px;text-decoration:none;
+}
+.cta a.btn:hover{background:transparent;color:#EDEFF2}
+.cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
+.footer-links a:hover{color:var(--blue)}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "$t:h1_title",
+  "description": "$t:meta_desc",
+  "datePublished": "2026-11-08",
+  "dateModified": "2026-11-08",
+  "inLanguage": "en",
+  "url": "https://kholomyanskiy.com/case-lombardpro.html",
+  "author": {"@id": "https://kholomyanskiy.com/#person"},
+  "publisher": {"@id": "https://kholomyanskiy.com/#organization"},
+  "image": "https://kholomyanskiy.com/og-image.png"
+}
+</script>
+</head>
+<body>
+
+<!-- @include topnav current=portfolio -->
+
+<div class="sheet">
+
+  <header class="titleblock">
+    <div class="tb-top">
+      <span class="brand">EVAI CONSULTING</span>
+      <span>EVAI-CASE-2026-04 · v1.0</span>
+    </div>
+    <div class="tb-main">
+      <h1 data-i18n-html="h1_title">Accounting system specification for a pawnshop network</h1>
+      <p class="sub" data-i18n="tb_sub">Network of three pawnshops in Ukraine, 2026. Specification ready, rollout postponed.</p>
+    </div>
+  </header>
+
+  <section>
+    <span class="secnum">1.0</span>
+    <h2 data-i18n="s1_h2">The task</h2>
+    <p data-i18n="s1_p">Pledges in the network are registered in PawnExpert: the program is required for reporting to the regulator and stays the main one. Everything else is kept in Excel per branch: cash, metal purchases, sales, the fate of items the client never redeemed. The owner gets a network summary by calling staff. Where an unredeemed item went is not visible right away, and manual records leave room for errors and abuse: cash discrepancies, understated weight at purchase.</p>
+    <figure>
+      <!-- @lang en -->
+      <img src="img/case-lombardpro.webp" srcset="img/case-lombardpro.webp 640w, img/case-lombardpro@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 660px" width="640" height="824" loading="lazy" alt="Staff screen prototype: cash, gold, overdue pledges">
+      <!-- @endlang -->
+      <!-- @lang pl -->
+      <img src="img/case-lombardpro.webp" srcset="img/case-lombardpro.webp 640w, img/case-lombardpro@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 660px" width="640" height="824" loading="lazy" alt="Prototyp ekranu pracownika: kasa, złoto, przeterminowane zastawy">
+      <!-- @endlang -->
+      <!-- @lang ru -->
+      <img src="img/case-lombardpro.webp" srcset="img/case-lombardpro.webp 640w, img/case-lombardpro@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 660px" width="640" height="824" loading="lazy" alt="Прототип экрана сотрудника: касса, золото, просроченные залоги">
+      <!-- @endlang -->
+    </figure>
+  </section>
+
+  <section>
+    <span class="secnum">2.0</span>
+    <h2 data-i18n="s2_h2">Assessment</h2>
+    <p data-i18n="s2_p">Before design, PawnExpert exports and branch Excel sheets were analysed: which fields exist, where the data diverges, what is missing for a summary. The main constraint showed up at once: PawnExpert has no API, so a new system can only read its export. Rules that are not in the data added up to nine questions for the owner, among them the loan-to-valuation limit, staff bonuses and purchase price ranges.</p>
+  </section>
+
+  <section>
+    <span class="secnum">3.0</span>
+    <h2 data-i18n="s3_h2">Specification</h2>
+    <p data-i18n-html="s3_p1">The specification follows the <a href="anss.html">ANSS standard</a>. The system complements PawnExpert: a Telegram bot sends the owner a network summary at 9:00, deadline alerts and buttons to decide what happens to an unredeemed item; a web app gives staff cash, purchases, item tracking and shifts on their phones. The boundaries are written down: PawnExpert is not replaced, the Excel archive is not migrated.</p>
+    <!-- @lang en -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="100%" role="img" aria-label="Diagram: PawnExpert stays the main program and is not replaced; its .xls export is read by the accounting system with two channels: the owner's Telegram bot and the staff web app; under the system, five invariants" font-family="Inter, sans-serif" font-size="13">
+<defs>
+<marker id="lp-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#1B2027" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="lp-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<!-- PawnExpert -->
+<rect x="8" y="40" width="144" height="162" rx="12" fill="none" stroke="#4A5361" stroke-width="1.2" stroke-dasharray="5 5"/>
+<text x="80" y="62" text-anchor="middle" fill="#4A5361" font-family="JetBrains Mono, monospace" font-size="11">not replaced</text>
+<rect x="18" y="80" width="124" height="104" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="80" y="106" text-anchor="middle" fill="#1B2027" font-weight="600">PawnExpert</text>
+<text x="80" y="130" text-anchor="middle" fill="#4A5361" font-size="12">pledges,</text>
+<text x="80" y="146" text-anchor="middle" fill="#4A5361" font-size="12">reporting to</text>
+<text x="80" y="162" text-anchor="middle" fill="#4A5361" font-size="12">the regulator</text>
+<!-- экспорт -->
+<text x="194" y="122" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="11">.xls export</text>
+<line x1="142" y1="132" x2="234" y2="132" stroke="#1B2027" stroke-width="1.5" marker-end="url(#lp-k)"/>
+<!-- система -->
+<rect x="236" y="92" width="94" height="80" rx="10" fill="#2B5B8A" fill-opacity="0.10" stroke="#2B5B8A" stroke-width="1.5"/>
+<text x="283" y="128" text-anchor="middle" fill="#1E4266" font-weight="600">accounting</text>
+<text x="283" y="146" text-anchor="middle" fill="#1E4266" font-weight="600">system</text>
+<line x1="330" y1="116" x2="358" y2="76" stroke="#1B2027" stroke-width="1.5" marker-end="url(#lp-k)"/>
+<line x1="330" y1="148" x2="358" y2="188" stroke="#1B2027" stroke-width="1.5" marker-end="url(#lp-k)"/>
+<!-- каналы -->
+<rect x="360" y="20" width="192" height="104" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="456" y="44" text-anchor="middle" fill="#1B2027" font-weight="600">Telegram bot</text>
+<text x="456" y="62" text-anchor="middle" fill="#4A5361" font-size="12">for the owner</text>
+<text x="456" y="88" text-anchor="middle" fill="#2B5B8A" font-size="12">9:00 summary · alerts</text>
+<text x="456" y="106" text-anchor="middle" fill="#2B5B8A" font-size="12">item route buttons</text>
+<rect x="360" y="140" width="192" height="86" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="456" y="164" text-anchor="middle" fill="#1B2027" font-weight="600">web app</text>
+<text x="456" y="182" text-anchor="middle" fill="#4A5361" font-size="12">for staff</text>
+<text x="456" y="208" text-anchor="middle" fill="#2B5B8A" font-size="12">cash · purchases · shifts</text>
+<!-- инварианты -->
+<line x1="283" y1="172" x2="283" y2="262" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#lp-b)"/>
+<rect x="8" y="264" width="544" height="124" rx="12" fill="#2B5B8A" fill-opacity="0.10"/>
+<text x="280" y="288" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">invariants</text>
+<rect x="94.5" y="302" width="125" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="157" y="322" text-anchor="middle" fill="#2B5B8A" font-size="12">photo required</text>
+<rect x="231.5" y="302" width="118" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="290.5" y="322" text-anchor="middle" fill="#2B5B8A" font-size="12">no duplicates</text>
+<rect x="361.5" y="302" width="104" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="413.5" y="322" text-anchor="middle" fill="#2B5B8A" font-size="12">no deletion</text>
+<rect x="104.5" y="342" width="187" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="198" y="362" text-anchor="middle" fill="#2B5B8A" font-size="12">owner decides the route</text>
+<rect x="303.5" y="342" width="152" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="379.5" y="362" text-anchor="middle" fill="#2B5B8A" font-size="12">price within range</text>
+</svg>
+    <!-- @endlang -->
+    <!-- @lang pl -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="100%" role="img" aria-label="Schemat: PawnExpert pozostaje głównym programem i nie jest zastępowany; jego eksport .xls czyta system ewidencji z dwoma kanałami: botem Telegram właściciela i aplikacją webową pracowników; pod systemem pięć niezmienników" font-family="Inter, sans-serif" font-size="13">
+<defs>
+<marker id="lp-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#1B2027" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="lp-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<!-- PawnExpert -->
+<rect x="8" y="40" width="144" height="162" rx="12" fill="none" stroke="#4A5361" stroke-width="1.2" stroke-dasharray="5 5"/>
+<text x="80" y="62" text-anchor="middle" fill="#4A5361" font-family="JetBrains Mono, monospace" font-size="11">nie jest zastępowany</text>
+<rect x="18" y="80" width="124" height="104" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="80" y="106" text-anchor="middle" fill="#1B2027" font-weight="600">PawnExpert</text>
+<text x="80" y="130" text-anchor="middle" fill="#4A5361" font-size="12">zastawy,</text>
+<text x="80" y="146" text-anchor="middle" fill="#4A5361" font-size="12">sprawozdawczość</text>
+<text x="80" y="162" text-anchor="middle" fill="#4A5361" font-size="12">dla regulatora</text>
+<!-- экспорт -->
+<text x="194" y="122" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="11">eksport .xls</text>
+<line x1="142" y1="132" x2="234" y2="132" stroke="#1B2027" stroke-width="1.5" marker-end="url(#lp-k)"/>
+<!-- система -->
+<rect x="236" y="92" width="94" height="80" rx="10" fill="#2B5B8A" fill-opacity="0.10" stroke="#2B5B8A" stroke-width="1.5"/>
+<text x="283" y="128" text-anchor="middle" fill="#1E4266" font-weight="600">system</text>
+<text x="283" y="146" text-anchor="middle" fill="#1E4266" font-weight="600">ewidencji</text>
+<line x1="330" y1="116" x2="358" y2="76" stroke="#1B2027" stroke-width="1.5" marker-end="url(#lp-k)"/>
+<line x1="330" y1="148" x2="358" y2="188" stroke="#1B2027" stroke-width="1.5" marker-end="url(#lp-k)"/>
+<!-- каналы -->
+<rect x="360" y="20" width="192" height="104" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="456" y="44" text-anchor="middle" fill="#1B2027" font-weight="600">bot Telegram</text>
+<text x="456" y="62" text-anchor="middle" fill="#4A5361" font-size="12">właściciela</text>
+<text x="456" y="88" text-anchor="middle" fill="#2B5B8A" font-size="12">podsumowanie 9:00 · alerty</text>
+<text x="456" y="106" text-anchor="middle" fill="#2B5B8A" font-size="12">przyciski: los przedmiotu</text>
+<rect x="360" y="140" width="192" height="86" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="456" y="164" text-anchor="middle" fill="#1B2027" font-weight="600">aplikacja webowa</text>
+<text x="456" y="182" text-anchor="middle" fill="#4A5361" font-size="12">pracowników</text>
+<text x="456" y="208" text-anchor="middle" fill="#2B5B8A" font-size="12">kasa · skup · zmiany</text>
+<!-- инварианты -->
+<line x1="283" y1="172" x2="283" y2="262" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#lp-b)"/>
+<rect x="8" y="264" width="544" height="124" rx="12" fill="#2B5B8A" fill-opacity="0.10"/>
+<text x="280" y="288" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">niezmienniki</text>
+<rect x="70.5" y="302" width="159" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="150" y="322" text-anchor="middle" fill="#2B5B8A" font-size="12">zdjęcie obowiązkowe</text>
+<rect x="241.5" y="302" width="125" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="304" y="322" text-anchor="middle" fill="#2B5B8A" font-size="12">bez duplikatów</text>
+<rect x="378.5" y="302" width="111" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="434" y="322" text-anchor="middle" fill="#2B5B8A" font-size="12">bez usuwania</text>
+<rect x="94.5" y="342" width="214" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="201.5" y="362" text-anchor="middle" fill="#2B5B8A" font-size="12">kierunek wybiera właściciel</text>
+<rect x="320.5" y="342" width="145" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="393" y="362" text-anchor="middle" fill="#2B5B8A" font-size="12">cena w przedziale</text>
+</svg>
+    <!-- @endlang -->
+    <!-- @lang ru -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="100%" role="img" aria-label="Схема: PawnExpert остаётся основной программой и не заменяется; его экспорт .xls читает система учёта, у которой два канала: Telegram-бот владельца и веб-приложение сотрудников; под системой пять инвариантов" font-family="Inter, sans-serif" font-size="13">
+<defs>
+<marker id="lp-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#1B2027" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="lp-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<!-- PawnExpert -->
+<rect x="8" y="40" width="144" height="162" rx="12" fill="none" stroke="#4A5361" stroke-width="1.2" stroke-dasharray="5 5"/>
+<text x="80" y="62" text-anchor="middle" fill="#4A5361" font-family="JetBrains Mono, monospace" font-size="11">не заменяется</text>
+<rect x="18" y="80" width="124" height="104" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="80" y="106" text-anchor="middle" fill="#1B2027" font-weight="600">PawnExpert</text>
+<text x="80" y="130" text-anchor="middle" fill="#4A5361" font-size="12">залоги,</text>
+<text x="80" y="146" text-anchor="middle" fill="#4A5361" font-size="12">отчётность</text>
+<text x="80" y="162" text-anchor="middle" fill="#4A5361" font-size="12">регулятору</text>
+<!-- экспорт -->
+<text x="194" y="122" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="11">экспорт .xls</text>
+<line x1="142" y1="132" x2="234" y2="132" stroke="#1B2027" stroke-width="1.5" marker-end="url(#lp-k)"/>
+<!-- система -->
+<rect x="236" y="92" width="94" height="80" rx="10" fill="#2B5B8A" fill-opacity="0.10" stroke="#2B5B8A" stroke-width="1.5"/>
+<text x="283" y="128" text-anchor="middle" fill="#1E4266" font-weight="600">система</text>
+<text x="283" y="146" text-anchor="middle" fill="#1E4266" font-weight="600">учёта</text>
+<line x1="330" y1="116" x2="358" y2="76" stroke="#1B2027" stroke-width="1.5" marker-end="url(#lp-k)"/>
+<line x1="330" y1="148" x2="358" y2="188" stroke="#1B2027" stroke-width="1.5" marker-end="url(#lp-k)"/>
+<!-- каналы -->
+<rect x="360" y="20" width="192" height="104" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="456" y="44" text-anchor="middle" fill="#1B2027" font-weight="600">Telegram-бот</text>
+<text x="456" y="62" text-anchor="middle" fill="#4A5361" font-size="12">владельца</text>
+<text x="456" y="88" text-anchor="middle" fill="#2B5B8A" font-size="12">сводка в 9:00 · алерты</text>
+<text x="456" y="106" text-anchor="middle" fill="#2B5B8A" font-size="12">кнопки маршрута изделия</text>
+<rect x="360" y="140" width="192" height="86" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="456" y="164" text-anchor="middle" fill="#1B2027" font-weight="600">веб-приложение</text>
+<text x="456" y="182" text-anchor="middle" fill="#4A5361" font-size="12">сотрудников</text>
+<text x="456" y="208" text-anchor="middle" fill="#2B5B8A" font-size="12">касса · скупка · смены</text>
+<!-- инварианты -->
+<line x1="283" y1="172" x2="283" y2="262" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#lp-b)"/>
+<rect x="8" y="264" width="544" height="124" rx="12" fill="#2B5B8A" fill-opacity="0.10"/>
+<text x="280" y="288" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">инварианты</text>
+<rect x="95" y="302" width="138" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="164" y="322" text-anchor="middle" fill="#2B5B8A" font-size="12">фото обязательно</text>
+<rect x="245" y="302" width="97" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="293.5" y="322" text-anchor="middle" fill="#2B5B8A" font-size="12">без дублей</text>
+<rect x="354" y="302" width="111" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="409.5" y="322" text-anchor="middle" fill="#2B5B8A" font-size="12">без удаления</text>
+<rect x="111.5" y="342" width="187" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="205" y="362" text-anchor="middle" fill="#2B5B8A" font-size="12">маршрут решает владелец</text>
+<rect x="310.5" y="342" width="138" height="30" rx="15" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="379.5" y="362" text-anchor="middle" fill="#2B5B8A" font-size="12">цена в диапазоне</text>
+</svg>
+    <!-- @endlang -->
+    <p data-i18n-html="s3_p2">Five <a href="/glossary/invariant.html">invariants</a> protect what the owner needs the system for. No item is accepted without a photo. One contract cannot be entered twice. Operations are never deleted, only flagged with who did it and why. Only the owner chooses where an unredeemed item goes. A per-gram purchase price outside the range waits for his approval. Every requirement has <a href="/glossary/acceptance-criteria.html">acceptance criteria</a>.</p>
+  </section>
+
+  <section>
+    <span class="secnum">4.0</span>
+    <h2 data-i18n="s4_h2">Review before code</h2>
+    <p data-i18n-html="s4_p">Before development, a Claude Code agent read the specification under one rule: more than three problems, no code. The agent stopped and reported about 15 issues, four of them blocking: no real PawnExpert file to parse, database tables missing although relations already point to them, no formula for the expected cash balance, nothing on what happens to a pledge that disappears from the export. In code, each of them would have meant rework. The anonymised specification and the agent's review are published as <a href="https://github.com/Kholomyanskiy/anss-standard/blob/master/examples/lombard-pro.en.md">an example in the ANSS repository</a>.</p>
+  </section>
+
+  <section>
+    <span class="secnum">5.0</span>
+    <h2 data-i18n="s5_h2">Result</h2>
+    <p data-i18n="s5_p">The data assessment, the specification with the agent review, a staff screen prototype and a staged proposal are ready. The owner postponed the rollout. The system was not built, so there are no measurements.</p>
+  </section>
+
+  <section>
+    <span class="secnum">6.0</span>
+    <h2 data-i18n="s6_h2">What carries over today</h2>
+    <p data-i18n-html="s6_p">When records depend on a program without an API, the <a href="audit.html">assessment</a> starts with what data can be taken out of it and in what form. Invariants fix what the system must never allow. <a href="spec.html">Reviewing the specification</a> with an agent before code catches errors while fixing them costs one line of text.</p>
+  </section>
+
+  <div class="cta">
+    <h2 data-i18n="cta_h2">Discuss a similar task:</h2>
+    <a class="btn" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="cta_btn">free 30-minute call →</a>
+  </div>
+
+</div>
+
+<!-- @include footer -->
+<script>
+var T = {
+  ru: {
+    page_title: "Спецификация для сети ломбардов — EVAI Consulting",
+    meta_desc: "Спецификация системы учёта для сети из трёх ломбардов поверх PawnExpert: обследование данных, пять инвариантов, проверка агентом до кода.",
+    h1_title: "Спецификация системы учёта для сети ломбардов",
+    tb_sub: "Сеть из трёх ломбардов в Украине, 2026. Спецификация готова, внедрение отложено.",
+    s1_h2: "Задача",
+    s1_p: "Залоги в сети оформляются в PawnExpert: программа нужна для отчётности перед регулятором и остаётся основной. Остальной учёт по каждому отделению ведётся в Excel: касса, скупка металла, продажи, судьба изделий, которые клиент не выкупил. Сводку по сети владелец получает звонками сотрудникам. Куда ушло невыкупленное изделие, видно не сразу, а ручной учёт оставляет место для ошибок и злоупотреблений: расхождения в кассе, заниженный вес при скупке.",
+    s2_h2: "Обследование",
+    s2_p: "До проектирования разобраны выгрузки PawnExpert и таблицы Excel отделений: какие поля есть, где данные расходятся, чего не хватает для сводки. Сразу выяснилось главное ограничение: API у PawnExpert нет, новая система может только читать его экспорт. Правил, которых нет в данных, хватило на девять вопросов владельцу, среди них лимит суммы залога к оценке, бонусы сотрудников и диапазоны цен скупки.",
+    s3_h2: "Спецификация",
+    s3_p1: "Спецификация написана по стандарту <a href=\"anss.html\">ANSS</a>. Система дополняет PawnExpert: Telegram-бот присылает владельцу сводку по сети в 9:00, алерты по срокам и кнопки, которыми он решает судьбу невыкупленного изделия; веб-приложение даёт сотрудникам с телефона кассу, скупку, учёт изделий и смены. Границы записаны явно: PawnExpert не заменяется, архив из Excel не переносится.",
+    s3_p2: "Пять <a href=\"/ru/glossary/invariant.html\">инвариантов</a> держат то, ради чего система нужна владельцу. Без фото изделие не принимается. Один договор нельзя завести дважды. Операции не удаляются, только помечаются с указанием, кто и почему. Маршрут невыкупленного изделия выбирает только владелец. Цена скупки за грамм вне диапазона ждёт его подтверждения. У каждого требования есть <a href=\"/ru/glossary/acceptance-criteria.html\">критерии приёмки</a>.",
+    s4_h2: "Проверка до кода",
+    s4_p: "Перед разработкой спецификацию прочитал агент Claude Code с правилом: больше трёх проблем, код не пишется. Агент остановился и выдал около 15 замечаний, четыре из них блокирующие: нет реального файла PawnExpert для разбора, в схеме базы не хватает таблиц, на которые уже ссылаются связи, нет формулы расчётного остатка кассы, не описано, что делать с залогом, который пропал из выгрузки. В коде каждое из них обошлось бы переделкой. Обезличенная спецификация и ответ агента опубликованы как <a href=\"https://github.com/Kholomyanskiy/anss-standard/blob/master/examples/lombard-pro.md\">пример в репозитории ANSS</a>.",
+    s5_h2: "Результат",
+    s5_p: "Готовы разбор данных, спецификация с проверкой агентом, прототип экрана сотрудника и предложение по этапам. Внедрение владелец отложил. Система не строилась, замеров нет.",
+    s6_h2: "Что из этого применяется сейчас",
+    s6_p: "Когда учёт держится на программе без API, <a href=\"audit.html\">обследование</a> начинается с вопроса, какие данные из неё можно получить и в каком виде. Инварианты фиксируют то, что система не должна позволять ни при каких условиях. <a href=\"spec.html\">Проверка спецификации</a> агентом до кода находит ошибки, пока их правка стоит одну строку текста.",
+    cta_h2: "Обсудить похожую задачу:",
+    cta_btn: "бесплатные 30 минут →"
+  },
+  pl: {
+    page_title: "Specyfikacja dla sieci lombardów — EVAI Consulting",
+    meta_desc: "Specyfikacja systemu ewidencji dla trzech lombardów na bazie PawnExpert: analiza danych, pięć niezmienników, przegląd agenta przed kodem.",
+    h1_title: "Specyfikacja systemu ewidencji dla sieci lombardów",
+    tb_sub: "Sieć trzech lombardów na Ukrainie, 2026. Specyfikacja gotowa, wdrożenie odłożone.",
+    s1_h2: "Zadanie",
+    s1_p: "Zastawy w sieci rejestruje się w PawnExpert: program jest potrzebny do sprawozdawczości wobec regulatora i pozostaje głównym. Resztę ewidencji każdy oddział prowadzi w Excelu: kasę, skup metali, sprzedaż, losy przedmiotów, których klient nie wykupił. Podsumowanie sieci właściciel zbiera telefonami do pracowników. Gdzie trafił niewykupiony przedmiot, nie widać od razu, a ręczna ewidencja zostawia miejsce na błędy i nadużycia: rozbieżności w kasie, zaniżoną wagę przy skupie.",
+    s2_h2: "Analiza",
+    s2_p: "Przed projektowaniem przeanalizowano eksporty PawnExpert i arkusze Excel oddziałów: jakie pola są, gdzie dane się rozjeżdżają, czego brakuje do podsumowania. Od razu wyszło główne ograniczenie: PawnExpert nie ma API, więc nowy system może tylko czytać jego eksport. Zasad, których nie ma w danych, starczyło na dziewięć pytań do właściciela, między innymi o limit pożyczki względem wyceny, premie pracowników i przedziały cen skupu.",
+    s3_h2: "Specyfikacja",
+    s3_p1: "Specyfikację napisano według <a href=\"anss.html\">standardu ANSS</a>. System uzupełnia PawnExpert: bot Telegram wysyła właścicielowi podsumowanie sieci o 9:00, alerty o terminach i przyciski, którymi decyduje o losie niewykupionego przedmiotu; aplikacja webowa daje pracownikom na telefonie kasę, skup, ewidencję przedmiotów i zmiany. Granice są zapisane: PawnExpert nie jest zastępowany, archiwum z Excela nie jest przenoszone.",
+    s3_p2: "Pięć <a href=\"/pl/glossary/invariant.html\">niezmienników</a> chroni to, po co właścicielowi ten system. Bez zdjęcia przedmiot nie jest przyjmowany. Jednej umowy nie da się wprowadzić dwa razy. Operacji się nie usuwa, tylko oznacza, kto i dlaczego. Kierunek niewykupionego przedmiotu wybiera tylko właściciel. Cena skupu za gram spoza przedziału czeka na jego zgodę. Każde wymaganie ma <a href=\"/pl/glossary/acceptance-criteria.html\">kryteria odbioru</a>.",
+    s4_h2: "Przegląd przed kodem",
+    s4_p: "Przed rozwojem agent Claude Code przeczytał specyfikację z jedną zasadą: więcej niż trzy problemy, kodu nie ma. Agent się zatrzymał i zgłosił około 15 uwag, cztery blokujące: brak prawdziwego pliku PawnExpert do parsowania, brak tabel w schemacie bazy, choć relacje już na nie wskazują, brak wzoru oczekiwanego salda kasy, brak opisu, co robić z zastawem, który zniknął z eksportu. W kodzie każda z nich oznaczałaby przeróbkę. Zanonimizowana specyfikacja i odpowiedź agenta są opublikowane jako <a href=\"https://github.com/Kholomyanskiy/anss-standard/blob/master/examples/lombard-pro.en.md\">przykład w repozytorium ANSS</a>.",
+    s5_h2: "Wynik",
+    s5_p: "Gotowe są analiza danych, specyfikacja z przeglądem agenta, prototyp ekranu pracownika i oferta etapowa. Właściciel odłożył wdrożenie. Systemu nie zbudowano, pomiarów nie ma.",
+    s6_h2: "Co z tego przydaje się dziś",
+    s6_p: "Gdy ewidencja opiera się na programie bez API, <a href=\"audit.html\">analiza</a> zaczyna się od pytania, jakie dane da się z niego wyciągnąć i w jakiej formie. Niezmienniki ustalają, na co system nie może pozwolić w żadnych warunkach. <a href=\"spec.html\">Przegląd specyfikacji</a> agentem przed kodem wyłapuje błędy, póki ich poprawka kosztuje jedną linijkę tekstu.",
+    cta_h2: "Porozmawiaj o podobnym zadaniu:",
+    cta_btn: "bezpłatna rozmowa 30 minut →"
+  },
+  en: {
+    page_title: "Specification for a pawnshop network — EVAI Consulting",
+    meta_desc: "An accounting system specification for three pawnshops on top of PawnExpert: data assessment, five invariants, agent review before any code.",
+    h1_title: "Accounting system specification for a pawnshop network",
+    tb_sub: "Network of three pawnshops in Ukraine, 2026. Specification ready, rollout postponed.",
+    s1_h2: "The task",
+    s1_p: "Pledges in the network are registered in PawnExpert: the program is required for reporting to the regulator and stays the main one. Everything else is kept in Excel per branch: cash, metal purchases, sales, the fate of items the client never redeemed. The owner gets a network summary by calling staff. Where an unredeemed item went is not visible right away, and manual records leave room for errors and abuse: cash discrepancies, understated weight at purchase.",
+    s2_h2: "Assessment",
+    s2_p: "Before design, PawnExpert exports and branch Excel sheets were analysed: which fields exist, where the data diverges, what is missing for a summary. The main constraint showed up at once: PawnExpert has no API, so a new system can only read its export. Rules that are not in the data added up to nine questions for the owner, among them the loan-to-valuation limit, staff bonuses and purchase price ranges.",
+    s3_h2: "Specification",
+    s3_p1: "The specification follows the <a href=\"anss.html\">ANSS standard</a>. The system complements PawnExpert: a Telegram bot sends the owner a network summary at 9:00, deadline alerts and buttons to decide what happens to an unredeemed item; a web app gives staff cash, purchases, item tracking and shifts on their phones. The boundaries are written down: PawnExpert is not replaced, the Excel archive is not migrated.",
+    s3_p2: "Five <a href=\"/glossary/invariant.html\">invariants</a> protect what the owner needs the system for. No item is accepted without a photo. One contract cannot be entered twice. Operations are never deleted, only flagged with who did it and why. Only the owner chooses where an unredeemed item goes. A per-gram purchase price outside the range waits for his approval. Every requirement has <a href=\"/glossary/acceptance-criteria.html\">acceptance criteria</a>.",
+    s4_h2: "Review before code",
+    s4_p: "Before development, a Claude Code agent read the specification under one rule: more than three problems, no code. The agent stopped and reported about 15 issues, four of them blocking: no real PawnExpert file to parse, database tables missing although relations already point to them, no formula for the expected cash balance, nothing on what happens to a pledge that disappears from the export. In code, each of them would have meant rework. The anonymised specification and the agent's review are published as <a href=\"https://github.com/Kholomyanskiy/anss-standard/blob/master/examples/lombard-pro.en.md\">an example in the ANSS repository</a>.",
+    s5_h2: "Result",
+    s5_p: "The data assessment, the specification with the agent review, a staff screen prototype and a staged proposal are ready. The owner postponed the rollout. The system was not built, so there are no measurements.",
+    s6_h2: "What carries over today",
+    s6_p: "When records depend on a program without an API, the <a href=\"audit.html\">assessment</a> starts with what data can be taken out of it and in what form. Invariants fix what the system must never allow. <a href=\"spec.html\">Reviewing the specification</a> with an agent before code catches errors while fixing them costs one line of text.",
+    cta_h2: "Discuss a similar task:",
+    cta_btn: "free 30-minute call →"
+  }
+};
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.documentElement.lang = lang;
+  if (T[lang].page_title) document.title = T[lang].page_title;
+  var md = document.querySelector('meta[name="description"]');
+  if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
+  localStorage.setItem('site-lang', lang);
+}
+
+(function() {
+  var p = new URLSearchParams(window.location.search);
+  var ul = p.get('lang');
+  if (ul && T[ul]) { setLang(ul); return; }
+  var saved = localStorage.getItem('site-lang');
+  if (saved && T[saved]) setLang(saved);
+})();
+</script>
+
+</body>
+</html>

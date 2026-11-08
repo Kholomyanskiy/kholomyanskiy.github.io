@@ -243,17 +243,18 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <section>
  <span class="secnum">04</span>
  <div class="case-block">
- <div class="case-shot"><img src="img/portfolio-lombardpro.webp" srcset="img/portfolio-lombardpro.webp 640w, img/portfolio-lombardpro@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 704px" loading="lazy" alt="LombardPRO dashboard prototype: cash register, gold, overdue pawns"></div>
+ <div class="case-shot"><img src="img/portfolio-lombardpro.webp" srcset="img/portfolio-lombardpro.webp 640w, img/portfolio-lombardpro@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 704px" loading="lazy" alt="Staff screen prototype: cash, gold, overdue pledges"></div>
  <h3>LombardPRO</h3>
- <p data-i18n="c2.p1">Backend automation for a pawnshop: FastAPI + PostgreSQL + Telegram bot on a Hetzner VPS. Full documentation package: technical spec, scope, commercial proposal, dashboard prototype.</p>
- <p class="muted" data-i18n="c2.p2">Preceded by a data audit of six sources (Excel/PawnExpert) to understand the pawnshop's actual process structure before designing the system.</p>
+ <p data-i18n="c2.p1">A specification of an accounting system for a network of three pawnshops in Ukraine: a Telegram bot with a summary for the owner and a web app for staff on top of PawnExpert.</p>
+ <p class="muted" data-i18n="c2.p2">Before the specification, PawnExpert exports and Excel sheets were analysed. Before any code, an agent reviewed the specification and found about 15 problems, four of them blocking.</p>
  <div class="case-tags">
- <span class="case-tag">FastAPI</span>
- <span class="case-tag">PostgreSQL</span>
+ <span class="case-tag">PawnExpert</span>
  <span class="case-tag">Telegram Bot</span>
- <span class="case-tag">Hetzner</span>
+ <span class="case-tag">FastAPI</span>
+ <span class="case-tag">ANSS</span>
  </div>
- <span class="case-status mvp" data-i18n="c2.status">Pre-project assessment, concept, spec and TOR ready</span>
+ <span class="case-status mvp" data-i18n="c2.status">Specification ready, rollout postponed</span>
+ <div class="case-cta"><a href="case-lombardpro.html" data-i18n="c2.link">Read the case →</a></div>
  </div>
  </section>
 
@@ -332,9 +333,10 @@ const T = {
  "c1.p1":"Node.js WebUI поверх Claude Code с виртуальной командой из 11 агентов: CEO, backend, frontend, DevOps, интегратор, бизнес-аналитик, продажи, QA, SMM, юрист, HR. Каждый агент отвечает за свою роль в разработке и ведении бизнеса соло-фаундера.",
  "c1.p2":"Цель: дать одному человеку возможность вести проект в режиме полноценной команды, не нанимая людей.",
  "c1.status":"MVP, используется",
- "c2.p1":"Автоматизация бэкенда для ломбарда: FastAPI + PostgreSQL + Telegram-бот на Hetzner VPS. Полный пакет документации: техническое задание, границы работ, коммерческое предложение, прототип дашборда.",
- "c2.p2":"Проекту предшествовал аудит данных из шести источников (Excel/PawnExpert), чтобы понять реальную структуру процессов ломбарда перед проектированием системы.",
- "c2.status":"Предпроектное обследование, концепция, ТЗ и спецификация готовы",
+ "c2.p1":"Спецификация системы учёта для сети из трёх ломбардов в Украине: Telegram-бот со сводкой для владельца и веб-приложение для сотрудников поверх PawnExpert.",
+ "c2.p2":"До спецификации разобраны выгрузки PawnExpert и таблицы Excel. Перед кодом спецификацию проверил агент и нашёл около 15 проблем, четыре из них блокирующие.",
+ "c2.status":"Спецификация готова, внедрение отложено",
+ "c2.link":"Читать кейс →",
  "c3.p1":"Телеграм-бот для отслеживания KPI сотрудников: сбор показателей, автоматические сводки, уведомления о статусе выполнения без ручного сведения таблиц.",
  "c3.status":"Готов к установке",
  "c3.link":"Читать кейс →",
@@ -369,9 +371,10 @@ const T = {
  "c1.p1":"WebUI w Node.js na bazie Claude Code z wirtualnym zespołem 11 agentów: CEO, backend, frontend, DevOps, integrator, analityk biznesowy, sprzedaż, QA, SMM, prawnik, HR. Każdy agent odpowiada za swoją rolę w rozwijaniu i prowadzeniu biznesu samodzielnego założyciela.",
  "c1.p2":"Cel: umożliwić jednej osobie prowadzenie projektu tak, jak robiłby to pełny zespół, bez zatrudniania nikogo.",
  "c1.status":"MVP, używane",
- "c2.p1":"Automatyzacja backendu dla lombardu: FastAPI + PostgreSQL + bot na Telegramie na VPS Hetzner. Pełny pakiet dokumentacji: specyfikacja techniczna, zakres prac, oferta handlowa, prototyp dashboardu.",
- "c2.p2":"Projekt poprzedził audyt danych z sześciu źródeł (Excel/PawnExpert), aby zrozumieć rzeczywistą strukturę procesów lombardu przed zaprojektowaniem systemu.",
- "c2.status":"Ocena przedprojektowa, koncepcja, specyfikacja i TOR gotowe",
+ "c2.p1":"Specyfikacja systemu ewidencji dla sieci trzech lombardów na Ukrainie: bot Telegram z podsumowaniem dla właściciela i aplikacja webowa dla pracowników na bazie PawnExpert.",
+ "c2.p2":"Przed specyfikacją przeanalizowano eksporty PawnExpert i arkusze Excel. Przed kodem specyfikację sprawdził agent i znalazł około 15 problemów, cztery z nich blokujące.",
+ "c2.status":"Specyfikacja gotowa, wdrożenie odłożone",
+ "c2.link":"Czytaj case →",
  "c3.p1":"Bot telegramowy do śledzenia KPI pracowników: zbieranie wskaźników, automatyczne podsumowania, powiadomienia o statusie bez ręcznego zestawiania arkuszy.",
  "c3.status":"Gotowy do wdrożenia",
  "c3.link":"Czytaj case →",
@@ -406,9 +409,10 @@ const T = {
  "c1.p1":"A Node.js WebUI on top of Claude Code with a virtual team of 11 agents: CEO, backend, frontend, DevOps, integrator, business analyst, sales, QA, SMM, legal, HR. Each agent owns its role in developing and running a solo founder's business.",
  "c1.p2":"The goal: let one person run a project the way a full team would, without hiring anyone.",
  "c1.status":"MVP, in use",
- "c2.p1":"Backend automation for a pawnshop: FastAPI + PostgreSQL + Telegram bot on a Hetzner VPS. Full documentation package: technical spec, scope, commercial proposal, dashboard prototype.",
- "c2.p2":"Preceded by a data audit of six sources (Excel/PawnExpert) to understand the pawnshop's actual process structure before designing the system.",
- "c2.status":"Pre-project assessment, concept, spec and TOR ready",
+ "c2.p1":"A specification of an accounting system for a network of three pawnshops in Ukraine: a Telegram bot with a summary for the owner and a web app for staff on top of PawnExpert.",
+ "c2.p2":"Before the specification, PawnExpert exports and Excel sheets were analysed. Before any code, an agent reviewed the specification and found about 15 problems, four of them blocking.",
+ "c2.status":"Specification ready, rollout postponed",
+ "c2.link":"Read the case →",
  "c3.p1":"A Telegram bot for tracking employee KPIs: collecting metrics, automatic summaries, status notifications without manually consolidating spreadsheets.",
  "c3.status":"Ready to install",
  "c3.link":"Read the case →",
