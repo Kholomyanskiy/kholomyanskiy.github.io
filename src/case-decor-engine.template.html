@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product card pipeline for Prom.ua — EVAI Consulting</title>
+<meta name="description" content="Supplier Excel price lists become Prom.ua and WooCommerce product cards: SKUs, prices at the NBU rate, Russian and Ukrainian descriptions, checks before export.">
+<link rel="canonical" href="https://kholomyanskiy.com/case-decor-engine.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Product card pipeline for Prom.ua — EVAI Consulting">
+<meta property="og:description" content="Supplier Excel price lists become Prom.ua and WooCommerce product cards: SKUs, prices at the NBU rate, Russian and Ukrainian descriptions, checks before export.">
+<meta property="og:url" content="https://kholomyanskiy.com/case-decor-engine.html">
+<!-- @include head-common -->
+<meta name="twitter:title" content="Product card pipeline for Prom.ua — EVAI Consulting">
+<meta name="twitter:description" content="Supplier Excel price lists become Prom.ua and WooCommerce product cards: SKUs, prices at the NBU rate, Russian and Ukrainian descriptions, checks before export.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* @include common.css */
+.topnav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1.5px solid var(--ink);padding:0}
+.topnav-links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topnav-links a{color:var(--ink-soft);text-decoration:none;letter-spacing:.03em}
+.topnav-links a:hover{color:var(--blue)}
+@media(max-width:680px){.topnav-links{gap:14px;font-size:12px}}
+/* лист страниц услуг */
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+}
+.sheet{
+  max-width:880px;
+  margin:16px auto 40px;
+  background:var(--panel);
+  border:1.5px solid var(--ink);
+  box-shadow:8px 8px 0 rgba(27,32,39,.08);
+}
+.tb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft)}
+.tb-main{padding:44px 28px 36px;position:relative}
+.tb-main h1{font-family:'Spectral',serif;font-weight:700;font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:640px}
+.tb-main h1 em{font-style:normal;color:var(--blue)}
+.tb-main .sub{margin-top:16px;color:var(--ink-soft);font-size:17px}
+section{padding:40px 28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.secnum{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:8px}
+h2{font-family:'Spectral',serif;font-weight:600;font-size:26px;margin-bottom:18px}
+.cta{background:var(--ink);color:#EDEFF2;padding:44px 28px}
+.cta h2{color:#fff}
+footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink-soft);display:flex;flex-direction:column;gap:14px;background:var(--panel);border:1.5px solid var(--ink)}
+@media(max-width:680px){
+  .sheet{margin:8px 12px 32px}
+}
+/* ---------- sections ---------- */
+.steps{counter-reset:st;max-width:620px;margin-top:8px}
+.steps li{list-style:none;counter-increment:st;padding:12px 0 12px 52px;position:relative;border-top:1px solid var(--line)}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);
+  position:absolute;left:0;top:12px;
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue);
+}
+figure{margin:26px 0;max-width:660px}
+figure img{width:100%;height:auto}
+.cta a.btn{
+  display:inline-block;margin-top:10px;
+  font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;
+  color:var(--ink);background:#EDEFF2;border:1.5px solid #EDEFF2;
+  padding:13px 26px;text-decoration:none;
+}
+.cta a.btn:hover{background:transparent;color:#EDEFF2}
+.cta a.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.footer-links a{color:var(--ink);text-decoration:none;letter-spacing:.03em;font-weight:500}
+.footer-links a:hover{color:var(--blue)}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--blue);text-decoration:underline}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "$t:h1_title",
+  "description": "$t:meta_desc",
+  "datePublished": "2026-11-08",
+  "dateModified": "2026-11-08",
+  "inLanguage": "en",
+  "url": "https://kholomyanskiy.com/case-decor-engine.html",
+  "author": {"@id": "https://kholomyanskiy.com/#person"},
+  "publisher": {"@id": "https://kholomyanskiy.com/#organization"},
+  "image": "https://kholomyanskiy.com/og-image.png"
+}
+</script>
+</head>
+<body>
+
+<!-- @include topnav current=portfolio -->
+
+<div class="sheet">
+
+  <header class="titleblock">
+    <div class="tb-top">
+      <span class="brand">EVAI CONSULTING</span>
+      <span>EVAI-CASE-2026-03 · v1.0</span>
+    </div>
+    <div class="tb-main">
+      <h1 data-i18n-html="h1_title">Product card pipeline for Prom.ua</h1>
+      <p class="sub" data-i18n="tb_sub">Decor and tableware e-commerce store in Ukraine, 2026. Stage 1 delivered.</p>
+    </div>
+  </header>
+
+  <section>
+    <span class="secnum">1.0</span>
+    <h2 data-i18n="s1_h2">The task</h2>
+    <p data-i18n="s1_p1">The store sells and rents out decor, tableware and furniture: about 1,500 products on Prom.ua and a WordPress site. New products arrive as supplier price lists in Excel. Every card was created by hand: find the product by its picture, come up with a name, translate it into Ukrainian, calculate the price, fill in the attributes. The assessment estimated at least 40 minutes per card.</p>
+    <p data-i18n-html="s1_p2">The <a href="audit.html">assessment</a> found three more manual areas: Ukrainian on the website as required by law, rental tracking, and market research before purchasing. The work was split into stages, each delivered separately. The card pipeline came first as the most time-consuming.</p>
+  </section>
+
+  <section>
+    <span class="secnum">2.0</span>
+    <h2 data-i18n="s2_h2">What was done</h2>
+    <p data-i18n="s2_p1">The pipeline is written in Python with a Streamlit interface and starts with a double click on the client's computer. The three suppliers' price lists differ: photos embedded in the file, Alibaba links instead of photos, colour inside the description text. Each format got its own parser. Columns are matched through a synonym dictionary, so a typo in a price list header does not break parsing.</p>
+    <figure>
+      <!-- @lang en -->
+      <img src="img/portfolio-decor-engine.webp" srcset="img/portfolio-decor-engine.webp 640w, img/portfolio-decor-engine@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 660px" width="640" height="313" loading="lazy" alt="Pipeline interface: product table with prices and check status">
+      <!-- @endlang -->
+      <!-- @lang pl -->
+      <img src="img/portfolio-decor-engine.webp" srcset="img/portfolio-decor-engine.webp 640w, img/portfolio-decor-engine@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 660px" width="640" height="313" loading="lazy" alt="Interfejs potoku: tabela produktów z cenami i statusem kontroli">
+      <!-- @endlang -->
+      <!-- @lang ru -->
+      <img src="img/portfolio-decor-engine.webp" srcset="img/portfolio-decor-engine.webp 640w, img/portfolio-decor-engine@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 660px" width="640" height="313" loading="lazy" alt="Интерфейс конвейера: таблица товаров с ценами и статусом проверки">
+      <!-- @endlang -->
+    </figure>
+    <p data-i18n="s2_p2">Every product gets an SKU with a category prefix, and the code is kept when the same product arrives again. Ten categories are mapped to Prom.ua attributes. The price is calculated from purchase cost, delivery, the NBU exchange rate and margin, with settings editable in the interface. Names, descriptions and search queries in Russian and Ukrainian are written by an LLM (Claude or the free Gemini Flash); when a price list has no product name, the product is identified from its photo. Before export, a check shows blocking errors and warnings. The output is a Prom.ua import file and a WooCommerce CSV. Upload to Prom.ua is done by a person, which makes the first iteration easier to check and roll back.</p>
+    <!-- @lang en -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 530" width="100%" role="img" aria-label="Pipeline: from a supplier price list in Excel to a Prom.ua import file uploaded by a person, with a loop from a text defect to a fix in the generation code and a new version" font-family="Inter, sans-serif" font-size="13">
+<defs>
+<marker id="de-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#1B2027" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="de-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<!-- цепочка -->
+<rect x="70" y="20" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="47" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">01</text>
+<text x="230" y="39" text-anchor="middle" fill="#1B2027" font-weight="600">supplier price list</text>
+<text x="230" y="55" text-anchor="middle" fill="#4A5361" font-size="12">Excel</text>
+<line x1="230" y1="64" x2="230" y2="78" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="80" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="107" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">02</text>
+<text x="230" y="99" text-anchor="middle" fill="#1B2027" font-weight="600">format parsing</text>
+<text x="230" y="115" text-anchor="middle" fill="#4A5361" font-size="12">3 suppliers</text>
+<line x1="230" y1="124" x2="230" y2="138" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="140" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="167" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">03</text>
+<text x="230" y="167" text-anchor="middle" fill="#1B2027" font-weight="600">SKU, category, price</text>
+<line x1="230" y1="184" x2="230" y2="198" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="200" width="320" height="44" rx="10" fill="#2B5B8A" fill-opacity="0.10" stroke="#2B5B8A" stroke-width="1.5"/>
+<text x="40" y="227" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">04</text>
+<text x="230" y="219" text-anchor="middle" fill="#1E4266" font-weight="600">LLM: name and description</text>
+<text x="230" y="235" text-anchor="middle" fill="#4A5361" font-size="12">RU and UA</text>
+<line x1="230" y1="244" x2="230" y2="258" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="260" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="287" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">05</text>
+<text x="230" y="279" text-anchor="middle" fill="#1B2027" font-weight="600">check before export</text>
+<text x="230" y="295" text-anchor="middle" fill="#4A5361" font-size="12">errors and warnings</text>
+<line x1="230" y1="304" x2="230" y2="318" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="320" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="347" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">06</text>
+<text x="230" y="339" text-anchor="middle" fill="#1B2027" font-weight="600">Prom.ua import file</text>
+<text x="230" y="355" text-anchor="middle" fill="#4A5361" font-size="12">and WooCommerce CSV</text>
+<line x1="230" y1="364" x2="230" y2="378" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="380" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="407" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">07</text>
+<text x="230" y="407" text-anchor="middle" fill="#1B2027" font-weight="600">a person uploads to Prom.ua</text>
+<!-- петля -->
+<rect x="40" y="470" width="140" height="36" rx="18" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="110" y="492" text-anchor="middle" fill="#2B5B8A" font-size="12">defect in text</text>
+<rect x="205" y="470" width="200" height="36" rx="18" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="305" y="492" text-anchor="middle" fill="#2B5B8A" font-size="12">fix in generation code</text>
+<rect x="430" y="470" width="110" height="36" rx="18" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="485" y="492" text-anchor="middle" fill="#2B5B8A" font-size="12">new version</text>
+<line x1="180" y1="488" x2="203" y2="488" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#de-b)"/>
+<line x1="405" y1="488" x2="428" y2="488" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#de-b)"/>
+<path d="M110 424 C110 440 110 452 110 468" fill="none" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#de-b)"/>
+<path d="M485 468 C485 300 470 222 394 222" fill="none" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#de-b)"/>
+</svg>
+    <!-- @endlang -->
+    <!-- @lang pl -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 530" width="100%" role="img" aria-label="Potok: od cennika dostawcy w Excelu do pliku importu Prom.ua wgrywanego przez człowieka, z pętlą od błędu w tekście przez poprawkę w kodzie generowania do nowej wersji" font-family="Inter, sans-serif" font-size="13">
+<defs>
+<marker id="de-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#1B2027" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="de-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<!-- цепочка -->
+<rect x="70" y="20" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="47" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">01</text>
+<text x="230" y="39" text-anchor="middle" fill="#1B2027" font-weight="600">cennik dostawcy</text>
+<text x="230" y="55" text-anchor="middle" fill="#4A5361" font-size="12">Excel</text>
+<line x1="230" y1="64" x2="230" y2="78" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="80" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="107" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">02</text>
+<text x="230" y="99" text-anchor="middle" fill="#1B2027" font-weight="600">parsowanie formatu</text>
+<text x="230" y="115" text-anchor="middle" fill="#4A5361" font-size="12">3 dostawców</text>
+<line x1="230" y1="124" x2="230" y2="138" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="140" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="167" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">03</text>
+<text x="230" y="167" text-anchor="middle" fill="#1B2027" font-weight="600">SKU, kategoria, cena</text>
+<line x1="230" y1="184" x2="230" y2="198" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="200" width="320" height="44" rx="10" fill="#2B5B8A" fill-opacity="0.10" stroke="#2B5B8A" stroke-width="1.5"/>
+<text x="40" y="227" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">04</text>
+<text x="230" y="219" text-anchor="middle" fill="#1E4266" font-weight="600">LLM: nazwa i opis</text>
+<text x="230" y="235" text-anchor="middle" fill="#4A5361" font-size="12">RU i UA</text>
+<line x1="230" y1="244" x2="230" y2="258" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="260" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="287" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">05</text>
+<text x="230" y="279" text-anchor="middle" fill="#1B2027" font-weight="600">kontrola przed eksportem</text>
+<text x="230" y="295" text-anchor="middle" fill="#4A5361" font-size="12">błędy i ostrzeżenia</text>
+<line x1="230" y1="304" x2="230" y2="318" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="320" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="347" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">06</text>
+<text x="230" y="339" text-anchor="middle" fill="#1B2027" font-weight="600">plik importu Prom.ua</text>
+<text x="230" y="355" text-anchor="middle" fill="#4A5361" font-size="12">i CSV WooCommerce</text>
+<line x1="230" y1="364" x2="230" y2="378" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="380" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="407" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">07</text>
+<text x="230" y="407" text-anchor="middle" fill="#1B2027" font-weight="600">człowiek wgrywa na Prom.ua</text>
+<!-- петля -->
+<rect x="40" y="470" width="140" height="36" rx="18" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="110" y="492" text-anchor="middle" fill="#2B5B8A" font-size="12">błąd w tekście</text>
+<rect x="205" y="470" width="200" height="36" rx="18" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="305" y="492" text-anchor="middle" fill="#2B5B8A" font-size="12">poprawka w kodzie generowania</text>
+<rect x="430" y="470" width="110" height="36" rx="18" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="485" y="492" text-anchor="middle" fill="#2B5B8A" font-size="12">nowa wersja</text>
+<line x1="180" y1="488" x2="203" y2="488" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#de-b)"/>
+<line x1="405" y1="488" x2="428" y2="488" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#de-b)"/>
+<path d="M110 424 C110 440 110 452 110 468" fill="none" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#de-b)"/>
+<path d="M485 468 C485 300 470 222 394 222" fill="none" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#de-b)"/>
+</svg>
+    <!-- @endlang -->
+    <!-- @lang ru -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 530" width="100%" role="img" aria-label="Конвейер: от прайса поставщика в Excel до файла импорта Prom.ua, который загружает человек, с петлёй от дефекта в тексте через правку в коде генерации к новой версии" font-family="Inter, sans-serif" font-size="13">
+<defs>
+<marker id="de-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#1B2027" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="de-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#2B5B8A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<!-- цепочка -->
+<rect x="70" y="20" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="47" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">01</text>
+<text x="230" y="39" text-anchor="middle" fill="#1B2027" font-weight="600">прайс поставщика</text>
+<text x="230" y="55" text-anchor="middle" fill="#4A5361" font-size="12">Excel</text>
+<line x1="230" y1="64" x2="230" y2="78" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="80" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="107" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">02</text>
+<text x="230" y="99" text-anchor="middle" fill="#1B2027" font-weight="600">разбор формата</text>
+<text x="230" y="115" text-anchor="middle" fill="#4A5361" font-size="12">3 поставщика</text>
+<line x1="230" y1="124" x2="230" y2="138" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="140" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="167" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">03</text>
+<text x="230" y="167" text-anchor="middle" fill="#1B2027" font-weight="600">SKU, категория, цена</text>
+<line x1="230" y1="184" x2="230" y2="198" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="200" width="320" height="44" rx="10" fill="#2B5B8A" fill-opacity="0.10" stroke="#2B5B8A" stroke-width="1.5"/>
+<text x="40" y="227" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">04</text>
+<text x="230" y="219" text-anchor="middle" fill="#1E4266" font-weight="600">LLM: название и описание</text>
+<text x="230" y="235" text-anchor="middle" fill="#4A5361" font-size="12">RU и UA</text>
+<line x1="230" y1="244" x2="230" y2="258" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="260" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="287" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">05</text>
+<text x="230" y="279" text-anchor="middle" fill="#1B2027" font-weight="600">проверка перед экспортом</text>
+<text x="230" y="295" text-anchor="middle" fill="#4A5361" font-size="12">ошибки и предупреждения</text>
+<line x1="230" y1="304" x2="230" y2="318" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="320" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="347" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">06</text>
+<text x="230" y="339" text-anchor="middle" fill="#1B2027" font-weight="600">файл импорта Prom.ua</text>
+<text x="230" y="355" text-anchor="middle" fill="#4A5361" font-size="12">и CSV WooCommerce</text>
+<line x1="230" y1="364" x2="230" y2="378" stroke="#1B2027" stroke-width="1.5" marker-end="url(#de-k)"/>
+<rect x="70" y="380" width="320" height="44" rx="10" fill="#FAFBF7" stroke="#1B2027" stroke-width="1.5"/>
+<text x="40" y="407" text-anchor="middle" fill="#2B5B8A" font-family="JetBrains Mono, monospace" font-size="12">07</text>
+<text x="230" y="407" text-anchor="middle" fill="#1B2027" font-weight="600">человек загружает на Prom.ua</text>
+<!-- петля -->
+<rect x="40" y="470" width="140" height="36" rx="18" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="110" y="492" text-anchor="middle" fill="#2B5B8A" font-size="12">дефект в тексте</text>
+<rect x="205" y="470" width="200" height="36" rx="18" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="305" y="492" text-anchor="middle" fill="#2B5B8A" font-size="12">правка в коде генерации</text>
+<rect x="430" y="470" width="110" height="36" rx="18" fill="#FAFBF7" stroke="#2B5B8A" stroke-width="1.2"/>
+<text x="485" y="492" text-anchor="middle" fill="#2B5B8A" font-size="12">новая версия</text>
+<line x1="180" y1="488" x2="203" y2="488" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#de-b)"/>
+<line x1="405" y1="488" x2="428" y2="488" stroke="#2B5B8A" stroke-width="1.5" marker-end="url(#de-b)"/>
+<path d="M110 424 C110 440 110 452 110 468" fill="none" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#de-b)"/>
+<path d="M485 468 C485 300 470 222 394 222" fill="none" stroke="#2B5B8A" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#de-b)"/>
+</svg>
+    <!-- @endlang -->
+  </section>
+
+  <section>
+    <span class="secnum">3.0</span>
+    <h2 data-i18n="s3_h2">Quality checks</h2>
+    <p data-i18n="s3_p">The pipeline went through 20 versions. Texts were checked by a separate audit by defect type: mixed languages, gender agreement errors, banned marketing phrases, foreign colours in keywords, repetitive descriptions. Each defect was fixed in the generation code; manual edits to finished texts were not allowed. The code is covered by 17 automated tests. The final version builds import files for 169 items with colour variants.</p>
+  </section>
+
+  <section>
+    <span class="secnum">4.0</span>
+    <h2 data-i18n="s4_h2">Result</h2>
+    <p data-i18n="s4_p">Stage 1 was delivered to the client. Time per card with the pipeline was not measured in the store's daily work.</p>
+  </section>
+
+  <section>
+    <span class="secnum">5.0</span>
+    <h2 data-i18n="s5_h2">What carries over today</h2>
+    <p data-i18n-html="s5_p">A universal parser for any price list does not pay off: every new format needs its own parser. A template agreed with suppliers or data via API costs less, and that choice is made during <a href="solution-design.html">solution design</a>. An LLM description covers baseline quality; the text that sells is polished by <a href="/glossary/human-in-the-loop.html">a person</a>. The check goes before export, while an error still costs nothing.</p>
+  </section>
+
+  <div class="cta">
+    <h2 data-i18n="cta_h2">Discuss a similar task:</h2>
+    <a class="btn" href="https://cal.com/kholomyanskiy/30min" target="_blank" rel="noopener" data-i18n="cta_btn">free 30-minute call →</a>
+  </div>
+
+</div>
+
+<!-- @include footer -->
+<script>
+var T = {
+  ru: {
+    page_title: "Конвейер карточек товаров для Prom.ua — EVAI Consulting",
+    meta_desc: "Прайсы поставщиков в Excel превращаются в карточки Prom.ua и WooCommerce: SKU, цены по курсу НБУ, описания на русском и украинском, проверка перед экспортом.",
+    h1_title: "Конвейер карточек товаров для Prom.ua",
+    tb_sub: "Интернет-магазин декора и посуды в Украине, 2026. Этап 1 передан.",
+    s1_h2: "Задача",
+    s1_p1: "Магазин продаёт и сдаёт в аренду декор, посуду и мебель: около 1500 товаров на Prom.ua и сайт на WordPress. Новые товары приходят прайсами поставщиков в Excel. Каждую карточку заводили вручную: найти товар по картинке, придумать название, перевести на украинский, посчитать цену, заполнить характеристики. По оценке на обследовании, одна карточка занимала от 40 минут.",
+    s1_p2: "На <a href=\"audit.html\">обследовании</a> нашлись ещё три ручных участка: украинский язык на сайте по требованию закона, учёт аренды и анализ рынка перед закупкой. Работа разбита на этапы, каждый сдаётся отдельно. Первым взят конвейер карточек как самый затратный по времени.",
+    s2_h2: "Что сделано",
+    s2_p1: "Конвейер на Python с интерфейсом Streamlit запускается двойным щелчком на компьютере клиента. Прайсы трёх поставщиков устроены по-разному: фото внутри файла, ссылки на Alibaba вместо фото, цвет в тексте описания. Под каждый формат написан свой разбор. Колонки сопоставляются по словарю синонимов, поэтому опечатка в заголовке прайса разбор не ломает.",
+    s2_p2: "Каждый товар получает код SKU с префиксом категории, при повторной поставке код сохраняется. Десять категорий привязаны к характеристикам Prom.ua. Цена считается из закупки, доставки, курса НБУ и наценки, настройки меняются в интерфейсе. Названия, описания и поисковые запросы на русском и украинском пишет LLM (Claude или бесплатный Gemini Flash); если в прайсе нет названия, товар определяется по фото. Перед экспортом проверка показывает блокирующие ошибки и предупреждения. На выходе файл импорта Prom.ua и CSV для WooCommerce. Загрузку на Prom.ua делает человек: первую итерацию так проще проверить и откатить.",
+    s3_h2: "Проверка качества",
+    s3_p: "Конвейер прошёл 20 версий. Тексты проверялись отдельным аудитом по видам дефектов: смешение языков, ошибки согласования рода, запрещённые рекламные обороты, чужие цвета в ключевых словах, однообразие описаний. Найденный дефект исправлялся в коде генерации, ручная правка готовых текстов не допускалась. Код покрыт 17 автоматическими тестами. Последняя версия собирает файлы импорта на 169 позиций с вариантами цвета.",
+    s4_h2: "Результат",
+    s4_p: "Этап 1 передан клиенту. Время на карточку с конвейером в работе магазина не измерялось.",
+    s5_h2: "Что из этого применяется сейчас",
+    s5_p: "Универсальный разбор любых прайсов не окупается: каждый новый формат требует своего разбора. Дешевле договориться с поставщиками о шаблоне или получать данные через API, и этот выбор делается на этапе <a href=\"solution-design.html\">проектирования решения</a>. Описание от LLM закрывает базовое качество, текст, который продаёт, шлифует <a href=\"/ru/glossary/human-in-the-loop.html\">человек</a>. Проверка ставится до экспорта, пока ошибка ещё ничего не стоит.",
+    cta_h2: "Обсудить похожую задачу:",
+    cta_btn: "бесплатные 30 минут →"
+  },
+  pl: {
+    page_title: "Potok kart produktów dla Prom.ua — EVAI Consulting",
+    meta_desc: "Cenniki dostawców w Excelu zamieniają się w karty Prom.ua i WooCommerce: SKU, ceny po kursie NBU, opisy po rosyjsku i ukraińsku, kontrola przed eksportem.",
+    h1_title: "Potok kart produktów dla Prom.ua",
+    tb_sub: "Sklep internetowy z dekoracjami i zastawą na Ukrainie, 2026. Etap 1 przekazany.",
+    s1_h2: "Zadanie",
+    s1_p1: "Sklep sprzedaje i wynajmuje dekoracje, zastawę i meble: około 1500 produktów na Prom.ua i strona na WordPressie. Nowe produkty przychodzą jako cenniki dostawców w Excelu. Każdą kartę zakładano ręcznie: znaleźć produkt po zdjęciu, wymyślić nazwę, przetłumaczyć na ukraiński, policzyć cenę, wypełnić cechy. Według oceny z analizy jedna karta zajmowała co najmniej 40 minut.",
+    s1_p2: "<a href=\"audit.html\">Analiza</a> wskazała jeszcze trzy ręczne obszary: język ukraiński na stronie wymagany przez prawo, ewidencję wynajmu i analizę rynku przed zakupem. Pracę podzielono na etapy, każdy oddawany osobno. Najpierw potok kart jako najbardziej czasochłonny.",
+    s2_h2: "Co zostało zrobione",
+    s2_p1: "Potok w Pythonie z interfejsem Streamlit uruchamia się dwuklikiem na komputerze klienta. Cenniki trzech dostawców są różne: zdjęcia w pliku, linki do Alibaby zamiast zdjęć, kolor w treści opisu. Każdy format dostał własny parser. Kolumny są dopasowywane według słownika synonimów, więc literówka w nagłówku cennika nie psuje odczytu.",
+    s2_p2: "Każdy produkt dostaje kod SKU z prefiksem kategorii, a przy ponownej dostawie kod zostaje ten sam. Dziesięć kategorii jest powiązanych z cechami Prom.ua. Cena liczy się z kosztu zakupu, dostawy, kursu NBU i marży, ustawienia zmienia się w interfejsie. Nazwy, opisy i frazy wyszukiwania po rosyjsku i ukraińsku pisze LLM (Claude albo bezpłatny Gemini Flash); gdy w cenniku brakuje nazwy, produkt jest rozpoznawany po zdjęciu. Przed eksportem kontrola pokazuje błędy blokujące i ostrzeżenia. Na wyjściu plik importu Prom.ua i CSV dla WooCommerce. Wgranie na Prom.ua robi człowiek: pierwszą iterację łatwiej wtedy sprawdzić i wycofać.",
+    s3_h2: "Kontrola jakości",
+    s3_p: "Potok przeszedł 20 wersji. Teksty sprawdzał osobny audyt według typów błędów: mieszanie języków, błędy zgodności rodzaju, zakazane zwroty reklamowe, obce kolory w słowach kluczowych, powtarzalne opisy. Znaleziony błąd poprawiano w kodzie generowania, ręczne poprawki gotowych tekstów były wykluczone. Kod pokrywa 17 testów automatycznych. Ostatnia wersja tworzy pliki importu dla 169 pozycji z wariantami kolorów.",
+    s4_h2: "Wynik",
+    s4_p: "Etap 1 przekazano klientowi. Czasu na kartę z potokiem w codziennej pracy sklepu nie mierzono.",
+    s5_h2: "Co z tego przydaje się dziś",
+    s5_p: "Uniwersalny parser dowolnych cenników się nie opłaca: każdy nowy format wymaga własnego parsera. Taniej uzgodnić z dostawcami szablon albo pobierać dane przez API, a ten wybór zapada na etapie <a href=\"solution-design.html\">projektowania rozwiązania</a>. Opis z LLM zapewnia jakość bazową, tekst, który sprzedaje, szlifuje <a href=\"/pl/glossary/human-in-the-loop.html\">człowiek</a>. Kontrola stoi przed eksportem, póki błąd jeszcze nic nie kosztuje.",
+    cta_h2: "Porozmawiaj o podobnym zadaniu:",
+    cta_btn: "bezpłatna rozmowa 30 minut →"
+  },
+  en: {
+    page_title: "Product card pipeline for Prom.ua — EVAI Consulting",
+    meta_desc: "Supplier Excel price lists become Prom.ua and WooCommerce product cards: SKUs, prices at the NBU rate, Russian and Ukrainian descriptions, checks before export.",
+    h1_title: "Product card pipeline for Prom.ua",
+    tb_sub: "Decor and tableware e-commerce store in Ukraine, 2026. Stage 1 delivered.",
+    s1_h2: "The task",
+    s1_p1: "The store sells and rents out decor, tableware and furniture: about 1,500 products on Prom.ua and a WordPress site. New products arrive as supplier price lists in Excel. Every card was created by hand: find the product by its picture, come up with a name, translate it into Ukrainian, calculate the price, fill in the attributes. The assessment estimated at least 40 minutes per card.",
+    s1_p2: "The <a href=\"audit.html\">assessment</a> found three more manual areas: Ukrainian on the website as required by law, rental tracking, and market research before purchasing. The work was split into stages, each delivered separately. The card pipeline came first as the most time-consuming.",
+    s2_h2: "What was done",
+    s2_p1: "The pipeline is written in Python with a Streamlit interface and starts with a double click on the client's computer. The three suppliers' price lists differ: photos embedded in the file, Alibaba links instead of photos, colour inside the description text. Each format got its own parser. Columns are matched through a synonym dictionary, so a typo in a price list header does not break parsing.",
+    s2_p2: "Every product gets an SKU with a category prefix, and the code is kept when the same product arrives again. Ten categories are mapped to Prom.ua attributes. The price is calculated from purchase cost, delivery, the NBU exchange rate and margin, with settings editable in the interface. Names, descriptions and search queries in Russian and Ukrainian are written by an LLM (Claude or the free Gemini Flash); when a price list has no product name, the product is identified from its photo. Before export, a check shows blocking errors and warnings. The output is a Prom.ua import file and a WooCommerce CSV. Upload to Prom.ua is done by a person, which makes the first iteration easier to check and roll back.",
+    s3_h2: "Quality checks",
+    s3_p: "The pipeline went through 20 versions. Texts were checked by a separate audit by defect type: mixed languages, gender agreement errors, banned marketing phrases, foreign colours in keywords, repetitive descriptions. Each defect was fixed in the generation code; manual edits to finished texts were not allowed. The code is covered by 17 automated tests. The final version builds import files for 169 items with colour variants.",
+    s4_h2: "Result",
+    s4_p: "Stage 1 was delivered to the client. Time per card with the pipeline was not measured in the store's daily work.",
+    s5_h2: "What carries over today",
+    s5_p: "A universal parser for any price list does not pay off: every new format needs its own parser. A template agreed with suppliers or data via API costs less, and that choice is made during <a href=\"solution-design.html\">solution design</a>. An LLM description covers baseline quality; the text that sells is polished by <a href=\"/glossary/human-in-the-loop.html\">a person</a>. The check goes before export, while an error still costs nothing.",
+    cta_h2: "Discuss a similar task:",
+    cta_btn: "free 30-minute call →"
+  }
+};
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.documentElement.lang = lang;
+  if (T[lang].page_title) document.title = T[lang].page_title;
+  var md = document.querySelector('meta[name="description"]');
+  if (md && T[lang].meta_desc) md.content = T[lang].meta_desc;
+  localStorage.setItem('site-lang', lang);
+}
+
+(function() {
+  var p = new URLSearchParams(window.location.search);
+  var ul = p.get('lang');
+  if (ul && T[ul]) { setLang(ul); return; }
+  var saved = localStorage.getItem('site-lang');
+  if (saved && T[saved]) setLang(saved);
+})();
+</script>
+
+</body>
+</html>

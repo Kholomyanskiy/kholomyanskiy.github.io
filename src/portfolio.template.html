@@ -228,14 +228,15 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <div class="case-block">
  <div class="case-shot"><img src="img/portfolio-decor-engine.webp" srcset="img/portfolio-decor-engine.webp 640w, img/portfolio-decor-engine@2x.webp 1280w" sizes="(max-width: 680px) 100vw, 704px" loading="lazy" alt="Decor Engine validator interface: product table with prices and sync status"></div>
  <h3>Decor Engine</h3>
- <p data-i18n="c5.p1">Product catalog automation for Ukrainian e-commerce (Prom.ua + WooCommerce): generating and validating product descriptions across many quality dimensions, from language mixing to gender agreement and banned marketing phrases.</p>
- <p class="muted" data-i18n="c5.p2">Went through 20 versions across audit and validator refinement cycles. Full automation wasn't the goal: the pipeline covers baseline quality, final polish is done manually by the client through a separate LLM.</p>
+ <p data-i18n="c5.p1">A pipeline for a decor e-commerce store in Ukraine: supplier price lists in Excel become Prom.ua and WooCommerce product cards with SKU codes, prices and descriptions in Russian and Ukrainian.</p>
+ <p class="muted" data-i18n="c5.p2">20 versions with an audit of texts by defect type. Upload to Prom.ua and final polishing of descriptions stay with a person.</p>
  <div class="case-tags">
  <span class="case-tag">Prom.ua</span>
  <span class="case-tag">WooCommerce</span>
  <span class="case-tag">Content Validation</span>
  </div>
- <span class="case-status mvp" data-i18n="c5.status">MVP ready, in testing</span>
+ <span class="case-status" data-i18n="c5.status">Stage 1 delivered</span>
+ <div class="case-cta"><a href="case-decor-engine.html" data-i18n="c5.link">Read the case →</a></div>
  </div>
  </section>
 
@@ -339,9 +340,10 @@ const T = {
  "c3.link":"Читать кейс →",
  "c4.p1":"Концепт городского ассистента на базе Telegram. Отвечает на вопросы жителей и гостей города, ориентируется в локальной информации без участия человека в рутинных запросах.",
  "c4.status":"Концепт",
- "c5.p1":"Автоматизация каталога товаров для украинского e-commerce (Prom.ua + WooCommerce): генерация и проверка описаний товаров по многим параметрам качества, от смешения языков до согласования рода и запрещённых маркетинговых формулировок.",
- "c5.p2":"Прошёл 20 версий через циклы аудита и доработки валидатора. Полная автоматизация не была целью: конвейер закрывает базовое качество, финальную полировку описаний клиент делает вручную через отдельную LLM.",
- "c5.status":"MVP готов, тестируется",
+ "c5.p1":"Конвейер для интернет-магазина декора в Украине: прайсы поставщиков в Excel превращаются в карточки Prom.ua и WooCommerce с кодами SKU, ценами и описаниями на русском и украинском.",
+ "c5.p2":"20 версий с аудитом текстов по видам дефектов. Загрузку на Prom.ua и финальную шлифовку описаний делает человек.",
+ "c5.status":"Этап 1 передан",
+ "c5.link":"Читать кейс →",
  "c6.h":"Подбор персонала: первые автоматизации в Claude Code",
  "c6.p1":"Клиент из сферы подбора персонала собрал в Claude Code первые инструменты для своих задач: сводки встреч по транскрипции, поиск по накопленным материалам, критерии под роли и сверку резюме с ними. Работа шла на сессиях обучения: клиент делал сам, консультант вёл.",
  "c6.tag":"Обучение на задачах",
@@ -375,9 +377,10 @@ const T = {
  "c3.link":"Czytaj case →",
  "c4.p1":"Koncepcja asystenta miejskiego na bazie Telegrama. Odpowiada na pytania mieszkańców i gości, porusza się w lokalnych informacjach bez udziału człowieka przy rutynowych zapytaniach.",
  "c4.status":"Koncepcja",
- "c5.p1":"Automatyzacja katalogu produktów dla ukraińskiego e-commerce (Prom.ua + WooCommerce): generowanie i walidacja opisów produktów pod wieloma względami jakości, od mieszania języków po zgodność rodzaju gramatycznego i zakazane sformułowania marketingowe.",
- "c5.p2":"Przeszedł 20 wersji w cyklach audytu i dopracowywania walidatora. Pełna automatyzacja nie była celem: pipeline zapewnia jakość bazową, ostateczne dopracowanie klient wykonuje ręcznie przez osobny LLM.",
- "c5.status":"MVP gotowe, w testach",
+ "c5.p1":"Potok dla sklepu internetowego z dekoracjami na Ukrainie: cenniki dostawców w Excelu zamieniają się w karty produktów Prom.ua i WooCommerce z kodami SKU, cenami i opisami po rosyjsku i ukraińsku.",
+ "c5.p2":"20 wersji z audytem tekstów według typów błędów. Wgranie na Prom.ua i końcowy szlif opisów należą do człowieka.",
+ "c5.status":"Etap 1 przekazany",
+ "c5.link":"Czytaj case →",
  "c6.h":"Rekrutacja: pierwsze automatyzacje w Claude Code",
  "c6.p1":"Klient z branży rekrutacyjnej zbudował w Claude Code pierwsze narzędzia do swoich zadań: podsumowania spotkań z transkrypcji, wyszukiwanie w zgromadzonych materiałach, kryteria dla ról i sprawdzanie CV według nich. Praca odbywała się na sesjach szkoleniowych: klient budował sam, konsultant prowadził.",
  "c6.tag":"Szkolenie na zadaniach klienta",
@@ -411,9 +414,10 @@ const T = {
  "c3.link":"Read the case →",
  "c4.p1":"A concept for a Telegram-based city assistant. It answers questions from residents and visitors, navigates local information without a human handling routine queries.",
  "c4.status":"Concept",
- "c5.p1":"Product catalog automation for Ukrainian e-commerce (Prom.ua + WooCommerce): generating and validating product descriptions across many quality dimensions, from language mixing to gender agreement and banned marketing phrases.",
- "c5.p2":"Went through 20 versions across audit and validator refinement cycles. Full automation wasn't the goal: the pipeline covers baseline quality, final polish is done manually by the client through a separate LLM.",
- "c5.status":"MVP ready, in testing",
+ "c5.p1":"A pipeline for a decor e-commerce store in Ukraine: supplier price lists in Excel become Prom.ua and WooCommerce product cards with SKU codes, prices and descriptions in Russian and Ukrainian.",
+ "c5.p2":"20 versions with an audit of texts by defect type. Upload to Prom.ua and final polishing of descriptions stay with a person.",
+ "c5.status":"Stage 1 delivered",
+ "c5.link":"Read the case →",
  "c6.h":"Recruitment: first automations in Claude Code",
  "c6.p1":"A client in recruitment built the first tools in Claude Code for their own tasks: meeting summaries from transcripts, search across collected materials, role criteria and checking CVs against them. The work was done in training sessions: the client built it, the consultant guided.",
  "c6.tag":"Training on your tasks",

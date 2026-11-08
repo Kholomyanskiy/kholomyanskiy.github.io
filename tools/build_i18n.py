@@ -32,6 +32,7 @@ BREADCRUMB_PARENT = {
     "contact": "index",
     "case-recruitment": "portfolio",
     "case-esowa": "portfolio",
+    "case-decor-engine": "portfolio",
     "case-metering-sap": "portfolio",
     "case-oms-dms": "portfolio",
     "case-control-center": "portfolio",
