@@ -4,11 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Readiness Assessment for Your Department — EVAI Consulting</title>
-<meta name="description" content="A work-week snapshot of your department, a task map and the math: what to automate, what to keep human, how many hours get freed up.">
+<title>AI Audit: readiness for adoption and AI already in use — EVAI Consulting</title>
+<meta name="description" content="AI audit in two scenarios: which tasks to hand to AI, and why AI already in place brings no result. Express from 3,900 zł, department from 10,900 zł net.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="AI Readiness Assessment for Your Department — EVAI Consulting">
-<meta property="og:description" content="A work-week snapshot of your department, a task map and the math: what to automate, what to keep human, how many hours get freed up.">
+<meta property="og:title" content="AI Audit: readiness for adoption and AI already in use — EVAI Consulting">
+<meta property="og:description" content="AI audit in two scenarios: which tasks to hand to AI, and why AI already in place brings no result. Express from 3,900 zł, department from 10,900 zł net.">
 <meta property="og:url" content="https://kholomyanskiy.com/audit.html">
 <meta property="og:image" content="https://kholomyanskiy.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -19,8 +19,8 @@
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="pl_PL">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AI Readiness Assessment for Your Department — EVAI Consulting">
-<meta name="twitter:description" content="A work-week snapshot of your department, a task map and the math: what to automate, what to keep human, how many hours get freed up.">
+<meta name="twitter:title" content="AI Audit: readiness for adoption and AI already in use — EVAI Consulting">
+<meta name="twitter:description" content="AI audit in two scenarios: which tasks to hand to AI, and why AI already in place brings no result. Express from 3,900 zł, department from 10,900 zł net.">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/img/favicon-32x32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/img/favicon-16x16.png" type="image/png" sizes="16x16">
@@ -141,7 +141,6 @@ footer{max-width:880px;margin:0 auto 48px;padding:24px 32px;font-family:'JetBrai
   .sheet{margin:8px 12px 32px}
 }
 #audit-contact{scroll-margin-top:70px}
-.tb-main .former-name{margin-top:6px;font-family:'Inter',sans-serif;font-size:14px;color:var(--ink-soft)}
 .stamp{
   position:absolute;top:36px;right:28px;
   border:2px solid var(--stamp);color:var(--stamp);
@@ -235,8 +234,8 @@ footer a:hover{color:var(--blue);text-decoration:underline}
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": "https://kholomyanskiy.com/audit.html#service",
-  "name": "AI Readiness Assessment",
-  "description": "A work-week snapshot of your department, a task map and the math: what to automate, what to keep human, how many hours get freed up.",
+  "name": "AI Audit: before adoption and when AI is already in use",
+  "description": "AI audit in two scenarios: which tasks to hand to AI, and why AI already in place brings no result. Express from 3,900 zł, department from 10,900 zł net.",
   "url": "https://kholomyanskiy.com/audit.html",
   "provider": {
     "@id": "https://kholomyanskiy.com/#organization"
@@ -251,7 +250,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       "name": "Express Audit",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "minPrice": 3500,
+        "minPrice": 3900,
         "priceCurrency": "PLN",
         "valueAddedTaxIncluded": false
       }
@@ -261,7 +260,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
       "name": "Department Audit",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "minPrice": 9000,
+        "minPrice": 10900,
         "priceCurrency": "PLN",
         "valueAddedTaxIncluded": false
       }
@@ -294,7 +293,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "AI Readiness Assessment",
+      "name": "AI Audit: before adoption and when AI is already in use",
       "item": "https://kholomyanskiy.com/audit.html"
     }
   ]
@@ -311,7 +310,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <span class="nav-drop-list">
  <a href="/consulting.html" data-i18n="nav.services_menu_consult">Consulting</a>
  <a href="/training.html" data-i18n="nav.services_menu_training">AI training</a>
- <a href="/audit.html" class="current" data-i18n="nav.services_menu_audit">Department audit</a>
+ <a href="/audit.html" class="current" data-i18n="nav.services_menu_audit">AI audit</a>
  <a href="/solution-design.html" data-i18n="nav.services_menu_design">AI solution design</a>
  <a href="/spec.html" data-i18n="nav.services_menu_spec">AI specification</a>
  <a href="/implementation.html" data-i18n="nav.services_menu_impl">AI implementation</a>
@@ -350,88 +349,121 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
   <header class="titleblock">
     <div class="tb-top">
       <span class="brand">EVAI CONSULTING</span>
-      <span>EVAI-AUDIT-2026-01 · v1.0</span>
+      <span>EVAI-AUDIT-2026-01</span>
     </div>
     <div class="tb-main">
-      <span class="stamp" data-i18n="stamp">Active · v1.0</span>
-      <h1 data-i18n-html="h1_title">AI <em>Readiness</em> Assessment</h1>
-      <p class="former-name" data-i18n-html="h1_prev_name">AI <em>Department</em> Audit</p>
-      <p class="sub" data-i18n="tb_sub">A work-week snapshot, a task map and the math: what to automate, what to keep human, how many hours get freed up. You make the adoption decision based on numbers.</p>
+      <span class="stamp" data-i18n="stamp">Active</span>
+      <h1 data-i18n-html="h1_title">AI Audit: <em>before adoption</em> and when AI is already in use</h1>
+      <p class="sub" data-i18n="tb_sub">There are two situations: there is no AI yet and it is unclear which tasks to hand over, or AI is already in place and brings no result. The audit looks at how people actually work and shows what to hand to AI, where ordinary automation is enough and what to keep human. The adoption decision stays with you.</p>
       <div class="card-action"><a class="btn2" href="#audit-contact" data-i18n="tb_cta">Discuss the audit: 30 min, free →</a></div>
     </div>
     <div class="tb-meta">
       <div><span class="k" data-i18n="tb_doc_k">Document</span><span data-i18n="tb_doc_v">Commercial Offer</span></div>
       <div><span class="k" data-i18n="tb_author_k">Author</span>Artem Kholomyanskiy</div>
-      <div><span class="k" data-i18n="tb_method_k">Methodology</span>AI Decision System</div>
+      <div><span class="k" data-i18n="tb_method_k">Methodology</span><span data-i18n="tb_method_v">AI in the Department</span></div>
       <div><span class="k" data-i18n="tb_jur_k">Jurisdiction</span><span data-i18n="tb_jur_v">Poland · EU</span></div>
     </div>
   </header>
 
   <section>
     <span class="secnum" data-i18n="s1_num">1.0 // PROBLEM</span>
-    <h2 data-i18n="s1_h2">&quot;We need to adopt AI&quot;. But where?</h2>
-    <p class="lead" data-i18n="s1_lead">Managers hear about AI everywhere. Competitors are adopting something, staff are overloaded, hiring keeps getting more expensive. But between &quot;we need AI&quot; and &quot;AI adopted&quot; sits a question nobody answers: which specific tasks in your department should go to AI, and which should not.</p>
-    <div class="log">
-      <span data-i18n="s1_log1">$ task: weekly report for management</span><br>
-      <span class="err" data-i18n="s1_log2">&gt; 3 hours of manual copying from CRM to Excel</span><br>
-      <span data-i18n="s1_log3">$ task: replies to routine client emails</span><br>
-      <span class="err" data-i18n="s1_log4">&gt; 40% of the workday, same template every time</span>
+    <h2 data-i18n="s1_h2">Which tasks to hand to AI. Or why AI is not working</h2>
+    <p class="lead" data-i18n="s1_lead">The audit answers one of two questions. Which one is yours becomes clear in the free call.</p>
+    <div class="formats">
+      <div class="card">
+        <div class="card-head">
+          <span class="tag" data-i18n="s1_c1_tag">Scenario 1</span>
+          <h3 data-i18n="s1_c1_h3">No AI yet</h3>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li data-i18n="s1_c1_li1">There is a lot of manual work, and management hears about AI everywhere.</li>
+            <li data-i18n="s1_c1_li2">It is unclear which tasks to hand to AI, which not, and what it would bring.</li>
+            <li data-i18n="s1_c1_li3">The audit: a task map, an assessment of each task and a calculation of the effect.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <span class="tag" data-i18n="s1_c2_tag">Scenario 2</span>
+          <h3 data-i18n="s1_c2_h3">AI is in place, but there is no result</h3>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li data-i18n="s1_c2_li1">A tool was rolled out, but people use it only now and then.</li>
+            <li data-i18n="s1_c2_li2">Or employees use ChatGPT, Claude or Copilot on their own, and management cannot see what is going on.</li>
+            <li data-i18n="s1_c2_li3">The audit: why it does not work and what to change, with criteria that show the change.</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <p data-i18n="s1_p">Top-down adoption without an audit always ends the same way: a tool gets bought, employees don&#x27;t use it, zero effect. The cause: nobody looked at what people&#x27;s workday actually consists of. The audit starts exactly there.</p>
   </section>
 
   <section>
     <span class="secnum" data-i18n="s2_num">2.0 // SCOPE OF WORK</span>
     <h2 data-i18n="s2_h2">What the audit includes</h2>
-    <p data-i18n-html="s2_p">The work is built on <a href="/glossary/process-audit.html">documenting the department's processes</a>, and observations are turned into a calculation. Stages:</p>
+    <p data-i18n-html="s2_p">The work is built on <a href="/glossary/process-audit.html">documenting processes</a>: data comes from how people actually work, and every number in the report has its source. Stages:</p>
     <div class="spec-list">
       <div class="spec-row">
-        <span class="spec-code">COMM</span>
-        <div><h3 data-i18n="s2_comm_h">Team communication</h3><p data-i18n="s2_comm_p">Before the start: how management presents the audit to staff. Skip this step and people game the data, making the whole calculation worthless.</p></div>
+        <span class="spec-code">BRIEF</span>
+        <div><h3 data-i18n="s2_brief_h">Management call and questionnaire</h3><p data-i18n="s2_brief_p">Goals, scope, pain points, tools already in use. Before work with the team, management explains the purpose of the audit to staff: without this the data gets distorted.</p></div>
       </div>
       <div class="spec-row">
-        <span class="spec-code">PHOTO</span>
-        <div><h3 data-i18n="s2_photo_h">Work-week snapshot</h3><p data-i18n="s2_photo_p">Each employee logs their tasks for a week: what, how often, how many minutes. Simple format, 5 minutes a day.</p></div>
+        <span class="spec-code">DATA</span>
+        <div><h3 data-i18n="s2_data_h">Collecting data on the work</h3><p data-i18n="s2_data_p">In a department audit, employees log their tasks for a week: what, how often, how many minutes. In Express, the latest runs of the process are reviewed. Some people take a short interview where the task is shown on screen rather than described.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">MAP</span>
-        <div><h3 data-i18n="s2_map_h">Department task map</h3><p data-i18n-html="s2_map_p">All tasks are consolidated into a <a href="/glossary/process-map.html">process map</a> and broken into sub-processes. You see what people actually do and where the duplication is.</p></div>
+        <div><h3 data-i18n="s2_map_h">Task map</h3><p data-i18n-html="s2_map_p">Tasks are consolidated into a <a href="/glossary/process-map.html">process map</a>: who does what, where work is duplicated, where time goes. In scenario 2 the map also lists AI tools: what each is used for and what overlaps.</p></div>
       </div>
       <div class="spec-row">
-        <span class="spec-code">MATRX</span>
-        <div><h3 data-i18n="s2_matrx_h">Automation matrix</h3><p data-i18n-html="s2_matrx_p">Each sub-process: automatable / partially / no. With reasoning: cost, risk, error criticality, <a href="/glossary/failure-point.html">failure points</a>.</p></div>
+        <span class="spec-code">EVAL</span>
+        <div><h3 data-i18n="s2_eval_h">Assessing each task</h3><p data-i18n-html="s2_eval_p">Each task gets one conclusion with a reason: AI does it, AI assists a person, ordinary automation without AI is enough, keep it human, or put the process in order first. Error cost, the need for human review and <a href="/glossary/failure-point.html">failure points</a> are taken into account.</p></div>
+      </div>
+      <div class="spec-row">
+        <span class="spec-code">DIAG</span>
+        <div><h3 data-i18n="s2_diag_h">Why AI is not working (scenario 2)</h3><p data-i18n="s2_diag_p">Causes are examined on three levels: people (lack the skills, do not see the point, do not trust the output), processes (access, rules, AI not built into the work), tools (the wrong tool, unnecessary subscriptions, overlaps). For each cause: confirmed or not, and what the conclusion rests on.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">CALC</span>
-        <div><h3 data-i18n="s2_calc_h">Freed-capacity calculation</h3><p data-i18n="s2_calc_p">Hours per month per role, implementation cost, payback period. Numbers you can take to the director.</p></div>
+        <div><h3 data-i18n="s2_calc_h">Effect calculation</h3><p data-i18n="s2_calc_p">Where the work has been measured: how many hours a month and a year can be freed, how many of them realistically once review and exceptions are counted, and what that is worth in money after tool and implementation costs. Freed-up time is not the same as lower costs, and the report says so.</p></div>
       </div>
       <div class="spec-row">
         <span class="spec-code">PLAN</span>
-        <div><h3 data-i18n="s2_plan_h">Final report and plan</h3><p data-i18n="s2_plan_p">What to implement first, second, and what to leave alone. A report walkthrough with the manager is included.</p></div>
+        <div><h3 data-i18n="s2_plan_h">Report and walkthrough</h3><p data-i18n="s2_plan_p">What to do first, what next and what to leave alone. A walkthrough of the report with management is included.</p></div>
       </div>
     </div>
-    <p class="muted" data-i18n-html="s2_next">The next step after the audit is an <a href="/spec.html">automation specification</a>: technical requirements for specific agents under the <a href="https://github.com/Kholomyanskiy/anss-standard">ANSS</a> standard. The audit stands on its own: you can take the report to any contractor.</p>
   </section>
 
   <section>
-    <span class="secnum" data-i18n="s3_num">3.0 // FORMATS</span>
-    <h2 data-i18n="s3_h2">Two service formats</h2>
+    <span class="secnum" data-i18n="s3r_num">3.0 // OUTPUT</span>
+    <h2 data-i18n="s3r_h2">What you get and what is not included</h2>
+    <p data-i18n="s3r_p1">A report for management: the task map, a conclusion for each task with its reason, the effect calculation and the order of steps. In scenario 2 also the causes on three levels and criteria that show after 30, 60 and 90 days whether the situation has changed. In a department audit each employee gets personal recommendations on their own work. In Express, a short report on one process: the verdict and the boundaries of the first step. The report can be taken to any contractor.</p>
+    <p data-i18n="s3r_p2">All conclusions carry equal weight. &quot;Do not automate&quot;, &quot;ordinary automation without AI is enough&quot; or &quot;put the process in order first&quot; are as much an audit result as &quot;hand the task to AI&quot;. The audit does not sell implementation and promises neither a percentage of savings nor that anything will be automated.</p>
+    <p data-i18n="s3r_p3">Not included: staff training, configuring tools and access, ready-made agents, choosing replacement tools, a technical audit of an implemented solution, development, specification, workforce decisions, post-implementation review. Each can be ordered separately.</p>
+    <p class="muted" data-i18n-html="s3r_next">The next step is chosen from the report: <a href="/solution-design.html">solution design</a>, <a href="/spec.html">specification</a>, <a href="/implementation.html">implementation</a> or <a href="/training.html">training on your own tasks</a>. The criteria in the report also allow a follow-up review later.</p>
+  </section>
+
+  <section>
+    <span class="secnum" data-i18n="s3_num">4.0 // FORMATS</span>
+    <h2 data-i18n="s3_h2">Three formats</h2>
     <div class="formats">
       <div class="card">
         <div class="card-head">
-          <span class="tag" data-i18n="s3_c1_tag">For one role</span>
+          <span class="tag" data-i18n="s3_c1_tag">One process</span>
           <h3 data-i18n="s3_c1_h3">Express Audit</h3>
         </div>
         <div class="card-body">
           <ul>
-            <li data-i18n="s3_c1_li1">One role or one employee</li>
-            <li data-i18n="s3_c1_li2">Week snapshot + interview</li>
-            <li data-i18n="s3_c1_li3">Automation matrix and hours calculation</li>
-            <li data-i18n="s3_c1_li4">Short report with a first-step plan</li>
+            <li data-i18n="s3_c1_li1">One process from input to result</li>
+            <li data-i18n="s3_c1_li2">The process owner and up to two people who run it</li>
+            <li data-i18n="s3_c1_li3">Review of the latest runs of the process</li>
+            <li data-i18n="s3_c1_li4">Scenario 1 only: no AI yet</li>
+            <li data-i18n="s3_c1_li5">Short report: the verdict and the boundaries of the first step</li>
           </ul>
         </div>
         <div class="card-foot">
-          <span class="price" data-i18n="s3_c1_price">from 3,500 zł</span>
+          <span class="price" data-i18n="s3_c1_price">from 3,900 zł</span>
           <span class="term" data-i18n="s3_c1_term">7–10 days</span>
         </div>
         <div class="card-action">
@@ -445,47 +477,74 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
         </div>
         <div class="card-body">
           <ul>
-            <li data-i18n="s3_c2_li1">Up to 10 employees</li>
-            <li data-i18n="s3_c2_li2">Team communication + week snapshot</li>
-            <li data-i18n="s3_c2_li3">Full task map, matrix, capacity calculation</li>
-            <li data-i18n="s3_c2_li4">Report, adoption plan, walkthrough with the manager</li>
+            <li data-i18n="s3_c2_li1">Up to 10 people and up to three roles, more by agreement</li>
+            <li data-i18n="s3_c2_li2">Both scenarios: before AI and with AI already in place</li>
+            <li data-i18n="s3_c2_li3">Team meeting, a week of task logging, interviews</li>
+            <li data-i18n="s3_c2_li4">Report, personal recommendations for employees, walkthrough with management</li>
           </ul>
         </div>
         <div class="card-foot">
-          <span class="price" data-i18n="s3_c2_price">from 9,000 zł</span>
+          <span class="price" data-i18n="s3_c2_price">from 10,900 zł</span>
           <span class="term" data-i18n="s3_c2_term">3–4 weeks</span>
         </div>
         <div class="card-action">
           <a class="btn2" href="#audit-contact" data-format="department" data-i18n="s3_c2_btn">Request Department Audit →</a>
         </div>
       </div>
+      <div class="card">
+        <div class="card-head">
+          <span class="tag" data-i18n="s3_c3_tag">For one person</span>
+          <h3 data-i18n="s3_c3_h3">Role Audit</h3>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li data-i18n="s3_c3_li1">The work of an owner, solo founder or key specialist</li>
+            <li data-i18n="s3_c3_li2">Several processes of one role, the main ones examined in depth</li>
+            <li data-i18n="s3_c3_li3">Price and timeline after a call</li>
+          </ul>
+        </div>
+        <div class="card-foot">
+          <span class="price" data-i18n="s3_c3_price">on request</span>
+          <span class="term" data-i18n="s3_c3_term">timeline depends on scope</span>
+        </div>
+        <div class="card-action">
+          <a class="btn2" href="#audit-contact" data-format="role" data-i18n="s3_c3_btn">Discuss a role audit →</a>
+        </div>
+      </div>
     </div>
     <p class="term" data-i18n="s3_net">Prices are net, excluding VAT.</p>
+    <p class="term" data-i18n="s3_term">The timeline is calendar time, from start to report. It also depends on your pace: how quickly meetings are scheduled and data is shared.</p>
+    <p class="term" data-i18n="s3_pay">Payment: 50% before the start, 50% after the report is delivered. The price is fixed in an email before payment.</p>
+    <p class="term" data-i18n="s3_large">Large organizations with many units get a different format, discussed separately.</p>
   </section>
 
   <section>
-    <span class="secnum" data-i18n="s4_num">4.0 // ENGAGEMENT INVARIANTS</span>
+    <span class="secnum" data-i18n="s4_num">5.0 // ENGAGEMENT INVARIANTS</span>
     <h2 data-i18n="s4_h2">Rules that are never broken</h2>
     <div class="inv">
       <span class="code">INV-01</span>
-      <p data-i18n="s4_inv1">The audit&#x27;s output is a map of freed-up capacity. How to use it is your decision: cut headcount, take on more orders, or unburden your people.</p>
+      <p data-i18n="s4_inv1">The audit&#x27;s output is a reasoned decision, not a promise. How to use the freed-up time is your call: unburden people, take on more work or redistribute responsibilities.</p>
     </div>
     <div class="inv">
       <span class="code">INV-02</span>
-      <p data-i18n="s4_inv2">Data is collected with employees&#x27; knowledge. The audit is presented to the team as reinforcement. That&#x27;s not a formality: covert observation produces distorted data and a useless calculation.</p>
+      <p data-i18n="s4_inv2">Data is collected with employees&#x27; knowledge, and everyone knows in advance what management will see. The audit assesses how the system works, not an individual. Covert observation produces distorted data and a useless calculation.</p>
     </div>
     <div class="inv">
       <span class="code">INV-03</span>
-      <p data-i18n="s4_inv3">If the first week shows there&#x27;s nothing worth automating in the department, this will be said directly, and only the express stage is paid.</p>
+      <p data-i18n="s4_inv3">Once the first data is in, the scope is checked against what was agreed. If the standard scope is enough, the audit continues at the same price. If not, you get the reasons and the cost of the extension before any additional work is done.</p>
     </div>
     <div class="inv">
       <span class="code">INV-04</span>
-      <p data-i18n="s4_inv4">The price is fixed and quoted after a free 30-minute conversation. No hourly billing: you pay for results.</p>
+      <p data-i18n="s4_inv4">The price is fixed. It is calculated from the completed questionnaire after the free call and set out in an email before payment, together with the scope. No hourly billing.</p>
+    </div>
+    <div class="inv">
+      <span class="code">INV-05</span>
+      <p data-i18n="s4_inv5">The audit is independent of selling implementation. No percentage of savings is promised up front: the result is known only after the analysis.</p>
     </div>
   </section>
 
   <section>
-    <span class="secnum" data-i18n="s5_num">5.0 // AUTHOR</span>
+    <span class="secnum" data-i18n="s5_num">6.0 // AUTHOR</span>
     <h2 data-i18n="s5_h2">Who conducts it</h2>
     <div class="author">
       <p style="flex:1;min-width:260px" data-i18n="s5_about">Artem Kholomyanskiy, EVAI Consulting (Poland). 11 years on the client side in the energy sector: process analysis, requirements, vendor supervision and acceptance. SAP IS-U, SCADA, Smart Grid, BPMN, UAT. Budget decisions were made from those process maps. Author of ANSS Standard, an open specification methodology for AI projects. Today he runs AI and automation projects from the business side.</p>
@@ -494,20 +553,22 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
   </section>
 
   <section>
-    <span class="secnum" data-i18n="s6_num">6.0 // HOW IT WORKS</span>
+    <span class="secnum" data-i18n="s6_num">7.0 // HOW IT WORKS</span>
     <h2 data-i18n="s6_h2">How it works</h2>
     <ol class="steps">
-      <li data-i18n="s6_li1">You write and briefly describe the department: how many people, what they do, what hurts.</li>
-      <li data-i18n="s6_li2">A 30-minute conversation, free. The call shows whether an audit makes sense, and a fixed price is quoted.</li>
-      <li data-i18n="s6_li3">Team communication, then the work-week snapshot. Your side: 5 minutes per employee per day.</li>
-      <li data-i18n="s6_li4">Task map, matrix, calculation. Report and walkthrough with you: what to implement and in what order.</li>
+      <li data-i18n="s6_li1">You write or book a free call and briefly describe the task: a process, a department or a situation with AI.</li>
+      <li data-i18n="s6_li2">A 30-minute call, free: getting to know the company and the task. After it you receive a questionnaire. No exact price is quoted on the call: it needs the questionnaire answers.</li>
+      <li data-i18n="s6_li3">The price is calculated from the questionnaire. The email before payment sets out the format, scope, timeline and price. After the first payment a meeting with management is scheduled.</li>
+      <li data-i18n="s6_li4">Data collection. In a department audit, employees log their tasks for a week, which takes a few minutes a day, and some take an interview of about 30 minutes. In Express, a meeting with the process owner and a conversation with one or two people who run the process.</li>
+      <li data-i18n="s6_li5">Report and walkthrough with you. Comments on the report are accepted for 7 days and closed in one round of corrections.</li>
     </ol>
+    <p class="muted" data-i18n="s6_ai">Audit materials are processed, among other things, with AI tools; terms and data protection are set out in the contract.</p>
   </section>
 
   <div class="cta" id="audit-contact">
-    <span class="secnum" style="color:#7FA8CC" data-i18n="s7_num">7.0 // CONTACT</span>
-    <h2 data-i18n="s7_h2">Numbers first, adoption second</h2>
-    <p data-i18n="s7_p">Briefly describe your department. The reply is an invitation to a free 30-minute call.</p>
+    <span class="secnum" style="color:#7FA8CC" data-i18n="s7_num">8.0 // CONTACT</span>
+    <h2 data-i18n="s7_h2">Analysis first, decision second</h2>
+    <p data-i18n="s7_p">Briefly describe the task: a process, a department or a situation with AI. The reply is an invitation to a free 30-minute call.</p>
     <form class="contact-form" id="contact-form">
       <input type="hidden" name="access_key" value="b593308b-f741-4dab-b3a3-19b6036aa1b0">
       <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -518,6 +579,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
         <select id="cf-format" name="audit_format">
           <option value="express" data-i18n="form.f_express">Express Audit</option>
           <option value="department" data-i18n="form.f_department">Department Audit</option>
+          <option value="role" data-i18n="form.f_role">Role Audit</option>
           <option value="unsure" data-i18n="form.f_unsure" selected>Not sure yet, help me choose</option>
         </select>
       </div>
@@ -569,7 +631,7 @@ var MSG = {
 
 (function() {
   var LANG = document.documentElement.lang || 'en';
-  var FORMAT_EN = {express: 'Express Audit', department: 'Department Audit', unsure: 'Not sure'};
+  var FORMAT_EN = {express: 'Express Audit', department: 'Department Audit', role: 'Role Audit', unsure: 'Not sure'};
   var form = document.getElementById('contact-form');
   var format = document.getElementById('cf-format');
   function setPage() {

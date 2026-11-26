@@ -66,7 +66,7 @@
     },
     {
       "@type": "Service",
-      "name": "Аудит процессов перед внедрением AI",
+      "name": "Аудит ИИ: до внедрения и когда ИИ уже есть",
       "provider": {
         "@id": "https://kholomyanskiy.com/#organization"
       }
@@ -210,7 +210,7 @@
           "name": "Сколько стоит аудит?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Экспресс-аудит (одна роль): от 3 500 zł, 7–10 дней. Аудит отдела (до 10 человек): от 9 000 zł, 3–4 недели. Итоговая цена зависит от числа сотрудников и процессов и фиксируется после бесплатного 30-минутного разговора. Цены указаны без НДС (нетто)."
+            "text": "Экспресс-аудит (один процесс): от 3 900 zł, 7–10 дней. Аудит отдела (до 10 человек и трёх ролей): от 10 900 zł, 3–4 недели. Аудит роли по запросу. Сроки календарные и зависят и от темпа клиента. Цена фиксируется по анкете после бесплатного 30-минутного разговора. Цены нетто, без НДС."
           }
         },
         {
@@ -437,7 +437,7 @@ footer a:hover{color:var(--blue);text-decoration:underline}
  <span class="nav-drop-list">
  <a href="/ru/consulting.html" data-i18n="nav.services_menu_consult">Консультации</a>
  <a href="/ru/training.html" data-i18n="nav.services_menu_training">Обучение на задачах</a>
- <a href="/ru/audit.html" data-i18n="nav.services_menu_audit">Аудит отдела</a>
+ <a href="/ru/audit.html" data-i18n="nav.services_menu_audit">Аудит ИИ</a>
  <a href="/ru/solution-design.html" data-i18n="nav.services_menu_design">Проектирование решения</a>
  <a href="/ru/spec.html" data-i18n="nav.services_menu_spec">Спецификация ИИ-задачи</a>
  <a href="/ru/implementation.html" data-i18n="nav.services_menu_impl">Внедрение решения</a>
@@ -508,7 +508,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <p data-i18n="sit.intro">Задача описывается так, чтобы результат можно было проверить: что отдать ИИ, сколько это стоит и по каким критериям принимать работу. Это касается и нового внедрения, и инструментов, которые уже куплены, но пока не дают результата.</p>
  <div class="grid sit4">
  <a class="grid-item" href="/ru/audit.html"><span class="num">01</span><h3 data-i18n="sit.c1.h">«Много ручной работы, и непонятно, что из неё отдать ИИ»</h3><p data-i18n="sit.c1.p">Аудит процессов: разбор рабочего времени отдела и повторяющихся операций. На выходе карта задач, расчёт высвобождаемых часов и приоритеты внедрения.</p><span class="more" data-i18n="sit.c1.more">Аудит процессов →</span></a>
- <a class="grid-item" href="/ru/metodichka.html"><span class="num">02</span><h3 data-i18n="sit.c2.h">«ИИ уже внедрили, а сотрудники не получают от него пользы»</h3><p data-i18n="sit.c2.p">В компании есть ChatGPT, корпоративный помощник или поиск по документам, но им пользуются от случая к случаю: нет рабочих сценариев и правил. По методике «ИИ в отделе»: разбор задач отдела, сценарии по ролям, инструкции, обучение сотрудников и критерии оценки эффекта.</p><span class="more" data-i18n="sit.c2.more">Методика «ИИ в отделе» →</span></a>
+ <a class="grid-item" href="/ru/audit.html"><span class="num">02</span><h3 data-i18n="sit.c2.h">«ИИ уже внедрили, а сотрудники не получают от него пользы»</h3><p data-i18n="sit.c2.p">В компании есть ChatGPT, корпоративный помощник или поиск по документам, но им пользуются от случая к случаю, или сотрудники работают в ИИ сами, без правил. Аудит выясняет, почему ИИ не даёт результата и что изменить, и задаёт критерии, по которым видно изменение.</p><span class="more" data-i18n="sit.c2.more">Аудит, когда ИИ уже есть →</span></a>
  <a class="grid-item" href="/ru/consulting.html"><span class="num">03</span><h3 data-i18n="sit.c3.h">«Подрядчик предлагает внедрить ИИ, а проверить предложение некому»</h3><p data-i18n="sit.c3.p">Независимая оценка предложения: требования, стоимость, риски, критерии приёмки. Если работу заказывать, спецификация и приёмка по ней.</p><span class="more" data-i18n="sit.c3.more">Консультации →</span></a>
  <a class="grid-item" href="/ru/training.html"><span class="num">04</span><h3 data-i18n="sit.c4.h">«Хочется самому применять ChatGPT или Claude в своей работе»</h3><p data-i18n="sit.c4.p">Обучение на задачах: решение вы строите сами на своих материалах, консультант ведёт.</p><span class="more" data-i18n="sit.c4.more">Обучение →</span></a>
  </div>
@@ -613,7 +613,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  <div class="grid grid-services">
  <a class="grid-item" href="/ru/consulting.html"><span class="num">01</span><h3 data-i18n="services.s5.h">Консультации</h3><p data-i18n="services.s5.p">Ответ на вопрос об ИИ: стоит ли автоматизировать, с чего начать, как оценить предложение подрядчика.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
  <a class="grid-item" href="/ru/training.html"><span class="num">02</span><h3 data-i18n="services.s6.h">Обучение на ваших задачах</h3><p data-i18n="services.s6.p">Практические сессии: решение вы строите сами в ChatGPT, Claude или Claude Code, консультант ведёт. Первые 30 минут бесплатно.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
- <a class="grid-item" href="/ru/audit.html"><span class="num">03</span><h3 data-i18n="services.s1.h">Аудит процессов перед внедрением AI</h3><p data-i18n="services.s1.p">Фотография рабочей недели и карта задач: что автоматизировать, что оставить людям, сколько часов высвобождается.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
+ <a class="grid-item" href="/ru/audit.html"><span class="num">03</span><h3 data-i18n="services.s1.h">Аудит ИИ: до внедрения и когда ИИ уже есть</h3><p data-i18n="services.s1.p">Какие задачи передать ИИ, где хватит обычной автоматизации, что оставить людям. Или почему уже внедрённый ИИ не даёт результата.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
  <a class="grid-item" href="/ru/solution-design.html"><span class="num">04</span><h3 data-i18n="services.s2.h">Проектирование AI-решений</h3><p data-i18n="services.s2.p">Какое решение выбрать под задачу фирмы: сравнение вариантов от готового сервиса до своей разработки и рекомендация.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
  <a class="grid-item" href="/ru/spec.html"><span class="num">05</span><h3 data-i18n="services.s3.h">AI-спецификация (ТЗ для ИИ)</h3><p data-i18n="services.s3.p">Документ, по которому подрядчик или ИИ-агент строит решение предсказуемо, с проверяемым результатом.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
  <a class="grid-item" href="/ru/implementation.html"><span class="num">06</span><h3 data-i18n="services.s4.h">Внедрение AI-решения</h3><p data-i18n="services.s4.p">Автоматизация по спецификации: небольшие решения делаются самостоятельно, для крупных привлекаются профильные специалисты. Приёмка по критериям, сопровождение в согласованном объёме.</p><span class="more" data-i18n="services.more_card">Подробнее →</span></a>
@@ -689,7 +689,7 @@ document.querySelectorAll('.nav-drop').forEach(function(d){
  </div>
  <div class="acc-item">
  <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-10"><span data-i18n="faq.q5.h">Сколько стоит аудит?</span><span class="acc-plus">+</span></button>
- <div class="acc-body" id="acc-10"><div class="acc-body-inner" data-i18n-html="faq.q5.p">Экспресс-аудит (одна роль): от 3 500 zł, 7–10 дней. Аудит отдела (до 10 человек): от 9 000 zł, 3–4 недели. Итоговая цена зависит от числа сотрудников и процессов и фиксируется после бесплатного 30-минутного разговора. Цены указаны без НДС (нетто). <a href="/ru/audit.html">Подробнее →</a></div></div>
+ <div class="acc-body" id="acc-10"><div class="acc-body-inner" data-i18n-html="faq.q5.p">Экспресс-аудит (один процесс): от 3 900 zł, 7–10 дней. Аудит отдела (до 10 человек и трёх ролей): от 10 900 zł, 3–4 недели. Аудит роли по запросу. Сроки календарные и зависят и от темпа клиента. Цена фиксируется по анкете после бесплатного 30-минутного разговора. Цены нетто, без НДС. <a href="/ru/audit.html">Подробнее →</a></div></div>
  </div>
  <div class="acc-item">
  <button class="acc-head" type="button" aria-expanded="false" aria-controls="acc-11"><span data-i18n="faq.q6.h">Чем обучение отличается от консультации?</span><span class="acc-plus">+</span></button>
